@@ -1,3 +1,8 @@
+```{toctree}
+:hidden:
+:maxdepth: 1
+```
+
 # Manual do Usuário – API do Compras.gov.br
 
 > **Tipo:** Manual

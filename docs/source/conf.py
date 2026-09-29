@@ -40,6 +40,9 @@ templates_path = ['_templates']
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 language = 'pt_BR'
 
+# Documento raiz — o usuário cai diretamente no manual
+root_doc = 'manual-api-compras'
+
 # ── Tema sphinx-rtd-theme ─────────────────────────────────────────────────────
 html_theme = 'sphinx_rtd_theme'
 
