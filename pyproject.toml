@@ -1,0 +1,11 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.backends.legacy:build"
+
+[project]
+name = "manual-api-compras"
+version = "3.0.0"
+description = "Manual da API de Compras do PNCP"
+authors = [
+    {name = "COTIN/DELOG/MGI"}
+]

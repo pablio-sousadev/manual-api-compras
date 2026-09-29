@@ -1,0 +1,20 @@
+version: 2
+
+build:
+  os: "ubuntu-22.04"
+  tools:
+    python: "3.11"
+  jobs:
+    post_build:
+      # Cria a pasta para a página única dentro do diretório de saída HTML
+      - mkdir -p $READTHEDOCS_OUTPUT/html/singlehtml/
+      # Build singlehtml (página única — igual ao site pncp.gov.br/manual)
+      - sphinx-build -b singlehtml -D language=pt_BR docs/source/ $READTHEDOCS_OUTPUT/html/singlehtml/
+
+sphinx:
+  configuration: docs/source/conf.py
+  fail_on_warning: false
+
+python:
+  install:
+    - requirements: docs/requirements.txt

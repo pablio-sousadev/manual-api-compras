@@ -1,0 +1,95 @@
+/* ── Largura total do conteúdo ─────────────────────────────────────────────── */
+.wy-nav-content {
+    max-width: 100% !important;
+    margin: auto !important;
+}
+
+@media screen and (min-width: 768px) {
+    /* Estrutura principal ocupa tela inteira */
+    html, body, .wy-grid-for-nav {
+        height: 100vh !important;
+        overflow: hidden !important;
+    }
+
+    /* Menu lateral fixo com rolagem própria */
+    .wy-nav-side {
+        height: 100vh !important;
+        overflow-y: auto !important;
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+    }
+
+    /* Conteúdo é a única área com rolagem */
+    .wy-nav-content-wrap {
+        margin-left: 300px !important;
+        height: 100vh !important;
+        overflow-y: auto !important;
+    }
+
+    .wy-nav-content {
+        height: auto !important;
+        min-height: 100% !important;
+    }
+}
+
+/* ── Imagens ───────────────────────────────────────────────────────────────── */
+article img,
+.wy-nav-content img {
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .15);
+    max-width: 100%;
+    margin: 1rem auto;
+    display: block;
+}
+
+/* ── Destaque amarelo (role customizada) ───────────────────────────────────── */
+.destaque-amarelo-claro {
+    background-color: #fff9c4;
+    padding: 0 3px;
+    border-radius: 3px;
+}
+
+/* ── Tabelas ───────────────────────────────────────────────────────────────── */
+table.docutils {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table.docutils thead tr {
+    background-color: #2980b9;
+    color: #fff;
+}
+
+table.docutils tbody tr:nth-child(even) {
+    background-color: #f5f5f5;
+}
+
+table.docutils td,
+table.docutils th {
+    padding: .5rem .75rem;
+    border: 1px solid #ddd;
+}
+
+/* ── Botão de alternar tema claro/escuro ──────────────────────────────────── */
+.theme-switcher {
+    bottom: 75px !important;
+    right: 20px !important;
+    z-index: 9999 !important;
+}
+
+/* ── Ocultar anúncios do Read the Docs (EthicalAds) ───────────────────────── */
+#ethical-ad-placement,
+.ethical-rtd,
+.ethical-sidebar,
+div[data-ea-publisher],
+div[class*="ethical"],
+[id*="ethical"],
+.rst-content .ethical-rtd-footer,
+#ethicaladplacement {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
