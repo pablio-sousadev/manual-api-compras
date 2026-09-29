@@ -53,7 +53,7 @@ Serviço para obter dados e consultar o endpoint consultarGrupoMaterial.
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-material/1_consultarGrupoMaterial`  
 
-**Método HTTP:** GET
+**Método HTTP:** <span class="badge-get">GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -66,9 +66,9 @@ curl -X 'GET' \
 
 | Campo | Tipo | Obrigatório | Descrição |
 |---|---|---|---|
-| pagina | integer | nao | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
-| codigoGrupo | integer | nao | Código do grupo do material/serviço |
-| statusGrupo | boolean | nao | Status do grupo. 0 – False/Inativo; 1 – True/Ativo |
+| pagina | integer | <span class="badge-opt">⚪ Não</span> | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
+| codigoGrupo | integer | <span class="badge-opt">⚪ Não</span> | Código do grupo do material/serviço |
+| statusGrupo | boolean | <span class="badge-opt">⚪ Não</span> | Status do grupo. 0 – False/Inativo; 1 – True/Ativo |
 
 **Dados de Retorno:**
 
@@ -108,7 +108,7 @@ Serviço para obter dados e consultar o endpoint consultarClasseMaterial.
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-material/2_consultarClasseMaterial`  
 
-**Método HTTP:** GET
+**Método HTTP:** <span class="badge-get">GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -121,11 +121,11 @@ curl -X 'GET' \
 
 | Campo | Tipo | Obrigatório | Descrição |
 |---|---|---|---|
-| pagina | integer | nao | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
-| codigoGrupo | integer | nao | Código do grupo do material/serviço |
-| codigoClasse | integer | nao | Código da classe do material/serviço |
-| statusClasse | boolean | nao | Status da classe. 0 – False/Inativo; 1 – True/Ativo |
-| bps | boolean | nao | Indica se está vinculado ao Banco de Preços em Saúde (BPS). 0 – False/Não; 1 – True/Sim |
+| pagina | integer | <span class="badge-opt">⚪ Não</span> | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
+| codigoGrupo | integer | <span class="badge-opt">⚪ Não</span> | Código do grupo do material/serviço |
+| codigoClasse | integer | <span class="badge-opt">⚪ Não</span> | Código da classe do material/serviço |
+| statusClasse | boolean | <span class="badge-opt">⚪ Não</span> | Status da classe. 0 – False/Inativo; 1 – True/Ativo |
+| bps | boolean | <span class="badge-opt">⚪ Não</span> | Indica se está vinculado ao Banco de Preços em Saúde (BPS). 0 – False/Não; 1 – True/Sim |
 
 **Dados de Retorno:**
 
@@ -169,7 +169,7 @@ Serviço para obter dados e consultar o endpoint consultarPdmMaterial.
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-material/3_consultarPdmMaterial`  
 
-**Método HTTP:** GET
+**Método HTTP:** <span class="badge-get">GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -182,13 +182,13 @@ curl -X 'GET' \
 
 | Campo | Tipo | Obrigatório | Descrição |
 |---|---|---|---|
-| pagina | integer | nao | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
-| tamanhoPagina | integer | nao | Ajustar o tamanho de registros por página (limite máx. de 500 registros por página). (Default: 10) |
-| statusPdm | boolean | nao | Status do PDM. 0 – False/Inativo; 1 – True/Ativo |
-| codigoPdm | integer | nao | Código do Produto Descritivo Básico (PDM) |
-| codigoGrupo | integer | nao | Código do grupo do material/serviço |
-| codigoClasse | integer | nao | Código da classe do material/serviço |
-| bps | boolean | nao | Indica se está vinculado ao Banco de Preços em Saúde (BPS). 0 – False/Não; 1 – True/Sim |
+| pagina | integer | <span class="badge-opt">⚪ Não</span> | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
+| tamanhoPagina | integer | <span class="badge-opt">⚪ Não</span> | Ajustar o tamanho de registros por página (limite máx. de 500 registros por página). (Default: 10) |
+| statusPdm | boolean | <span class="badge-opt">⚪ Não</span> | Status do PDM. 0 – False/Inativo; 1 – True/Ativo |
+| codigoPdm | integer | <span class="badge-opt">⚪ Não</span> | Código do Produto Descritivo Básico (PDM) |
+| codigoGrupo | integer | <span class="badge-opt">⚪ Não</span> | Código do grupo do material/serviço |
+| codigoClasse | integer | <span class="badge-opt">⚪ Não</span> | Código da classe do material/serviço |
+| bps | boolean | <span class="badge-opt">⚪ Não</span> | Indica se está vinculado ao Banco de Preços em Saúde (BPS). 0 – False/Não; 1 – True/Sim |
 
 **Dados de Retorno:**
 
@@ -236,7 +236,7 @@ Serviço para obter dados e consultar o endpoint consultarItemMaterial.
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-material/4_consultarItemMaterial`  
 
-**Método HTTP:** GET
+**Método HTTP:** <span class="badge-get">GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -249,16 +249,16 @@ curl -X 'GET' \
 
 | Campo | Tipo | Obrigatório | Descrição |
 |---|---|---|---|
-| pagina | integer | nao | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
-| tamanhoPagina | integer | nao | Ajustar o tamanho de registros por página (limite máx. de 500 registros por página). (Default: 10) |
-| codigoItem | integer | nao | Código do item do material/serviço |
-| codigoGrupo | integer | nao | Código do grupo do material/serviço |
-| codigoClasse | integer | nao | Código da classe do material/serviço |
-| codigoPdm | integer | nao | Código do Produto Descritivo Básico (PDM) |
-| descricaoItem | string | nao | Descrição do item |
-| statusItem | boolean | nao | Status do item. 0 – False/Inativo; 1 – True/Ativo |
-| bps | boolean | nao | Indica se está vinculado ao Banco de Preços em Saúde (BPS). 0 – False/Não; 1 – True/Sim |
-| codigo_ncm | string | nao | Código NCM – Nomenclatura Comum do Mercosul |
+| pagina | integer | <span class="badge-opt">⚪ Não</span> | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
+| tamanhoPagina | integer | <span class="badge-opt">⚪ Não</span> | Ajustar o tamanho de registros por página (limite máx. de 500 registros por página). (Default: 10) |
+| codigoItem | integer | <span class="badge-opt">⚪ Não</span> | Código do item do material/serviço |
+| codigoGrupo | integer | <span class="badge-opt">⚪ Não</span> | Código do grupo do material/serviço |
+| codigoClasse | integer | <span class="badge-opt">⚪ Não</span> | Código da classe do material/serviço |
+| codigoPdm | integer | <span class="badge-opt">⚪ Não</span> | Código do Produto Descritivo Básico (PDM) |
+| descricaoItem | string | <span class="badge-opt">⚪ Não</span> | Descrição do item |
+| statusItem | boolean | <span class="badge-opt">⚪ Não</span> | Status do item. 0 – False/Inativo; 1 – True/Ativo |
+| bps | boolean | <span class="badge-opt">⚪ Não</span> | Indica se está vinculado ao Banco de Preços em Saúde (BPS). 0 – False/Não; 1 – True/Sim |
+| codigo_ncm | string | <span class="badge-opt">⚪ Não</span> | Código NCM – Nomenclatura Comum do Mercosul |
 
 **Dados de Retorno:**
 
@@ -318,7 +318,7 @@ Serviço para obter dados e consultar o endpoint consultarMaterialNaturezaDespes
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-material/5_consultarMaterialNaturezaDespesa`  
 
-**Método HTTP:** GET
+**Método HTTP:** <span class="badge-get">GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -331,11 +331,11 @@ curl -X 'GET' \
 
 | Campo | Tipo | Obrigatório | Descrição |
 |---|---|---|---|
-| pagina | integer | nao | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
-| tamanhoPagina | integer | nao | Ajustar o tamanho de registros por página (limite máx. de 500 registros por página). (Default: 10) |
-| codigoPdm | integer | nao | Código do Produto Descritivo Básico (PDM) |
-| codigoNaturezaDespesa | string | nao | Código da natureza de despesa |
-| statusNaturezaDespesa | boolean | nao | Status da natureza de despesa. 0 – False/Inativo; 1 – True/Ativo |
+| pagina | integer | <span class="badge-opt">⚪ Não</span> | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
+| tamanhoPagina | integer | <span class="badge-opt">⚪ Não</span> | Ajustar o tamanho de registros por página (limite máx. de 500 registros por página). (Default: 10) |
+| codigoPdm | integer | <span class="badge-opt">⚪ Não</span> | Código do Produto Descritivo Básico (PDM) |
+| codigoNaturezaDespesa | string | <span class="badge-opt">⚪ Não</span> | Código da natureza de despesa |
+| statusNaturezaDespesa | boolean | <span class="badge-opt">⚪ Não</span> | Status da natureza de despesa. 0 – False/Inativo; 1 – True/Ativo |
 
 **Dados de Retorno:**
 
@@ -375,7 +375,7 @@ Serviço para obter dados e consultar o endpoint consultarMaterialUnidadeForneci
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-material/6_consultarMaterialUnidadeFornecimento`  
 
-**Método HTTP:** GET
+**Método HTTP:** <span class="badge-get">GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -388,10 +388,10 @@ curl -X 'GET' \
 
 | Campo | Tipo | Obrigatório | Descrição |
 |---|---|---|---|
-| pagina | integer | nao | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
-| tamanhoPagina | integer | nao | Ajustar o tamanho de registros por página (limite máx. de 500 registros por página). (Default: 10) |
-| codigoPdm | integer | nao | Código do Produto Descritivo Básico (PDM) |
-| statusUnidadeFornecimentoPdm | boolean | nao | Status da unidade de fornecimento do PDM. 0 – False/Inativo; 1 – True/Ativo |
+| pagina | integer | <span class="badge-opt">⚪ Não</span> | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
+| tamanhoPagina | integer | <span class="badge-opt">⚪ Não</span> | Ajustar o tamanho de registros por página (limite máx. de 500 registros por página). (Default: 10) |
+| codigoPdm | integer | <span class="badge-opt">⚪ Não</span> | Código do Produto Descritivo Básico (PDM) |
+| statusUnidadeFornecimentoPdm | boolean | <span class="badge-opt">⚪ Não</span> | Status da unidade de fornecimento do PDM. 0 – False/Inativo; 1 – True/Ativo |
 
 **Dados de Retorno:**
 
@@ -443,7 +443,7 @@ Serviço para obter dados e consultar o endpoint consultarMaterialCaracteristica
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-material/7_consultarMaterialCaracteristicas`  
 
-**Método HTTP:** GET
+**Método HTTP:** <span class="badge-get">GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -456,9 +456,9 @@ curl -X 'GET' \
 
 | Campo | Tipo | Obrigatório | Descrição |
 |---|---|---|---|
-| pagina | integer | nao | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
-| tamanhoPagina | integer | nao | Ajustar o tamanho de registros por página (limite máx. de 500 registros por página). (Default: 10) |
-| codigoItem | integer | nao | Código do item do material/serviço |
+| pagina | integer | <span class="badge-opt">⚪ Não</span> | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
+| tamanhoPagina | integer | <span class="badge-opt">⚪ Não</span> | Ajustar o tamanho de registros por página (limite máx. de 500 registros por página). (Default: 10) |
+| codigoItem | integer | <span class="badge-opt">⚪ Não</span> | Código do item do material/serviço |
 
 **Dados de Retorno:**
 
@@ -520,7 +520,7 @@ Serviço para obter dados e consultar o endpoint consultarSecaoServico.
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-servico/1_consultarSecaoServico`  
 
-**Método HTTP:** GET
+**Método HTTP:** <span class="badge-get">GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -533,9 +533,9 @@ curl -X 'GET' \
 
 | Campo | Tipo | Obrigatório | Descrição |
 |---|---|---|---|
-| pagina | integer | nao | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
-| codigoSecao | integer | nao | Código da seção do serviço |
-| statusSecao | boolean | nao | Status da seção. 0 – False/Inativo; 1 – True/Ativo |
+| pagina | integer | <span class="badge-opt">⚪ Não</span> | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
+| codigoSecao | integer | <span class="badge-opt">⚪ Não</span> | Código da seção do serviço |
+| statusSecao | boolean | <span class="badge-opt">⚪ Não</span> | Status da seção. 0 – False/Inativo; 1 – True/Ativo |
 
 **Dados de Retorno:**
 
@@ -575,7 +575,7 @@ Serviço para obter dados e consultar o endpoint consultarDivisaoServico.
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-servico/2_consultarDivisaoServico`  
 
-**Método HTTP:** GET
+**Método HTTP:** <span class="badge-get">GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -588,10 +588,10 @@ curl -X 'GET' \
 
 | Campo | Tipo | Obrigatório | Descrição |
 |---|---|---|---|
-| pagina | integer | nao | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
-| codigoSecao | integer | nao | Código da seção do serviço |
-| codigoDivisao | integer | nao | Código da divisão do serviço |
-| statusDivisao | boolean | nao | Status da divisão. 0 – False/Inativo; 1 – True/Ativo |
+| pagina | integer | <span class="badge-opt">⚪ Não</span> | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
+| codigoSecao | integer | <span class="badge-opt">⚪ Não</span> | Código da seção do serviço |
+| codigoDivisao | integer | <span class="badge-opt">⚪ Não</span> | Código da divisão do serviço |
+| statusDivisao | boolean | <span class="badge-opt">⚪ Não</span> | Status da divisão. 0 – False/Inativo; 1 – True/Ativo |
 
 **Dados de Retorno:**
 
@@ -635,7 +635,7 @@ Serviço para obter dados e consultar o endpoint consultarGrupoServico.
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-servico/3_consultarGrupoServico`  
 
-**Método HTTP:** GET
+**Método HTTP:** <span class="badge-get">GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -648,10 +648,10 @@ curl -X 'GET' \
 
 | Campo | Tipo | Obrigatório | Descrição |
 |---|---|---|---|
-| pagina | integer | nao | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
-| codigoDivisao | integer | nao | Código da divisão do serviço |
-| codigoGrupo | integer | nao | Código do grupo do material/serviço |
-| statusGrupo | boolean | nao | Status do grupo. 0 – False/Inativo; 1 – True/Ativo |
+| pagina | integer | <span class="badge-opt">⚪ Não</span> | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
+| codigoDivisao | integer | <span class="badge-opt">⚪ Não</span> | Código da divisão do serviço |
+| codigoGrupo | integer | <span class="badge-opt">⚪ Não</span> | Código do grupo do material/serviço |
+| statusGrupo | boolean | <span class="badge-opt">⚪ Não</span> | Status do grupo. 0 – False/Inativo; 1 – True/Ativo |
 
 **Dados de Retorno:**
 
@@ -697,7 +697,7 @@ Serviço para obter dados e consultar o endpoint consultarClasseServico.
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-servico/4_consultarClasseServico`  
 
-**Método HTTP:** GET
+**Método HTTP:** <span class="badge-get">GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -710,10 +710,10 @@ curl -X 'GET' \
 
 | Campo | Tipo | Obrigatório | Descrição |
 |---|---|---|---|
-| pagina | integer | nao | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
-| codigoGrupo | integer | nao | Código do grupo do material/serviço |
-| codigoClasse | integer | nao | Código da classe do material/serviço |
-| statusGrupo | boolean | nao | Status do grupo. 0 – False/Inativo; 1 – True/Ativo |
+| pagina | integer | <span class="badge-opt">⚪ Não</span> | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
+| codigoGrupo | integer | <span class="badge-opt">⚪ Não</span> | Código do grupo do material/serviço |
+| codigoClasse | integer | <span class="badge-opt">⚪ Não</span> | Código da classe do material/serviço |
+| statusGrupo | boolean | <span class="badge-opt">⚪ Não</span> | Status do grupo. 0 – False/Inativo; 1 – True/Ativo |
 
 **Dados de Retorno:**
 
@@ -757,7 +757,7 @@ Serviço para obter dados e consultar o endpoint consultarSubClasseServico.
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-servico/5_consultarSubClasseServico`  
 
-**Método HTTP:** GET
+**Método HTTP:** <span class="badge-get">GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -770,10 +770,10 @@ curl -X 'GET' \
 
 | Campo | Tipo | Obrigatório | Descrição |
 |---|---|---|---|
-| pagina | integer | nao | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
-| codigoClasse | integer | nao | Código da classe do material/serviço |
-| codigoSubclasse | integer | nao | Código da subclasse do serviço |
-| statusSubclasse | boolean | nao | Status da subclasse. 0 – False/Inativo; 1 – True/Ativo |
+| pagina | integer | <span class="badge-opt">⚪ Não</span> | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
+| codigoClasse | integer | <span class="badge-opt">⚪ Não</span> | Código da classe do material/serviço |
+| codigoSubclasse | integer | <span class="badge-opt">⚪ Não</span> | Código da subclasse do serviço |
+| statusSubclasse | boolean | <span class="badge-opt">⚪ Não</span> | Status da subclasse. 0 – False/Inativo; 1 – True/Ativo |
 
 **Dados de Retorno:**
 
@@ -816,7 +816,7 @@ curl -X 'GET' \
 Serviço para obter dados e consultar o endpoint consultarItemServico.
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-servico/6_consultarItemServico`  
-**Método HTTP:** GET
+**Método HTTP:** <span class="badge-get">GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -829,17 +829,17 @@ curl -X 'GET' \
 
 | Campo | Tipo | Obrigatório | Descrição |
 |---|---|---|---|
-| pagina | integer | nao | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
-| tamanhoPagina | integer | nao | Ajustar o tamanho de registros por página (limite máx. de 500 registros por página). (Default: 10) |
-| codigoSecao | integer | nao | Código da seção do serviço |
-| codigoDivisao | integer | nao | Código da divisão do serviço |
-| codigoGrupo | integer | nao | Código do grupo do material/serviço |
-| codigoClasse | integer | nao | Código da classe do material/serviço |
-| codigoSubclasse | integer | nao | Código da subclasse do serviço |
-| codigoCpc | integer | nao | Código CPC do serviço |
-| codigoServico | integer | nao | Código do item de serviço |
-| exclusivoCentralCompras | boolean | nao | Indica se é exclusivo da Central de Compras. 0 – False/Não; 1 – True/Sim |
-| statusServico | boolean | nao | Status do serviço. 0 – False/Inativo; 1 – True/Ativo |
+| pagina | integer | <span class="badge-opt">⚪ Não</span> | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
+| tamanhoPagina | integer | <span class="badge-opt">⚪ Não</span> | Ajustar o tamanho de registros por página (limite máx. de 500 registros por página). (Default: 10) |
+| codigoSecao | integer | <span class="badge-opt">⚪ Não</span> | Código da seção do serviço |
+| codigoDivisao | integer | <span class="badge-opt">⚪ Não</span> | Código da divisão do serviço |
+| codigoGrupo | integer | <span class="badge-opt">⚪ Não</span> | Código do grupo do material/serviço |
+| codigoClasse | integer | <span class="badge-opt">⚪ Não</span> | Código da classe do material/serviço |
+| codigoSubclasse | integer | <span class="badge-opt">⚪ Não</span> | Código da subclasse do serviço |
+| codigoCpc | integer | <span class="badge-opt">⚪ Não</span> | Código CPC do serviço |
+| codigoServico | integer | <span class="badge-opt">⚪ Não</span> | Código do item de serviço |
+| exclusivoCentralCompras | boolean | <span class="badge-opt">⚪ Não</span> | Indica se é exclusivo da Central de Compras. 0 – False/Não; 1 – True/Sim |
+| statusServico | boolean | <span class="badge-opt">⚪ Não</span> | Status do serviço. 0 – False/Inativo; 1 – True/Ativo |
 
 **Dados de Retorno:**
 
@@ -903,7 +903,7 @@ Serviço para obter dados e consultar o endpoint consultarUndMedidaServico.
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-servico/7_consultarUndMedidaServico`  
 
-**Método HTTP:** GET
+**Método HTTP:** <span class="badge-get">GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -916,9 +916,9 @@ curl -X 'GET' \
 
 | Campo | Tipo | Obrigatório | Descrição |
 |---|---|---|---|
-| pagina | integer | nao | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
-| codigoServico | integer | nao | Código do item de serviço |
-| statusUnidadeMedida | boolean | nao | Status da unidade de medida. 0 – False/Inativo; 1 – True/Ativo |
+| pagina | integer | <span class="badge-opt">⚪ Não</span> | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
+| codigoServico | integer | <span class="badge-opt">⚪ Não</span> | Código do item de serviço |
+| statusUnidadeMedida | boolean | <span class="badge-opt">⚪ Não</span> | Status da unidade de medida. 0 – False/Inativo; 1 – True/Ativo |
 
 **Dados de Retorno:**
 
@@ -958,7 +958,7 @@ Serviço para obter dados e consultar o endpoint consultarNaturezaDespesaServico
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-servico/8_consultarNaturezaDespesaServico`  
 
-**Método HTTP:** GET
+**Método HTTP:** <span class="badge-get">GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -971,10 +971,10 @@ curl -X 'GET' \
 
 | Campo | Tipo | Obrigatório | Descrição |
 |---|---|---|---|
-| pagina | integer | nao | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
-| codigoServico | integer | nao | Código do item de serviço |
-| codigoNaturezaDespesa | string | nao | Código da natureza de despesa |
-| statusNaturezaDespesa | boolean | nao | Status da natureza de despesa. 0 – False/Inativo; 1 – True/Ativo |
+| pagina | integer | <span class="badge-opt">⚪ Não</span> | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
+| codigoServico | integer | <span class="badge-opt">⚪ Não</span> | Código do item de serviço |
+| codigoNaturezaDespesa | string | <span class="badge-opt">⚪ Não</span> | Código da natureza de despesa |
+| statusNaturezaDespesa | boolean | <span class="badge-opt">⚪ Não</span> | Status da natureza de despesa. 0 – False/Inativo; 1 – True/Ativo |
 
 **Dados de Retorno:**
 
@@ -1020,7 +1020,7 @@ Serviço para obter dados e consultar o endpoint consultarMaterial.
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-pesquisa-preco/1_consultarMaterial`  
 
-**Método HTTP:** GET
+**Método HTTP:** <span class="badge-get">GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -1033,20 +1033,20 @@ curl -X 'GET' \
 
 | Campo | Tipo | Obrigatório | Descrição |
 |---|---|---|---|
-| pagina | integer | nao | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
-| tamanhoPagina | integer | nao | Ajustar o tamanho de registros por página (limite máx. de 500 registros por página). (Default: 10) |
-| tipo | string | sim | Tipo do item do catálogo a consultar (ex: material ou serviço) |
-| codigo | string | sim | Código do item no catálogo |
-| codigoUasg | string | nao | Código identificador da UASG (Unidade Administrativa de Serviços Gerais) |
-| estado | string | nao | Sigla do estado (UF) |
-| codigoMunicipio | integer | nao | Código do município (IBGE) |
-| dataResultado | boolean | nao | Data do resultado da compra |
-| codigoClasse | integer | nao | Código da classe do material/serviço |
-| poder | string | nao | Poder da federação. E – Executivo; L – Legislativo; J – Judiciário |
-| esfera | string | nao | Esfera governamental. F – Federal; E – Estadual; M – Municipal |
-| idCompra | string | nao | Código identificador único da compra |
-| dataCompraInicio | string | nao | Data de início do período da compra (formato: YYYY-MM-DD) |
-| dataCompraFim | string | nao | Data de fim do período da compra (formato: YYYY-MM-DD) |
+| pagina | integer | <span class="badge-opt">⚪ Não</span> | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
+| tamanhoPagina | integer | <span class="badge-opt">⚪ Não</span> | Ajustar o tamanho de registros por página (limite máx. de 500 registros por página). (Default: 10) |
+| tipo | string | <span class="badge-req">🔴 Sim</span> | Tipo do item do catálogo a consultar (ex: material ou serviço) |
+| codigo | string | <span class="badge-req">🔴 Sim</span> | Código do item no catálogo |
+| codigoUasg | string | <span class="badge-opt">⚪ Não</span> | Código identificador da UASG (Unidade Administrativa de Serviços Gerais) |
+| estado | string | <span class="badge-opt">⚪ Não</span> | Sigla do estado (UF) |
+| codigoMunicipio | integer | <span class="badge-opt">⚪ Não</span> | Código do município (IBGE) |
+| dataResultado | boolean | <span class="badge-opt">⚪ Não</span> | Data do resultado da compra |
+| codigoClasse | integer | <span class="badge-opt">⚪ Não</span> | Código da classe do material/serviço |
+| poder | string | <span class="badge-opt">⚪ Não</span> | Poder da federação. E – Executivo; L – Legislativo; J – Judiciário |
+| esfera | string | <span class="badge-opt">⚪ Não</span> | Esfera governamental. F – Federal; E – Estadual; M – Municipal |
+| idCompra | string | <span class="badge-opt">⚪ Não</span> | Código identificador único da compra |
+| dataCompraInicio | string | <span class="badge-opt">⚪ Não</span> | Data de início do período da compra (formato: YYYY-MM-DD) |
+| dataCompraFim | string | <span class="badge-opt">⚪ Não</span> | Data de fim do período da compra (formato: YYYY-MM-DD) |
 
 **Dados de Retorno:**
 
@@ -1162,7 +1162,7 @@ Serviço para obter dados e consultar o endpoint consultarMaterial_CSV.
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-pesquisa-preco/1.1_consultarMaterial_CSV`  
 
-**Método HTTP:** GET
+**Método HTTP:** <span class="badge-get">GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -1180,7 +1180,7 @@ Serviço para obter dados e consultar o endpoint consultarMaterialDetalhe.
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-pesquisa-preco/2_consultarMaterialDetalhe`  
 
-**Método HTTP:** GET
+**Método HTTP:** <span class="badge-get">GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -1193,11 +1193,11 @@ curl -X 'GET' \
 
 | Campo | Tipo | Obrigatório | Descrição |
 |---|---|---|---|
-| pagina | integer | nao | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
-| tamanhoPagina | integer | nao | Ajustar o tamanho de registros por página (limite máx. de 500 registros por página). (Default: 10) |
-| codigoItemCatalogo | integer | sim | Código do item no catálogo de materiais ou serviços |
-| dataCompraInicio | string | nao | Data de início do período da compra (formato: YYYY-MM-DD) |
-| dataCompraFim | string | nao | Data de fim do período da compra (formato: YYYY-MM-DD) |
+| pagina | integer | <span class="badge-opt">⚪ Não</span> | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
+| tamanhoPagina | integer | <span class="badge-opt">⚪ Não</span> | Ajustar o tamanho de registros por página (limite máx. de 500 registros por página). (Default: 10) |
+| codigoItemCatalogo | integer | <span class="badge-req">🔴 Sim</span> | Código do item no catálogo de materiais ou serviços |
+| dataCompraInicio | string | <span class="badge-opt">⚪ Não</span> | Data de início do período da compra (formato: YYYY-MM-DD) |
+| dataCompraFim | string | <span class="badge-opt">⚪ Não</span> | Data de fim do período da compra (formato: YYYY-MM-DD) |
 
 **Dados de Retorno:**
 
@@ -1245,7 +1245,7 @@ Serviço para obter dados e consultar o endpoint consultarMaterialDetalhe_CSV.
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-pesquisa-preco/2.1_consultarMaterialDetalhe_CSV`  
 
-**Método HTTP:** GET
+**Método HTTP:** <span class="badge-get">GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -1263,7 +1263,7 @@ Serviço para obter dados e consultar o endpoint consultarServico.
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-pesquisa-preco/3_consultarServico`  
 
-**Método HTTP:** GET
+**Método HTTP:** <span class="badge-get">GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -1276,18 +1276,18 @@ curl -X 'GET' \
 
 | Campo | Tipo | Obrigatório | Descrição |
 |---|---|---|---|
-| pagina | integer | nao | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
-| tamanhoPagina | integer | nao | Ajustar o tamanho de registros por página (limite máx. de 500 registros por página). (Default: 10) |
-| codigoItemCatalogo | integer | sim | Código do item no catálogo de materiais ou serviços |
-| codigoUasg | string | nao | Código identificador da UASG (Unidade Administrativa de Serviços Gerais) |
-| estado | string | nao | Sigla do estado (UF) |
-| codigoMunicipio | integer | nao | Código do município (IBGE) |
-| dataResultado | boolean | nao | Data do resultado da compra |
-| poder | string | nao | Poder da federação. E – Executivo; L – Legislativo; J – Judiciário |
-| esfera | string | nao | Esfera governamental. F – Federal; E – Estadual; M – Municipal |
-| dataCompraInicio | string | nao | Data de início do período da compra (formato: YYYY-MM-DD) |
-| dataCompraFim | string | nao | Data de fim do período da compra (formato: YYYY-MM-DD) |
-| idCompra | string | nao | Código identificador único da compra |
+| pagina | integer | <span class="badge-opt">⚪ Não</span> | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
+| tamanhoPagina | integer | <span class="badge-opt">⚪ Não</span> | Ajustar o tamanho de registros por página (limite máx. de 500 registros por página). (Default: 10) |
+| codigoItemCatalogo | integer | <span class="badge-req">🔴 Sim</span> | Código do item no catálogo de materiais ou serviços |
+| codigoUasg | string | <span class="badge-opt">⚪ Não</span> | Código identificador da UASG (Unidade Administrativa de Serviços Gerais) |
+| estado | string | <span class="badge-opt">⚪ Não</span> | Sigla do estado (UF) |
+| codigoMunicipio | integer | <span class="badge-opt">⚪ Não</span> | Código do município (IBGE) |
+| dataResultado | boolean | <span class="badge-opt">⚪ Não</span> | Data do resultado da compra |
+| poder | string | <span class="badge-opt">⚪ Não</span> | Poder da federação. E – Executivo; L – Legislativo; J – Judiciário |
+| esfera | string | <span class="badge-opt">⚪ Não</span> | Esfera governamental. F – Federal; E – Estadual; M – Municipal |
+| dataCompraInicio | string | <span class="badge-opt">⚪ Não</span> | Data de início do período da compra (formato: YYYY-MM-DD) |
+| dataCompraFim | string | <span class="badge-opt">⚪ Não</span> | Data de fim do período da compra (formato: YYYY-MM-DD) |
+| idCompra | string | <span class="badge-opt">⚪ Não</span> | Código identificador único da compra |
 
 **Dados de Retorno:**
 
@@ -1385,7 +1385,7 @@ Serviço para obter dados e consultar o endpoint consultarServico_CSV.
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-pesquisa-preco/3.1_consultarServico_CSV`  
 
-**Método HTTP:** GET
+**Método HTTP:** <span class="badge-get">GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -1403,7 +1403,7 @@ Serviço para obter dados e consultar o endpoint consultarServicoDetalhe.
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-pesquisa-preco/4_consultarServicoDetalhe`  
 
-**Método HTTP:** GET
+**Método HTTP:** <span class="badge-get">GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -1416,11 +1416,11 @@ curl -X 'GET' \
 
 | Campo | Tipo | Obrigatório | Descrição |
 |---|---|---|---|
-| pagina | integer | nao | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
-| tamanhoPagina | integer | nao | Ajustar o tamanho de registros por página (limite máx. de 500 registros por página). (Default: 10) |
-| codigoItemCatalogo | integer | sim | Código do item no catálogo de materiais ou serviços |
-| dataCompraInicio | string | nao | Data de início do período da compra (formato: YYYY-MM-DD) |
-| dataCompraFim | string | nao | Data de fim do período da compra (formato: YYYY-MM-DD) |
+| pagina | integer | <span class="badge-opt">⚪ Não</span> | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
+| tamanhoPagina | integer | <span class="badge-opt">⚪ Não</span> | Ajustar o tamanho de registros por página (limite máx. de 500 registros por página). (Default: 10) |
+| codigoItemCatalogo | integer | <span class="badge-req">🔴 Sim</span> | Código do item no catálogo de materiais ou serviços |
+| dataCompraInicio | string | <span class="badge-opt">⚪ Não</span> | Data de início do período da compra (formato: YYYY-MM-DD) |
+| dataCompraFim | string | <span class="badge-opt">⚪ Não</span> | Data de fim do período da compra (formato: YYYY-MM-DD) |
 
 **Dados de Retorno:**
 
@@ -1468,7 +1468,7 @@ Serviço para obter dados e consultar o endpoint consultarServicoDetalhe_CSV.
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-pesquisa-preco/4.1_consultarServicoDetalhe_CSV`  
 
-**Método HTTP:** GET
+**Método HTTP:** <span class="badge-get">GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -1492,7 +1492,7 @@ Serviço para obter dados e consultar o endpoint consultarPgcDetalhe.
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-pgc/1_consultarPgcDetalhe`  
 
-**Método HTTP:** GET
+**Método HTTP:** <span class="badge-get">GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -1505,11 +1505,11 @@ curl -X 'GET' \
 
 | Campo | Tipo | Obrigatório | Descrição |
 |---|---|---|---|
-| pagina | integer | nao | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
-| tamanhoPagina | integer | nao | Ajustar o tamanho de registros por página (limite máx. de 500 registros por página). (Default: 10) |
-| orgao | string | sim | CNPJ do órgão (sem máscara) |
-| anoPcaProjetoCompra | integer | sim | Ano do projeto de compra no PCA |
-| codigoUasg | string | nao | Código identificador da UASG (Unidade Administrativa de Serviços Gerais) |
+| pagina | integer | <span class="badge-opt">⚪ Não</span> | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
+| tamanhoPagina | integer | <span class="badge-opt">⚪ Não</span> | Ajustar o tamanho de registros por página (limite máx. de 500 registros por página). (Default: 10) |
+| orgao | string | <span class="badge-req">🔴 Sim</span> | CNPJ do órgão (sem máscara) |
+| anoPcaProjetoCompra | integer | <span class="badge-req">🔴 Sim</span> | Ano do projeto de compra no PCA |
+| codigoUasg | string | <span class="badge-opt">⚪ Não</span> | Código identificador da UASG (Unidade Administrativa de Serviços Gerais) |
 
 **Dados de Retorno:**
 
@@ -1647,7 +1647,7 @@ Serviço para obter dados e consultar o endpoint consultarPgcDetalhe_CSV.
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-pgc/1.1_consultarPgcDetalhe_CSV`  
 
-**Método HTTP:** GET
+**Método HTTP:** <span class="badge-get">GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -1665,7 +1665,7 @@ Serviço para obter dados e consultar o endpoint consultarPgcDetalheCatalogo.
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-pgc/2_consultarPgcDetalheCatalogo`  
 
-**Método HTTP:** GET
+**Método HTTP:** <span class="badge-get">GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -1678,11 +1678,11 @@ curl -X 'GET' \
 
 | Campo | Tipo | Obrigatório | Descrição |
 |---|---|---|---|
-| pagina | integer | nao | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
-| tamanhoPagina | integer | nao | Ajustar o tamanho de registros por página (limite máx. de 500 registros por página). (Default: 10) |
-| anoPcaProjetoCompra | integer | sim | Ano do projeto de compra no PCA |
-| tipo | string | sim | Tipo do item do catálogo a consultar (ex: material ou serviço) |
-| codigo | integer | sim | Código do item no catálogo |
+| pagina | integer | <span class="badge-opt">⚪ Não</span> | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
+| tamanhoPagina | integer | <span class="badge-opt">⚪ Não</span> | Ajustar o tamanho de registros por página (limite máx. de 500 registros por página). (Default: 10) |
+| anoPcaProjetoCompra | integer | <span class="badge-req">🔴 Sim</span> | Ano do projeto de compra no PCA |
+| tipo | string | <span class="badge-req">🔴 Sim</span> | Tipo do item do catálogo a consultar (ex: material ou serviço) |
+| codigo | integer | <span class="badge-req">🔴 Sim</span> | Código do item no catálogo |
 
 **Dados de Retorno:**
 
@@ -1820,7 +1820,7 @@ Serviço para obter dados e consultar o endpoint consultarPgcDetalheCatalogo_CSV
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-pgc/2.1_consultarPgcDetalheCatalogo_CSV`  
 
-**Método HTTP:** GET
+**Método HTTP:** <span class="badge-get">GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -1838,7 +1838,7 @@ Serviço para obter dados e consultar o endpoint consultarPgcAgregacao.
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-pgc/3_consultarPgcAgregacao`  
 
-**Método HTTP:** GET
+**Método HTTP:** <span class="badge-get">GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -1851,9 +1851,9 @@ curl -X 'GET' \
 
 | Campo | Tipo | Obrigatório | Descrição |
 |---|---|---|---|
-| pagina | integer | nao | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
-| orgao | string | sim | CNPJ do órgão (sem máscara) |
-| ano | integer | sim | Valor do campo Ano |
+| pagina | integer | <span class="badge-opt">⚪ Não</span> | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
+| orgao | string | <span class="badge-req">🔴 Sim</span> | CNPJ do órgão (sem máscara) |
+| ano | integer | <span class="badge-req">🔴 Sim</span> | Valor do campo Ano |
 
 **Dados de Retorno:**
 
@@ -1903,7 +1903,7 @@ Serviço para obter dados e consultar o endpoint consultarPgcAgregacao_CSV.
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-pgc/3.1_consultarPgcAgregacao_CSV`  
 
-**Método HTTP:** GET
+**Método HTTP:** <span class="badge-get">GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -1927,7 +1927,7 @@ Serviço para obter dados e consultar o endpoint consultarUasg.
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-uasg/1_consultarUasg`  
 
-**Método HTTP:** GET
+**Método HTTP:** <span class="badge-get">GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -1940,14 +1940,14 @@ curl -X 'GET' \
 
 | Campo | Tipo | Obrigatório | Descrição |
 |---|---|---|---|
-| pagina | integer | nao | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
-| codigoUasg | string | nao | Código identificador da UASG (Unidade Administrativa de Serviços Gerais) |
-| usoSisg | boolean | nao | Indica se a UASG usa o SISG. 0 – False/Não; 1 – True/Sim |
-| cnpjCpfOrgao | string | nao | CNPJ ou CPF do órgão |
-| cnpjCpfOrgaoVinculado | string | nao | CNPJ ou CPF do órgão vinculado |
-| cnpjCpfOrgaoSuperior | string | nao | CNPJ ou CPF do órgão superior |
-| siglaUf | string | nao | Sigla da unidade federativa (UF) |
-| statusUasg | boolean | sim | Status da UASG. 0 – False/Inativo; 1 – True/Ativo (Obrigatório) |
+| pagina | integer | <span class="badge-opt">⚪ Não</span> | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
+| codigoUasg | string | <span class="badge-opt">⚪ Não</span> | Código identificador da UASG (Unidade Administrativa de Serviços Gerais) |
+| usoSisg | boolean | <span class="badge-opt">⚪ Não</span> | Indica se a UASG usa o SISG. 0 – False/Não; 1 – True/Sim |
+| cnpjCpfOrgao | string | <span class="badge-opt">⚪ Não</span> | CNPJ ou CPF do órgão |
+| cnpjCpfOrgaoVinculado | string | <span class="badge-opt">⚪ Não</span> | CNPJ ou CPF do órgão vinculado |
+| cnpjCpfOrgaoSuperior | string | <span class="badge-opt">⚪ Não</span> | CNPJ ou CPF do órgão superior |
+| siglaUf | string | <span class="badge-opt">⚪ Não</span> | Sigla da unidade federativa (UF) |
+| statusUasg | boolean | <span class="badge-req">🔴 Sim</span> | Status da UASG. 0 – False/Inativo; 1 – True/Ativo (Obrigatório) |
 
 **Dados de Retorno:**
 
@@ -2025,7 +2025,7 @@ Serviço para obter dados e consultar o endpoint consultarUasg_CSV.
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-uasg/1.1_consultarUasg_CSV`  
 
-**Método HTTP:** GET
+**Método HTTP:** <span class="badge-get">GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -2043,7 +2043,7 @@ Serviço para obter dados e consultar o endpoint consultarOrgao.
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-uasg/2_consultarOrgao`  
 
-**Método HTTP:** GET
+**Método HTTP:** <span class="badge-get">GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -2056,13 +2056,13 @@ curl -X 'GET' \
 
 | Campo | Tipo | Obrigatório | Descrição |
 |---|---|---|---|
-| pagina | integer | nao | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
-| cnpjCpfOrgao | string | nao | CNPJ ou CPF do órgão |
-| cnpjCpfOrgaoVinculado | string | nao | CNPJ ou CPF do órgão vinculado |
-| cnpjCpfOrgaoSuperior | string | nao | CNPJ ou CPF do órgão superior |
-| codigoOrgao | integer | nao | Código do órgão |
-| statusOrgao | boolean | sim | Status do órgão. 0 – False/Inativo; 1 – True/Ativo (Obrigatório) |
-| usoSisg | boolean | nao | Indica se a UASG usa o SISG. 0 – False/Não; 1 – True/Sim |
+| pagina | integer | <span class="badge-opt">⚪ Não</span> | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
+| cnpjCpfOrgao | string | <span class="badge-opt">⚪ Não</span> | CNPJ ou CPF do órgão |
+| cnpjCpfOrgaoVinculado | string | <span class="badge-opt">⚪ Não</span> | CNPJ ou CPF do órgão vinculado |
+| cnpjCpfOrgaoSuperior | string | <span class="badge-opt">⚪ Não</span> | CNPJ ou CPF do órgão superior |
+| codigoOrgao | integer | <span class="badge-opt">⚪ Não</span> | Código do órgão |
+| statusOrgao | boolean | <span class="badge-req">🔴 Sim</span> | Status do órgão. 0 – False/Inativo; 1 – True/Ativo (Obrigatório) |
+| usoSisg | boolean | <span class="badge-opt">⚪ Não</span> | Indica se a UASG usa o SISG. 0 – False/Não; 1 – True/Sim |
 
 **Dados de Retorno:**
 
@@ -2130,7 +2130,7 @@ Serviço para obter dados e consultar o endpoint consultarOrgao_CSV.
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-uasg/2.1_consultarOrgao_CSV`  
 
-**Método HTTP:** GET
+**Método HTTP:** <span class="badge-get">GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -2154,7 +2154,7 @@ Serviço para obter dados e consultar o endpoint consultarLicitacao.
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-legado/1_consultarLicitacao`  
 
-**Método HTTP:** GET
+**Método HTTP:** <span class="badge-get">GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -2167,14 +2167,14 @@ curl -X 'GET' \
 
 | Campo | Tipo | Obrigatório | Descrição |
 |---|---|---|---|
-| pagina | integer | nao | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
-| tamanhoPagina | integer | nao | Ajustar o tamanho de registros por página (limite máx. de 500 registros por página). (Default: 10) |
-| uasg | integer | nao | Valor do campo Uasg |
-| numero_aviso | integer | nao | Valor do campo Numero aviso |
-| modalidade | integer | nao | Código da modalidade de licitação |
-| data_publicacao_inicial | string | sim | Data de início da publicação (formato: YYYY-MM-DD) |
-| data_publicacao_final | string | sim | Data final da publicação, limitado a 365 dias (formato: YYYY-MM-DD) |
-| pertence14133 | boolean | nao | Indica se pertence ao regime da Lei nº 14.133/2021. 0 – False; 1 – True |
+| pagina | integer | <span class="badge-opt">⚪ Não</span> | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
+| tamanhoPagina | integer | <span class="badge-opt">⚪ Não</span> | Ajustar o tamanho de registros por página (limite máx. de 500 registros por página). (Default: 10) |
+| uasg | integer | <span class="badge-opt">⚪ Não</span> | Valor do campo Uasg |
+| numero_aviso | integer | <span class="badge-opt">⚪ Não</span> | Valor do campo Numero aviso |
+| modalidade | integer | <span class="badge-opt">⚪ Não</span> | Código da modalidade de licitação |
+| data_publicacao_inicial | string | <span class="badge-req">🔴 Sim</span> | Data de início da publicação (formato: YYYY-MM-DD) |
+| data_publicacao_final | string | <span class="badge-req">🔴 Sim</span> | Data final da publicação, limitado a 365 dias (formato: YYYY-MM-DD) |
+| pertence14133 | boolean | <span class="badge-opt">⚪ Não</span> | Indica se pertence ao regime da Lei nº 14.133/2021. 0 – False; 1 – True |
 
 **Dados de Retorno:**
 
@@ -2258,7 +2258,7 @@ Serviço para obter dados e consultar o endpoint consultarLicitacao_Id.
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-legado/1.1_consultarLicitacao_Id`  
 
-**Método HTTP:** GET
+**Método HTTP:** <span class="badge-get">GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -2271,8 +2271,8 @@ curl -X 'GET' \
 
 | Campo | Tipo | Obrigatório | Descrição |
 |---|---|---|---|
-| id_compra | string | sim | Valor do campo Id compra |
-| dt_alteracao | string | nao | Valor do campo Dt alteracao |
+| id_compra | string | <span class="badge-req">🔴 Sim</span> | Valor do campo Id compra |
+| dt_alteracao | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Dt alteracao |
 
 
 [Voltar ao sumário](#sumário)
@@ -2283,7 +2283,7 @@ Serviço para obter dados e consultar o endpoint consultarItemLicitacao.
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-legado/2_consultarItemLicitacao`  
 
-**Método HTTP:** GET
+**Método HTTP:** <span class="badge-get">GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -2296,16 +2296,16 @@ curl -X 'GET' \
 
 | Campo | Tipo | Obrigatório | Descrição |
 |---|---|---|---|
-| pagina | integer | nao | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
-| tamanhoPagina | integer | nao | Ajustar o tamanho de registros por página (limite máx. de 500 registros por página). (Default: 10) |
-| uasg | integer | nao | Valor do campo Uasg |
-| numero_aviso | integer | nao | Valor do campo Numero aviso |
-| modalidade | integer | sim | Código da modalidade de licitação |
-| decreto_7174 | boolean | nao | Valor do campo Decreto 7174 |
-| codigo_item_material | integer | nao | Código do registro associado |
-| codigo_item_servico | integer | nao | Código do registro associado |
-| cnpj_fornecedor | string | nao | Valor do campo Cnpj fornecedor |
-| cpfVencedor | string | nao | Valor do campo Cpf vencedor |
+| pagina | integer | <span class="badge-opt">⚪ Não</span> | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
+| tamanhoPagina | integer | <span class="badge-opt">⚪ Não</span> | Ajustar o tamanho de registros por página (limite máx. de 500 registros por página). (Default: 10) |
+| uasg | integer | <span class="badge-opt">⚪ Não</span> | Valor do campo Uasg |
+| numero_aviso | integer | <span class="badge-opt">⚪ Não</span> | Valor do campo Numero aviso |
+| modalidade | integer | <span class="badge-req">🔴 Sim</span> | Código da modalidade de licitação |
+| decreto_7174 | boolean | <span class="badge-opt">⚪ Não</span> | Valor do campo Decreto 7174 |
+| codigo_item_material | integer | <span class="badge-opt">⚪ Não</span> | Código do registro associado |
+| codigo_item_servico | integer | <span class="badge-opt">⚪ Não</span> | Código do registro associado |
+| cnpj_fornecedor | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Cnpj fornecedor |
+| cpfVencedor | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Cpf vencedor |
 
 **Dados de Retorno:**
 
@@ -2391,7 +2391,7 @@ Serviço para obter dados e consultar o endpoint consultarItemLicitacao_Id.
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-legado/2.1_consultarItemLicitacao_Id`  
 
-**Método HTTP:** GET
+**Método HTTP:** <span class="badge-get">GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -2404,9 +2404,9 @@ curl -X 'GET' \
 
 | Campo | Tipo | Obrigatório | Descrição |
 |---|---|---|---|
-| id_compra | string | sim | Valor do campo Id compra |
-| id_compra_item | string | nao | Valor do campo Id compra item |
-| dt_alteracao | string | nao | Valor do campo Dt alteracao |
+| id_compra | string | <span class="badge-req">🔴 Sim</span> | Valor do campo Id compra |
+| id_compra_item | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Id compra item |
+| dt_alteracao | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Dt alteracao |
 
 
 [Voltar ao sumário](#sumário)
@@ -2417,7 +2417,7 @@ Serviço para obter dados e consultar o endpoint consultarPregoes.
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-legado/3_consultarPregoes`  
 
-**Método HTTP:** GET
+**Método HTTP:** <span class="badge-get">GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -2430,15 +2430,15 @@ curl -X 'GET' \
 
 | Campo | Tipo | Obrigatório | Descrição |
 |---|---|---|---|
-| pagina | integer | nao | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
-| tamanhoPagina | integer | nao | Ajustar o tamanho de registros por página (limite máx. de 500 registros por página). (Default: 10) |
-| co_uasg | integer | nao | Valor do campo Co uasg |
-| co_orgao | integer | nao | Valor do campo Co orgao |
-| numero | integer | sim | Valor do campo Numero |
-| ds_tipo_pregao_compra | string | nao | Valor do campo Ds tipo pregao compra |
-| dt_data_edital_inicial | string | sim | Valor do campo Dt data edital inicial |
-| dt_data_edital_final | string | sim | Valor do campo Dt data edital final |
-| pertence14133 | boolean | nao | Indica se pertence ao regime da Lei nº 14.133/2021. 0 – False; 1 – True |
+| pagina | integer | <span class="badge-opt">⚪ Não</span> | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
+| tamanhoPagina | integer | <span class="badge-opt">⚪ Não</span> | Ajustar o tamanho de registros por página (limite máx. de 500 registros por página). (Default: 10) |
+| co_uasg | integer | <span class="badge-opt">⚪ Não</span> | Valor do campo Co uasg |
+| co_orgao | integer | <span class="badge-opt">⚪ Não</span> | Valor do campo Co orgao |
+| numero | integer | <span class="badge-req">🔴 Sim</span> | Valor do campo Numero |
+| ds_tipo_pregao_compra | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Ds tipo pregao compra |
+| dt_data_edital_inicial | string | <span class="badge-req">🔴 Sim</span> | Valor do campo Dt data edital inicial |
+| dt_data_edital_final | string | <span class="badge-req">🔴 Sim</span> | Valor do campo Dt data edital final |
+| pertence14133 | boolean | <span class="badge-opt">⚪ Não</span> | Indica se pertence ao regime da Lei nº 14.133/2021. 0 – False; 1 – True |
 
 **Dados de Retorno:**
 
@@ -2515,7 +2515,7 @@ Serviço para obter dados e consultar o endpoint consultarPregoes_Id.
 > Este endpoint possui os mesmos dados de retorno do endpoint anterior. A diferença é que a consulta é realizada pelo identificador único da compra ou pelo número de controle PNCP.
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-legado/3.1_consultarPregoes_Id`  
-**Método HTTP:** GET
+**Método HTTP:** <span class="badge-get">GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -2528,8 +2528,8 @@ curl -X 'GET' \
 
 | Campo | Tipo | Obrigatório | Descrição |
 |---|---|---|---|
-| id_compra | string | sim | Valor do campo Id compra |
-| dt_alteracao | string | nao | Valor do campo Dt alteracao |
+| id_compra | string | <span class="badge-req">🔴 Sim</span> | Valor do campo Id compra |
+| dt_alteracao | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Dt alteracao |
 
 
 [Voltar ao sumário](#sumário)
@@ -2539,7 +2539,7 @@ curl -X 'GET' \
 Serviço para obter dados e consultar o endpoint consultarItensPregoes.
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-legado/4_consultarItensPregoes`  
-**Método HTTP:** GET
+**Método HTTP:** <span class="badge-get">GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -2552,16 +2552,16 @@ curl -X 'GET' \
 
 | Campo | Tipo | Obrigatório | Descrição |
 |---|---|---|---|
-| pagina | integer | nao | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
-| tamanhoPagina | integer | nao | Ajustar o tamanho de registros por página (limite máx. de 500 registros por página). (Default: 10) |
-| co_uasg | integer | nao | Valor do campo Co uasg |
-| decreto_7174 | string | nao | Valor do campo Decreto 7174 |
-| fornecedor_vencedor | string | nao | Valor do campo Fornecedor vencedor |
-| dt_hom_inicial | string | sim | Valor do campo Dt hom inicial |
-| dt_hom_final | string | sim | Valor do campo Dt hom final |
-| id_compra | string | sim | Valor do campo Id compra |
-| id_compra_item | string | nao | Valor do campo Id compra item |
-| dt_alteracao | string | nao | Valor do campo Dt alteracao |
+| pagina | integer | <span class="badge-opt">⚪ Não</span> | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
+| tamanhoPagina | integer | <span class="badge-opt">⚪ Não</span> | Ajustar o tamanho de registros por página (limite máx. de 500 registros por página). (Default: 10) |
+| co_uasg | integer | <span class="badge-opt">⚪ Não</span> | Valor do campo Co uasg |
+| decreto_7174 | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Decreto 7174 |
+| fornecedor_vencedor | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Fornecedor vencedor |
+| dt_hom_inicial | string | <span class="badge-req">🔴 Sim</span> | Valor do campo Dt hom inicial |
+| dt_hom_final | string | <span class="badge-req">🔴 Sim</span> | Valor do campo Dt hom final |
+| id_compra | string | <span class="badge-req">🔴 Sim</span> | Valor do campo Id compra |
+| id_compra_item | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Id compra item |
+| dt_alteracao | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Dt alteracao |
 
 **Dados de Retorno:**
 
@@ -2635,7 +2635,7 @@ Serviço para obter dados e consultar o endpoint consultarComprasSemLicitacao.
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-legado/5_consultarComprasSemLicitacao`  
 
-**Método HTTP:** GET
+**Método HTTP:** <span class="badge-get">GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -2648,19 +2648,19 @@ curl -X 'GET' \
 
 | Campo | Tipo | Obrigatório | Descrição |
 |---|---|---|---|
-| pagina | integer | nao | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
-| tamanhoPagina | integer | nao | Ajustar o tamanho de registros por página (limite máx. de 500 registros por página). (Default: 10) |
-| dt_ano_aviso | integer | sim | Valor do campo Dt ano aviso |
-| nu_aviso_licitacao | integer | nao | Valor do campo Nu aviso licitacao |
-| co_modalidade_licitacao | integer | nao | Valor do campo Co modalidade licitacao |
-| co_orgao | string | nao | Valor do campo Co orgao |
-| co_orgao_superior | string | nao | Valor do campo Co orgao superior |
-| co_uasg | integer | nao | Valor do campo Co uasg |
-| dtDeclaracaoDispensaInicial | string | nao | Valor do campo Dt declaracao dispensa inicial |
-| dtDeclaracaoDispensaFinal | string | nao | Valor do campo Dt declaracao dispensa final |
-| dtRatificacao | string | nao | Valor do campo Dt ratificacao |
-| dtPublicacao | string | nao | Valor do campo Dt publicacao |
-| pertence14133 | boolean | nao | Indica se pertence ao regime da Lei nº 14.133/2021. 0 – False; 1 – True |
+| pagina | integer | <span class="badge-opt">⚪ Não</span> | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
+| tamanhoPagina | integer | <span class="badge-opt">⚪ Não</span> | Ajustar o tamanho de registros por página (limite máx. de 500 registros por página). (Default: 10) |
+| dt_ano_aviso | integer | <span class="badge-req">🔴 Sim</span> | Valor do campo Dt ano aviso |
+| nu_aviso_licitacao | integer | <span class="badge-opt">⚪ Não</span> | Valor do campo Nu aviso licitacao |
+| co_modalidade_licitacao | integer | <span class="badge-opt">⚪ Não</span> | Valor do campo Co modalidade licitacao |
+| co_orgao | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Co orgao |
+| co_orgao_superior | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Co orgao superior |
+| co_uasg | integer | <span class="badge-opt">⚪ Não</span> | Valor do campo Co uasg |
+| dtDeclaracaoDispensaInicial | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Dt declaracao dispensa inicial |
+| dtDeclaracaoDispensaFinal | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Dt declaracao dispensa final |
+| dtRatificacao | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Dt ratificacao |
+| dtPublicacao | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Dt publicacao |
+| pertence14133 | boolean | <span class="badge-opt">⚪ Não</span> | Indica se pertence ao regime da Lei nº 14.133/2021. 0 – False; 1 – True |
 
 **Dados de Retorno:**
 
@@ -2742,7 +2742,7 @@ Serviço para obter dados e consultar o endpoint consultarCompraSemLicitacao_Id.
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-legado/5.1_consultarCompraSemLicitacao_Id`  
 
-**Método HTTP:** GET
+**Método HTTP:** <span class="badge-get">GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -2755,7 +2755,7 @@ curl -X 'GET' \
 
 | Campo | Tipo | Obrigatório | Descrição |
 |---|---|---|---|
-| id_compra | string | sim | Valor do campo Id compra |
+| id_compra | string | <span class="badge-req">🔴 Sim</span> | Valor do campo Id compra |
 
 
 [Voltar ao sumário](#sumário)
@@ -2766,7 +2766,7 @@ Serviço para obter dados e consultar o endpoint consultarCompraItensSemLicitaca
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-legado/6_consultarCompraItensSemLicitacao`  
 
-**Método HTTP:** GET
+**Método HTTP:** <span class="badge-get">GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -2779,15 +2779,15 @@ curl -X 'GET' \
 
 | Campo | Tipo | Obrigatório | Descrição |
 |---|---|---|---|
-| pagina | integer | nao | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
-| tamanhoPagina | integer | nao | Ajustar o tamanho de registros por página (limite máx. de 500 registros por página). (Default: 10) |
-| co_uasg | integer | nao | Valor do campo Co uasg |
-| co_orgao | string | nao | Valor do campo Co orgao |
-| dt_ano_aviso_licitacao | integer | sim | Valor do campo Dt ano aviso licitacao |
-| co_modalidade_licitacao | integer | nao | Valor do campo Co modalidade licitacao |
-| co_conjunto_materiais | integer | nao | Valor do campo Co conjunto materiais |
-| co_servico | integer | nao | Valor do campo Co servico |
-| nu_cpf_cnpj_fornecedor | string | nao | Valor do campo Nu cpf cnpj fornecedor |
+| pagina | integer | <span class="badge-opt">⚪ Não</span> | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
+| tamanhoPagina | integer | <span class="badge-opt">⚪ Não</span> | Ajustar o tamanho de registros por página (limite máx. de 500 registros por página). (Default: 10) |
+| co_uasg | integer | <span class="badge-opt">⚪ Não</span> | Valor do campo Co uasg |
+| co_orgao | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Co orgao |
+| dt_ano_aviso_licitacao | integer | <span class="badge-req">🔴 Sim</span> | Valor do campo Dt ano aviso licitacao |
+| co_modalidade_licitacao | integer | <span class="badge-opt">⚪ Não</span> | Valor do campo Co modalidade licitacao |
+| co_conjunto_materiais | integer | <span class="badge-opt">⚪ Não</span> | Valor do campo Co conjunto materiais |
+| co_servico | integer | <span class="badge-opt">⚪ Não</span> | Valor do campo Co servico |
+| nu_cpf_cnpj_fornecedor | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Nu cpf cnpj fornecedor |
 
 **Dados de Retorno:**
 
@@ -2901,7 +2901,7 @@ Serviço para obter dados e consultar o endpoint consultarItensComprasSemLicitac
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-legado/6.1_consultarItensComprasSemLicitacao_Id`  
 
-**Método HTTP:** GET
+**Método HTTP:** <span class="badge-get">GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -2914,9 +2914,9 @@ curl -X 'GET' \
 
 | Campo | Tipo | Obrigatório | Descrição |
 |---|---|---|---|
-| id_compra | string | sim | Valor do campo Id compra |
-| id_compra_item | string | nao | Valor do campo Id compra item |
-| dt_alteracao | string | nao | Valor do campo Dt alteracao |
+| id_compra | string | <span class="badge-req">🔴 Sim</span> | Valor do campo Id compra |
+| id_compra_item | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Id compra item |
+| dt_alteracao | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Dt alteracao |
 
 
 [Voltar ao sumário](#sumário)
@@ -2927,7 +2927,7 @@ Serviço para obter dados e consultar o endpoint consultarRdc.
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-legado/7_consultarRdc`  
 
-**Método HTTP:** GET
+**Método HTTP:** <span class="badge-get">GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -2940,25 +2940,25 @@ curl -X 'GET' \
 
 | Campo | Tipo | Obrigatório | Descrição |
 |---|---|---|---|
-| pagina | integer | nao | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
-| tamanhoPagina | integer | nao | Ajustar o tamanho de registros por página (limite máx. de 500 registros por página). (Default: 10) |
-| data_publicacao_min | string | sim | Data correspondente ao registro |
-| data_publicacao_max | string | sim | Data correspondente ao registro |
-| endereco_entrega_edital | string | nao | Valor do campo Endereco entrega edital |
-| forma_de_realizacao | string | nao | Valor do campo Forma de realizacao |
-| funcao_responsavel | string | nao | Valor do campo Funcao responsavel |
-| modalidade | integer | nao | Código da modalidade de licitação |
-| nome_responsavel | string | nao | Valor do campo Nome responsavel |
-| numero_aviso | integer | nao | Valor do campo Numero aviso |
-| objeto | string | nao | Valor do campo Objeto |
-| orgao | integer | nao | CNPJ do órgão (sem máscara) |
-| situacao_aviso | strinng | nao | Valor do campo Situacao aviso |
-| uasg | integer | nao | Valor do campo Uasg |
-| uf_uasg | string | nao | Valor do campo Uf uasg |
-| valor_estimado_total_max | number | nao | Valor do campo Valor estimado total max |
-| valor_estimado_total_min | number | nao | Valor do campo Valor estimado total min |
-| valor_homologado_total_max | number | nao | Valor do campo Valor homologado total max |
-| valor_homologado_total_min | number | nao | Valor do campo Valor homologado total min |
+| pagina | integer | <span class="badge-opt">⚪ Não</span> | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
+| tamanhoPagina | integer | <span class="badge-opt">⚪ Não</span> | Ajustar o tamanho de registros por página (limite máx. de 500 registros por página). (Default: 10) |
+| data_publicacao_min | string | <span class="badge-req">🔴 Sim</span> | Data correspondente ao registro |
+| data_publicacao_max | string | <span class="badge-req">🔴 Sim</span> | Data correspondente ao registro |
+| endereco_entrega_edital | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Endereco entrega edital |
+| forma_de_realizacao | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Forma de realizacao |
+| funcao_responsavel | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Funcao responsavel |
+| modalidade | integer | <span class="badge-opt">⚪ Não</span> | Código da modalidade de licitação |
+| nome_responsavel | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Nome responsavel |
+| numero_aviso | integer | <span class="badge-opt">⚪ Não</span> | Valor do campo Numero aviso |
+| objeto | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Objeto |
+| orgao | integer | <span class="badge-opt">⚪ Não</span> | CNPJ do órgão (sem máscara) |
+| situacao_aviso | strinng | <span class="badge-opt">⚪ Não</span> | Valor do campo Situacao aviso |
+| uasg | integer | <span class="badge-opt">⚪ Não</span> | Valor do campo Uasg |
+| uf_uasg | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Uf uasg |
+| valor_estimado_total_max | number | <span class="badge-opt">⚪ Não</span> | Valor do campo Valor estimado total max |
+| valor_estimado_total_min | number | <span class="badge-opt">⚪ Não</span> | Valor do campo Valor estimado total min |
+| valor_homologado_total_max | number | <span class="badge-opt">⚪ Não</span> | Valor do campo Valor homologado total max |
+| valor_homologado_total_min | number | <span class="badge-opt">⚪ Não</span> | Valor do campo Valor homologado total min |
 
 **Dados de Retorno:**
 
@@ -3048,7 +3048,7 @@ Serviço para obter dados e consultar o endpoint consultarContratacoes_PNCP_1413
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-contratacoes/1_consultarContratacoes_PNCP_14133`  
 
-**Método HTTP:** GET
+**Método HTTP:** <span class="badge-get">GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -3061,19 +3061,19 @@ curl -X 'GET' \
 
 | Campo | Tipo | Obrigatório | Descrição |
 |---|---|---|---|
-| pagina | integer | nao | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
-| tamanhoPagina | integer | nao | Ajustar o tamanho de registros por página (limite máx. de 500 registros por página). (Default: 10) |
-| unidadeOrgaoCodigoUnidade | string | nao | Valor do campo Unidade orgao codigo unidade |
-| codigoOrgao | integer | nao | Código do órgão |
-| orgaoEntidadeCnpj | string | nao | Valor do campo Orgao entidade cnpj |
-| dataPublicacaoPncpInicial | string | sim | Data correspondente ao registro |
-| dataPublicacaoPncpFinal | string | sim | Data correspondente ao registro |
-| codigoModalidade | integer | sim | Código do registro associado |
-| unidadeOrgaoCodigoIbge | integer | nao | Valor do campo Unidade orgao codigo ibge |
-| unidadeOrgaoUfSigla | string | nao | Valor do campo Unidade orgao uf sigla |
-| dataAualizacaoPncp | string | nao | Data correspondente ao registro |
-| amparoLegalCodigoPncp | integer | nao | Valor do campo Amparo legal codigo pncp |
-| contratacaoExcluida | boolean | nao | Valor do campo Contratacao excluida |
+| pagina | integer | <span class="badge-opt">⚪ Não</span> | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
+| tamanhoPagina | integer | <span class="badge-opt">⚪ Não</span> | Ajustar o tamanho de registros por página (limite máx. de 500 registros por página). (Default: 10) |
+| unidadeOrgaoCodigoUnidade | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Unidade orgao codigo unidade |
+| codigoOrgao | integer | <span class="badge-opt">⚪ Não</span> | Código do órgão |
+| orgaoEntidadeCnpj | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Orgao entidade cnpj |
+| dataPublicacaoPncpInicial | string | <span class="badge-req">🔴 Sim</span> | Data correspondente ao registro |
+| dataPublicacaoPncpFinal | string | <span class="badge-req">🔴 Sim</span> | Data correspondente ao registro |
+| codigoModalidade | integer | <span class="badge-req">🔴 Sim</span> | Código do registro associado |
+| unidadeOrgaoCodigoIbge | integer | <span class="badge-opt">⚪ Não</span> | Valor do campo Unidade orgao codigo ibge |
+| unidadeOrgaoUfSigla | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Unidade orgao uf sigla |
+| dataAualizacaoPncp | string | <span class="badge-opt">⚪ Não</span> | Data correspondente ao registro |
+| amparoLegalCodigoPncp | integer | <span class="badge-opt">⚪ Não</span> | Valor do campo Amparo legal codigo pncp |
+| contratacaoExcluida | boolean | <span class="badge-opt">⚪ Não</span> | Valor do campo Contratacao excluida |
 
 **Dados de Retorno:**
 
@@ -3211,7 +3211,7 @@ Serviço para obter dados e consultar o endpoint consultarContratacoes_PNCP_1413
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-contratacoes/1.1_consultarContratacoes_PNCP_14133_Id`  
 
-**Método HTTP:** GET
+**Método HTTP:** <span class="badge-get">GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -3224,9 +3224,9 @@ curl -X 'GET' \
 
 | Campo | Tipo | Obrigatório | Descrição |
 |---|---|---|---|
-| tipo | string | sim | Tipo do item do catálogo a consultar (ex: material ou serviço) |
-| codigo | string | sim | Código do item no catálogo |
-| dataAtualizacaoPncp | string | nao | Data correspondente ao registro |
+| tipo | string | <span class="badge-req">🔴 Sim</span> | Tipo do item do catálogo a consultar (ex: material ou serviço) |
+| codigo | string | <span class="badge-req">🔴 Sim</span> | Código do item no catálogo |
+| dataAtualizacaoPncp | string | <span class="badge-opt">⚪ Não</span> | Data correspondente ao registro |
 
 
 [Voltar ao sumário](#sumário)
@@ -3237,7 +3237,7 @@ Serviço para obter dados e consultar o endpoint consultarItensContratacoes_PNCP
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-contratacoes/2_consultarItensContratacoes_PNCP_14133`  
 
-**Método HTTP:** GET
+**Método HTTP:** <span class="badge-get">GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -3250,24 +3250,24 @@ curl -X 'GET' \
 
 | Campo | Tipo | Obrigatório | Descrição |
 |---|---|---|---|
-| pagina | integer | nao | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
-| tamanhoPagina | integer | nao | Ajustar o tamanho de registros por página (limite máx. de 500 registros por página). (Default: 10) |
-| unidadeOrgaoCodigoUnidade | string | nao | Valor do campo Unidade orgao codigo unidade |
-| orgaoEntidadeCnpj | string | nao | Valor do campo Orgao entidade cnpj |
-| situacaoCompraItem | string | nao | Valor do campo Situacao compra item |
-| materialOuServico | string | nao | Valor do campo Material ou servico |
-| codigoClasse | integer | nao | Código da classe do material/serviço |
-| codigoGrupo | integer | nao | Código do grupo do material/serviço |
-| codItemCatalogo | integer | nao | Valor do campo Cod item catalogo |
-| temResultado | boolean | nao | Valor do campo Tem resultado |
-| codFornecedor | string | nao | Valor do campo Cod fornecedor |
-| dataInclusaoPncpInicial | string | sim | Data correspondente ao registro |
-| dataInclusaoPncpFinal | string | sim | Data correspondente ao registro |
-| dataAtualizacaoPncp | string | nao | Data correspondente ao registro |
-| bps | boolean | nao | Indica se está vinculado ao Banco de Preços em Saúde (BPS). 0 – False/Não; 1 – True/Sim |
-| margemPreferenciaNormal | boolean | nao | Valor do campo Margem preferencia normal |
-| codigoNCM | string | nao | Código do registro associado |
-| codigoPdm | string | nao | Código do Produto Descritivo Básico (PDM) |
+| pagina | integer | <span class="badge-opt">⚪ Não</span> | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
+| tamanhoPagina | integer | <span class="badge-opt">⚪ Não</span> | Ajustar o tamanho de registros por página (limite máx. de 500 registros por página). (Default: 10) |
+| unidadeOrgaoCodigoUnidade | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Unidade orgao codigo unidade |
+| orgaoEntidadeCnpj | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Orgao entidade cnpj |
+| situacaoCompraItem | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Situacao compra item |
+| materialOuServico | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Material ou servico |
+| codigoClasse | integer | <span class="badge-opt">⚪ Não</span> | Código da classe do material/serviço |
+| codigoGrupo | integer | <span class="badge-opt">⚪ Não</span> | Código do grupo do material/serviço |
+| codItemCatalogo | integer | <span class="badge-opt">⚪ Não</span> | Valor do campo Cod item catalogo |
+| temResultado | boolean | <span class="badge-opt">⚪ Não</span> | Valor do campo Tem resultado |
+| codFornecedor | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Cod fornecedor |
+| dataInclusaoPncpInicial | string | <span class="badge-req">🔴 Sim</span> | Data correspondente ao registro |
+| dataInclusaoPncpFinal | string | <span class="badge-req">🔴 Sim</span> | Data correspondente ao registro |
+| dataAtualizacaoPncp | string | <span class="badge-opt">⚪ Não</span> | Data correspondente ao registro |
+| bps | boolean | <span class="badge-opt">⚪ Não</span> | Indica se está vinculado ao Banco de Preços em Saúde (BPS). 0 – False/Não; 1 – True/Sim |
+| margemPreferenciaNormal | boolean | <span class="badge-opt">⚪ Não</span> | Valor do campo Margem preferencia normal |
+| codigoNCM | string | <span class="badge-opt">⚪ Não</span> | Código do registro associado |
+| codigoPdm | string | <span class="badge-opt">⚪ Não</span> | Código do Produto Descritivo Básico (PDM) |
 
 **Dados de Retorno:**
 
@@ -3395,7 +3395,7 @@ Serviço para obter dados e consultar o endpoint consultarItensContratacoes_PNCP
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-contratacoes/2.1_consultarItensContratacoes_PNCP_14133_Id`  
 
-**Método HTTP:** GET
+**Método HTTP:** <span class="badge-get">GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -3408,10 +3408,10 @@ curl -X 'GET' \
 
 | Campo | Tipo | Obrigatório | Descrição |
 |---|---|---|---|
-| tipo | string | sim | Tipo do item do catálogo a consultar (ex: material ou serviço) |
-| codigo | string | sim | Código do item no catálogo |
-| idCompraItem | string | nao | Identificador único do item da compra |
-| dataAtualizacaoPncp | string | nao | Data correspondente ao registro |
+| tipo | string | <span class="badge-req">🔴 Sim</span> | Tipo do item do catálogo a consultar (ex: material ou serviço) |
+| codigo | string | <span class="badge-req">🔴 Sim</span> | Código do item no catálogo |
+| idCompraItem | string | <span class="badge-opt">⚪ Não</span> | Identificador único do item da compra |
+| dataAtualizacaoPncp | string | <span class="badge-opt">⚪ Não</span> | Data correspondente ao registro |
 
 
 [Voltar ao sumário](#sumário)
@@ -3422,7 +3422,7 @@ Serviço para obter dados e consultar o endpoint consultarResultadoItensContrata
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-contratacoes/3_consultarResultadoItensContratacoes_PNCP_14133`  
 
-**Método HTTP:** GET
+**Método HTTP:** <span class="badge-get">GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -3435,24 +3435,24 @@ curl -X 'GET' \
 
 | Campo | Tipo | Obrigatório | Descrição |
 |---|---|---|---|
-| pagina | integer | nao | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
-| tamanhoPagina | integer | nao | Ajustar o tamanho de registros por página (limite máx. de 500 registros por página). (Default: 10) |
-| unidadeOrgaoCodigoUnidade | string | nao | Valor do campo Unidade orgao codigo unidade |
-| orgaoEntidadeCnpj | string | nao | Valor do campo Orgao entidade cnpj |
-| niFornecedor | string | nao | Número de identificação do fornecedor (CPF/CNPJ/Estrangeiro) |
-| codigoPais | string | nao | Código do registro associado |
-| porteFornecedorId | integer | nao | Valor do campo Porte fornecedor id |
-| naturezaJuridicaId | string | nao | Valor do campo Natureza juridica id |
-| situacaoCompraItemResultadoId | integer | nao | Valor do campo Situacao compra item resultado id |
-| valorUnitarioHomologadoInicial | number | nao | Valor do campo Valor unitario homologado inicial |
-| valorUnitarioHomologadoFinal | number | nao | Valor do campo Valor unitario homologado final |
-| valorTotalHomologadoInicial | number | nao | Valor do campo Valor total homologado inicial |
-| valorTotalHomologadoFinal | number | nao | Valor do campo Valor total homologado final |
-| dataResultadoPncpInicial | string | sim | Data correspondente ao registro |
-| dataResultadoPncpFinal | string | sim | Data correspondente ao registro |
-| aplicacaoMargemPreferencia | boolean | nao | Valor do campo Aplicacao margem preferencia |
-| aplicacaoBeneficioMeepp | boolean | nao | Valor do campo Aplicacao beneficio meepp |
-| aplicacaoCriterioDesempate | boolean | nao | Valor do campo Aplicacao criterio desempate |
+| pagina | integer | <span class="badge-opt">⚪ Não</span> | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
+| tamanhoPagina | integer | <span class="badge-opt">⚪ Não</span> | Ajustar o tamanho de registros por página (limite máx. de 500 registros por página). (Default: 10) |
+| unidadeOrgaoCodigoUnidade | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Unidade orgao codigo unidade |
+| orgaoEntidadeCnpj | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Orgao entidade cnpj |
+| niFornecedor | string | <span class="badge-opt">⚪ Não</span> | Número de identificação do fornecedor (CPF/CNPJ/Estrangeiro) |
+| codigoPais | string | <span class="badge-opt">⚪ Não</span> | Código do registro associado |
+| porteFornecedorId | integer | <span class="badge-opt">⚪ Não</span> | Valor do campo Porte fornecedor id |
+| naturezaJuridicaId | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Natureza juridica id |
+| situacaoCompraItemResultadoId | integer | <span class="badge-opt">⚪ Não</span> | Valor do campo Situacao compra item resultado id |
+| valorUnitarioHomologadoInicial | number | <span class="badge-opt">⚪ Não</span> | Valor do campo Valor unitario homologado inicial |
+| valorUnitarioHomologadoFinal | number | <span class="badge-opt">⚪ Não</span> | Valor do campo Valor unitario homologado final |
+| valorTotalHomologadoInicial | number | <span class="badge-opt">⚪ Não</span> | Valor do campo Valor total homologado inicial |
+| valorTotalHomologadoFinal | number | <span class="badge-opt">⚪ Não</span> | Valor do campo Valor total homologado final |
+| dataResultadoPncpInicial | string | <span class="badge-req">🔴 Sim</span> | Data correspondente ao registro |
+| dataResultadoPncpFinal | string | <span class="badge-req">🔴 Sim</span> | Data correspondente ao registro |
+| aplicacaoMargemPreferencia | boolean | <span class="badge-opt">⚪ Não</span> | Valor do campo Aplicacao margem preferencia |
+| aplicacaoBeneficioMeepp | boolean | <span class="badge-opt">⚪ Não</span> | Valor do campo Aplicacao beneficio meepp |
+| aplicacaoCriterioDesempate | boolean | <span class="badge-opt">⚪ Não</span> | Valor do campo Aplicacao criterio desempate |
 
 **Dados de Retorno:**
 
@@ -3570,7 +3570,7 @@ Serviço para obter dados e consultar o endpoint consultarResultadoItensContrata
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-contratacoes/3.1_consultarResultadoItensContratacoes_PNCP_14133_Id`  
 
-**Método HTTP:** GET
+**Método HTTP:** <span class="badge-get">GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -3583,10 +3583,10 @@ curl -X 'GET' \
 
 | Campo | Tipo | Obrigatório | Descrição |
 |---|---|---|---|
-| tipo | string | sim | Tipo do item do catálogo a consultar (ex: material ou serviço) |
-| codigo | string | sim | Código do item no catálogo |
-| idCompraItem | string | nao | Identificador único do item da compra |
-| dataAtualizacaoPncp | string | nao | Data correspondente ao registro |
+| tipo | string | <span class="badge-req">🔴 Sim</span> | Tipo do item do catálogo a consultar (ex: material ou serviço) |
+| codigo | string | <span class="badge-req">🔴 Sim</span> | Código do item no catálogo |
+| idCompraItem | string | <span class="badge-opt">⚪ Não</span> | Identificador único do item da compra |
+| dataAtualizacaoPncp | string | <span class="badge-opt">⚪ Não</span> | Data correspondente ao registro |
 
 
 [Voltar ao sumário](#sumário)
@@ -3603,7 +3603,7 @@ Serviço para obter dados e consultar o endpoint consultarARP.
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-arp/1_consultarARP`  
 
-**Método HTTP:** GET
+**Método HTTP:** <span class="badge-get">GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -3616,15 +3616,15 @@ curl -X 'GET' \
 
 | Campo                     | Tipo    | Obrigatório | Descrição                                                                                                     |
 | ------------------------- | ------- | ----------- | ------------------------------------------------------------------------------------------------------------- |
-| pagina                    | integer | nao         | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
-| tamanhoPagina             | integer | nao         | Ajustar o tamanho de registros por página (limite máx. de 500 registros por página). (Default: 10)            |
-| codigoUnidadeGerenciadora | string  | nao         | Código do registro associado                                                                                  |
-| codigoModalidadeCompra    | string  | nao         | Código do registro associado                                                                                  |
-| numeroAtaRegistroPreco    | string  | nao         | Valor do campo Numero ata registro preco                                                                      |
-| dataVigenciaInicialMin    | string  | sim         | Data correspondente ao registro                                                                               |
-| dataVigenciaInicialMax    | string  | sim         | Data correspondente ao registro                                                                               |
-| dataAssinaturaInicial     | string  | nao         | Data correspondente ao registro                                                                               |
-| dataAssinaturaFinal       | string  | nao         | Data correspondente ao registro                                                                               |
+| pagina                    | integer | <span class="badge-opt">⚪ Não</span>         | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
+| tamanhoPagina             | integer | <span class="badge-opt">⚪ Não</span>         | Ajustar o tamanho de registros por página (limite máx. de 500 registros por página). (Default: 10)            |
+| codigoUnidadeGerenciadora | string  | <span class="badge-opt">⚪ Não</span>         | Código do registro associado                                                                                  |
+| codigoModalidadeCompra    | string  | <span class="badge-opt">⚪ Não</span>         | Código do registro associado                                                                                  |
+| numeroAtaRegistroPreco    | string  | <span class="badge-opt">⚪ Não</span>         | Valor do campo Numero ata registro preco                                                                      |
+| dataVigenciaInicialMin    | string  | <span class="badge-req">🔴 Sim</span>         | Data correspondente ao registro                                                                               |
+| dataVigenciaInicialMax    | string  | <span class="badge-req">🔴 Sim</span>         | Data correspondente ao registro                                                                               |
+| dataAssinaturaInicial     | string  | <span class="badge-opt">⚪ Não</span>         | Data correspondente ao registro                                                                               |
+| dataAssinaturaFinal       | string  | <span class="badge-opt">⚪ Não</span>         | Data correspondente ao registro                                                                               |
 
 **Dados de Retorno:**
 
@@ -3708,7 +3708,7 @@ Serviço para obter dados e consultar o endpoint consultarARP_Id.
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-arp/1.1_consultarARP_Id`  
 
-**Método HTTP:** GET
+**Método HTTP:** <span class="badge-get">GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -3721,8 +3721,8 @@ curl -X 'GET' \
 
 | Campo | Tipo | Obrigatório | Descrição |
 |---|---|---|---|
-| numeroControlePncpAta | string | sim | Valor do campo Numero controle pncp ata |
-| dataAtualizacao | string | nao | Data correspondente ao registro |
+| numeroControlePncpAta | string | <span class="badge-req">🔴 Sim</span> | Valor do campo Numero controle pncp ata |
+| dataAtualizacao | string | <span class="badge-opt">⚪ Não</span> | Data correspondente ao registro |
 
 
 [Voltar ao sumário](#sumário)
@@ -3733,7 +3733,7 @@ Serviço para obter dados e consultar o endpoint consultarARP_FimVigencia.
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-arp/1.2_consultarARP_FimVigencia`  
 
-**Método HTTP:** GET
+**Método HTTP:** <span class="badge-get">GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -3746,15 +3746,15 @@ curl -X 'GET' \
 
 | Campo | Tipo | Obrigatório | Descrição |
 |---|---|---|---|
-| pagina | integer | nao | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
-| tamanhoPagina | integer | nao | Ajustar o tamanho de registros por página (limite máx. de 500 registros por página). (Default: 10) |
-| codigoUnidadeGerenciadora | string | nao | Código do registro associado |
-| codigoModalidadeCompra | string | nao | Código do registro associado |
-| numeroAtaRegistroPreco | string | nao | Valor do campo Numero ata registro preco |
-| dataVigenciaFinalMin | string | sim | Data correspondente ao registro |
-| dataVigenciaFinalMax | string | sim | Data correspondente ao registro |
-| dataAssinaturaInicial | string | nao | Data correspondente ao registro |
-| dataAssinaturaFinal | string | nao | Data correspondente ao registro |
+| pagina | integer | <span class="badge-opt">⚪ Não</span> | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
+| tamanhoPagina | integer | <span class="badge-opt">⚪ Não</span> | Ajustar o tamanho de registros por página (limite máx. de 500 registros por página). (Default: 10) |
+| codigoUnidadeGerenciadora | string | <span class="badge-opt">⚪ Não</span> | Código do registro associado |
+| codigoModalidadeCompra | string | <span class="badge-opt">⚪ Não</span> | Código do registro associado |
+| numeroAtaRegistroPreco | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Numero ata registro preco |
+| dataVigenciaFinalMin | string | <span class="badge-req">🔴 Sim</span> | Data correspondente ao registro |
+| dataVigenciaFinalMax | string | <span class="badge-req">🔴 Sim</span> | Data correspondente ao registro |
+| dataAssinaturaInicial | string | <span class="badge-opt">⚪ Não</span> | Data correspondente ao registro |
+| dataAssinaturaFinal | string | <span class="badge-opt">⚪ Não</span> | Data correspondente ao registro |
 
 **Dados de Retorno:**
 
@@ -3836,7 +3836,7 @@ Serviço para obter dados e consultar o endpoint consultarARPItem.
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-arp/2_consultarARPItem`  
 
-**Método HTTP:** GET
+**Método HTTP:** <span class="badge-get">GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -3849,20 +3849,20 @@ curl -X 'GET' \
 
 | Campo | Tipo | Obrigatório | Descrição |
 |---|---|---|---|
-| pagina | integer | nao | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
-| tamanhoPagina | integer | nao | Ajustar o tamanho de registros por página (limite máx. de 500 registros por página). (Default: 10) |
-| codigoUnidadeGerenciadora | integer | nao | Código do registro associado |
-| codigoModalidadeCompra | string | nao | Código do registro associado |
-| dataVigenciaInicialMin | string | sim | Data correspondente ao registro |
-| dataVigenciaInicialMax | string | sim | Data correspondente ao registro |
-| dataAssinaturaInicial | string | nao | Data correspondente ao registro |
-| dataAssinaturaFinal | string | nao | Data correspondente ao registro |
-| numeroItem | string | nao | Valor do campo Numero item |
-| codigoItem | integer | nao | Código do item do material/serviço |
-| tipoItem | string | nao | Valor do campo Tipo item |
-| niFornecedor | string | nao | Número de identificação do fornecedor (CPF/CNPJ/Estrangeiro) |
-| codigoPdm | integer | nao | Código do Produto Descritivo Básico (PDM) |
-| numeroCompra | string | nao | Valor do campo Numero compra |
+| pagina | integer | <span class="badge-opt">⚪ Não</span> | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
+| tamanhoPagina | integer | <span class="badge-opt">⚪ Não</span> | Ajustar o tamanho de registros por página (limite máx. de 500 registros por página). (Default: 10) |
+| codigoUnidadeGerenciadora | integer | <span class="badge-opt">⚪ Não</span> | Código do registro associado |
+| codigoModalidadeCompra | string | <span class="badge-opt">⚪ Não</span> | Código do registro associado |
+| dataVigenciaInicialMin | string | <span class="badge-req">🔴 Sim</span> | Data correspondente ao registro |
+| dataVigenciaInicialMax | string | <span class="badge-req">🔴 Sim</span> | Data correspondente ao registro |
+| dataAssinaturaInicial | string | <span class="badge-opt">⚪ Não</span> | Data correspondente ao registro |
+| dataAssinaturaFinal | string | <span class="badge-opt">⚪ Não</span> | Data correspondente ao registro |
+| numeroItem | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Numero item |
+| codigoItem | integer | <span class="badge-opt">⚪ Não</span> | Código do item do material/serviço |
+| tipoItem | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Tipo item |
+| niFornecedor | string | <span class="badge-opt">⚪ Não</span> | Número de identificação do fornecedor (CPF/CNPJ/Estrangeiro) |
+| codigoPdm | integer | <span class="badge-opt">⚪ Não</span> | Código do Produto Descritivo Básico (PDM) |
+| numeroCompra | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Numero compra |
 
 **Dados de Retorno:**
 
@@ -3964,7 +3964,7 @@ Serviço para obter dados e consultar o endpoint consultarARPItem_Id.
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-arp/2.1_consultarARPItem_Id`  
 
-**Método HTTP:** GET
+**Método HTTP:** <span class="badge-get">GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -3977,8 +3977,8 @@ curl -X 'GET' \
 
 | Campo | Tipo | Obrigatório | Descrição |
 |---|---|---|---|
-| numeroControlePncpAta | string | sim | Valor do campo Numero controle pncp ata |
-| dataAtualizacao | string | nao | Data correspondente ao registro |
+| numeroControlePncpAta | string | <span class="badge-req">🔴 Sim</span> | Valor do campo Numero controle pncp ata |
+| dataAtualizacao | string | <span class="badge-opt">⚪ Não</span> | Data correspondente ao registro |
 
 
 [Voltar ao sumário](#sumário)
@@ -3989,7 +3989,7 @@ Serviço para obter dados e consultar o endpoint consultarUnidadesItem.
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-arp/3_consultarUnidadesItem`
 
-**Método HTTP:** GET
+**Método HTTP:** <span class="badge-get">GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -4002,12 +4002,12 @@ curl -X 'GET' \
 
 | Campo | Tipo | Obrigatório | Descrição |
 |---|---|---|---|
-| pagina | integer | nao | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
-| tamanhoPagina | integer | nao | Ajustar o tamanho de registros por página (limite máx. de 500 registros por página). (Default: 10) |
-| numeroAta | string | sim | Valor do campo Numero ata |
-| unidadeGerenciadora | string | sim | Valor do campo Unidade gerenciadora |
-| numeroItem | string | sim | Valor do campo Numero item |
-| dataAtualizacao | string | nao | Data correspondente ao registro |
+| pagina | integer | <span class="badge-opt">⚪ Não</span> | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
+| tamanhoPagina | integer | <span class="badge-opt">⚪ Não</span> | Ajustar o tamanho de registros por página (limite máx. de 500 registros por página). (Default: 10) |
+| numeroAta | string | <span class="badge-req">🔴 Sim</span> | Valor do campo Numero ata |
+| unidadeGerenciadora | string | <span class="badge-req">🔴 Sim</span> | Valor do campo Unidade gerenciadora |
+| numeroItem | string | <span class="badge-req">🔴 Sim</span> | Valor do campo Numero item |
+| dataAtualizacao | string | <span class="badge-opt">⚪ Não</span> | Data correspondente ao registro |
 
 **Dados de Retorno:**
 
@@ -4075,7 +4075,7 @@ Serviço para obter dados e consultar o endpoint consultarEmpenhosSaldoItem.
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-arp/4_consultarEmpenhosSaldoItem`  
 
-**Método HTTP:** GET
+**Método HTTP:** <span class="badge-get">GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -4088,11 +4088,11 @@ curl -X 'GET' \
 
 | Campo | Tipo | Obrigatório | Descrição |
 |---|---|---|---|
-| pagina | integer | nao | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
-| tamanhoPagina | integer | nao | Ajustar o tamanho de registros por página (limite máx. de 500 registros por página). (Default: 10) |
-| numeroAta | string | sim | Valor do campo Numero ata |
-| unidadeGerenciadora | string | sim | Valor do campo Unidade gerenciadora |
-| dataAtualizacao | string | nao | Data correspondente ao registro |
+| pagina | integer | <span class="badge-opt">⚪ Não</span> | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
+| tamanhoPagina | integer | <span class="badge-opt">⚪ Não</span> | Ajustar o tamanho de registros por página (limite máx. de 500 registros por página). (Default: 10) |
+| numeroAta | string | <span class="badge-req">🔴 Sim</span> | Valor do campo Numero ata |
+| unidadeGerenciadora | string | <span class="badge-req">🔴 Sim</span> | Valor do campo Unidade gerenciadora |
+| dataAtualizacao | string | <span class="badge-opt">⚪ Não</span> | Data correspondente ao registro |
 
 **Dados de Retorno:**
 
@@ -4140,7 +4140,7 @@ Serviço para obter dados e consultar o endpoint consultarAdesoesItem.
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-arp/5_consultarAdesoesItem` 
 
-**Método HTTP:** GET
+**Método HTTP:** <span class="badge-get">GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -4153,13 +4153,13 @@ curl -X 'GET' \
 
 | Campo | Tipo | Obrigatório | Descrição |
 |---|---|---|---|
-| pagina | integer | nao | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
-| tamanhoPagina | integer | nao | Ajustar o tamanho de registros por página (limite máx. de 500 registros por página). (Default: 10) |
-| numeroAta | string | sim | Valor do campo Numero ata |
-| unidadeGerenciadora | string | sim | Valor do campo Unidade gerenciadora |
-| numeroItem | string | sim | Valor do campo Numero item |
-| unidade | string | nao | Valor do campo Unidade |
-| dataAtualizacao | string | nao | Data correspondente ao registro |
+| pagina | integer | <span class="badge-opt">⚪ Não</span> | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
+| tamanhoPagina | integer | <span class="badge-opt">⚪ Não</span> | Ajustar o tamanho de registros por página (limite máx. de 500 registros por página). (Default: 10) |
+| numeroAta | string | <span class="badge-req">🔴 Sim</span> | Valor do campo Numero ata |
+| unidadeGerenciadora | string | <span class="badge-req">🔴 Sim</span> | Valor do campo Unidade gerenciadora |
+| numeroItem | string | <span class="badge-req">🔴 Sim</span> | Valor do campo Numero item |
+| unidade | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Unidade |
+| dataAtualizacao | string | <span class="badge-opt">⚪ Não</span> | Data correspondente ao registro |
 
 **Dados de Retorno:**
 
@@ -4206,7 +4206,7 @@ O Módulo Contratos permite acesso às informações sobre contratos firmados pe
 Serviço para obter dados e consultar o endpoint consultarContratos.
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-contratos/1_consultarContratos`  
-**Método HTTP:** GET
+**Método HTTP:** <span class="badge-get">GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -4219,19 +4219,19 @@ curl -X 'GET' \
 
 | Campo | Tipo | Obrigatório | Descrição |
 |---|---|---|---|
-| pagina | integer | nao | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
-| tamanhoPagina | integer | nao | Ajustar o tamanho de registros por página (limite máx. de 500 registros por página). (Default: 10) |
-| codigoOrgao | string | sim | Código do órgão |
-| codigoUnidadeGestora | string | nao | Código do registro associado |
-| codigoUnidadeGestoraOrigemContrato | string | nao | Código do registro associado |
-| codigoUnidadeRealizadoraCompra | string | nao | Código do registro associado |
-| numeroContrato | string | nao | Valor do campo Numero contrato |
-| codigoModalidadeCompra | string | nao | Código do registro associado |
-| codigoTipo | string | nao | Código do registro associado |
-| codigoCategoria | string | nao | Código do registro associado |
-| niFornecedor | string | nao | Número de identificação do fornecedor (CPF/CNPJ/Estrangeiro) |
-| dataVigenciaInicialMin | string | sim | Data correspondente ao registro |
-| dataVigenciaInicialMax | string | sim | Data correspondente ao registro |
+| pagina | integer | <span class="badge-opt">⚪ Não</span> | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
+| tamanhoPagina | integer | <span class="badge-opt">⚪ Não</span> | Ajustar o tamanho de registros por página (limite máx. de 500 registros por página). (Default: 10) |
+| codigoOrgao | string | <span class="badge-req">🔴 Sim</span> | Código do órgão |
+| codigoUnidadeGestora | string | <span class="badge-opt">⚪ Não</span> | Código do registro associado |
+| codigoUnidadeGestoraOrigemContrato | string | <span class="badge-opt">⚪ Não</span> | Código do registro associado |
+| codigoUnidadeRealizadoraCompra | string | <span class="badge-opt">⚪ Não</span> | Código do registro associado |
+| numeroContrato | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Numero contrato |
+| codigoModalidadeCompra | string | <span class="badge-opt">⚪ Não</span> | Código do registro associado |
+| codigoTipo | string | <span class="badge-opt">⚪ Não</span> | Código do registro associado |
+| codigoCategoria | string | <span class="badge-opt">⚪ Não</span> | Código do registro associado |
+| niFornecedor | string | <span class="badge-opt">⚪ Não</span> | Número de identificação do fornecedor (CPF/CNPJ/Estrangeiro) |
+| dataVigenciaInicialMin | string | <span class="badge-req">🔴 Sim</span> | Data correspondente ao registro |
+| dataVigenciaInicialMax | string | <span class="badge-req">🔴 Sim</span> | Data correspondente ao registro |
 
 **Dados de Retorno:**
 
@@ -4341,7 +4341,7 @@ Serviço para obter dados e consultar o endpoint consultarContratos_Id.
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-contratos/1.1_consultarContratos_Id`  
 
-**Método HTTP:** GET
+**Método HTTP:** <span class="badge-get">GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -4354,8 +4354,8 @@ curl -X 'GET' \
 
 | Campo | Tipo | Obrigatório | Descrição |
 |---|---|---|---|
-| codigo | string | sim | Código do item no catálogo |
-| tipo | string | sim | Tipo do item do catálogo a consultar (ex: material ou serviço) |
+| codigo | string | <span class="badge-req">🔴 Sim</span> | Código do item no catálogo |
+| tipo | string | <span class="badge-req">🔴 Sim</span> | Tipo do item do catálogo a consultar (ex: material ou serviço) |
 
 
 [Voltar ao sumário](#sumário)
@@ -4366,7 +4366,7 @@ Serviço para obter dados e consultar o endpoint consultarContratos_FimVigencia.
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-contratos/1.2_consultarContratos_FimVigencia`  
 
-**Método HTTP:** GET
+**Método HTTP:** <span class="badge-get">GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -4379,19 +4379,19 @@ curl -X 'GET' \
 
 | Campo | Tipo | Obrigatório | Descrição |
 |---|---|---|---|
-| pagina | integer | nao | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
-| tamanhoPagina | integer | nao | Ajustar o tamanho de registros por página (limite máx. de 500 registros por página). (Default: 10) |
-| codigoOrgao | string | sim | Código do órgão |
-| codigoUnidadeGestora | string | nao | Código do registro associado |
-| codigoUnidadeGestoraOrigemContrato | string | nao | Código do registro associado |
-| codigoUnidadeRealizadoraCompra | string | nao | Código do registro associado |
-| numeroContrato | string | nao | Valor do campo Numero contrato |
-| codigoModalidadeCompra | string | nao | Código do registro associado |
-| codigoTipo | string | nao | Código do registro associado |
-| codigoCategoria | string | nao | Código do registro associado |
-| niFornecedor | string | nao | Número de identificação do fornecedor (CPF/CNPJ/Estrangeiro) |
-| dataVigenciaFinalMin | string | sim | Data correspondente ao registro |
-| dataVigenciaFinalMax | string | sim | Data correspondente ao registro |
+| pagina | integer | <span class="badge-opt">⚪ Não</span> | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
+| tamanhoPagina | integer | <span class="badge-opt">⚪ Não</span> | Ajustar o tamanho de registros por página (limite máx. de 500 registros por página). (Default: 10) |
+| codigoOrgao | string | <span class="badge-req">🔴 Sim</span> | Código do órgão |
+| codigoUnidadeGestora | string | <span class="badge-opt">⚪ Não</span> | Código do registro associado |
+| codigoUnidadeGestoraOrigemContrato | string | <span class="badge-opt">⚪ Não</span> | Código do registro associado |
+| codigoUnidadeRealizadoraCompra | string | <span class="badge-opt">⚪ Não</span> | Código do registro associado |
+| numeroContrato | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Numero contrato |
+| codigoModalidadeCompra | string | <span class="badge-opt">⚪ Não</span> | Código do registro associado |
+| codigoTipo | string | <span class="badge-opt">⚪ Não</span> | Código do registro associado |
+| codigoCategoria | string | <span class="badge-opt">⚪ Não</span> | Código do registro associado |
+| niFornecedor | string | <span class="badge-opt">⚪ Não</span> | Número de identificação do fornecedor (CPF/CNPJ/Estrangeiro) |
+| dataVigenciaFinalMin | string | <span class="badge-req">🔴 Sim</span> | Data correspondente ao registro |
+| dataVigenciaFinalMax | string | <span class="badge-req">🔴 Sim</span> | Data correspondente ao registro |
 
 **Dados de Retorno:**
 
@@ -4499,7 +4499,7 @@ Serviço para obter dados e consultar o endpoint consultarContratosItem.
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-contratos/2_consultarContratosItem`  
 
-**Método HTTP:** GET
+**Método HTTP:** <span class="badge-get">GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -4512,22 +4512,22 @@ curl -X 'GET' \
 
 | Campo | Tipo | Obrigatório | Descrição |
 |---|---|---|---|
-| pagina | integer | nao | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
-| tamanhoPagina | integer | nao | Ajustar o tamanho de registros por página (limite máx. de 500 registros por página). (Default: 10) |
-| codigoOrgao | string | sim | Código do órgão |
-| codigoUnidadeGestora | string | nao | Código do registro associado |
-| codigoUnidadeGestoraOrigemContrato | string | nao | Código do registro associado |
-| codigoUnidadeRealizadoraCompra | string | nao | Código do registro associado |
-| numeroContrato | string | nao | Valor do campo Numero contrato |
-| codigoModalidadeCompra | string | nao | Código do registro associado |
-| tipoItem | string | nao | Valor do campo Tipo item |
-| codigoItem | integer | nao | Código do item do material/serviço |
-| niFornecedor | string | nao | Número de identificação do fornecedor (CPF/CNPJ/Estrangeiro) |
-| dataVigenciaInicialMin | string | sim | Data correspondente ao registro |
-| dataVigenciaInicialMax | string | sim | Data correspondente ao registro |
-| poder | string | nao | Poder da federação. E – Executivo; L – Legislativo; J – Judiciário |
-| esfera | string | nao | Esfera governamental. F – Federal; E – Estadual; M – Municipal |
-| idCompra | string | nao | Código identificador único da compra |
+| pagina | integer | <span class="badge-opt">⚪ Não</span> | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
+| tamanhoPagina | integer | <span class="badge-opt">⚪ Não</span> | Ajustar o tamanho de registros por página (limite máx. de 500 registros por página). (Default: 10) |
+| codigoOrgao | string | <span class="badge-req">🔴 Sim</span> | Código do órgão |
+| codigoUnidadeGestora | string | <span class="badge-opt">⚪ Não</span> | Código do registro associado |
+| codigoUnidadeGestoraOrigemContrato | string | <span class="badge-opt">⚪ Não</span> | Código do registro associado |
+| codigoUnidadeRealizadoraCompra | string | <span class="badge-opt">⚪ Não</span> | Código do registro associado |
+| numeroContrato | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Numero contrato |
+| codigoModalidadeCompra | string | <span class="badge-opt">⚪ Não</span> | Código do registro associado |
+| tipoItem | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Tipo item |
+| codigoItem | integer | <span class="badge-opt">⚪ Não</span> | Código do item do material/serviço |
+| niFornecedor | string | <span class="badge-opt">⚪ Não</span> | Número de identificação do fornecedor (CPF/CNPJ/Estrangeiro) |
+| dataVigenciaInicialMin | string | <span class="badge-req">🔴 Sim</span> | Data correspondente ao registro |
+| dataVigenciaInicialMax | string | <span class="badge-req">🔴 Sim</span> | Data correspondente ao registro |
+| poder | string | <span class="badge-opt">⚪ Não</span> | Poder da federação. E – Executivo; L – Legislativo; J – Judiciário |
+| esfera | string | <span class="badge-opt">⚪ Não</span> | Esfera governamental. F – Federal; E – Estadual; M – Municipal |
+| idCompra | string | <span class="badge-opt">⚪ Não</span> | Código identificador único da compra |
 
 **Dados de Retorno:**
 
@@ -4631,7 +4631,7 @@ Serviço para obter dados e consultar o endpoint consultarContratosItem_Id.
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-contratos/2.1_consultarContratosItem_Id`  
 
-**Método HTTP:** GET
+**Método HTTP:** <span class="badge-get">GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -4644,8 +4644,8 @@ curl -X 'GET' \
 
 | Campo | Tipo | Obrigatório | Descrição |
 |---|---|---|---|
-| codigo | string | sim | Código do item no catálogo |
-| tipo | string | sim | Tipo do item do catálogo a consultar (ex: material ou serviço) |
+| codigo | string | <span class="badge-req">🔴 Sim</span> | Código do item no catálogo |
+| tipo | string | <span class="badge-req">🔴 Sim</span> | Tipo do item do catálogo a consultar (ex: material ou serviço) |
 
 
 [Voltar ao sumário](#sumário)
@@ -4661,7 +4661,7 @@ O Módulo Fornecedor permite a consulta de dados cadastrais e situação dos for
 Serviço que permite consultar dados cadastrais de fornecedores, incluindo informações sobre porte empresarial, natureza jurídica e situação de habilitação para licitar.
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-fornecedor/1_consultarFornecedor`  
-**Método HTTP:** GET
+**Método HTTP:** <span class="badge-get">GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -4674,14 +4674,14 @@ curl -X 'GET' \
 
 | Campo | Tipo | Obrigatório | Descrição |
 |---|---|---|---|
-| pagina | integer | Não | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
-| tamanhoPagina | integer | Não | Ajustar o tamanho de registros por página (limite máx. de 500 registros por página). (Default: 10) |
-| cnpj | string | Não | CNPJ do fornecedor (sem máscara) |
-| cpf | string | Não | CPF do fornecedor (sem máscara) |
-| naturezaJuridicaId | integer | Não | Código da natureza jurídica do fornecedor |
-| porteEmpresaId | integer | Não | Código do porte da empresa |
-| codigoCnae | integer | Não | Código CNAE (Classificação Nacional de Atividades Econômicas) |
-| ativo | boolean | Sim | Indica se o fornecedor está ativo. 0 – False/Inativo; 1 – True/Ativo |
+| pagina | integer | <span class="badge-opt">⚪ Não</span> | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
+| tamanhoPagina | integer | <span class="badge-opt">⚪ Não</span> | Ajustar o tamanho de registros por página (limite máx. de 500 registros por página). (Default: 10) |
+| cnpj | string | <span class="badge-opt">⚪ Não</span> | CNPJ do fornecedor (sem máscara) |
+| cpf | string | <span class="badge-opt">⚪ Não</span> | CPF do fornecedor (sem máscara) |
+| naturezaJuridicaId | integer | <span class="badge-opt">⚪ Não</span> | Código da natureza jurídica do fornecedor |
+| porteEmpresaId | integer | <span class="badge-opt">⚪ Não</span> | Código do porte da empresa |
+| codigoCnae | integer | <span class="badge-opt">⚪ Não</span> | Código CNAE (Classificação Nacional de Atividades Econômicas) |
+| ativo | boolean | <span class="badge-req">🔴 Sim</span> | Indica se o fornecedor está ativo. 0 – False/Inativo; 1 – True/Ativo |
 
 **Dados de Retorno:**
 
@@ -4743,7 +4743,7 @@ O Módulo OCDS (Open Contracting Data Standard) disponibiliza dados de contrata�
 Serviço que retorna os dados de contratações públicas no formato OCDS, incluindo informações sobre a licitação, partes envolvidas, itens licitados, lotes e resultados (adjudicações).
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-ocds/1_releases`  
-**Método HTTP:** GET
+**Método HTTP:** <span class="badge-get">GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -4756,11 +4756,11 @@ curl -X 'GET' \
 
 | Campo | Tipo | Obrigatório | Descrição |
 |---|---|---|---|
-| page | integer | Não | Número da página para paginação dos resultados |
-| offSet | integer | Não | Deslocamento (offset) para paginação dos resultados |
-| buyerID | string | Sim | Identificador do comprador (CNPJ do órgão) |
-| releaseStartDate | string | Sim | Data de início do período de consulta (formato: YYYY-MM-DD) |
-| releaseEndDate | string | Sim | Data de fim do período de consulta (formato: YYYY-MM-DD) |
+| page | integer | <span class="badge-opt">⚪ Não</span> | Número da página para paginação dos resultados |
+| offSet | integer | <span class="badge-opt">⚪ Não</span> | Deslocamento (offset) para paginação dos resultados |
+| buyerID | string | <span class="badge-req">🔴 Sim</span> | Identificador do comprador (CNPJ do órgão) |
+| releaseStartDate | string | <span class="badge-req">🔴 Sim</span> | Data de início do período de consulta (formato: YYYY-MM-DD) |
+| releaseEndDate | string | <span class="badge-req">🔴 Sim</span> | Data de fim do período de consulta (formato: YYYY-MM-DD) |
 
 **Dados de Retorno:**
 
