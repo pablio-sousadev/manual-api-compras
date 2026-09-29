@@ -44,7 +44,7 @@ language = 'pt_BR'
 html_theme = 'sphinx_rtd_theme'
 
 html_theme_options = {
-    'logo_only': True,
+    'logo_only': False,
     'display_version': True,
     'prev_next_buttons_location': 'bottom',
     'style_external_links': False,
@@ -54,9 +54,6 @@ html_theme_options = {
     'includehidden': True,
     'titles_only': False,
 }
-
-html_logo = '_static/img/logo-pncp-transparente-branco.png'
-html_favicon = '_static/img/logo-pncp-transparente.png'
 
 html_static_path = ['_static']
 html_css_files = ['custom.css']

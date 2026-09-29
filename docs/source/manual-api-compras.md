@@ -29,6 +29,10 @@ Ministério da Gestão e da Inovação em Serviços Públicos – MGI
 
 O Sistema Integrado de Administração de Serviços Gerais – Siasg, instituído pelo art. 7º do Decreto nº 1.094, de 23 de março de 1994, é o sistema informatizado de apoio às atividades operacionais do Sistema de Serviços Gerais – Sisg. A finalidade do Siasg é integrar os órgãos da Administração Pública Federal direta, autárquica e fundacional. Após a reestruturação do Sisg (nova releitura), o SIASG passa a receber o sistema de contratações do governo federal, Compras.gov.br.
 
+O Compras.gov.br atua nas três grandes fases do ciclo de contratação pública — Planejamento da Contratação, Seleção do Fornecedor e Gestão e Fiscalização do Contrato —, integrando diversas ferramentas e sistemas que compõem a área de trabalho do gestor público.
+
+![Ciclo de contratação pública no Compras.gov.br](_static/img/introducao-ciclo-contratacao.png)
+
 ## 2. Objetivos
 
 A transparência desempenha um papel fundamental na gestão pública.
