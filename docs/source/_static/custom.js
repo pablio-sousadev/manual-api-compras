@@ -123,63 +123,66 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // ── 4. Menu Lateral Sanfona Customizado ──────────────
     function initAccordionMenu() {
-        const menuContainers = document.querySelectorAll('.wy-menu-vertical, .local-toc');
-        menuContainers.forEach(function (container) {
-            const listItems = container.querySelectorAll('li');
-            listItems.forEach(function (li) {
-                const subUl = li.querySelector('ul');
-                if (subUl) {
-                    li.classList.add('has-subitems');
-                    
-                    // Iniciar recolhido
-                    subUl.style.display = 'none';
+        // Obter todos os LIs diretamente de forma única para evitar duplicação
+        const listItems = document.querySelectorAll('.wy-menu-vertical li');
+        
+        listItems.forEach(function (li) {
+            const subUl = li.querySelector('ul');
+            if (subUl) {
+                li.classList.add('has-subitems');
+                
+                // Iniciar recolhido
+                subUl.style.display = 'none';
 
-                    // Remover o ícone nativo do Sphinx
-                    const nativeExpands = li.querySelectorAll(':scope > .toctree-expand');
-                    nativeExpands.forEach(el => el.remove());
+                // Remover o ícone nativo do Sphinx
+                const nativeExpands = li.querySelectorAll(':scope > .toctree-expand');
+                nativeExpands.forEach(el => el.remove());
 
-                    const expandBtn = document.createElement('span');
-                    expandBtn.className = 'custom-expand-btn';
-                    expandBtn.innerHTML = '+';
-                    
-                    const link = li.querySelector('a');
-                    if (link) {
-                        li.insertBefore(expandBtn, link);
-                        // IMPORTANTÍSSIMO: Parar propagação no clique do link para não acionar o Sphinx
-                        link.addEventListener('click', function(e) {
-                            e.stopPropagation();
-                        });
-                    } else {
-                        li.prepend(expandBtn);
-                    }
+                // Evitar duplicação do nosso próprio botão caso a função rode mais de uma vez
+                const oldBtns = li.querySelectorAll(':scope > .custom-expand-btn');
+                oldBtns.forEach(el => el.remove());
 
-                    // Toggle acionado exclusivamente pelo clique no botão de expandir
-                    function toggleItem(e) {
-                        if (e) {
-                            e.preventDefault();
-                            e.stopPropagation();
-                        }
-                        const isCurrentlyOpen = (subUl.style.display === 'block');
-                        if (isCurrentlyOpen) {
-                            subUl.style.display = 'none';
-                            expandBtn.innerHTML = '+';
-                        } else {
-                            subUl.style.display = 'block';
-                            expandBtn.innerHTML = '−';
-                        }
-                    }
-
-                    expandBtn.onclick = toggleItem;
+                const expandBtn = document.createElement('span');
+                expandBtn.className = 'custom-expand-btn';
+                expandBtn.innerHTML = '+';
+                
+                const link = li.querySelector('a');
+                if (link) {
+                    li.insertBefore(expandBtn, link);
+                    // IMPORTANTÍSSIMO: Parar propagação no clique do link para não acionar o Sphinx
+                    link.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                    });
                 } else {
-                    // Links que não têm submenu também não devem acionar o fechamento acidental dos pais
-                    const link = li.querySelector('a');
-                    if (link) {
-                        link.addEventListener('click', function(e) {
-                            e.stopPropagation();
-                        });
+                    li.prepend(expandBtn);
+                }
+
+                // Toggle acionado exclusivamente pelo clique no botão de expandir
+                function toggleItem(e) {
+                    if (e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                    }
+                    const isCurrentlyOpen = (subUl.style.display === 'block');
+                    if (isCurrentlyOpen) {
+                        subUl.style.display = 'none';
+                        expandBtn.innerHTML = '+';
+                    } else {
+                        subUl.style.display = 'block';
+                        expandBtn.innerHTML = '−';
                     }
                 }
-            });
+
+                expandBtn.onclick = toggleItem;
+            } else {
+                // Links que não têm submenu também não devem acionar o fechamento acidental dos pais
+                const link = li.querySelector('a');
+                if (link) {
+                    link.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                    });
+                }
+            }
         });
     }
 
