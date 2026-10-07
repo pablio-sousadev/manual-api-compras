@@ -121,16 +121,15 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    // ── 4. Menu Lateral Sanfona Unificado (Todos os Níveis: Módulos e Endpoints) ──
+    // ── 4. Menu Lateral Sanfona (Apenas 1 Ícone Limpo e Alinhado) ──────────────
     function initAccordionMenu() {
         const menuContainers = document.querySelectorAll('.wy-menu-vertical, .local-toc');
         menuContainers.forEach(function (container) {
-            // Remover qualquer botão customizado anterior para evitar duplicidade visual
+            // Eliminar qualquer botão extra customizado anterior
             container.querySelectorAll('.toc-toggle-icon').forEach(function (el) {
                 el.remove();
             });
 
-            // Selecionar TODOS os LIs que têm sub-listas (Módulos Nível 1 e Endpoints Nível 2)
             const listItems = container.querySelectorAll('li');
             listItems.forEach(function (li) {
                 const subUl = li.querySelector('ul');
@@ -140,21 +139,29 @@ document.addEventListener('DOMContentLoaded', function () {
                     // Iniciar recolhido por padrão
                     subUl.style.display = 'none';
 
-                    // Usar o elemento nativo .toctree-expand do Sphinx
+                    // Garantir um ÚNICO elemento .toctree-expand
+                    const expandSpans = li.querySelectorAll('.toctree-expand');
+                    if (expandSpans.length > 1) {
+                        for (let i = 1; i < expandSpans.length; i++) {
+                            expandSpans[i].remove();
+                        }
+                    }
+
                     let expandSpan = li.querySelector('.toctree-expand');
+                    const link = li.querySelector('a');
+
                     if (!expandSpan) {
                         expandSpan = document.createElement('span');
                         expandSpan.className = 'toctree-expand';
-                        expandSpan.innerHTML = '+';
-                        const link = li.querySelector('a');
                         if (link) {
                             li.insertBefore(expandSpan, link);
                         } else {
                             li.prepend(expandSpan);
                         }
-                    } else if (!expandSpan.innerHTML || expandSpan.innerHTML.trim() === '') {
-                        expandSpan.innerHTML = '+';
                     }
+
+                    // Ícone inicial limpo
+                    expandSpan.innerHTML = '+';
 
                     // Função Toggle Unificada
                     function toggleItem(e) {
@@ -174,14 +181,13 @@ document.addEventListener('DOMContentLoaded', function () {
                         }
                     }
 
-                    // Clique no ícone de expansão (+ / −)
+                    // Clique no ícone de expansão único
                     expandSpan.onclick = toggleItem;
 
-                    // Clique no link de texto (Módulo ou Endpoint pai)
-                    const mainLink = li.querySelector('a');
-                    if (mainLink) {
-                        mainLink.addEventListener('click', function (e) {
-                            const href = mainLink.getAttribute('href');
+                    // Clique no link de texto do módulo ou endpoint
+                    if (link) {
+                        link.addEventListener('click', function (e) {
+                            const href = link.getAttribute('href');
                             if (href && href.startsWith('#')) {
                                 toggleItem(null);
                             }

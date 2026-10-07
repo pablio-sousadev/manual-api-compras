@@ -41,10 +41,11 @@
     }
 }
 
-/* ── Menu Lateral Sanfona (Accordion / Estilo Unificado .toctree-expand) ── */
+/* ── Menu Lateral Sanfona (Accordion / Apenas 1 Ícone Limpo e Alinhado) ── */
 .local-toc ul,
 .wy-menu-vertical ul {
     list-style: none !important;
+    padding-left: 0 !important;
 }
 
 .local-toc li,
@@ -52,30 +53,42 @@
     position: relative !important;
 }
 
-/* Ocultar qualquer ícone duplicado legado */
+/* Eliminar pseudo-elementos legados do Sphinx que desenhavam o segundo ícone cinza */
+.wy-menu-vertical span.toctree-expand::before,
+.wy-menu-vertical span.toctree-expand::after,
+.local-toc span.toctree-expand::before,
+.local-toc span.toctree-expand::after,
+.wy-menu-vertical a::before,
+.wy-menu-vertical a::after {
+    content: "" !important;
+    display: none !important;
+    background: none !important;
+}
+
+/* Ocultar qualquer ícone legado duplicado */
 .toc-toggle-icon {
     display: none !important;
 }
 
-/* Botão Nativo .toctree-expand estilizado */
+/* Único Botão .toctree-expand Azul Perfeitamente Alinhado */
 .wy-menu-vertical span.toctree-expand,
 .local-toc span.toctree-expand {
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
-    width: 18px !important;
-    height: 18px !important;
-    line-height: 16px !important;
+    width: 20px !important;
+    height: 20px !important;
+    line-height: 18px !important;
     text-align: center !important;
     font-weight: 700 !important;
     font-size: 0.95rem !important;
     color: #38bdf8 !important;
     cursor: pointer !important;
     user-select: none !important;
-    background: rgba(255, 255, 255, 0.1) !important;
-    border: 1px solid rgba(56, 189, 248, 0.3) !important;
+    background: rgba(255, 255, 255, 0.12) !important;
+    border: 1px solid rgba(56, 189, 248, 0.4) !important;
     border-radius: 4px !important;
-    margin-right: 6px !important;
+    margin-right: 8px !important;
     vertical-align: middle !important;
     font-family: monospace, sans-serif !important;
 }
