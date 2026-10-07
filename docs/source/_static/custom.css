@@ -1,7 +1,15 @@
-/* ── Largura total do conteúdo ─────────────────────────────────────────────── */
+/* ── Largura do Conteúdo e Leitura (PC vs Celular) ────────────────────────── */
 .wy-nav-content {
-    max-width: 100% !important;
-    margin: auto !important;
+    max-width: 1100px !important;
+    margin: 0 auto !important;
+    padding: 2rem 2.5rem !important;
+}
+
+@media screen and (max-width: 768px) {
+    .wy-nav-content {
+        max-width: 100% !important;
+        padding: 1rem 1.2rem !important;
+    }
 }
 
 @media screen and (min-width: 768px) {
@@ -33,7 +41,20 @@
     }
 }
 
-/* ── Imagens ───────────────────────────────────────────────────────────────── */
+/* ── Manter o Sumário Lateral Sempre Aberto ──────────────────────────── */
+.wy-menu-vertical ul {
+    display: block !important;
+}
+
+.wy-menu-vertical li.current > a {
+    font-weight: 700 !important;
+}
+
+.wy-menu-vertical li.current li.current > a {
+    color: #0284c7 !important;
+}
+
+/* ── Imagens & Zoom Lightbox ─────────────────────────────────────────── */
 article img,
 .wy-nav-content img {
     border-radius: 6px;
@@ -43,6 +64,188 @@ article img,
     display: block;
     background-color: #ffffff;
     padding: 6px;
+}
+
+.zoomable-image {
+    cursor: zoom-in !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.zoomable-image:hover {
+    transform: scale(1.01);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.image-modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(15, 23, 42, 0.88);
+    backdrop-filter: blur(4px);
+    z-index: 100000;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.image-modal-overlay.active {
+    display: flex;
+}
+
+.image-modal-container {
+    position: relative;
+    max-width: 92vw;
+    max-height: 92vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.image-modal-container img {
+    max-width: 90vw;
+    max-height: 82vh;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    background-color: #ffffff;
+    padding: 8px;
+    object-fit: contain;
+}
+
+.image-modal-close {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    font-size: 2.2rem;
+    font-weight: 300;
+    cursor: pointer;
+    line-height: 1;
+    padding: 4px 8px;
+}
+
+.image-modal-close:hover {
+    color: #38bdf8;
+}
+
+.image-modal-caption {
+    color: #e2e8f0;
+    margin-top: 10px;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+/* ── Botões de Impressão ─────────────────────────────────────────────────── */
+.print-toolbar-top {
+    margin-bottom: 1.5rem;
+    text-align: right;
+}
+
+.print-toolbar-bottom {
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid #e2e8f0;
+    text-align: right;
+}
+
+.btn-print-custom {
+    background-color: #0284c7;
+    color: #ffffff;
+    border: none;
+    padding: 8px 16px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(2, 132, 199, 0.25);
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.btn-print-custom:hover {
+    background-color: #0369a1;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(2, 132, 199, 0.35);
+}
+
+body.dark-version .btn-print-custom {
+    background-color: #38bdf8;
+    color: #0f172a;
+}
+
+/* ── Barra de Acessibilidade (Tamanho da Fonte) ──────────────────────────── */
+.accessibility-toolbar {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
+    background-color: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 24px;
+    padding: 6px 14px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: sans-serif;
+}
+
+body.dark-version .accessibility-toolbar {
+    background-color: #1e293b;
+    border-color: #334155;
+    color: #f8fafc;
+}
+
+.accessibility-toolbar .access-label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #64748b;
+    margin-right: 4px;
+}
+
+body.dark-version .accessibility-toolbar .access-label {
+    color: #94a3b8;
+}
+
+.accessibility-toolbar button {
+    background-color: #f1f5f9;
+    color: #0f172a;
+    border: 1px solid #cbd5e1;
+    font-weight: 700;
+    font-size: 0.85rem;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.15s ease;
+}
+
+.accessibility-toolbar button:hover {
+    background-color: #0284c7;
+    color: #ffffff;
+    border-color: #0284c7;
+}
+
+body.dark-version .accessibility-toolbar button {
+    background-color: #334155;
+    color: #f8fafc;
+    border-color: #475569;
+}
+
+body.dark-version .accessibility-toolbar button:hover {
+    background-color: #38bdf8;
+    color: #0f172a;
 }
 
 /* ── Destaque amarelo (role customizada) ───────────────────────────────────── */
@@ -239,4 +442,71 @@ div[class*="ethical"],
     height: 0 !important;
     margin: 0 !important;
     padding: 0 !important;
+}
+
+/* ── Regras de Impressão (@media print) ─────────────────────────────────── */
+@media print {
+    /* Esconder elementos de navegação e controles */
+    .wy-nav-side,
+    .theme-switcher,
+    .accessibility-toolbar,
+    .btn-print-custom,
+    .print-toolbar-top,
+    .print-toolbar-bottom,
+    .rst-footer-buttons,
+    footer,
+    header,
+    .wy-breadcrumbs {
+        display: none !important;
+    }
+
+    .wy-nav-content-wrap {
+        margin-left: 0 !important;
+        width: 100% !important;
+        overflow: visible !important;
+    }
+
+    .wy-nav-content {
+        max-width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    /* Forçar quebra de página limpa antes dos módulos principais (H2) */
+    h2 {
+        page-break-before: always;
+        break-before: page;
+        padding-top: 1cm;
+    }
+
+    /* Impede quebras dentro de tabelas e blocos de código */
+    table.docutils, pre, blockquote {
+        page-break-inside: avoid;
+        break-inside: avoid;
+    }
+
+    /* Estilo de página impressa A4 e cabeçalho/rodapé com numeração */
+    @page {
+        size: A4;
+        margin: 2cm 1.5cm;
+        @bottom-right {
+            content: "Página " counter(page);
+            font-family: sans-serif;
+            font-size: 9pt;
+            color: #475569;
+        }
+        @bottom-left {
+            content: "Manual da API de Compras - Compras.gov.br";
+            font-family: sans-serif;
+            font-size: 9pt;
+            color: #475569;
+        }
+    }
+
+    body {
+        background: #ffffff !important;
+        color: #000000 !important;
+        font-size: 11pt !important;
+        line-height: 1.5 !important;
+    }
 }

@@ -61,6 +61,7 @@ html_theme_options = {
 
 html_static_path = ['_static']
 html_css_files = ['custom.css']
+html_js_files = ['custom.js']
 
 html_title = 'Manual da API de Compras'
 html_short_title = 'API de Compras'

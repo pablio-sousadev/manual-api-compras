@@ -23,7 +23,7 @@ Ministério da Gestão e da Inovação em Serviços Públicos – MGI
 - [12. Módulo Contratos](#12-módulo-contratos)
 - [13. Módulo Fornecedor](#13-módulo-fornecedor)
 - [14. Módulo OCDS](#14-módulo-ocds)
-- [Histórico de Revisões](#histórico-de-revisões)
+- [15. Histórico de Revisões](#15-histórico-de-revisões)
 
 ## 1. Introdução
 
@@ -45,7 +45,7 @@ Em cada consulta é possível especificar uma série de parâmetros de filtro, q
 
 O Catálogo de Materiais (CATMAT) e o Catálogo de Serviços (CATSER), do Sistema Integrado de Administração e Serviços Gerais – SIASG, são as bases de dados que identificam todos os materiais licitados e adquiridos e todos os serviços licitados contratados pela Administração Pública Federal. Todas as operações realizadas por meio do SIASG/Compras Governamentais utilizam esses catálogos para definir os objetos das respectivas licitações e contratações.
 
-### 1. consultarGrupoMaterial
+### 4.1. consultarGrupoMaterial
 
 Serviço para obter dados e consultar o endpoint consultarGrupoMaterial.
 
@@ -100,7 +100,7 @@ curl -X 'GET' \
 
 [Voltar ao sumário](#sumário)
 
-### 2. consultarClasseMaterial
+### 4.2. consultarClasseMaterial
 
 Serviço para obter dados e consultar o endpoint consultarClasseMaterial.
 
@@ -161,7 +161,7 @@ curl -X 'GET' \
 
 [Voltar ao sumário](#sumário)
 
-### 3. consultarPdmMaterial
+### 4.3. consultarPdmMaterial
 
 Serviço para obter dados e consultar o endpoint consultarPdmMaterial.
 
@@ -228,7 +228,7 @@ curl -X 'GET' \
 
 [Voltar ao sumário](#sumário)
 
-### 4. consultarItemMaterial
+### 4.4. consultarItemMaterial
 
 Serviço para obter dados e consultar o endpoint consultarItemMaterial.
 
@@ -310,7 +310,7 @@ curl -X 'GET' \
 
 [Voltar ao sumário](#sumário)
 
-### 5. consultarMaterialNaturezaDespesa
+### 4.5. consultarMaterialNaturezaDespesa
 
 Serviço para obter dados e consultar o endpoint consultarMaterialNaturezaDespesa.
 
@@ -367,7 +367,7 @@ curl -X 'GET' \
 
 [Voltar ao sumário](#sumário)
 
-### 6. consultarMaterialUnidadeFornecimento
+### 4.6. consultarMaterialUnidadeFornecimento
 
 Serviço para obter dados e consultar o endpoint consultarMaterialUnidadeFornecimento.
 
@@ -435,7 +435,7 @@ curl -X 'GET' \
 
 [Voltar ao sumário](#sumário)
 
-### 7. consultarMaterialCaracteristicas
+### 4.7. consultarMaterialCaracteristicas
 
 Serviço para obter dados e consultar o endpoint consultarMaterialCaracteristicas.
 
@@ -512,7 +512,7 @@ curl -X 'GET' \
 
 O Catálogo de Materiais (CATMAT) e o Catálogo de Serviços (CATSER), do Sistema Integrado de Administração e Serviços Gerais – SIASG, são as bases de dados que identificam todos os materiais licitados e adquiridos e todos os serviços licitados contratados pela Administração Pública Federal.
 
-### 1. consultarSecaoServico
+### 5.1. consultarSecaoServico
 
 Serviço para obter dados e consultar o endpoint consultarSecaoServico.
 
@@ -567,7 +567,7 @@ curl -X 'GET' \
 
 [Voltar ao sumário](#sumário)
 
-### 2. consultarDivisaoServico
+### 5.2. consultarDivisaoServico
 
 Serviço para obter dados e consultar o endpoint consultarDivisaoServico.
 
@@ -627,7 +627,7 @@ curl -X 'GET' \
 
 [Voltar ao sumário](#sumário)
 
-### 3. consultarGrupoServico
+### 5.3. consultarGrupoServico
 
 Serviço para obter dados e consultar o endpoint consultarGrupoServico.
 
@@ -689,7 +689,7 @@ curl -X 'GET' \
 
 [Voltar ao sumário](#sumário)
 
-### 4. consultarClasseServico
+### 5.4. consultarClasseServico
 
 Serviço para obter dados e consultar o endpoint consultarClasseServico.
 
@@ -749,7 +749,7 @@ curl -X 'GET' \
 
 [Voltar ao sumário](#sumário)
 
-### 5. consultarSubClasseServico
+### 5.5. consultarSubClasseServico
 
 Serviço para obter dados e consultar o endpoint consultarSubClasseServico.
 
@@ -809,7 +809,7 @@ curl -X 'GET' \
 
 [Voltar ao sumário](#sumário)
 
-### 6. consultarItemServico
+### 5.6. consultarItemServico
 
 Serviço para obter dados e consultar o endpoint consultarItemServico.
 
@@ -895,7 +895,7 @@ curl -X 'GET' \
 
 [Voltar ao sumário](#sumário)
 
-### 7. consultarUndMedidaServico
+### 5.7. consultarUndMedidaServico
 
 Serviço para obter dados e consultar o endpoint consultarUndMedidaServico.
 
@@ -950,7 +950,7 @@ curl -X 'GET' \
 
 [Voltar ao sumário](#sumário)
 
-### 8. consultarNaturezaDespesaServico
+### 5.8. consultarNaturezaDespesaServico
 
 Serviço para obter dados e consultar o endpoint consultarNaturezaDespesaServico.
 
@@ -1012,7 +1012,7 @@ curl -X 'GET' \
 
 Módulo responsável por consultar os preços praticados na administração pública.
 
-### 1. consultarMaterial
+### 6.1. consultarMaterial
 
 Serviço para obter dados e consultar o endpoint consultarMaterial.
 
@@ -1152,7 +1152,7 @@ curl -X 'GET' \
 
 [Voltar ao sumário](#sumário)
 
-### 1.1. consultarMaterial_CSV
+#### 6.1.1. consultarMaterial_CSV
 
 Serviço para obter dados e consultar o endpoint consultarMaterial_CSV.
 
@@ -1172,7 +1172,7 @@ curl -X 'GET' \
 
 [Voltar ao sumário](#sumário)
 
-### 2. consultarMaterialDetalhe
+### 6.2. consultarMaterialDetalhe
 
 Serviço para obter dados e consultar o endpoint consultarMaterialDetalhe.
 
@@ -1235,7 +1235,7 @@ curl -X 'GET' \
 
 [Voltar ao sumário](#sumário)
 
-### 2.1. consultarMaterialDetalhe_CSV
+#### 6.2.1. consultarMaterialDetalhe_CSV
 
 Serviço para obter dados e consultar o endpoint consultarMaterialDetalhe_CSV.
 
@@ -1255,7 +1255,7 @@ curl -X 'GET' \
 
 [Voltar ao sumário](#sumário)
 
-### 3. consultarServico
+### 6.3. consultarServico
 
 Serviço para obter dados e consultar o endpoint consultarServico.
 
@@ -1375,7 +1375,7 @@ curl -X 'GET' \
 
 [Voltar ao sumário](#sumário)
 
-### 3.1. consultarServico_CSV
+#### 6.3.1. consultarServico_CSV
 
 Serviço para obter dados e consultar o endpoint consultarServico_CSV.
 
@@ -1395,7 +1395,7 @@ curl -X 'GET' \
 
 [Voltar ao sumário](#sumário)
 
-### 4. consultarServicoDetalhe
+### 6.4. consultarServicoDetalhe
 
 Serviço para obter dados e consultar o endpoint consultarServicoDetalhe.
 
@@ -1458,7 +1458,7 @@ curl -X 'GET' \
 
 [Voltar ao sumário](#sumário)
 
-### 4.1. consultarServicoDetalhe_CSV
+#### 6.4.1. consultarServicoDetalhe_CSV
 
 Serviço para obter dados e consultar o endpoint consultarServicoDetalhe_CSV.
 
@@ -1484,7 +1484,7 @@ curl -X 'GET' \
 
 O PGC, no contexto da administração pública brasileira, visa organizar e planejar as contratações.
 
-### 1. consultarPgcDetalhe
+### 7.1. consultarPgcDetalhe
 
 Serviço para obter dados e consultar o endpoint consultarPgcDetalhe.
 
@@ -1637,7 +1637,7 @@ curl -X 'GET' \
 
 [Voltar ao sumário](#sumário)
 
-### 1.1. consultarPgcDetalhe_CSV
+#### 7.1.1. consultarPgcDetalhe_CSV
 
 Serviço para obter dados e consultar o endpoint consultarPgcDetalhe_CSV.
 
@@ -1657,7 +1657,7 @@ curl -X 'GET' \
 
 [Voltar ao sumário](#sumário)
 
-### 2. consultarPgcDetalheCatalogo
+### 7.2. consultarPgcDetalheCatalogo
 
 Serviço para obter dados e consultar o endpoint consultarPgcDetalheCatalogo.
 
@@ -1810,7 +1810,7 @@ curl -X 'GET' \
 
 [Voltar ao sumário](#sumário)
 
-### 2.1. consultarPgcDetalheCatalogo_CSV
+#### 7.2.1. consultarPgcDetalheCatalogo_CSV
 
 Serviço para obter dados e consultar o endpoint consultarPgcDetalheCatalogo_CSV.
 
@@ -1830,7 +1830,7 @@ curl -X 'GET' \
 
 [Voltar ao sumário](#sumário)
 
-### 3. consultarPgcAgregacao
+### 7.3. consultarPgcAgregacao
 
 Serviço para obter dados e consultar o endpoint consultarPgcAgregacao.
 
@@ -1893,7 +1893,7 @@ curl -X 'GET' \
 
 [Voltar ao sumário](#sumário)
 
-### 3.1. consultarPgcAgregacao_CSV
+#### 7.3.1. consultarPgcAgregacao_CSV
 
 Serviço para obter dados e consultar o endpoint consultarPgcAgregacao_CSV.
 
@@ -1919,7 +1919,7 @@ curl -X 'GET' \
 
 Módulo para consulta de informações sobre as Unidades Administrativas de Serviços Gerais (UASG).
 
-### 1. consultarUasg
+### 8.1. consultarUasg
 
 Serviço para obter dados e consultar o endpoint consultarUasg.
 
@@ -2015,7 +2015,7 @@ curl -X 'GET' \
 
 [Voltar ao sumário](#sumário)
 
-### 1.1. consultarUasg_CSV
+#### 8.1.1. consultarUasg_CSV
 
 Serviço para obter dados e consultar o endpoint consultarUasg_CSV.
 
@@ -2035,7 +2035,7 @@ curl -X 'GET' \
 
 [Voltar ao sumário](#sumário)
 
-### 2. consultarOrgao
+### 8.2. consultarOrgao
 
 Serviço para obter dados e consultar o endpoint consultarOrgao.
 
@@ -2120,7 +2120,7 @@ curl -X 'GET' \
 
 [Voltar ao sumário](#sumário)
 
-### 2.1. consultarOrgao_CSV
+#### 8.2.1. consultarOrgao_CSV
 
 Serviço para obter dados e consultar o endpoint consultarOrgao_CSV.
 
@@ -2146,7 +2146,7 @@ curl -X 'GET' \
 
 Possibilita a obtenção de dados sobre as licitações realizadas pelo Governo Federal de acordo com a Lei 8.666/93 e legislação correlata.
 
-### 1. consultarLicitacao
+### 9.1. consultarLicitacao
 
 Serviço para obter dados e consultar o endpoint consultarLicitacao.
 
@@ -2248,7 +2248,7 @@ curl -X 'GET' \
 
 [Voltar ao sumário](#sumário)
 
-### 1.1. consultarLicitacao_Id
+#### 9.1.1. consultarLicitacao_Id
 
 Serviço para obter dados e consultar o endpoint consultarLicitacao_Id.
 
@@ -2275,7 +2275,7 @@ curl -X 'GET' \
 
 [Voltar ao sumário](#sumário)
 
-### 2. consultarItemLicitacao
+### 9.2. consultarItemLicitacao
 
 Serviço para obter dados e consultar o endpoint consultarItemLicitacao.
 
@@ -2381,7 +2381,7 @@ curl -X 'GET' \
 
 [Voltar ao sumário](#sumário)
 
-### 2.1. consultarItemLicitacao_Id
+#### 9.2.1. consultarItemLicitacao_Id
 
 Serviço para obter dados e consultar o endpoint consultarItemLicitacao_Id.
 
@@ -2409,7 +2409,7 @@ curl -X 'GET' \
 
 [Voltar ao sumário](#sumário)
 
-### 3. consultarPregoes
+### 9.3. consultarPregoes
 
 Serviço para obter dados e consultar o endpoint consultarPregoes.
 
@@ -2506,7 +2506,7 @@ curl -X 'GET' \
 
 [Voltar ao sumário](#sumário)
 
-### 3.1. consultarPregoes_Id
+#### 9.3.1. consultarPregoes_Id
 
 Serviço para obter dados e consultar o endpoint consultarPregoes_Id.
 
@@ -2532,7 +2532,7 @@ curl -X 'GET' \
 
 [Voltar ao sumário](#sumário)
 
-### 4. consultarItensPregoes
+### 9.4. consultarItensPregoes
 
 Serviço para obter dados e consultar o endpoint consultarItensPregoes.
 
@@ -2627,7 +2627,7 @@ curl -X 'GET' \
 
 [Voltar ao sumário](#sumário)
 
-### 5. consultarComprasSemLicitacao
+### 9.5. consultarComprasSemLicitacao
 
 Serviço para obter dados e consultar o endpoint consultarComprasSemLicitacao.
 
@@ -2732,7 +2732,7 @@ curl -X 'GET' \
 
 [Voltar ao sumário](#sumário)
 
-### 5.1. consultarCompraSemLicitacao_Id
+#### 9.5.1. consultarCompraSemLicitacao_Id
 
 Serviço para obter dados e consultar o endpoint consultarCompraSemLicitacao_Id.
 
@@ -2758,7 +2758,7 @@ curl -X 'GET' \
 
 [Voltar ao sumário](#sumário)
 
-### 6. consultarCompraItensSemLicitacao
+### 9.6. consultarCompraItensSemLicitacao
 
 Serviço para obter dados e consultar o endpoint consultarCompraItensSemLicitacao.
 
@@ -2891,7 +2891,7 @@ curl -X 'GET' \
 
 [Voltar ao sumário](#sumário)
 
-### 6.1. consultarItensComprasSemLicitacao_Id
+#### 9.6.1. consultarItensComprasSemLicitacao_Id
 
 Serviço para obter dados e consultar o endpoint consultarItensComprasSemLicitacao_Id.
 
@@ -2919,7 +2919,7 @@ curl -X 'GET' \
 
 [Voltar ao sumário](#sumário)
 
-### 7. consultarRdc
+### 9.7. consultarRdc
 
 Serviço para obter dados e consultar o endpoint consultarRdc.
 
@@ -3028,19 +3028,19 @@ curl -X 'GET' \
 
 O Módulo Contratações oferece acesso a informações detalhadas sobre os procedimentos de contratação.
 
-### Indicadores de Modalidade
+### 10.1. Indicadores de Modalidade
 (Descrição dos indicadores de modalidade)
 
-### Modos de Disputa
+### 10.2. Modos de Disputa
 (Descrição dos modos de disputa)
 
-### Critérios de Julgamento
+### 10.3. Critérios de Julgamento
 (Descrição dos critérios de julgamento)
 
-### Amparos Legais
+### 10.4. Amparos Legais
 (Descrição dos amparos legais)
 
-### 1. consultarContratacoes_PNCP_14133
+### 10.5. consultarContratacoes_PNCP_14133
 
 Serviço para obter dados e consultar o endpoint consultarContratacoes_PNCP_14133.
 
@@ -3201,7 +3201,7 @@ curl -X 'GET' \
 
 [Voltar ao sumário](#sumário)
 
-### 1.1. consultarContratacoes_PNCP_14133_Id
+#### 10.5.1. consultarContratacoes_PNCP_14133_Id
 
 Serviço para obter dados e consultar o endpoint consultarContratacoes_PNCP_14133_Id.
 
@@ -3229,7 +3229,7 @@ curl -X 'GET' \
 
 [Voltar ao sumário](#sumário)
 
-### 2. consultarItensContratacoes_PNCP_14133
+### 10.6. consultarItensContratacoes_PNCP_14133
 
 Serviço para obter dados e consultar o endpoint consultarItensContratacoes_PNCP_14133.
 
@@ -3385,7 +3385,7 @@ curl -X 'GET' \
 
 [Voltar ao sumário](#sumário)
 
-### 2.1. consultarItensContratacoes_PNCP_14133_Id
+#### 10.6.1. consultarItensContratacoes_PNCP_14133_Id
 
 Serviço para obter dados e consultar o endpoint consultarItensContratacoes_PNCP_14133_Id.
 
@@ -3414,7 +3414,7 @@ curl -X 'GET' \
 
 [Voltar ao sumário](#sumário)
 
-### 3. consultarResultadoItensContratacoes_PNCP_14133
+### 10.7. consultarResultadoItensContratacoes_PNCP_14133
 
 Serviço para obter dados e consultar o endpoint consultarResultadoItensContratacoes_PNCP_14133.
 
@@ -3560,7 +3560,7 @@ curl -X 'GET' \
 
 [Voltar ao sumário](#sumário)
 
-### 3.1. consultarResultadoItensContratacoes_PNCP_14133_Id
+#### 10.7.1. consultarResultadoItensContratacoes_PNCP_14133_Id
 
 Serviço para obter dados e consultar o endpoint consultarResultadoItensContratacoes_PNCP_14133_Id.
 
@@ -3595,7 +3595,7 @@ curl -X 'GET' \
 
 O Módulo ARP (Ata de Registro de Preços) permite consultar atas vigentes, itens, quantitativos e histórico de adesões.
 
-### 1. consultarARP
+### 11.1. consultarARP
 
 Serviço para obter dados e consultar o endpoint consultarARP.
 
@@ -3698,7 +3698,7 @@ curl -X 'GET' \
 
 [Voltar ao sumário](#sumário)
 
-### 1.1. consultarARP_Id
+#### 11.1.1. consultarARP_Id
 
 Serviço para obter dados e consultar o endpoint consultarARP_Id.
 
@@ -3725,7 +3725,7 @@ curl -X 'GET' \
 
 [Voltar ao sumário](#sumário)
 
-### 1.2. consultarARP_FimVigencia
+#### 11.1.2. consultarARP_FimVigencia
 
 Serviço para obter dados e consultar o endpoint consultarARP_FimVigencia.
 
@@ -3828,7 +3828,7 @@ curl -X 'GET' \
 
 [Voltar ao sumário](#sumário)
 
-### 2. consultarARPItem
+### 11.2. consultarARPItem
 
 Serviço para obter dados e consultar o endpoint consultarARPItem.
 
@@ -3954,7 +3954,7 @@ curl -X 'GET' \
 
 [Voltar ao sumário](#sumário)
 
-### 2.1. consultarARPItem_Id
+#### 11.2.1. consultarARPItem_Id
 
 Serviço para obter dados e consultar o endpoint consultarARPItem_Id.
 
@@ -3981,7 +3981,7 @@ curl -X 'GET' \
 
 [Voltar ao sumário](#sumário)
 
-### 3. consultarUnidadesItem
+### 11.3. consultarUnidadesItem
 
 Serviço para obter dados e consultar o endpoint consultarUnidadesItem.
 
@@ -4067,7 +4067,7 @@ curl -X 'GET' \
 
 [Voltar ao sumário](#sumário)
 
-### 4. consultarEmpenhosSaldoItem
+### 11.4. consultarEmpenhosSaldoItem
 
 Serviço para obter dados e consultar o endpoint consultarEmpenhosSaldoItem.
 
@@ -4132,7 +4132,7 @@ curl -X 'GET' \
 
 [Voltar ao sumário](#sumário)
 
-### 5. consultarAdesoesItem
+### 11.5. consultarAdesoesItem
 
 Serviço para obter dados e consultar o endpoint consultarAdesoesItem.
 
@@ -4199,7 +4199,7 @@ curl -X 'GET' \
 
 O Módulo Contratos permite acesso às informações sobre contratos firmados pela Administração Pública.
 
-### 1. consultarContratos
+### 12.1. consultarContratos
 
 Serviço para obter dados e consultar o endpoint consultarContratos.
 
@@ -4331,7 +4331,7 @@ curl -X 'GET' \
 
 [Voltar ao sumário](#sumário)
 
-### 1.1. consultarContratos_Id
+#### 12.1.1. consultarContratos_Id
 
 Serviço para obter dados e consultar o endpoint consultarContratos_Id.
 
@@ -4358,7 +4358,7 @@ curl -X 'GET' \
 
 [Voltar ao sumário](#sumário)
 
-### 1.2. consultarContratos_FimVigencia
+#### 12.1.2. consultarContratos_FimVigencia
 
 Serviço para obter dados e consultar o endpoint consultarContratos_FimVigencia.
 
@@ -4491,7 +4491,7 @@ curl -X 'GET' \
 
 [Voltar ao sumário](#sumário)
 
-### 2. consultarContratosItem
+### 12.2. consultarContratosItem
 
 Serviço para obter dados e consultar o endpoint consultarContratosItem.
 
@@ -4621,7 +4621,7 @@ curl -X 'GET' \
 
 [Voltar ao sumário](#sumário)
 
-### 2.1. consultarContratosItem_Id
+#### 12.2.1. consultarContratosItem_Id
 
 Serviço para obter dados e consultar o endpoint consultarContratosItem_Id.
 
@@ -4654,7 +4654,7 @@ curl -X 'GET' \
 
 O Módulo Fornecedor permite a consulta de dados cadastrais e situação dos fornecedores habilitados para participar de processos de contratação pública.
 
-### 1. consultarFornecedor
+### 13.1. consultarFornecedor
 
 Serviço que permite consultar dados cadastrais de fornecedores, incluindo informações sobre porte empresarial, natureza jurídica e situação de habilitação para licitar.
 
@@ -4736,7 +4736,7 @@ curl -X 'GET' \
 
 O Módulo OCDS (Open Contracting Data Standard) disponibiliza dados de contratações públicas no formato aberto e padronizado internacionalmente pelo padrão OCDS, facilitando a interoperabilidade e a análise de dados de contratações governamentais por sistemas externos.
 
-### 1. releases
+### 14.1. releases
 
 Serviço que retorna os dados de contratações públicas no formato OCDS, incluindo informações sobre a licitação, partes envolvidas, itens licitados, lotes e resultados (adjudicações).
 
@@ -4997,7 +4997,7 @@ O retorno segue o padrão OCDS (Open Contracting Data Standard). Os principais c
 
 ---
 
-## Histórico de Revisões
+## 15. Histórico de Revisões
 
 | Data | Versão | Descrição | Autor |
 |---|---|---|---|
