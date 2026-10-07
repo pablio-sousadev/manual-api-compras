@@ -126,20 +126,37 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    // ── 4. Manter o Sumário Lateral Sempre Aberto ───────────────────────────────
-    // Garante que o menu vertical permaneça expandido e o item ativo fique visível
+    // ── 4. Menu Lateral Interativo (Sanfona Sob Demanda) ────────────────────────
     const menu = document.querySelector('.wy-menu-vertical');
     if (menu) {
-        menu.querySelectorAll('li.toctree-l1, li.toctree-l2, li.toctree-l3').forEach(function (li) {
-            li.classList.add('current');
-            const ul = li.querySelector('ul');
-            if (ul) ul.style.display = 'block';
-        });
+        menu.querySelectorAll('li.toctree-l1').forEach(function (li) {
+            const subMenu = li.querySelector('ul');
+            if (subMenu) {
+                const expandBtn = li.querySelector('.toctree-expand');
+                const link = li.querySelector('a');
 
-        // Rolagem automática para a seção ativa no menu lateral
-        const activeLink = menu.querySelector('a.current');
-        if (activeLink) {
-            activeLink.scrollIntoView({ block: 'nearest' });
-        }
+                // Clique no '+' expande/recolhe o submenu
+                if (expandBtn) {
+                    expandBtn.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        li.classList.toggle('current');
+                        if (subMenu) {
+                            subMenu.style.display = li.classList.contains('current') ? 'block' : 'none';
+                        }
+                    });
+                }
+
+                // Clique no título abre o submenu
+                if (link) {
+                    link.addEventListener('click', function () {
+                        li.classList.add('current');
+                        if (subMenu) {
+                            subMenu.style.display = 'block';
+                        }
+                    });
+                }
+            }
+        });
     }
 });

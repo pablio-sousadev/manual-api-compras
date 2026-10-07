@@ -41,17 +41,23 @@
     }
 }
 
-/* ── Manter o Sumário Lateral Sempre Aberto ──────────────────────────── */
-.wy-menu-vertical ul {
-    display: block !important;
+/* ── Menu Lateral Sanfona (Accordion / Expansão Sob Demanda) ──────────── */
+.wy-menu-vertical li.toctree-l1 > a {
+    font-weight: 600 !important;
+    font-size: 0.94rem !important;
 }
 
-.wy-menu-vertical li.current > a {
-    font-weight: 700 !important;
+.wy-menu-vertical li.toctree-l1 span.toctree-expand {
+    cursor: pointer !important;
+    font-size: 1.1rem !important;
+    padding: 0 10px !important;
+    user-select: none !important;
 }
 
-.wy-menu-vertical li.current li.current > a {
+.wy-menu-vertical li.current-active > a,
+.wy-menu-vertical li.toctree-l1.current > a {
     color: #0284c7 !important;
+    font-weight: 700 !important;
 }
 
 /* ── Imagens & Zoom Lightbox ─────────────────────────────────────────── */
