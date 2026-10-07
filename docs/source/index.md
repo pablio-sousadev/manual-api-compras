@@ -51,7 +51,7 @@ Serviço para obter dados e consultar o endpoint consultarGrupoMaterial.
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-material/1_consultarGrupoMaterial`  
 
-**Método HTTP:** <span class="badge-get">GET</span>
+**Método HTTP:** <span class=\'badge-GET\'>GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -106,7 +106,7 @@ Serviço para obter dados e consultar o endpoint consultarClasseMaterial.
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-material/2_consultarClasseMaterial`  
 
-**Método HTTP:** <span class="badge-get">GET</span>
+**Método HTTP:** <span class=\'badge-GET\'>GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -167,7 +167,7 @@ Serviço para obter dados e consultar o endpoint consultarPdmMaterial.
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-material/3_consultarPdmMaterial`  
 
-**Método HTTP:** <span class="badge-get">GET</span>
+**Método HTTP:** <span class=\'badge-GET\'>GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -234,7 +234,7 @@ Serviço para obter dados e consultar o endpoint consultarItemMaterial.
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-material/4_consultarItemMaterial`  
 
-**Método HTTP:** <span class="badge-get">GET</span>
+**Método HTTP:** <span class=\'badge-GET\'>GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -316,7 +316,7 @@ Serviço para obter dados e consultar o endpoint consultarMaterialNaturezaDespes
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-material/5_consultarMaterialNaturezaDespesa`  
 
-**Método HTTP:** <span class="badge-get">GET</span>
+**Método HTTP:** <span class=\'badge-GET\'>GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -373,7 +373,7 @@ Serviço para obter dados e consultar o endpoint consultarMaterialUnidadeForneci
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-material/6_consultarMaterialUnidadeFornecimento`  
 
-**Método HTTP:** <span class="badge-get">GET</span>
+**Método HTTP:** <span class=\'badge-GET\'>GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -441,7 +441,7 @@ Serviço para obter dados e consultar o endpoint consultarMaterialCaracteristica
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-material/7_consultarMaterialCaracteristicas`  
 
-**Método HTTP:** <span class="badge-get">GET</span>
+**Método HTTP:** <span class=\'badge-GET\'>GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -518,7 +518,7 @@ Serviço para obter dados e consultar o endpoint consultarSecaoServico.
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-servico/1_consultarSecaoServico`  
 
-**Método HTTP:** <span class="badge-get">GET</span>
+**Método HTTP:** <span class=\'badge-GET\'>GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -573,7 +573,7 @@ Serviço para obter dados e consultar o endpoint consultarDivisaoServico.
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-servico/2_consultarDivisaoServico`  
 
-**Método HTTP:** <span class="badge-get">GET</span>
+**Método HTTP:** <span class=\'badge-GET\'>GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -633,7 +633,7 @@ Serviço para obter dados e consultar o endpoint consultarGrupoServico.
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-servico/3_consultarGrupoServico`  
 
-**Método HTTP:** <span class="badge-get">GET</span>
+**Método HTTP:** <span class=\'badge-GET\'>GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -695,7 +695,7 @@ Serviço para obter dados e consultar o endpoint consultarClasseServico.
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-servico/4_consultarClasseServico`  
 
-**Método HTTP:** <span class="badge-get">GET</span>
+**Método HTTP:** <span class=\'badge-GET\'>GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -755,7 +755,7 @@ Serviço para obter dados e consultar o endpoint consultarSubClasseServico.
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-servico/5_consultarSubClasseServico`  
 
-**Método HTTP:** <span class="badge-get">GET</span>
+**Método HTTP:** <span class=\'badge-GET\'>GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -814,7 +814,7 @@ curl -X 'GET' \
 Serviço para obter dados e consultar o endpoint consultarItemServico.
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-servico/6_consultarItemServico`  
-**Método HTTP:** <span class="badge-get">GET</span>
+**Método HTTP:** <span class=\'badge-GET\'>GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -901,7 +901,7 @@ Serviço para obter dados e consultar o endpoint consultarUndMedidaServico.
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-servico/7_consultarUndMedidaServico`  
 
-**Método HTTP:** <span class="badge-get">GET</span>
+**Método HTTP:** <span class=\'badge-GET\'>GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -956,7 +956,7 @@ Serviço para obter dados e consultar o endpoint consultarNaturezaDespesaServico
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-servico/8_consultarNaturezaDespesaServico`  
 
-**Método HTTP:** <span class="badge-get">GET</span>
+**Método HTTP:** <span class=\'badge-GET\'>GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -1018,7 +1018,7 @@ Serviço para obter dados e consultar o endpoint consultarMaterial.
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-pesquisa-preco/1_consultarMaterial`  
 
-**Método HTTP:** <span class="badge-get">GET</span>
+**Método HTTP:** <span class=\'badge-GET\'>GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -1160,7 +1160,7 @@ Serviço para obter dados e consultar o endpoint consultarMaterial_CSV.
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-pesquisa-preco/1.1_consultarMaterial_CSV`  
 
-**Método HTTP:** <span class="badge-get">GET</span>
+**Método HTTP:** <span class=\'badge-GET\'>GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -1178,7 +1178,7 @@ Serviço para obter dados e consultar o endpoint consultarMaterialDetalhe.
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-pesquisa-preco/2_consultarMaterialDetalhe`  
 
-**Método HTTP:** <span class="badge-get">GET</span>
+**Método HTTP:** <span class=\'badge-GET\'>GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -1243,7 +1243,7 @@ Serviço para obter dados e consultar o endpoint consultarMaterialDetalhe_CSV.
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-pesquisa-preco/2.1_consultarMaterialDetalhe_CSV`  
 
-**Método HTTP:** <span class="badge-get">GET</span>
+**Método HTTP:** <span class=\'badge-GET\'>GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -1261,7 +1261,7 @@ Serviço para obter dados e consultar o endpoint consultarServico.
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-pesquisa-preco/3_consultarServico`  
 
-**Método HTTP:** <span class="badge-get">GET</span>
+**Método HTTP:** <span class=\'badge-GET\'>GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -1383,7 +1383,7 @@ Serviço para obter dados e consultar o endpoint consultarServico_CSV.
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-pesquisa-preco/3.1_consultarServico_CSV`  
 
-**Método HTTP:** <span class="badge-get">GET</span>
+**Método HTTP:** <span class=\'badge-GET\'>GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -1401,7 +1401,7 @@ Serviço para obter dados e consultar o endpoint consultarServicoDetalhe.
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-pesquisa-preco/4_consultarServicoDetalhe`  
 
-**Método HTTP:** <span class="badge-get">GET</span>
+**Método HTTP:** <span class=\'badge-GET\'>GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -1466,7 +1466,7 @@ Serviço para obter dados e consultar o endpoint consultarServicoDetalhe_CSV.
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-pesquisa-preco/4.1_consultarServicoDetalhe_CSV`  
 
-**Método HTTP:** <span class="badge-get">GET</span>
+**Método HTTP:** <span class=\'badge-GET\'>GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -1490,7 +1490,7 @@ Serviço para obter dados e consultar o endpoint consultarPgcDetalhe.
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-pgc/1_consultarPgcDetalhe`  
 
-**Método HTTP:** <span class="badge-get">GET</span>
+**Método HTTP:** <span class=\'badge-GET\'>GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -1645,7 +1645,7 @@ Serviço para obter dados e consultar o endpoint consultarPgcDetalhe_CSV.
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-pgc/1.1_consultarPgcDetalhe_CSV`  
 
-**Método HTTP:** <span class="badge-get">GET</span>
+**Método HTTP:** <span class=\'badge-GET\'>GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -1663,7 +1663,7 @@ Serviço para obter dados e consultar o endpoint consultarPgcDetalheCatalogo.
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-pgc/2_consultarPgcDetalheCatalogo`  
 
-**Método HTTP:** <span class="badge-get">GET</span>
+**Método HTTP:** <span class=\'badge-GET\'>GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -1818,7 +1818,7 @@ Serviço para obter dados e consultar o endpoint consultarPgcDetalheCatalogo_CSV
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-pgc/2.1_consultarPgcDetalheCatalogo_CSV`  
 
-**Método HTTP:** <span class="badge-get">GET</span>
+**Método HTTP:** <span class=\'badge-GET\'>GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -1836,7 +1836,7 @@ Serviço para obter dados e consultar o endpoint consultarPgcAgregacao.
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-pgc/3_consultarPgcAgregacao`  
 
-**Método HTTP:** <span class="badge-get">GET</span>
+**Método HTTP:** <span class=\'badge-GET\'>GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -1901,7 +1901,7 @@ Serviço para obter dados e consultar o endpoint consultarPgcAgregacao_CSV.
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-pgc/3.1_consultarPgcAgregacao_CSV`  
 
-**Método HTTP:** <span class="badge-get">GET</span>
+**Método HTTP:** <span class=\'badge-GET\'>GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -1925,7 +1925,7 @@ Serviço para obter dados e consultar o endpoint consultarUasg.
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-uasg/1_consultarUasg`  
 
-**Método HTTP:** <span class="badge-get">GET</span>
+**Método HTTP:** <span class=\'badge-GET\'>GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -2023,7 +2023,7 @@ Serviço para obter dados e consultar o endpoint consultarUasg_CSV.
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-uasg/1.1_consultarUasg_CSV`  
 
-**Método HTTP:** <span class="badge-get">GET</span>
+**Método HTTP:** <span class=\'badge-GET\'>GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -2041,7 +2041,7 @@ Serviço para obter dados e consultar o endpoint consultarOrgao.
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-uasg/2_consultarOrgao`  
 
-**Método HTTP:** <span class="badge-get">GET</span>
+**Método HTTP:** <span class=\'badge-GET\'>GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -2128,7 +2128,7 @@ Serviço para obter dados e consultar o endpoint consultarOrgao_CSV.
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-uasg/2.1_consultarOrgao_CSV`  
 
-**Método HTTP:** <span class="badge-get">GET</span>
+**Método HTTP:** <span class=\'badge-GET\'>GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -2152,7 +2152,7 @@ Serviço para obter dados e consultar o endpoint consultarLicitacao.
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-legado/1_consultarLicitacao`  
 
-**Método HTTP:** <span class="badge-get">GET</span>
+**Método HTTP:** <span class=\'badge-GET\'>GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -2256,7 +2256,7 @@ Serviço para obter dados e consultar o endpoint consultarLicitacao_Id.
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-legado/1.1_consultarLicitacao_Id`  
 
-**Método HTTP:** <span class="badge-get">GET</span>
+**Método HTTP:** <span class=\'badge-GET\'>GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -2281,7 +2281,7 @@ Serviço para obter dados e consultar o endpoint consultarItemLicitacao.
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-legado/2_consultarItemLicitacao`  
 
-**Método HTTP:** <span class="badge-get">GET</span>
+**Método HTTP:** <span class=\'badge-GET\'>GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -2389,7 +2389,7 @@ Serviço para obter dados e consultar o endpoint consultarItemLicitacao_Id.
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-legado/2.1_consultarItemLicitacao_Id`  
 
-**Método HTTP:** <span class="badge-get">GET</span>
+**Método HTTP:** <span class=\'badge-GET\'>GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -2415,7 +2415,7 @@ Serviço para obter dados e consultar o endpoint consultarPregoes.
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-legado/3_consultarPregoes`  
 
-**Método HTTP:** <span class="badge-get">GET</span>
+**Método HTTP:** <span class=\'badge-GET\'>GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -2513,7 +2513,7 @@ Serviço para obter dados e consultar o endpoint consultarPregoes_Id.
 > Este endpoint possui os mesmos dados de retorno do endpoint anterior. A diferença é que a consulta é realizada pelo identificador único da compra ou pelo número de controle PNCP.
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-legado/3.1_consultarPregoes_Id`  
-**Método HTTP:** <span class="badge-get">GET</span>
+**Método HTTP:** <span class=\'badge-GET\'>GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -2537,7 +2537,7 @@ curl -X 'GET' \
 Serviço para obter dados e consultar o endpoint consultarItensPregoes.
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-legado/4_consultarItensPregoes`  
-**Método HTTP:** <span class="badge-get">GET</span>
+**Método HTTP:** <span class=\'badge-GET\'>GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -2633,7 +2633,7 @@ Serviço para obter dados e consultar o endpoint consultarComprasSemLicitacao.
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-legado/5_consultarComprasSemLicitacao`  
 
-**Método HTTP:** <span class="badge-get">GET</span>
+**Método HTTP:** <span class=\'badge-GET\'>GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -2740,7 +2740,7 @@ Serviço para obter dados e consultar o endpoint consultarCompraSemLicitacao_Id.
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-legado/5.1_consultarCompraSemLicitacao_Id`  
 
-**Método HTTP:** <span class="badge-get">GET</span>
+**Método HTTP:** <span class=\'badge-GET\'>GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -2764,7 +2764,7 @@ Serviço para obter dados e consultar o endpoint consultarCompraItensSemLicitaca
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-legado/6_consultarCompraItensSemLicitacao`  
 
-**Método HTTP:** <span class="badge-get">GET</span>
+**Método HTTP:** <span class=\'badge-GET\'>GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -2899,7 +2899,7 @@ Serviço para obter dados e consultar o endpoint consultarItensComprasSemLicitac
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-legado/6.1_consultarItensComprasSemLicitacao_Id`  
 
-**Método HTTP:** <span class="badge-get">GET</span>
+**Método HTTP:** <span class=\'badge-GET\'>GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -2925,7 +2925,7 @@ Serviço para obter dados e consultar o endpoint consultarRdc.
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-legado/7_consultarRdc`  
 
-**Método HTTP:** <span class="badge-get">GET</span>
+**Método HTTP:** <span class=\'badge-GET\'>GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -3046,7 +3046,7 @@ Serviço para obter dados e consultar o endpoint consultarContratacoes_PNCP_1413
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-contratacoes/1_consultarContratacoes_PNCP_14133`  
 
-**Método HTTP:** <span class="badge-get">GET</span>
+**Método HTTP:** <span class=\'badge-GET\'>GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -3209,7 +3209,7 @@ Serviço para obter dados e consultar o endpoint consultarContratacoes_PNCP_1413
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-contratacoes/1.1_consultarContratacoes_PNCP_14133_Id`  
 
-**Método HTTP:** <span class="badge-get">GET</span>
+**Método HTTP:** <span class=\'badge-GET\'>GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -3235,7 +3235,7 @@ Serviço para obter dados e consultar o endpoint consultarItensContratacoes_PNCP
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-contratacoes/2_consultarItensContratacoes_PNCP_14133`  
 
-**Método HTTP:** <span class="badge-get">GET</span>
+**Método HTTP:** <span class=\'badge-GET\'>GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -3393,7 +3393,7 @@ Serviço para obter dados e consultar o endpoint consultarItensContratacoes_PNCP
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-contratacoes/2.1_consultarItensContratacoes_PNCP_14133_Id`  
 
-**Método HTTP:** <span class="badge-get">GET</span>
+**Método HTTP:** <span class=\'badge-GET\'>GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -3420,7 +3420,7 @@ Serviço para obter dados e consultar o endpoint consultarResultadoItensContrata
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-contratacoes/3_consultarResultadoItensContratacoes_PNCP_14133`  
 
-**Método HTTP:** <span class="badge-get">GET</span>
+**Método HTTP:** <span class=\'badge-GET\'>GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -3568,7 +3568,7 @@ Serviço para obter dados e consultar o endpoint consultarResultadoItensContrata
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-contratacoes/3.1_consultarResultadoItensContratacoes_PNCP_14133_Id`  
 
-**Método HTTP:** <span class="badge-get">GET</span>
+**Método HTTP:** <span class=\'badge-GET\'>GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -3601,7 +3601,7 @@ Serviço para obter dados e consultar o endpoint consultarARP.
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-arp/1_consultarARP`  
 
-**Método HTTP:** <span class="badge-get">GET</span>
+**Método HTTP:** <span class=\'badge-GET\'>GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -3614,15 +3614,15 @@ curl -X 'GET' \
 
 | Campo                     | Tipo    | Obrigatório | Descrição                                                                                                     |
 | ------------------------- | ------- | ----------- | ------------------------------------------------------------------------------------------------------------- |
-| pagina                    | integer | <span class="badge-opt">⚪ Não</span>         | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
-| tamanhoPagina             | integer | <span class="badge-opt">⚪ Não</span>         | Ajustar o tamanho de registros por página (limite máx. de 500 registros por página). (Default: 10)            |
-| codigoUnidadeGerenciadora | string  | <span class="badge-opt">⚪ Não</span>         | Código do registro associado                                                                                  |
-| codigoModalidadeCompra    | string  | <span class="badge-opt">⚪ Não</span>         | Código do registro associado                                                                                  |
-| numeroAtaRegistroPreco    | string  | <span class="badge-opt">⚪ Não</span>         | Valor do campo Numero ata registro preco                                                                      |
-| dataVigenciaInicialMin    | string  | <span class="badge-req">🔴 Sim</span>         | Data correspondente ao registro                                                                               |
-| dataVigenciaInicialMax    | string  | <span class="badge-req">🔴 Sim</span>         | Data correspondente ao registro                                                                               |
-| dataAssinaturaInicial     | string  | <span class="badge-opt">⚪ Não</span>         | Data correspondente ao registro                                                                               |
-| dataAssinaturaFinal       | string  | <span class="badge-opt">⚪ Não</span>         | Data correspondente ao registro                                                                               |
+| pagina                    | integer | <span class="badge-opt">⚪ Não</span> | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
+| tamanhoPagina             | integer | <span class="badge-opt">⚪ Não</span> | Ajustar o tamanho de registros por página (limite máx. de 500 registros por página). (Default: 10)            |
+| codigoUnidadeGerenciadora | string  | <span class="badge-opt">⚪ Não</span> | Código do registro associado                                                                                  |
+| codigoModalidadeCompra    | string  | <span class="badge-opt">⚪ Não</span> | Código do registro associado                                                                                  |
+| numeroAtaRegistroPreco    | string  | <span class="badge-opt">⚪ Não</span> | Valor do campo Numero ata registro preco                                                                      |
+| dataVigenciaInicialMin    | string  | <span class="badge-req">🔴 Sim</span> | Data correspondente ao registro                                                                               |
+| dataVigenciaInicialMax    | string  | <span class="badge-req">🔴 Sim</span> | Data correspondente ao registro                                                                               |
+| dataAssinaturaInicial     | string  | <span class="badge-opt">⚪ Não</span> | Data correspondente ao registro                                                                               |
+| dataAssinaturaFinal       | string  | <span class="badge-opt">⚪ Não</span> | Data correspondente ao registro                                                                               |
 
 **Dados de Retorno:**
 
@@ -3706,7 +3706,7 @@ Serviço para obter dados e consultar o endpoint consultarARP_Id.
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-arp/1.1_consultarARP_Id`  
 
-**Método HTTP:** <span class="badge-get">GET</span>
+**Método HTTP:** <span class=\'badge-GET\'>GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -3731,7 +3731,7 @@ Serviço para obter dados e consultar o endpoint consultarARP_FimVigencia.
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-arp/1.2_consultarARP_FimVigencia`  
 
-**Método HTTP:** <span class="badge-get">GET</span>
+**Método HTTP:** <span class=\'badge-GET\'>GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -3834,7 +3834,7 @@ Serviço para obter dados e consultar o endpoint consultarARPItem.
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-arp/2_consultarARPItem`  
 
-**Método HTTP:** <span class="badge-get">GET</span>
+**Método HTTP:** <span class=\'badge-GET\'>GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -3962,7 +3962,7 @@ Serviço para obter dados e consultar o endpoint consultarARPItem_Id.
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-arp/2.1_consultarARPItem_Id`  
 
-**Método HTTP:** <span class="badge-get">GET</span>
+**Método HTTP:** <span class=\'badge-GET\'>GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -3987,7 +3987,7 @@ Serviço para obter dados e consultar o endpoint consultarUnidadesItem.
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-arp/3_consultarUnidadesItem`
 
-**Método HTTP:** <span class="badge-get">GET</span>
+**Método HTTP:** <span class=\'badge-GET\'>GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -4073,7 +4073,7 @@ Serviço para obter dados e consultar o endpoint consultarEmpenhosSaldoItem.
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-arp/4_consultarEmpenhosSaldoItem`  
 
-**Método HTTP:** <span class="badge-get">GET</span>
+**Método HTTP:** <span class=\'badge-GET\'>GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -4138,7 +4138,7 @@ Serviço para obter dados e consultar o endpoint consultarAdesoesItem.
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-arp/5_consultarAdesoesItem` 
 
-**Método HTTP:** <span class="badge-get">GET</span>
+**Método HTTP:** <span class=\'badge-GET\'>GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -4204,7 +4204,7 @@ O Módulo Contratos permite acesso às informações sobre contratos firmados pe
 Serviço para obter dados e consultar o endpoint consultarContratos.
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-contratos/1_consultarContratos`  
-**Método HTTP:** <span class="badge-get">GET</span>
+**Método HTTP:** <span class=\'badge-GET\'>GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -4339,7 +4339,7 @@ Serviço para obter dados e consultar o endpoint consultarContratos_Id.
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-contratos/1.1_consultarContratos_Id`  
 
-**Método HTTP:** <span class="badge-get">GET</span>
+**Método HTTP:** <span class=\'badge-GET\'>GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -4364,7 +4364,7 @@ Serviço para obter dados e consultar o endpoint consultarContratos_FimVigencia.
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-contratos/1.2_consultarContratos_FimVigencia`  
 
-**Método HTTP:** <span class="badge-get">GET</span>
+**Método HTTP:** <span class=\'badge-GET\'>GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -4497,7 +4497,7 @@ Serviço para obter dados e consultar o endpoint consultarContratosItem.
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-contratos/2_consultarContratosItem`  
 
-**Método HTTP:** <span class="badge-get">GET</span>
+**Método HTTP:** <span class=\'badge-GET\'>GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -4629,7 +4629,7 @@ Serviço para obter dados e consultar o endpoint consultarContratosItem_Id.
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-contratos/2.1_consultarContratosItem_Id`  
 
-**Método HTTP:** <span class="badge-get">GET</span>
+**Método HTTP:** <span class=\'badge-GET\'>GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -4659,7 +4659,7 @@ O Módulo Fornecedor permite a consulta de dados cadastrais e situação dos for
 Serviço que permite consultar dados cadastrais de fornecedores, incluindo informações sobre porte empresarial, natureza jurídica e situação de habilitação para licitar.
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-fornecedor/1_consultarFornecedor`  
-**Método HTTP:** <span class="badge-get">GET</span>
+**Método HTTP:** <span class=\'badge-GET\'>GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash
@@ -4741,7 +4741,7 @@ O Módulo OCDS (Open Contracting Data Standard) disponibiliza dados de contrata�
 Serviço que retorna os dados de contratações públicas no formato OCDS, incluindo informações sobre a licitação, partes envolvidas, itens licitados, lotes e resultados (adjudicações).
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-ocds/1_releases`  
-**Método HTTP:** <span class="badge-get">GET</span>
+**Método HTTP:** <span class=\'badge-GET\'>GET</span>
 
 **Exemplo de Requisição (cURL):**
 ```bash

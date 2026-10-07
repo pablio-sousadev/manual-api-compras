@@ -315,8 +315,7 @@ body.dark-version .accessibility-toolbar button:hover {
 }
 
 /* ── Badges de Método HTTP ─────────────────────────────────────────────────── */
-.badge-get {
-    background-color: #0284c7 !important;
+.badge-get, .badge-post, .badge-put, .badge-delete, .badge-patch {
     color: #ffffff !important;
     font-weight: 700 !important;
     font-size: 0.85rem !important;
@@ -328,6 +327,12 @@ body.dark-version .accessibility-toolbar button:hover {
     font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace !important;
     vertical-align: middle !important;
 }
+
+.badge-get { background-color: #0284c7 !important; }
+.badge-post { background-color: #10b981 !important; }
+.badge-put { background-color: #f59e0b !important; }
+.badge-delete { background-color: #ef4444 !important; }
+.badge-patch { background-color: #8b5cf6 !important; }
 
 /* ── Badges de Campos da Tabela (Obrigatório / Opcional) ──────────────────── */
 .badge-req {
