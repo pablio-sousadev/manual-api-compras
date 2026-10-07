@@ -70,9 +70,9 @@
     display: none !important;
 }
 
-/* Único Botão .toctree-expand Azul Perfeitamente Alinhado */
-.wy-menu-vertical span.toctree-expand,
-.local-toc span.toctree-expand {
+/* Único Botão .custom-expand-btn Azul Perfeitamente Alinhado */
+.wy-menu-vertical span.custom-expand-btn,
+.local-toc span.custom-expand-btn {
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
@@ -93,8 +93,8 @@
     font-family: monospace, sans-serif !important;
 }
 
-.wy-menu-vertical span.toctree-expand:hover,
-.local-toc span.toctree-expand:hover {
+.wy-menu-vertical span.custom-expand-btn:hover,
+.local-toc span.custom-expand-btn:hover {
     background: #0284c7 !important;
     color: #ffffff !important;
     border-color: #0284c7 !important;

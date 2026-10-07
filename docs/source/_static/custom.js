@@ -125,11 +125,6 @@ document.addEventListener('DOMContentLoaded', function () {
     function initAccordionMenu() {
         const menuContainers = document.querySelectorAll('.wy-menu-vertical, .local-toc');
         menuContainers.forEach(function (container) {
-            // Eliminar qualquer botão extra customizado anterior
-            container.querySelectorAll('.toc-toggle-icon').forEach(function (el) {
-                el.remove();
-            });
-
             const listItems = container.querySelectorAll('li');
             listItems.forEach(function (li) {
                 const subUl = li.querySelector('ul');
@@ -139,31 +134,26 @@ document.addEventListener('DOMContentLoaded', function () {
                     // Iniciar recolhido por padrão
                     subUl.style.display = 'none';
 
-                    // Garantir um ÚNICO elemento .toctree-expand
-                    const expandSpans = li.querySelectorAll('.toctree-expand');
-                    if (expandSpans.length > 1) {
-                        for (let i = 1; i < expandSpans.length; i++) {
-                            expandSpans[i].remove();
-                        }
-                    }
+                    // Remover o ícone nativo do Sphinx para evitar duplicidade
+                    const nativeExpands = li.querySelectorAll(':scope > .toctree-expand');
+                    nativeExpands.forEach(el => el.remove());
 
-                    let expandSpan = li.querySelector('.toctree-expand');
+                    // Remover qualquer botão customizado anterior
+                    const oldCustomBtns = li.querySelectorAll(':scope > .custom-expand-btn');
+                    oldCustomBtns.forEach(el => el.remove());
+
+                    const expandBtn = document.createElement('span');
+                    expandBtn.className = 'custom-expand-btn';
+                    expandBtn.innerHTML = '+';
+                    
                     const link = li.querySelector('a');
-
-                    if (!expandSpan) {
-                        expandSpan = document.createElement('span');
-                        expandSpan.className = 'toctree-expand';
-                        if (link) {
-                            li.insertBefore(expandSpan, link);
-                        } else {
-                            li.prepend(expandSpan);
-                        }
+                    if (link) {
+                        li.insertBefore(expandBtn, link);
+                    } else {
+                        li.prepend(expandBtn);
                     }
 
-                    // Ícone inicial limpo
-                    expandSpan.innerHTML = '+';
-
-                    // Função Toggle Unificada
+                    // Função Toggle Exclusiva
                     function toggleItem(e) {
                         if (e) {
                             e.preventDefault();
@@ -172,27 +162,19 @@ document.addEventListener('DOMContentLoaded', function () {
                         const isCurrentlyOpen = (subUl.style.display === 'block');
                         if (isCurrentlyOpen) {
                             subUl.style.display = 'none';
-                            expandSpan.innerHTML = '+';
-                            li.classList.remove('is-expanded');
+                            expandBtn.innerHTML = '+';
+                            expandBtn.classList.remove('expanded');
                         } else {
                             subUl.style.display = 'block';
-                            expandSpan.innerHTML = '−';
-                            li.classList.add('is-expanded');
+                            expandBtn.innerHTML = '−';
+                            expandBtn.classList.add('expanded');
                         }
                     }
 
-                    // Clique no ícone de expansão único
-                    expandSpan.onclick = toggleItem;
+                    // O clique APENAS no botão de "+" expande/recolhe
+                    expandBtn.onclick = toggleItem;
 
-                    // Clique no link de texto do módulo ou endpoint
-                    if (link) {
-                        link.addEventListener('click', function (e) {
-                            const href = link.getAttribute('href');
-                            if (href && href.startsWith('#')) {
-                                toggleItem(null);
-                            }
-                        });
-                    }
+                    // O clique no link continua com o comportamento padrão de navegação (não recolhe o sumário sozinho)
                 }
             });
         });
