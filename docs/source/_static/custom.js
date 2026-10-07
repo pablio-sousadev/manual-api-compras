@@ -14,13 +14,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const contentBox = document.querySelector('.wy-nav-content .rst-content');
     if (contentBox) {
-        // Inserir no topo (após breadcrumbs/título)
+        // Topo
         const topContainer = document.createElement('div');
         topContainer.className = 'print-toolbar-top';
         topContainer.appendChild(createPrintButton());
         contentBox.insertBefore(topContainer, contentBox.firstChild);
 
-        // Inserir no rodapé (antes do footer de navegação)
+        // Rodapé
         const bottomContainer = document.createElement('div');
         bottomContainer.className = 'print-toolbar-bottom';
         bottomContainer.appendChild(createPrintButton());
@@ -32,9 +32,9 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // ── 2. Barra de Acessibilidade (Aumentar / Diminuir Fonte) ───────────────────
-    const fontSizes = [13, 14, 15, 16, 18, 20, 22]; // em px
-    let currentFontIndex = parseInt(localStorage.getItem('user_font_index')) || 3; // padrão 16px
+    // ── 2. Barra de Acessibilidade (Tamanho da Fonte) ───────────────────────────
+    const fontSizes = [13, 14, 15, 16, 18, 20, 22]; // px
+    let currentFontIndex = parseInt(localStorage.getItem('user_font_index')) || 3;
 
     function applyFontSize(index) {
         if (index < 0) index = 0;
@@ -48,10 +48,8 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // Aplicar fonte salva no carregamento
     applyFontSize(currentFontIndex);
 
-    // Criar barra flutuante de acessibilidade
     const accessBar = document.createElement('div');
     accessBar.className = 'accessibility-toolbar';
     accessBar.innerHTML = `
@@ -60,21 +58,19 @@ document.addEventListener('DOMContentLoaded', function () {
         <button type="button" id="btn-font-reset" title="Restaurar tamanho padrão da fonte">A</button>
         <button type="button" id="btn-font-inc" title="Aumentar tamanho da fonte (A+)">A+</button>
     `;
-
     document.body.appendChild(accessBar);
 
     document.getElementById('btn-font-dec').addEventListener('click', function () {
         applyFontSize(currentFontIndex - 1);
     });
     document.getElementById('btn-font-reset').addEventListener('click', function () {
-        applyFontSize(3); // Reset para 16px
+        applyFontSize(3);
     });
     document.getElementById('btn-font-inc').addEventListener('click', function () {
         applyFontSize(currentFontIndex + 1);
     });
 
     // ── 3. Zoom de Imagens (Modal / Lightbox) ───────────────────────────────────
-    // Modal HTML
     const modalHtml = `
         <div id="image-lightbox-modal" class="image-modal-overlay">
             <div class="image-modal-container">
@@ -95,7 +91,7 @@ document.addEventListener('DOMContentLoaded', function () {
         modalImg.src = imgSrc;
         modalCaption.textContent = altText || '';
         modal.classList.add('active');
-        document.body.style.overflow = 'hidden'; // trava rolagem da página
+        document.body.style.overflow = 'hidden';
     }
 
     function closeLightbox() {
@@ -103,7 +99,6 @@ document.addEventListener('DOMContentLoaded', function () {
         document.body.style.overflow = '';
     }
 
-    // Adicionar clique de zoom em todas as imagens do conteúdo
     document.querySelectorAll('.wy-nav-content article img, .wy-nav-content img').forEach(function (img) {
         img.classList.add('zoomable-image');
         img.title = 'Clique para ampliar esta imagem';
@@ -126,33 +121,55 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    // ── 4. Menu Lateral Interativo (Sanfona Sob Demanda) ────────────────────────
-    const menu = document.querySelector('.wy-menu-vertical');
-    if (menu) {
-        menu.querySelectorAll('li.toctree-l1').forEach(function (li) {
-            const subMenu = li.querySelector('ul');
-            if (subMenu) {
-                const expandBtn = li.querySelector('.toctree-expand');
-                const link = li.querySelector('a');
+    // ── 4. Menu Lateral Sanfona sob Demanda (Tópicos Principais 1 a 15) ────────────
+    const menuContainer = document.querySelector('.wy-menu-vertical') || document.querySelector('.local-toc');
+    if (menuContainer) {
+        const topItems = menuContainer.querySelectorAll('ul > li');
+        topItems.forEach(function (li) {
+            const subUl = li.querySelector('ul');
+            if (subUl) {
+                li.classList.add('has-children');
+                subUl.style.display = 'none'; // Inicia recolhido por padrão
 
-                // Clique no '+' expande/recolhe o submenu
-                if (expandBtn) {
-                    expandBtn.addEventListener('click', function (e) {
-                        e.preventDefault();
-                        e.stopPropagation();
-                        li.classList.toggle('current');
-                        if (subMenu) {
-                            subMenu.style.display = li.classList.contains('current') ? 'block' : 'none';
-                        }
-                    });
+                // Botão '+' / '−'
+                const toggleBtn = document.createElement('span');
+                toggleBtn.className = 'toc-toggle-icon';
+                toggleBtn.innerHTML = '+';
+                toggleBtn.title = 'Expandir / Recolher tópico';
+
+                const link = li.querySelector('a');
+                if (link) {
+                    li.insertBefore(toggleBtn, link);
+                } else {
+                    li.prepend(toggleBtn);
                 }
 
-                // Clique no título abre o submenu
+                function toggleMenu(e) {
+                    if (e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                    }
+                    const isExpanded = subUl.style.display === 'block';
+                    if (isExpanded) {
+                        subUl.style.display = 'none';
+                        toggleBtn.innerHTML = '+';
+                        li.classList.remove('is-expanded');
+                    } else {
+                        subUl.style.display = 'block';
+                        toggleBtn.innerHTML = '−';
+                        li.classList.add('is-expanded');
+                    }
+                }
+
+                toggleBtn.addEventListener('click', toggleMenu);
+
                 if (link) {
                     link.addEventListener('click', function () {
-                        li.classList.add('current');
-                        if (subMenu) {
-                            subMenu.style.display = 'block';
+                        // Se o submenu estiver fechado ao clicar no título, abre ele
+                        if (subUl.style.display !== 'block') {
+                            subUl.style.display = 'block';
+                            toggleBtn.innerHTML = '−';
+                            li.classList.add('is-expanded');
                         }
                     });
                 }
