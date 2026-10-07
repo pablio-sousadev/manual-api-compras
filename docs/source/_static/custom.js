@@ -121,35 +121,43 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    // ── 4. Menu Lateral Sanfona sob Demanda (Tópicos Principais 1 a 15) ────────────
+    // ── 4. Menu Lateral Sanfona Unificado (Todos os Níveis: Módulos e Endpoints) ──
     function initAccordionMenu() {
         const menuContainers = document.querySelectorAll('.wy-menu-vertical, .local-toc');
         menuContainers.forEach(function (container) {
-            const listItems = container.querySelectorAll('ul > li');
+            // Remover qualquer botão customizado anterior para evitar duplicidade visual
+            container.querySelectorAll('.toc-toggle-icon').forEach(function (el) {
+                el.remove();
+            });
+
+            // Selecionar TODOS os LIs que têm sub-listas (Módulos Nível 1 e Endpoints Nível 2)
+            const listItems = container.querySelectorAll('li');
             listItems.forEach(function (li) {
                 const subUl = li.querySelector('ul');
                 if (subUl) {
-                    li.classList.add('has-children');
-                    subUl.style.display = 'none'; // Inicia recolhido por padrão
+                    li.classList.add('has-subitems');
+                    
+                    // Iniciar recolhido por padrão
+                    subUl.style.display = 'none';
 
-                    let toggleBtn = li.querySelector('.toc-toggle-icon');
-                    if (!toggleBtn) {
-                        toggleBtn = document.createElement('button');
-                        toggleBtn.type = 'button';
-                        toggleBtn.className = 'toc-toggle-icon';
-                        toggleBtn.setAttribute('aria-label', 'Expandir ou recolher módulo');
-                        toggleBtn.innerHTML = '+';
-
+                    // Usar o elemento nativo .toctree-expand do Sphinx
+                    let expandSpan = li.querySelector('.toctree-expand');
+                    if (!expandSpan) {
+                        expandSpan = document.createElement('span');
+                        expandSpan.className = 'toctree-expand';
+                        expandSpan.innerHTML = '+';
                         const link = li.querySelector('a');
                         if (link) {
-                            li.insertBefore(toggleBtn, link);
+                            li.insertBefore(expandSpan, link);
                         } else {
-                            li.prepend(toggleBtn);
+                            li.prepend(expandSpan);
                         }
+                    } else if (!expandSpan.innerHTML || expandSpan.innerHTML.trim() === '') {
+                        expandSpan.innerHTML = '+';
                     }
 
-                    // Alterna estado (Abrir <-> Fechar)
-                    function toggleSubMenu(e) {
+                    // Função Toggle Unificada
+                    function toggleItem(e) {
                         if (e) {
                             e.preventDefault();
                             e.stopPropagation();
@@ -157,33 +165,25 @@ document.addEventListener('DOMContentLoaded', function () {
                         const isCurrentlyOpen = (subUl.style.display === 'block');
                         if (isCurrentlyOpen) {
                             subUl.style.display = 'none';
-                            toggleBtn.innerHTML = '+';
+                            expandSpan.innerHTML = '+';
                             li.classList.remove('is-expanded');
                         } else {
                             subUl.style.display = 'block';
-                            toggleBtn.innerHTML = '−';
+                            expandSpan.innerHTML = '−';
                             li.classList.add('is-expanded');
                         }
                     }
 
-                    toggleBtn.onclick = toggleSubMenu;
+                    // Clique no ícone de expansão (+ / −)
+                    expandSpan.onclick = toggleItem;
 
+                    // Clique no link de texto (Módulo ou Endpoint pai)
                     const mainLink = li.querySelector('a');
                     if (mainLink) {
                         mainLink.addEventListener('click', function (e) {
                             const href = mainLink.getAttribute('href');
                             if (href && href.startsWith('#')) {
-                                // Alterna ao clicar no título
-                                const isCurrentlyOpen = (subUl.style.display === 'block');
-                                if (isCurrentlyOpen) {
-                                    subUl.style.display = 'none';
-                                    toggleBtn.innerHTML = '+';
-                                    li.classList.remove('is-expanded');
-                                } else {
-                                    subUl.style.display = 'block';
-                                    toggleBtn.innerHTML = '−';
-                                    li.classList.add('is-expanded');
-                                }
+                                toggleItem(null);
                             }
                         });
                     }

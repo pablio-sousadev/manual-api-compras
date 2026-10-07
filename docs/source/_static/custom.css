@@ -41,56 +41,62 @@
     }
 }
 
-/* ── Menu Lateral Sanfona (Accordion / Expansão Sob Demanda) ──────────── */
+/* ── Menu Lateral Sanfona (Accordion / Estilo Unificado .toctree-expand) ── */
 .local-toc ul,
 .wy-menu-vertical ul {
     list-style: none !important;
 }
 
-.local-toc > ul > li,
-.wy-menu-vertical > ul > li {
+.local-toc li,
+.wy-menu-vertical li {
     position: relative !important;
 }
 
-.local-toc li.has-children > a,
-.wy-menu-vertical li.has-children > a {
-    font-weight: 600 !important;
-    padding-left: 32px !important;
+/* Ocultar qualquer ícone duplicado legado */
+.toc-toggle-icon {
+    display: none !important;
 }
 
-.toc-toggle-icon {
-    position: absolute !important;
-    left: 4px !important;
-    top: 5px !important;
-    width: 22px !important;
-    height: 22px !important;
-    line-height: 19px !important;
-    text-align: center !important;
-    font-weight: 700 !important;
-    font-size: 1rem !important;
-    color: #38bdf8 !important;
-    cursor: pointer !important;
-    user-select: none !important;
-    background: rgba(255, 255, 255, 0.12) !important;
-    border: 1px solid rgba(56, 189, 248, 0.3) !important;
-    border-radius: 4px !important;
+/* Botão Nativo .toctree-expand estilizado */
+.wy-menu-vertical span.toctree-expand,
+.local-toc span.toctree-expand {
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
-    z-index: 20 !important;
-    padding: 0 !important;
-    outline: none !important;
+    width: 18px !important;
+    height: 18px !important;
+    line-height: 16px !important;
+    text-align: center !important;
+    font-weight: 700 !important;
+    font-size: 0.95rem !important;
+    color: #38bdf8 !important;
+    cursor: pointer !important;
+    user-select: none !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+    border: 1px solid rgba(56, 189, 248, 0.3) !important;
+    border-radius: 4px !important;
+    margin-right: 6px !important;
+    vertical-align: middle !important;
+    font-family: monospace, sans-serif !important;
 }
 
-.toc-toggle-icon:hover {
+.wy-menu-vertical span.toctree-expand:hover,
+.local-toc span.toctree-expand:hover {
     background: #0284c7 !important;
     color: #ffffff !important;
     border-color: #0284c7 !important;
 }
 
+.local-toc li.has-subitems > a,
+.wy-menu-vertical li.has-subitems > a {
+    font-weight: 600 !important;
+}
+
 .local-toc li ul,
 .wy-menu-vertical li ul {
-    padding-left: 1rem !important;
+    padding-left: 1.2rem !important;
+    margin-top: 4px !important;
+    margin-bottom: 4px !important;
 }
 
 /* ── Imagens & Zoom Lightbox ─────────────────────────────────────────── */
