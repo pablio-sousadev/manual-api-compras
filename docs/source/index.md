@@ -31,8 +31,6 @@ O Sistema Integrado de Administração de Serviços Gerais – Siasg, instituíd
 
 O Compras.gov.br atua nas três grandes fases do ciclo de contratação pública — Planejamento da Contratação, Seleção do Fornecedor e Gestão e Fiscalização do Contrato —, integrando diversas ferramentas e sistemas que compõem a área de trabalho do gestor público.
 
-![Ciclo de contratação pública no Compras.gov.br](_static/img/introducao-ciclo-contratacao.png)
-
 ## 2. Objetivos
 
 A transparência desempenha um papel fundamental na gestão pública.
