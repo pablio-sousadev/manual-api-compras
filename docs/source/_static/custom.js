@@ -122,58 +122,75 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // ── 4. Menu Lateral Sanfona sob Demanda (Tópicos Principais 1 a 15) ────────────
-    const menuContainer = document.querySelector('.wy-menu-vertical') || document.querySelector('.local-toc');
-    if (menuContainer) {
-        const topItems = menuContainer.querySelectorAll('ul > li');
-        topItems.forEach(function (li) {
-            const subUl = li.querySelector('ul');
-            if (subUl) {
-                li.classList.add('has-children');
-                subUl.style.display = 'none'; // Inicia recolhido por padrão
+    function initAccordionMenu() {
+        const menuContainers = document.querySelectorAll('.wy-menu-vertical, .local-toc');
+        menuContainers.forEach(function (container) {
+            const listItems = container.querySelectorAll('ul > li');
+            listItems.forEach(function (li) {
+                const subUl = li.querySelector('ul');
+                if (subUl) {
+                    li.classList.add('has-children');
+                    subUl.style.display = 'none'; // Inicia recolhido por padrão
 
-                // Botão '+' / '−'
-                const toggleBtn = document.createElement('span');
-                toggleBtn.className = 'toc-toggle-icon';
-                toggleBtn.innerHTML = '+';
-                toggleBtn.title = 'Expandir / Recolher tópico';
-
-                const link = li.querySelector('a');
-                if (link) {
-                    li.insertBefore(toggleBtn, link);
-                } else {
-                    li.prepend(toggleBtn);
-                }
-
-                function toggleMenu(e) {
-                    if (e) {
-                        e.preventDefault();
-                        e.stopPropagation();
-                    }
-                    const isExpanded = subUl.style.display === 'block';
-                    if (isExpanded) {
-                        subUl.style.display = 'none';
+                    let toggleBtn = li.querySelector('.toc-toggle-icon');
+                    if (!toggleBtn) {
+                        toggleBtn = document.createElement('button');
+                        toggleBtn.type = 'button';
+                        toggleBtn.className = 'toc-toggle-icon';
+                        toggleBtn.setAttribute('aria-label', 'Expandir ou recolher módulo');
                         toggleBtn.innerHTML = '+';
-                        li.classList.remove('is-expanded');
-                    } else {
-                        subUl.style.display = 'block';
-                        toggleBtn.innerHTML = '−';
-                        li.classList.add('is-expanded');
+
+                        const link = li.querySelector('a');
+                        if (link) {
+                            li.insertBefore(toggleBtn, link);
+                        } else {
+                            li.prepend(toggleBtn);
+                        }
                     }
-                }
 
-                toggleBtn.addEventListener('click', toggleMenu);
-
-                if (link) {
-                    link.addEventListener('click', function () {
-                        // Se o submenu estiver fechado ao clicar no título, abre ele
-                        if (subUl.style.display !== 'block') {
+                    // Alterna estado (Abrir <-> Fechar)
+                    function toggleSubMenu(e) {
+                        if (e) {
+                            e.preventDefault();
+                            e.stopPropagation();
+                        }
+                        const isCurrentlyOpen = (subUl.style.display === 'block');
+                        if (isCurrentlyOpen) {
+                            subUl.style.display = 'none';
+                            toggleBtn.innerHTML = '+';
+                            li.classList.remove('is-expanded');
+                        } else {
                             subUl.style.display = 'block';
                             toggleBtn.innerHTML = '−';
                             li.classList.add('is-expanded');
                         }
-                    });
+                    }
+
+                    toggleBtn.onclick = toggleSubMenu;
+
+                    const mainLink = li.querySelector('a');
+                    if (mainLink) {
+                        mainLink.addEventListener('click', function (e) {
+                            const href = mainLink.getAttribute('href');
+                            if (href && href.startsWith('#')) {
+                                // Alterna ao clicar no título
+                                const isCurrentlyOpen = (subUl.style.display === 'block');
+                                if (isCurrentlyOpen) {
+                                    subUl.style.display = 'none';
+                                    toggleBtn.innerHTML = '+';
+                                    li.classList.remove('is-expanded');
+                                } else {
+                                    subUl.style.display = 'block';
+                                    toggleBtn.innerHTML = '−';
+                                    li.classList.add('is-expanded');
+                                }
+                            }
+                        });
+                    }
                 }
-            }
+            });
         });
     }
+
+    initAccordionMenu();
 });
