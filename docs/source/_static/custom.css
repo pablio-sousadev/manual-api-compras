@@ -41,6 +41,76 @@
     }
 }
 
+/* ── Menu Lateral Sanfona (Accordion / Apenas 1 Ícone Limpo e Alinhado) ── */
+.local-toc ul,
+.wy-menu-vertical ul {
+    list-style: none !important;
+    padding-left: 0 !important;
+}
+
+.local-toc li,
+.wy-menu-vertical li {
+    position: relative !important;
+}
+
+/* Ocultar pseudo-elementos nativos do Sphinx */
+.wy-menu-vertical span.toctree-expand::before,
+.wy-menu-vertical span.toctree-expand::after,
+.local-toc span.toctree-expand::before,
+.local-toc span.toctree-expand::after,
+.wy-menu-vertical a::before,
+.wy-menu-vertical a::after {
+    content: "" !important;
+    display: none !important;
+    background: none !important;
+}
+
+.toc-toggle-icon {
+    display: none !important;
+}
+
+/* Único Botão .custom-expand-btn Azul Perfeitamente Alinhado */
+.wy-menu-vertical span.custom-expand-btn,
+.local-toc span.custom-expand-btn {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 20px !important;
+    height: 20px !important;
+    line-height: 18px !important;
+    text-align: center !important;
+    font-weight: 700 !important;
+    font-size: 0.95rem !important;
+    color: #38bdf8 !important;
+    cursor: pointer !important;
+    user-select: none !important;
+    background: rgba(255, 255, 255, 0.12) !important;
+    border: 1px solid rgba(56, 189, 248, 0.4) !important;
+    border-radius: 4px !important;
+    margin-right: 8px !important;
+    vertical-align: middle !important;
+    font-family: monospace, sans-serif !important;
+}
+
+.wy-menu-vertical span.custom-expand-btn:hover,
+.local-toc span.custom-expand-btn:hover {
+    background: #0284c7 !important;
+    color: #ffffff !important;
+    border-color: #0284c7 !important;
+}
+
+.local-toc li.has-subitems > a,
+.wy-menu-vertical li.has-subitems > a {
+    font-weight: 600 !important;
+}
+
+.local-toc li ul,
+.wy-menu-vertical li ul {
+    padding-left: 1.2rem !important;
+    margin-top: 4px !important;
+    margin-bottom: 4px !important;
+}
+
 /* ── Imagens & Zoom Lightbox ─────────────────────────────────────────── */
 article img,
 .wy-nav-content img {
