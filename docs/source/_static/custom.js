@@ -118,20 +118,52 @@ document.addEventListener('DOMContentLoaded', function () {
     document.addEventListener('keydown', function (e) {
         if (e.key === 'Escape' && modal.classList.contains('active')) {
             closeLightbox();
-        }
-    });
+    // ── 4. Fix Definitivo do Menu Lateral (Visual Nativo, Acordeon Manual) ──
+    const toc = document.querySelector('.local-toc');
+    if (toc) {
+        // Clonamos o menu para desconectá-lo dos eventos automáticos (ScrollSpy e hashchange) do tema nativo.
+        // Assim, o tema do Sphinx não poderá mais fechar a sanfona à força.
+        const clone = toc.cloneNode(true);
+        toc.parentNode.replaceChild(clone, toc);
 
-    // ── 4. Fix para Menu Lateral (Nativo) ──────────────
-    function fixNativeMenu() {
-        const links = document.querySelectorAll('.wy-menu-vertical a, .local-toc a');
-        links.forEach(function (link) {
+        // Re-implementamos o clique no botão nativo (+) e (-)
+        const listItems = clone.querySelectorAll('li');
+        listItems.forEach(function (li) {
+            const expandSpan = li.querySelector('.toctree-expand');
+            const subUl = li.querySelector('ul');
+            
+            if (expandSpan && subUl) {
+                expandSpan.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+
+                    // Alterna a classe 'current', que o próprio CSS do Sphinx usa para virar o [+] para [-]
+                    li.classList.toggle('current');
+                    
+                    if (li.classList.contains('current')) {
+                        subUl.style.display = 'block';
+                    } else {
+                        subUl.style.display = 'none';
+                    }
+                });
+            }
+        });
+
+        // Garantir que os cliques nos links naveguem sem interferir
+        const links = clone.querySelectorAll('a');
+        links.forEach(function(link) {
             link.addEventListener('click', function(e) {
-                // Impede que o clique no texto do link propague para o Sphinx e cause
-                // o recolhimento automático da sanfona (bug da navegação nativa).
-                e.stopPropagation();
+                const href = link.getAttribute('href');
+                if (href && href.startsWith('#')) {
+                    e.preventDefault();
+                    history.pushState(null, null, href);
+                    const targetId = href.substring(1);
+                    const targetElement = document.getElementById(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView();
+                    }
+                }
             });
         });
     }
-
-    fixNativeMenu();
 });
