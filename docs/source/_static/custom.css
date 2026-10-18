@@ -2,8 +2,10 @@
 
 /* 1. Destrava a largura máxima do contêiner principal do Read the Docs */
 .wy-nav-content {
-    max-width: none !important;
+    max-width: 1150px !important;
     width: 100% !important;
+    margin: 0 auto !important;
+    padding: 2rem 2.5rem !important;
 }
 
 /* 2. Remove o limite de largura do bloco de texto interno */
@@ -156,15 +158,28 @@
     white-space: nowrap !important;
 }
 
-/* Tabelas Polidas e Responsivas dentro dos 820px */
+/* Tabelas Polidas sem quebrar palavras no meio (Campo, Tipo, Obrigatório intactos) */
 .wy-table-responsive {
     overflow-x: auto !important;
 }
 
-.wy-table-responsive table td,
-.wy-table-responsive table th {
+.wy-table-responsive table td {
     white-space: normal !important;
-    word-break: break-word;
+    word-break: normal !important;
+    overflow-wrap: normal !important;
+}
+
+.wy-table-responsive table th,
+table.docutils th {
+    white-space: nowrap !important;
+    word-break: normal !important;
+}
+
+/* Garante que o nome do campo (coluna 1) e o tipo (coluna 2) nunca quebrem no meio da palavra */
+table.docutils td:nth-child(1),
+table.docutils td:nth-child(2) {
+    white-space: nowrap !important;
+    word-break: normal !important;
 }
 
 table.docutils {
@@ -222,16 +237,23 @@ blockquote p {
     margin: 0 !important;
 }
 
-/* Inline code highlight para endpoints e parâmetros */
+/* Inline code highlight para endpoints e parâmetros (sem quebrar as duas últimas letras) */
 .rst-content code.literal {
     background-color: #f1f5f9;
     color: #0f2744;
-    padding: 3px 7px;
+    padding: 3px 8px;
     border-radius: 4px;
     font-size: 88%;
     border: 1px solid #cbd5e1;
     font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-    word-break: break-all;
+    white-space: nowrap;
+}
+
+@media screen and (max-width: 768px) {
+    .rst-content code.literal {
+        white-space: normal;
+        overflow-wrap: anywhere;
+    }
 }
 
 /* Ocultar anúncios do Read the Docs (EthicalAds) */
@@ -257,11 +279,23 @@ div[class*="ethical"],
     .top-accessibility-bar,
     .bottom-print-bar,
     .rst-footer-buttons,
+    .rst-versions,
+    [data-toggle="rst-versions"],
+    readthedocs-flyout,
+    readthedocs-notification,
+    readthedocs-search,
+    readthedocs-hotkeys,
+    #readthedocs-embed-flyout,
     footer,
     header,
     .wy-breadcrumbs,
     .copybtn {
         display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        width: 0 !important;
+        height: 0 !important;
+        overflow: hidden !important;
     }
 
     .wy-nav-content-wrap {

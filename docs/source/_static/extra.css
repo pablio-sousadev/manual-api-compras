@@ -1,17 +1,18 @@
-/* === Padrão Template Compartilhado DELOG (extra.css) === */
+/* === Padrão Template Compartilhado DELOG Adaptado para Tabelas da API (extra.css) === */
 
-/* Limita a largura máxima do texto em monitores para conforto visual */
+/* Largura confortável em monitores para acomodar tabelas de parâmetros e URLs da API sem quebrar palavras */
 .wy-nav-content, main, .md-content {
-    max-width: 820px !important;
+    max-width: 1150px !important;
     margin-left: auto !important;
     margin-right: auto !important;
+    padding: 2rem 2.5rem !important;
 }
 
 /* Em celulares e telas pequenas, ajusta para 100% da largura útil */
 @media screen and (max-width: 768px) {
     .wy-nav-content, main, .md-content {
         max-width: 100% !important;
-        padding: 10px !important;
+        padding: 1rem 1.2rem !important;
     }
 }
 

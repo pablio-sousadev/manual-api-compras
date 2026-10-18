@@ -1,4 +1,4 @@
-/* === CÓDIGO JavaScript PARA O POPUP DE IMAGENS E MENU LATERAL (custom.js) === */
+/* === CÓDIGO JavaScript PARA O POPUP DE IMAGENS, IMPRESSÃO E MENU LATERAL (custom.js) === */
 
 document.addEventListener('DOMContentLoaded', function() {
     console.log("Script de popup carregado!");
@@ -66,7 +66,66 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // 6. Ajuste do Menu Lateral Nativo do Read the Docs:
+    // 6. Ocultar definitivamente o widget flutuante "latest" (readthedocs-flyout) na impressão/PDF
+    function hideRtdFlyoutForPrint() {
+        const rtdElements = document.querySelectorAll(
+            'readthedocs-flyout, readthedocs-notification, readthedocs-search, .rst-versions, #readthedocs-embed-flyout'
+        );
+        rtdElements.forEach(function(el) {
+            // Injeta regra @media print dentro do Shadow DOM do Web Component do Read the Docs
+            if (el.shadowRoot && !el.shadowRoot.getElementById('rtd-no-print-style')) {
+                const style = document.createElement('style');
+                style.id = 'rtd-no-print-style';
+                style.textContent = '@media print { :host, *, .container, aside { display: none !important; visibility: hidden !important; opacity: 0 !important; } }';
+                el.shadowRoot.appendChild(style);
+            }
+        });
+    }
+
+    hideRtdFlyoutForPrint();
+    setTimeout(hideRtdFlyoutForPrint, 1000);
+    setTimeout(hideRtdFlyoutForPrint, 3000);
+
+    function setRtdFlyoutHidden(hidden) {
+        document.querySelectorAll(
+            'readthedocs-flyout, readthedocs-notification, readthedocs-search, readthedocs-hotkeys, .rst-versions, #readthedocs-embed-flyout'
+        ).forEach(function(el) {
+            if (hidden) {
+                el.setAttribute('data-prev-display', el.style.display || '');
+                el.style.setProperty('display', 'none', 'important');
+                el.style.setProperty('visibility', 'hidden', 'important');
+            } else {
+                const prev = el.getAttribute('data-prev-display');
+                if (prev) {
+                    el.style.display = prev;
+                } else {
+                    el.style.removeProperty('display');
+                }
+                el.style.removeProperty('visibility');
+            }
+        });
+    }
+
+    window.addEventListener('beforeprint', function() {
+        hideRtdFlyoutForPrint();
+        setRtdFlyoutHidden(true);
+    });
+
+    window.addEventListener('afterprint', function() {
+        setRtdFlyoutHidden(false);
+    });
+
+    const originalPrint = window.print.bind(window);
+    window.print = function() {
+        hideRtdFlyoutForPrint();
+        setRtdFlyoutHidden(true);
+        originalPrint();
+        setTimeout(function() {
+            setRtdFlyoutHidden(false);
+        }, 500);
+    };
+
+    // 7. Ajuste do Menu Lateral Nativo do Read the Docs:
     // Mantém os ícones nativos (+ e -) do tema, mas impede que as seções/sub-endpoints
     // recolham sozinhos quando o usuário clica em um link. Só recolhe ao clicar no (-).
     setTimeout(function() {
