@@ -1,169 +1,125 @@
-document.addEventListener('DOMContentLoaded', function () {
-    // ── 1. Botões de Impressão (Topo e Rodapé) ──────────────────────────────────
-    function createPrintButton() {
-        const btn = document.createElement('button');
-        btn.type = 'button';
-        btn.className = 'btn-print-custom';
-        btn.innerHTML = '🖨️ Imprimir Documento';
-        btn.title = 'Clique para imprimir ou salvar em PDF';
-        btn.onclick = function () {
-            window.print();
-        };
-        return btn;
-    }
+/* === CÓDIGO JavaScript PARA O POPUP DE IMAGENS E MENU LATERAL (custom.js) === */
 
-    const contentBox = document.querySelector('.wy-nav-content .rst-content');
-    if (contentBox) {
-        // Topo
-        const topContainer = document.createElement('div');
-        topContainer.className = 'print-toolbar-top';
-        topContainer.appendChild(createPrintButton());
-        contentBox.insertBefore(topContainer, contentBox.firstChild);
+document.addEventListener('DOMContentLoaded', function() {
+    console.log("Script de popup carregado!");
 
-        // Rodapé
-        const bottomContainer = document.createElement('div');
-        bottomContainer.className = 'print-toolbar-bottom';
-        bottomContainer.appendChild(createPrintButton());
-        const footer = contentBox.querySelector('footer');
-        if (footer) {
-            contentBox.insertBefore(bottomContainer, footer);
-        } else {
-            contentBox.appendChild(bottomContainer);
-        }
-    }
-
-    // ── 2. Barra de Acessibilidade (Tamanho da Fonte) ───────────────────────────
-    const fontSizes = [13, 14, 15, 16, 18, 20, 22]; // px
-    let currentFontIndex = parseInt(localStorage.getItem('user_font_index')) || 3;
-
-    function applyFontSize(index) {
-        if (index < 0) index = 0;
-        if (index >= fontSizes.length) index = fontSizes.length - 1;
-        currentFontIndex = index;
-        localStorage.setItem('user_font_index', currentFontIndex);
-
-        const target = document.querySelector('.wy-nav-content');
-        if (target) {
-            target.style.fontSize = fontSizes[currentFontIndex] + 'px';
-        }
-    }
-
-    applyFontSize(currentFontIndex);
-
-    const accessBar = document.createElement('div');
-    accessBar.className = 'accessibility-toolbar';
-    accessBar.innerHTML = `
-        <span class="access-label" title="Acessibilidade de Fonte">Tamanho do Texto:</span>
-        <button type="button" id="btn-font-dec" title="Diminuir tamanho da fonte (A-)">A-</button>
-        <button type="button" id="btn-font-reset" title="Restaurar tamanho padrão da fonte">A</button>
-        <button type="button" id="btn-font-inc" title="Aumentar tamanho da fonte (A+)">A+</button>
-    `;
-    document.body.appendChild(accessBar);
-
-    document.getElementById('btn-font-dec').addEventListener('click', function () {
-        applyFontSize(currentFontIndex - 1);
-    });
-    document.getElementById('btn-font-reset').addEventListener('click', function () {
-        applyFontSize(3);
-    });
-    document.getElementById('btn-font-inc').addEventListener('click', function () {
-        applyFontSize(currentFontIndex + 1);
-    });
-
-    // ── 3. Zoom de Imagens (Modal / Lightbox) ───────────────────────────────────
-    const modalHtml = `
-        <div id="image-lightbox-modal" class="image-modal-overlay">
-            <div class="image-modal-container">
-                <button type="button" class="image-modal-close" id="lightbox-close-btn" title="Fechar (Esc)">&times;</button>
-                <img id="lightbox-img" src="" alt="Imagem ampliada" />
-                <div id="lightbox-caption" class="image-modal-caption"></div>
-            </div>
+    // 1. Criar a estrutura HTML do Popup (padrão Template Compartilhado DELOG)
+    const lightboxHTML = `
+        <div id="lightbox-overlay" style="display: none; position: fixed; z-index: 99999; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.9); cursor: pointer; opacity: 0; transition: opacity 0.3s ease; justify-content: center; align-items: center;">
+            <span id="lightbox-close" style="position: absolute; top: 20px; right: 30px; color: white; font-size: 50px; font-weight: bold; cursor: pointer; user-select: none;" title="Fechar (Esc)">&times;</span>
+            <img id="lightbox-image" src="" alt="Imagem ampliada" style="max-width: 90%; max-height: 90%; border: 3px solid white; border-radius: 4px; box-shadow: 0 0 30px rgba(0, 0, 0, 0.6); transform: scale(0.9); transition: transform 0.3s ease;">
         </div>
     `;
-    document.body.insertAdjacentHTML('beforeend', modalHtml);
+    document.body.insertAdjacentHTML('beforeend', lightboxHTML);
 
-    const modal = document.getElementById('image-lightbox-modal');
-    const modalImg = document.getElementById('lightbox-img');
-    const modalCaption = document.getElementById('lightbox-caption');
-    const closeBtn = document.getElementById('lightbox-close-btn');
+    // 2. Selecionar os elementos do popup
+    const overlay = document.getElementById('lightbox-overlay');
+    const lightboxImg = document.getElementById('lightbox-image');
+    const closeBtn = document.getElementById('lightbox-close');
 
-    function openLightbox(imgSrc, altText) {
-        modalImg.src = imgSrc;
-        modalCaption.textContent = altText || '';
-        modal.classList.add('active');
-        document.body.style.overflow = 'hidden';
-    }
+    // 3. Selecionar imagens dentro da área de conteúdo principal
+    const images = document.querySelectorAll('.md-content img, .rst-content img, article img');
 
-    function closeLightbox() {
-        modal.classList.remove('active');
-        document.body.style.overflow = '';
-    }
+    // 4. Adicionar o evento de clique em cada imagem
+    images.forEach(image => {
+        image.style.cursor = 'zoom-in';
+        image.setAttribute('title', 'Clique para ampliar');
 
-    document.querySelectorAll('.wy-nav-content article img, .wy-nav-content img').forEach(function (img) {
-        img.classList.add('zoomable-image');
-        img.title = 'Clique para ampliar esta imagem';
-        img.addEventListener('click', function () {
-            openLightbox(this.src, this.alt);
+        image.addEventListener('click', function(e) {
+            e.preventDefault();
+            lightboxImg.src = this.src;
+            lightboxImg.alt = this.getAttribute('alt') || 'Imagem ampliada';
+
+            overlay.style.display = 'flex';
+            setTimeout(() => {
+                overlay.style.opacity = '1';
+                lightboxImg.style.transform = 'scale(1)';
+            }, 10);
+
+            document.body.style.overflow = 'hidden';
         });
     });
+
+    // 5. Função para fechar o popup
+    function closeLightbox() {
+        overlay.style.opacity = '0';
+        lightboxImg.style.transform = 'scale(0.9)';
+
+        setTimeout(() => {
+            overlay.style.display = 'none';
+            lightboxImg.src = '';
+            document.body.style.overflow = '';
+        }, 300);
+    }
 
     closeBtn.addEventListener('click', closeLightbox);
 
-    modal.addEventListener('click', function (e) {
-        if (e.target === modal || e.target.classList.contains('image-modal-container')) {
+    overlay.addEventListener('click', function(e) {
+        if (e.target !== lightboxImg) {
             closeLightbox();
         }
     });
 
-    document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape' && modal.classList.contains('active')) {
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && overlay.style.display === 'flex') {
             closeLightbox();
-    // ── 4. Fix Definitivo do Menu Lateral (Visual Nativo, Acordeon Manual) ──
-    const toc = document.querySelector('.local-toc');
-    if (toc) {
-        // Clonamos o menu para desconectá-lo dos eventos automáticos (ScrollSpy e hashchange) do tema nativo.
-        // Assim, o tema do Sphinx não poderá mais fechar a sanfona à força.
-        const clone = toc.cloneNode(true);
-        toc.parentNode.replaceChild(clone, toc);
+        }
+    });
 
-        // Re-implementamos o clique no botão nativo (+) e (-)
-        const listItems = clone.querySelectorAll('li');
-        listItems.forEach(function (li) {
-            const expandSpan = li.querySelector('.toctree-expand');
-            const subUl = li.querySelector('ul');
-            
-            if (expandSpan && subUl) {
-                expandSpan.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    e.stopPropagation();
+    // 6. Ajuste do Menu Lateral Nativo do Read the Docs:
+    // Mantém os ícones nativos (+ e -) do tema, mas impede que as seções/sub-endpoints
+    // recolham sozinhos quando o usuário clica em um link. Só recolhe ao clicar no (-).
+    setTimeout(function() {
+        if (window.SphinxRtdTheme && window.SphinxRtdTheme.Navigation) {
+            const nav = window.SphinxRtdTheme.Navigation;
 
-                    // Alterna a classe 'current', que o próprio CSS do Sphinx usa para virar o [+] para [-]
-                    li.classList.toggle('current');
-                    
-                    if (li.classList.contains('current')) {
-                        subUl.style.display = 'block';
-                    } else {
-                        subUl.style.display = 'none';
+            // Sobrescreve toggleCurrent para alternar apenas o item clicado sem fechar irmãos
+            nav.toggleCurrent = function(elem) {
+                const li = elem.closest('li');
+                li.toggleClass('current');
+                const isExpanded = li.hasClass('current');
+                li.attr('aria-expanded', isExpanded ? 'true' : 'false');
+            };
+
+            // Sobrescreve reset (disparado em hashchange) para destacar o link atual
+            // e abrir seus ancestrais sem jamais fechar abas já abertas pelo usuário
+            nav.reset = function() {
+                const hash = encodeURI(window.location.hash) || '#';
+                try {
+                    const menu = window.jQuery('.wy-menu-vertical');
+                    let link = menu.find('[href="' + hash + '"]');
+                    if (link.length === 0) {
+                        const sec = window.jQuery('.document [id="' + hash.substring(1) + '"]').closest('div.section, section');
+                        if (sec.length > 0) {
+                            link = menu.find('[href="#' + sec.attr('id') + '"]');
+                        }
                     }
+                    if (link.length > 0) {
+                        menu.find('a.current').removeClass('current');
+                        link.addClass('current').attr('aria-expanded', 'true');
+                        for (let level = 1; level <= 10; level++) {
+                            link.closest('li.toctree-l' + level).addClass('current').attr('aria-expanded', 'true');
+                        }
+                    }
+                } catch (err) {
+                    console.log('Erro ao sincronizar âncora no menu:', err);
+                }
+            };
+
+            // Ao clicar no texto de um link (e não no botão + / -), apenas abre se tiver filhos, nunca fecha
+            if (window.jQuery) {
+                window.jQuery(document).off('click', '.wy-menu-vertical .current ul li a');
+                window.jQuery(document).on('click', '.wy-menu-vertical .current ul li a', function() {
+                    const a = window.jQuery(this);
+                    window.jQuery("[data-toggle='wy-nav-shift']").removeClass('shift');
+                    window.jQuery("[data-toggle='rst-versions']").removeClass('shift');
+                    const li = a.closest('li');
+                    if (li.children('ul').length > 0) {
+                        li.addClass('current').attr('aria-expanded', 'true');
+                    }
+                    nav.hashChange();
                 });
             }
-        });
-
-        // Garantir que os cliques nos links naveguem sem interferir
-        const links = clone.querySelectorAll('a');
-        links.forEach(function(link) {
-            link.addEventListener('click', function(e) {
-                const href = link.getAttribute('href');
-                if (href && href.startsWith('#')) {
-                    e.preventDefault();
-                    history.pushState(null, null, href);
-                    const targetId = href.substring(1);
-                    const targetElement = document.getElementById(targetId);
-                    if (targetElement) {
-                        targetElement.scrollIntoView();
-                    }
-                }
-            });
-        });
-    }
+        }
+    }, 50);
 });

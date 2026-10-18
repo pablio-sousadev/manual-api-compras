@@ -1,251 +1,113 @@
-/* ── Largura do Conteúdo e Leitura (PC vs Celular) ────────────────────────── */
+/* === Padrão Template Compartilhado DELOG (custom.css) + Melhorias Visuais API === */
+
+/* 1. Destrava a largura máxima do contêiner principal do Read the Docs */
 .wy-nav-content {
-    max-width: 1100px !important;
-    margin: 0 auto !important;
-    padding: 2rem 2.5rem !important;
+    max-width: none !important;
+    width: 100% !important;
 }
 
-@media screen and (max-width: 768px) {
-    .wy-nav-content {
-        max-width: 100% !important;
-        padding: 1rem 1.2rem !important;
-    }
+/* 2. Remove o limite de largura do bloco de texto interno */
+.rst-content {
+    max-width: none !important;
 }
 
-@media screen and (min-width: 768px) {
-    /* Estrutura principal ocupa tela inteira */
-    html, body, .wy-grid-for-nav {
-        height: 100vh !important;
-        overflow: hidden !important;
-    }
-
-    /* Menu lateral fixo com rolagem própria */
-    .wy-nav-side {
-        height: 100vh !important;
-        overflow-y: auto !important;
-        position: absolute !important;
-        top: 0 !important;
-        left: 0 !important;
-    }
-
-    /* Conteúdo é a única área com rolagem */
-    .wy-nav-content-wrap {
-        margin-left: 300px !important;
-        height: 100vh !important;
-        overflow-y: auto !important;
-    }
-
-    .wy-nav-content {
-        height: auto !important;
-        min-height: 100% !important;
-    }
-}
-
-
-
-/* ── Imagens & Zoom Lightbox ─────────────────────────────────────────── */
-article img,
-.wy-nav-content img {
-    border-radius: 6px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
-    max-width: 100%;
-    margin: 1.2rem auto;
+/* 3. Garante que as imagens ocupem uma porcentagem % da largura total com borda elegante */
+.rst-content img, .md-content img {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
     display: block;
-    background-color: #ffffff;
-    padding: 6px;
+    margin: 28px auto !important;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
-.zoomable-image {
-    cursor: zoom-in !important;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+/* --- ESTILOS DO POPUP/LIGHTBOX (Template Compartilhado DELOG) --- */
+
+/* 1. Prepara a imagem original no texto */
+.rst-content img, .md-content img {
+    cursor: zoom-in;
+    transition: transform 0.2s ease;
 }
 
-.zoomable-image:hover {
+.rst-content img:hover {
     transform: scale(1.01);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
 }
 
-.image-modal-overlay {
+/* 2. O contêiner do Popup (a camada escura de fundo) */
+#lightbox-overlay {
     display: none;
     position: fixed;
+    z-index: 9999;
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(15, 23, 42, 0.88);
-    backdrop-filter: blur(4px);
-    z-index: 100000;
-    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    cursor: zoom-out;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+#lightbox-overlay.active {
+    display: flex;
     justify-content: center;
-    padding: 20px;
-    box-sizing: border-box;
-}
-
-.image-modal-overlay.active {
-    display: flex;
-}
-
-.image-modal-container {
-    position: relative;
-    max-width: 92vw;
-    max-height: 92vh;
-    display: flex;
-    flex-direction: column;
     align-items: center;
+    opacity: 1;
 }
 
-.image-modal-container img {
-    max-width: 90vw;
-    max-height: 82vh;
-    border-radius: 8px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    background-color: #ffffff;
-    padding: 8px;
-    object-fit: contain;
+/* 3. A imagem dentro do popup */
+#lightbox-image {
+    max-width: 90%;
+    max-height: 90%;
+    border: 4px solid white;
+    border-radius: 4px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+    cursor: default;
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
 }
 
-.image-modal-close {
+#lightbox-overlay.active #lightbox-image {
+    transform: scale(1);
+}
+
+/* 4. O botão de fechar (X) */
+#lightbox-close {
     position: absolute;
-    top: -40px;
-    right: 0;
-    background: transparent;
-    border: none;
-    color: #ffffff;
-    font-size: 2.2rem;
-    font-weight: 300;
+    top: 20px;
+    right: 30px;
+    color: white;
+    font-size: 50px;
+    font-weight: bold;
     cursor: pointer;
-    line-height: 1;
-    padding: 4px 8px;
+    transition: 0.2s;
+    user-select: none;
 }
 
-.image-modal-close:hover {
-    color: #38bdf8;
+#lightbox-close:hover {
+    color: #ccc;
+    transform: scale(1.1);
 }
 
-.image-modal-caption {
-    color: #e2e8f0;
-    margin-top: 10px;
-    font-size: 0.9rem;
-    text-align: center;
+/* Permite a quebra de linha para os títulos (texto azul) e links longos no menu lateral */
+.wy-menu-vertical p.caption,
+.wy-menu-vertical span.caption-text,
+.wy-menu-vertical a {
+    white-space: normal !important;
+    word-wrap: break-word !important;
+    line-height: 1.4 !important;
 }
 
-/* ── Botões de Impressão ─────────────────────────────────────────────────── */
-.print-toolbar-top {
-    margin-bottom: 1.5rem;
-    text-align: right;
+/* Dá um pequeno respiro (margem) abaixo dos títulos em azul para não ficar colado nos links */
+.wy-menu-vertical p.caption {
+    margin-bottom: 8px !important;
 }
 
-.print-toolbar-bottom {
-    margin-top: 2rem;
-    margin-bottom: 1.5rem;
-    padding-top: 1rem;
-    border-top: 1px solid #e2e8f0;
-    text-align: right;
-}
+/* --- MELHORIAS ESPECÍFICAS PARA A DOCUMENTAÇÃO DA API --- */
 
-.btn-print-custom {
-    background-color: #0284c7;
-    color: #ffffff;
-    border: none;
-    padding: 8px 16px;
-    font-size: 0.9rem;
-    font-weight: 600;
-    border-radius: 6px;
-    cursor: pointer;
-    box-shadow: 0 2px 6px rgba(2, 132, 199, 0.25);
-    transition: all 0.2s ease;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-}
-
-.btn-print-custom:hover {
-    background-color: #0369a1;
-    transform: translateY(-1px);
-    box-shadow: 0 4px 10px rgba(2, 132, 199, 0.35);
-}
-
-body.dark-version .btn-print-custom {
-    background-color: #38bdf8;
-    color: #0f172a;
-}
-
-/* ── Barra de Acessibilidade (Tamanho da Fonte) ──────────────────────────── */
-.accessibility-toolbar {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 9999;
-    background-color: #ffffff;
-    border: 1px solid #cbd5e1;
-    border-radius: 24px;
-    padding: 6px 14px;
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-family: sans-serif;
-}
-
-body.dark-version .accessibility-toolbar {
-    background-color: #1e293b;
-    border-color: #334155;
-    color: #f8fafc;
-}
-
-.accessibility-toolbar .access-label {
-    font-size: 0.8rem;
-    font-weight: 600;
-    color: #64748b;
-    margin-right: 4px;
-}
-
-body.dark-version .accessibility-toolbar .access-label {
-    color: #94a3b8;
-}
-
-.accessibility-toolbar button {
-    background-color: #f1f5f9;
-    color: #0f172a;
-    border: 1px solid #cbd5e1;
-    font-weight: 700;
-    font-size: 0.85rem;
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.15s ease;
-}
-
-.accessibility-toolbar button:hover {
-    background-color: #0284c7;
-    color: #ffffff;
-    border-color: #0284c7;
-}
-
-body.dark-version .accessibility-toolbar button {
-    background-color: #334155;
-    color: #f8fafc;
-    border-color: #475569;
-}
-
-body.dark-version .accessibility-toolbar button:hover {
-    background-color: #38bdf8;
-    color: #0f172a;
-}
-
-/* ── Destaque amarelo (role customizada) ───────────────────────────────────── */
-.destaque-amarelo-claro {
-    background-color: #fff9c4;
-    padding: 0 4px;
-    border-radius: 3px;
-    font-weight: 600;
-}
-
-/* ── Badges de Método HTTP ─────────────────────────────────────────────────── */
+/* Badges de Método HTTP */
 .badge-get, .badge-post, .badge-put, .badge-delete, .badge-patch {
     color: #ffffff !important;
     font-weight: 700 !important;
@@ -265,7 +127,7 @@ body.dark-version .accessibility-toolbar button:hover {
 .badge-delete { background-color: #ef4444 !important; }
 .badge-patch { background-color: #8b5cf6 !important; }
 
-/* ── Badges de Campos da Tabela (Obrigatório / Opcional) ──────────────────── */
+/* Badges de Campos da Tabela (Obrigatório / Opcional) */
 .badge-req {
     background-color: #fef2f2 !important;
     color: #dc2626 !important;
@@ -294,22 +156,17 @@ body.dark-version .accessibility-toolbar button:hover {
     white-space: nowrap !important;
 }
 
-/* Suporte aos badges no Modo Escuro (Dark Mode) */
-body.dark-version .badge-req,
-.dark-version .badge-req {
-    background-color: #450a0a !important;
-    color: #fca5a5 !important;
-    border-color: #991b1b !important;
+/* Tabelas Polidas e Responsivas dentro dos 820px */
+.wy-table-responsive {
+    overflow-x: auto !important;
 }
 
-body.dark-version .badge-opt,
-.dark-version .badge-opt {
-    background-color: #0f172a !important;
-    color: #94a3b8 !important;
-    border-color: #334155 !important;
+.wy-table-responsive table td,
+.wy-table-responsive table th {
+    white-space: normal !important;
+    word-break: break-word;
 }
 
-/* ── Tabelas Polidas ────────────────────────────────────────────────────────── */
 table.docutils {
     width: 100%;
     border-collapse: separate;
@@ -333,6 +190,7 @@ table.docutils th {
     text-transform: uppercase;
     letter-spacing: 0.4px;
     border-bottom: 2px solid #1e40af;
+    color: #ffffff !important;
 }
 
 table.docutils td {
@@ -350,34 +208,7 @@ table.docutils tbody tr:hover {
     background-color: #f1f5f9;
 }
 
-/* Estilos de Tabela para Modo Escuro */
-body.dark-version table.docutils,
-.dark-version table.docutils {
-    border-color: #334155;
-}
-
-body.dark-version table.docutils thead tr,
-.dark-version table.docutils thead tr {
-    background-color: #0f172a;
-    color: #93c5fd;
-}
-
-body.dark-version table.docutils tbody tr:nth-child(even),
-.dark-version table.docutils tbody tr:nth-child(even) {
-    background-color: #1e293b;
-}
-
-body.dark-version table.docutils tbody tr:hover,
-.dark-version table.docutils tbody tr:hover {
-    background-color: #334155;
-}
-
-body.dark-version table.docutils td,
-.dark-version table.docutils td {
-    border-bottom-color: #334155;
-}
-
-/* ── Caixas de Destaque / Callouts ───────────────────────────────────────── */
+/* Caixas de Destaque / Callouts */
 blockquote {
     background-color: #f0f7ff;
     border-left: 4px solid #0284c7;
@@ -391,14 +222,7 @@ blockquote p {
     margin: 0 !important;
 }
 
-body.dark-version blockquote,
-.dark-version blockquote {
-    background-color: #0c4a6e;
-    border-left-color: #38bdf8;
-    color: #f0f9ff;
-}
-
-/* Inline code highlight for endpoints e parâmetros */
+/* Inline code highlight para endpoints e parâmetros */
 .rst-content code.literal {
     background-color: #f1f5f9;
     color: #0f2744;
@@ -407,22 +231,10 @@ body.dark-version blockquote,
     font-size: 88%;
     border: 1px solid #cbd5e1;
     font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    word-break: break-all;
 }
 
-body.dark-version .rst-content code.literal {
-    background-color: #1e293b;
-    color: #38bdf8;
-    border-color: #334155;
-}
-
-/* ── Botão de alternar tema claro/escuro ──────────────────────────────────── */
-.theme-switcher {
-    bottom: 75px !important;
-    right: 20px !important;
-    z-index: 9999 !important;
-}
-
-/* ── Ocultar anúncios do Read the Docs (EthicalAds) ───────────────────────── */
+/* Ocultar anúncios do Read the Docs (EthicalAds) */
 #ethical-ad-placement,
 .ethical-rtd,
 .ethical-sidebar,
@@ -438,19 +250,17 @@ div[class*="ethical"],
     padding: 0 !important;
 }
 
-/* ── Regras de Impressão (@media print) ─────────────────────────────────── */
+/* Regras de Impressão (@media print) */
 @media print {
-    /* Esconder elementos de navegação e controles */
     .wy-nav-side,
-    .theme-switcher,
-    .accessibility-toolbar,
-    .btn-print-custom,
-    .print-toolbar-top,
-    .print-toolbar-bottom,
+    .wy-nav-top,
+    .top-accessibility-bar,
+    .bottom-print-bar,
     .rst-footer-buttons,
     footer,
     header,
-    .wy-breadcrumbs {
+    .wy-breadcrumbs,
+    .copybtn {
         display: none !important;
     }
 
@@ -466,20 +276,11 @@ div[class*="ethical"],
         margin: 0 !important;
     }
 
-    /* Forçar quebra de página limpa antes dos módulos principais (H2) */
-    h2 {
-        page-break-before: always;
-        break-before: page;
-        padding-top: 1cm;
-    }
-
-    /* Impede quebras dentro de tabelas e blocos de código */
     table.docutils, pre, blockquote {
         page-break-inside: avoid;
         break-inside: avoid;
     }
 
-    /* Estilo de página impressa A4 e cabeçalho/rodapé com numeração */
     @page {
         size: A4;
         margin: 2cm 1.5cm;

@@ -23,13 +23,9 @@ version = '3.0'
 # ── Extensões ─────────────────────────────────────────────────────────────────
 extensions = [
     'sphinx.ext.duration',
-    'sphinx_rtd_dark_mode',
     'myst_parser',
     'sphinx_copybutton',
 ]
-
-# Dark mode ligado por padrão
-default_dark_mode = True
 
 source_suffix = {
     '.rst': 'restructuredtext',
@@ -40,7 +36,7 @@ templates_path = ['_templates']
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 language = 'pt_BR'
 
-# Documento raiz — o usuário cai diretamente no manual (index.html)
+# Documento raiz — página de Início com Formatos de Visualização
 root_doc = 'index'
 master_doc = 'index'
 
@@ -52,7 +48,7 @@ html_theme_options = {
     'display_version': True,
     'prev_next_buttons_location': 'bottom',
     'style_external_links': False,
-    'collapse_navigation': True,
+    'collapse_navigation': False,
     'sticky_navigation': True,
     'navigation_depth': 4,
     'includehidden': True,
@@ -60,8 +56,14 @@ html_theme_options = {
 }
 
 html_static_path = ['_static']
-html_css_files = ['custom.css']
-html_js_files = ['custom.js']
+html_css_files = [
+    'custom.css',
+    'extra.css',
+]
+html_js_files = [
+    'custom.js',
+    'font-size.js',
+]
 
 html_title = 'Manual da API de Compras'
 html_short_title = 'API de Compras'
@@ -73,4 +75,4 @@ myst_enable_extensions = [
     'tasklist',
     'html_image',
 ]
-myst_heading_anchors = 3
+myst_heading_anchors = 4
