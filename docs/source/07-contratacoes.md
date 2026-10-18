@@ -11,23 +11,23 @@
 
 <p style="font-weight: bold; color: #d9534f; margin-top: -5px; margin-bottom: 20px;">PÚBLICO-ALVO: DESENVOLVEDORES E INTEGRADORES DE SISTEMAS</p>
 
-# 10. Módulo Contratações
+# 7. Módulo Contratações
 
 O Módulo Contratações oferece acesso a informações detalhadas sobre os procedimentos de contratação.
 
-## 10.1. Indicadores de Modalidade
+## 7.1. Indicadores de Modalidade
 (Descrição dos indicadores de modalidade)
 
-## 10.2. Modos de Disputa
+## 7.2. Modos de Disputa
 (Descrição dos modos de disputa)
 
-## 10.3. Critérios de Julgamento
+## 7.3. Critérios de Julgamento
 (Descrição dos critérios de julgamento)
 
-## 10.4. Amparos Legais
+## 7.4. Amparos Legais
 (Descrição dos amparos legais)
 
-## 10.5. consultarContratacoes_PNCP_14133
+## 7.5. consultarContratacoes_PNCP_14133
 
 Serviço para obter dados e consultar o endpoint consultarContratacoes_PNCP_14133.
 
@@ -188,7 +188,7 @@ curl -X 'GET' \
 
 <a href="#">⬆️ Voltar ao topo</a>
 
-### 10.5.1. consultarContratacoes_PNCP_14133_Id
+### 7.5.1. consultarContratacoes_PNCP_14133_Id
 
 Serviço para obter dados e consultar o endpoint consultarContratacoes_PNCP_14133_Id.
 
@@ -215,7 +215,7 @@ curl -X 'GET' \
 
 <a href="#">⬆️ Voltar ao topo</a>
 
-## 10.6. consultarItensContratacoes_PNCP_14133
+## 7.6. consultarItensContratacoes_PNCP_14133
 
 Serviço para obter dados e consultar o endpoint consultarItensContratacoes_PNCP_14133.
 
@@ -371,7 +371,7 @@ curl -X 'GET' \
 
 <a href="#">⬆️ Voltar ao topo</a>
 
-### 10.6.1. consultarItensContratacoes_PNCP_14133_Id
+### 7.6.1. consultarItensContratacoes_PNCP_14133_Id
 
 Serviço para obter dados e consultar o endpoint consultarItensContratacoes_PNCP_14133_Id.
 
@@ -399,7 +399,7 @@ curl -X 'GET' \
 
 <a href="#">⬆️ Voltar ao topo</a>
 
-## 10.7. consultarResultadoItensContratacoes_PNCP_14133
+## 7.7. consultarResultadoItensContratacoes_PNCP_14133
 
 Serviço para obter dados e consultar o endpoint consultarResultadoItensContratacoes_PNCP_14133.
 
@@ -545,7 +545,7 @@ curl -X 'GET' \
 
 <a href="#">⬆️ Voltar ao topo</a>
 
-### 10.7.1. consultarResultadoItensContratacoes_PNCP_14133_Id
+### 7.7.1. consultarResultadoItensContratacoes_PNCP_14133_Id
 
 Serviço para obter dados e consultar o endpoint consultarResultadoItensContratacoes_PNCP_14133_Id.
 

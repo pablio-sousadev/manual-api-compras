@@ -22,17 +22,17 @@ Ministério da Gestão e da Inovação em Serviços Públicos – MGI
 
 ---
 
-## 1. Introdução
+## Introdução
 
 O Sistema Integrado de Administração de Serviços Gerais – Siasg, instituído pelo art. 7º do Decreto nº 1.094, de 23 de março de 1994, é o sistema informatizado de apoio às atividades operacionais do Sistema de Serviços Gerais – Sisg. A finalidade do Siasg é integrar os órgãos da Administração Pública Federal direta, autárquica e fundacional. Após a reestruturação do Sisg (nova releitura), o SIASG passa a receber o sistema de contratações do governo federal, Compras.gov.br.
 
 O Compras.gov.br atua nas três grandes fases do ciclo de contratação pública — Planejamento da Contratação, Seleção do Fornecedor e Gestão e Fiscalização do Contrato —, integrando diversas ferramentas e sistemas que compõem a área de trabalho do gestor público.
 
-## 2. Objetivos
+## Objetivos
 
 A transparência desempenha um papel fundamental na gestão pública.
 
-## 3. Outros tópicos relevantes
+## Outros tópicos relevantes
 
 O acesso aos dados é feito através de URLs, o protocolo de comunicação utilizado é o REST - Representational State Transfer/ HTTP 1.1 e os dados trafegados utilizam a notação JSON - JavaScript Object Notation.
 
@@ -45,18 +45,17 @@ Em cada consulta é possível especificar uma série de parâmetros de filtro, q
 Você pode acessar os módulos específicos que quer consultar ou ver o manual completo, com todas as seções. Para isso, selecione o que quer ler no menu ao lado ou abaixo. Você também pode baixar ou imprimir cada uma dessas páginas ou o manual completo.
 
 * **Padrão - escolha a seção específica que quer acessar:**
-  * [4. Módulo Catálogo — Material](04-catalogo-material.md)
-  * [5. Módulo Catálogo — Serviço](05-catalogo-servico.md)
-  * [6. Módulo Pesquisa de Preço — Preços Praticados](06-pesquisa-preco.md)
-  * [7. Módulo PGC — Planejamento e Gerenciamento de Contratações](07-pgc.md)
-  * [8. Módulo UASG](08-uasg.md)
-  * [9. Módulo Legado](09-legado.md)
-  * [10. Módulo Contratações](10-contratacoes.md)
-  * [11. Módulo ARP — Ata de Registro de Preços](11-arp.md)
-  * [12. Módulo Contratos](12-contratos.md)
-  * [13. Módulo Fornecedor](13-fornecedor.md)
-  * [14. Módulo OCDS](14-ocds.md)
-  * [15. Histórico de Revisões](15-historico-revisoes.md)
+  * [1. Módulo Catálogo — Material](01-catalogo-material.md)
+  * [2. Módulo Catálogo — Serviço](02-catalogo-servico.md)
+  * [3. Módulo Pesquisa de Preço — Preços Praticados](03-pesquisa-preco.md)
+  * [4. Módulo PGC — Planejamento e Gerenciamento de Contratações](04-pgc.md)
+  * [5. Módulo UASG](05-uasg.md)
+  * [6. Módulo Legado](06-legado.md)
+  * [7. Módulo Contratações](07-contratacoes.md)
+  * [8. Módulo ARP — Ata de Registro de Preços](08-arp.md)
+  * [9. Módulo Contratos](09-contratos.md)
+  * [10. Módulo Fornecedor](10-fornecedor.md)
+  * [11. Módulo OCDS](11-ocds.md)
 * [Manual completo: todo o manual na mesma página](versao-impressao.md)
 
 <div class="bottom-print-bar" style="text-align: right; margin: 20px 0;">
@@ -67,62 +66,19 @@ Você pode acessar os módulos específicos que quer consultar ou ver o manual c
 
 ```{toctree}
 :hidden:
-:maxdepth: 1
+:maxdepth: 3
 
 Início <self>
-```
-
-```{toctree}
-:hidden:
-:maxdepth: 3
-:caption: Módulos de Catálogo
-
-04-catalogo-material
-05-catalogo-servico
-```
-
-```{toctree}
-:hidden:
-:maxdepth: 3
-:caption: Módulos de Planejamento e Pesquisa
-
-06-pesquisa-preco
-07-pgc
-```
-
-```{toctree}
-:hidden:
-:maxdepth: 3
-:caption: Módulos Estruturantes e Legado
-
-08-uasg
-09-legado
-```
-
-```{toctree}
-:hidden:
-:maxdepth: 3
-:caption: Módulos de Contratações e Gestão
-
-10-contratacoes
-11-arp
-12-contratos
-```
-
-```{toctree}
-:hidden:
-:maxdepth: 3
-:caption: Módulos de Fornecedores e Padrão Aberto
-
-13-fornecedor
-14-ocds
-```
-
-```{toctree}
-:hidden:
-:maxdepth: 1
-:caption: Referência e Versão para Impressão
-
-15-historico-revisoes
+01-catalogo-material
+02-catalogo-servico
+03-pesquisa-preco
+04-pgc
+05-uasg
+06-legado
+07-contratacoes
+08-arp
+09-contratos
+10-fornecedor
+11-ocds
 Manual completo <versao-impressao>
 ```

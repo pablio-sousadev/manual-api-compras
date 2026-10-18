@@ -26,17 +26,17 @@ FALLBACK_SPEC_PATH = os.path.join(DATA_DIR, "openapi_fallback.json")
 CATALOG_PATH = os.path.join(DATA_DIR, "descriptions_catalog.json")
 
 PUBLIC_TAGS = [
-    ("01 - CATÁLOGO - MATERIAL", 4, "04-catalogo-material.md", "4. Módulo Catálogo — Material", 1),
-    ("02 - CATÁLOGO - SERVIÇO", 5, "05-catalogo-servico.md", "5. Módulo Catálogo — Serviço", 1),
-    ("03 - PESQUISA DE PREÇO - PREÇOS PRATICADOS", 6, "06-pesquisa-preco.md", "6. Módulo Pesquisa de Preço — Preços Praticados", 1),
-    ("04 - PGC", 7, "07-pgc.md", "7. Módulo PGC — Planejamento e Gerenciamento de Contratações", 1),
-    ("05 - UASG", 8, "08-uasg.md", "8. Módulo UASG", 1),
-    ("06 - LEGADO", 9, "09-legado.md", "9. Módulo Legado", 1),
-    ("07 - CONTRATAÇÕES", 10, "10-contratacoes.md", "10. Módulo Contratações", 5),
-    ("08 - ARP", 11, "11-arp.md", "11. Módulo ARP — Ata de Registro de Preços", 1),
-    ("09 - CONTRATOS", 12, "12-contratos.md", "12. Módulo Contratos", 1),
-    ("10 - FORNECEDOR", 13, "13-fornecedor.md", "13. Módulo Fornecedor", 1),
-    ("11 - OCDS", 14, "14-ocds.md", "14. Módulo OCDS", 1),
+    ("01 - CATÁLOGO - MATERIAL", 1, "01-catalogo-material.md", "1. Módulo Catálogo — Material", 1),
+    ("02 - CATÁLOGO - SERVIÇO", 2, "02-catalogo-servico.md", "2. Módulo Catálogo — Serviço", 1),
+    ("03 - PESQUISA DE PREÇO - PREÇOS PRATICADOS", 3, "03-pesquisa-preco.md", "3. Módulo Pesquisa de Preço — Preços Praticados", 1),
+    ("04 - PGC", 4, "04-pgc.md", "4. Módulo PGC — Planejamento e Gerenciamento de Contratações", 1),
+    ("05 - UASG", 5, "05-uasg.md", "5. Módulo UASG", 1),
+    ("06 - LEGADO", 6, "06-legado.md", "6. Módulo Legado", 1),
+    ("07 - CONTRATAÇÕES", 7, "07-contratacoes.md", "7. Módulo Contratações", 5),
+    ("08 - ARP", 8, "08-arp.md", "8. Módulo ARP — Ata de Registro de Preços", 1),
+    ("09 - CONTRATOS", 9, "09-contratos.md", "9. Módulo Contratos", 1),
+    ("10 - FORNECEDOR", 10, "10-fornecedor.md", "10. Módulo Fornecedor", 1),
+    ("11 - OCDS", 11, "11-ocds.md", "11. Módulo OCDS", 1),
 ]
 
 TOP_TOOLBAR = """<div class="top-accessibility-bar" style="display: flex; justify-content: flex-end; align-items: center; gap: 8px; margin: 10px 0;">
@@ -359,11 +359,20 @@ def sync_all():
     print("[OpenAPI Sync] Todos os 11 módulos e a versão para impressão foram sincronizados com sucesso.")
 
 
+def slugify_heading(text):
+    """Gera o id de âncora compatível com o sumário do Manual Completo."""
+    import unicodedata
+    cleaned = re.sub(r"^\d+(?:\.\d+)*\.\s*", "", text.strip())
+    norm = unicodedata.normalize("NFKD", cleaned).encode("ascii", "ignore").decode("ascii").lower()
+    slug = re.sub(r"[^a-z0-9]+", "-", norm).strip("-")
+    return slug
+
+
 def rebuild_versao_impressao(generated_sections):
-    """Atualiza versao-impressao.md mantendo seções 1-3, 4-14 (sincronizadas) e 15."""
-    sec1_3 = {
-        1: (
-            "## 1. Introdução\n\n"
+    """Atualiza versao-impressao.md mantendo seções introdutórias e módulos 1 a 11 sincronizados."""
+    intro_sections = [
+        (
+            '<h2 id="introducao">Introdução</h2>\n\n'
             "O Sistema Integrado de Administração de Serviços Gerais – Siasg, instituído pelo art. 7º do Decreto nº 1.094, "
             "de 23 de março de 1994, é o sistema informatizado de apoio às atividades operacionais do Sistema de Serviços Gerais – Sisg. "
             "A finalidade do Siasg é integrar os órgãos da Administração Pública Federal direta, autárquica e fundacional. "
@@ -371,24 +380,18 @@ def rebuild_versao_impressao(generated_sections):
             "O Compras.gov.br atua nas três grandes fases do ciclo de contratação pública — Planejamento da Contratação, "
             "Seleção do Fornecedor e Gestão e Fiscalização do Contrato —, integrando diversas ferramentas e sistemas que compõem a área de trabalho do gestor público."
         ),
-        2: "## 2. Objetivos\n\nA transparência desempenha um papel fundamental na gestão pública.",
-        3: (
-            "## 3. Outros tópicos relevantes\n\n"
+        '<h2 id="objetivos">Objetivos</h2>\n\nA transparência desempenha um papel fundamental na gestão pública.',
+        (
+            '<h2 id="outros-topicos-relevantes">Outros tópicos relevantes</h2>\n\n'
             "O acesso aos dados é feito através de URLs, o protocolo de comunicação utilizado é o REST - Representational State Transfer/ HTTP 1.1 "
             "e os dados trafegados utilizam a notação JSON - JavaScript Object Notation.\n\n"
             "Em cada consulta é possível especificar uma série de parâmetros de filtro, que devem compor a URL. "
             "Você (ser humano ou máquina) pode navegar através de todos os recursos apenas utilizando os links disponíveis. "
             "O acesso à API é realizado através do seguinte endereço: Swagger UI - Dados Abertos Compras"
         ),
-    }
+    ]
 
-    hist_path = os.path.join(SOURCE_DIR, "15-historico-revisoes.md")
-    with open(hist_path, "r", encoding="utf-8") as f:
-        hist_text = f.read()
-    m_hist = re.search(r"^# 15\..*$", hist_text, re.MULTILINE)
-    hist_sec = hist_text[m_hist.start():].replace(BOTTOM_PRINT, "").strip() if m_hist else ""
-
-    all_demoted = [sec1_3[1], sec1_3[2], sec1_3[3]]
+    all_demoted = list(intro_sections)
 
     for num in sorted(generated_sections.keys()):
         sec_text = generated_sections[num]
@@ -398,15 +401,17 @@ def rebuild_versao_impressao(generated_sections):
         for line in lines:
             if line.strip().startswith("```"):
                 in_code = not in_code
-            if not in_code and re.match(r"^#{1,4} ", line):
-                line = "#" + line
+            if not in_code:
+                m_h = re.match(r"^(#{1,3})\s+(.*)$", line)
+                if m_h:
+                    hashes, h_title = m_h.group(1), m_h.group(2).strip()
+                    level = len(hashes) + 1  # # -> h2, ## -> h3, ### -> h4
+                    hid = slugify_heading(h_title)
+                    line = f'<h{level} id="{hid}">{h_title}</h{level}>'
             new_lines.append(line)
         demoted = "\n".join(new_lines)
         demoted = demoted.replace('<a href="#">⬆️ Voltar ao topo</a>', '<a href="#sumario">⬆️ Voltar ao sumário</a>')
         all_demoted.append(demoted)
-
-    if hist_sec:
-        all_demoted.append("#" + hist_sec)
 
     versao_impressao_md = f"""{TOP_TOOLBAR}
 
@@ -423,23 +428,22 @@ Ministério da Gestão e da Inovação em Serviços Públicos – MGI
 
 ---
 
-## Sumário
+<h2 id="sumario">Sumário</h2>
 
-- <a href="#introducao">1. Introdução</a>
-- <a href="#objetivos">2. Objetivos</a>
-- <a href="#outros-topicos-relevantes">3. Outros tópicos relevantes</a>
-- <a href="#modulo-catalogo-material">4. Módulo Catálogo — Material</a>
-- <a href="#modulo-catalogo-servico">5. Módulo Catálogo — Serviço</a>
-- <a href="#modulo-pesquisa-de-preco-precos-praticados">6. Módulo Pesquisa de Preço — Preços Praticados</a>
-- <a href="#modulo-pgc-planejamento-e-gerenciamento-de-contratacoes">7. Módulo PGC — Planejamento e Gerenciamento de Contratações</a>
-- <a href="#modulo-uasg">8. Módulo UASG</a>
-- <a href="#modulo-legado">9. Módulo Legado</a>
-- <a href="#modulo-contratacoes">10. Módulo Contratações</a>
-- <a href="#modulo-arp-ata-de-registro-de-precos">11. Módulo ARP — Ata de Registro de Preços</a>
-- <a href="#modulo-contratos">12. Módulo Contratos</a>
-- <a href="#modulo-fornecedor">13. Módulo Fornecedor</a>
-- <a href="#modulo-ocds">14. Módulo OCDS</a>
-- <a href="#historico-de-revisoes">15. Histórico de Revisões</a>
+- <a href="#introducao">Introdução</a>
+- <a href="#objetivos">Objetivos</a>
+- <a href="#outros-topicos-relevantes">Outros tópicos relevantes</a>
+- <a href="#modulo-catalogo-material">1. Módulo Catálogo — Material</a>
+- <a href="#modulo-catalogo-servico">2. Módulo Catálogo — Serviço</a>
+- <a href="#modulo-pesquisa-de-preco-precos-praticados">3. Módulo Pesquisa de Preço — Preços Praticados</a>
+- <a href="#modulo-pgc-planejamento-e-gerenciamento-de-contratacoes">4. Módulo PGC — Planejamento e Gerenciamento de Contratações</a>
+- <a href="#modulo-uasg">5. Módulo UASG</a>
+- <a href="#modulo-legado">6. Módulo Legado</a>
+- <a href="#modulo-contratacoes">7. Módulo Contratações</a>
+- <a href="#modulo-arp-ata-de-registro-de-precos">8. Módulo ARP — Ata de Registro de Preços</a>
+- <a href="#modulo-contratos">9. Módulo Contratos</a>
+- <a href="#modulo-fornecedor">10. Módulo Fornecedor</a>
+- <a href="#modulo-ocds">11. Módulo OCDS</a>
 
 ---
 

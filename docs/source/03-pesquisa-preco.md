@@ -11,11 +11,11 @@
 
 <p style="font-weight: bold; color: #d9534f; margin-top: -5px; margin-bottom: 20px;">PÚBLICO-ALVO: DESENVOLVEDORES E INTEGRADORES DE SISTEMAS</p>
 
-# 6. Módulo Pesquisa de Preço — Preços Praticados
+# 3. Módulo Pesquisa de Preço — Preços Praticados
 
 Módulo responsável por consultar os preços praticados na administração pública.
 
-## 6.1. consultarMaterial
+## 3.1. consultarMaterial
 
 Serviço para obter dados e consultar o endpoint consultarMaterial.
 
@@ -155,7 +155,7 @@ curl -X 'GET' \
 
 <a href="#">⬆️ Voltar ao topo</a>
 
-### 6.1.1. consultarMaterial_CSV
+### 3.1.1. consultarMaterial_CSV
 
 Serviço para obter dados e consultar o endpoint consultarMaterial_CSV.
 
@@ -174,7 +174,7 @@ curl -X 'GET' \
 
 <a href="#">⬆️ Voltar ao topo</a>
 
-## 6.2. consultarMaterialDetalhe
+## 3.2. consultarMaterialDetalhe
 
 Serviço para obter dados e consultar o endpoint consultarMaterialDetalhe.
 
@@ -237,7 +237,7 @@ curl -X 'GET' \
 
 <a href="#">⬆️ Voltar ao topo</a>
 
-### 6.2.1. consultarMaterialDetalhe_CSV
+### 3.2.1. consultarMaterialDetalhe_CSV
 
 Serviço para obter dados e consultar o endpoint consultarMaterialDetalhe_CSV.
 
@@ -256,7 +256,7 @@ curl -X 'GET' \
 
 <a href="#">⬆️ Voltar ao topo</a>
 
-## 6.3. consultarServico
+## 3.3. consultarServico
 
 Serviço para obter dados e consultar o endpoint consultarServico.
 
@@ -376,7 +376,7 @@ curl -X 'GET' \
 
 <a href="#">⬆️ Voltar ao topo</a>
 
-### 6.3.1. consultarServico_CSV
+### 3.3.1. consultarServico_CSV
 
 Serviço para obter dados e consultar o endpoint consultarServico_CSV.
 
@@ -395,7 +395,7 @@ curl -X 'GET' \
 
 <a href="#">⬆️ Voltar ao topo</a>
 
-## 6.4. consultarServicoDetalhe
+## 3.4. consultarServicoDetalhe
 
 Serviço para obter dados e consultar o endpoint consultarServicoDetalhe.
 
@@ -458,7 +458,7 @@ curl -X 'GET' \
 
 <a href="#">⬆️ Voltar ao topo</a>
 
-### 6.4.1. consultarServicoDetalhe_CSV
+### 3.4.1. consultarServicoDetalhe_CSV
 
 Serviço para obter dados e consultar o endpoint consultarServicoDetalhe_CSV.
 

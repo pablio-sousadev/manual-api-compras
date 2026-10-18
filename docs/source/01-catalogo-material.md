@@ -11,11 +11,11 @@
 
 <p style="font-weight: bold; color: #d9534f; margin-top: -5px; margin-bottom: 20px;">PÚBLICO-ALVO: DESENVOLVEDORES E INTEGRADORES DE SISTEMAS</p>
 
-# 4. Módulo Catálogo — Material
+# 1. Módulo Catálogo — Material
 
 O Catálogo de Materiais (CATMAT) e o Catálogo de Serviços (CATSER), do Sistema Integrado de Administração e Serviços Gerais – SIASG, são as bases de dados que identificam todos os materiais licitados e adquiridos e todos os serviços licitados contratados pela Administração Pública Federal. Todas as operações realizadas por meio do SIASG/Compras Governamentais utilizam esses catálogos para definir os objetos das respectivas licitações e contratações.
 
-## 4.1. consultarGrupoMaterial
+## 1.1. consultarGrupoMaterial
 
 Serviço para obter dados e consultar o endpoint consultarGrupoMaterial.
 
@@ -70,7 +70,7 @@ curl -X 'GET' \
 
 <a href="#">⬆️ Voltar ao topo</a>
 
-## 4.2. consultarClasseMaterial
+## 1.2. consultarClasseMaterial
 
 Serviço para obter dados e consultar o endpoint consultarClasseMaterial.
 
@@ -131,7 +131,7 @@ curl -X 'GET' \
 
 <a href="#">⬆️ Voltar ao topo</a>
 
-## 4.3. consultarPdmMaterial
+## 1.3. consultarPdmMaterial
 
 Serviço para obter dados e consultar o endpoint consultarPdmMaterial.
 
@@ -198,7 +198,7 @@ curl -X 'GET' \
 
 <a href="#">⬆️ Voltar ao topo</a>
 
-## 4.4. consultarItemMaterial
+## 1.4. consultarItemMaterial
 
 Serviço para obter dados e consultar o endpoint consultarItemMaterial.
 
@@ -280,7 +280,7 @@ curl -X 'GET' \
 
 <a href="#">⬆️ Voltar ao topo</a>
 
-## 4.5. consultarMaterialNaturezaDespesa
+## 1.5. consultarMaterialNaturezaDespesa
 
 Serviço para obter dados e consultar o endpoint consultarMaterialNaturezaDespesa.
 
@@ -337,7 +337,7 @@ curl -X 'GET' \
 
 <a href="#">⬆️ Voltar ao topo</a>
 
-## 4.6. consultarMaterialUnidadeFornecimento
+## 1.6. consultarMaterialUnidadeFornecimento
 
 Serviço para obter dados e consultar o endpoint consultarMaterialUnidadeFornecimento.
 
@@ -405,7 +405,7 @@ curl -X 'GET' \
 
 <a href="#">⬆️ Voltar ao topo</a>
 
-## 4.7. consultarMaterialCaracteristicas
+## 1.7. consultarMaterialCaracteristicas
 
 Serviço para obter dados e consultar o endpoint consultarMaterialCaracteristicas.
 

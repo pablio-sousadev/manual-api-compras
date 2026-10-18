@@ -11,11 +11,11 @@
 
 <p style="font-weight: bold; color: #d9534f; margin-top: -5px; margin-bottom: 20px;">PÚBLICO-ALVO: DESENVOLVEDORES E INTEGRADORES DE SISTEMAS</p>
 
-# 11. Módulo ARP — Ata de Registro de Preços
+# 8. Módulo ARP — Ata de Registro de Preços
 
 O Módulo ARP (Ata de Registro de Preços) permite consultar atas vigentes, itens, quantitativos e histórico de adesões.
 
-## 11.1. consultarARP
+## 8.1. consultarARP
 
 Serviço para obter dados e consultar o endpoint consultarARP.
 
@@ -118,7 +118,7 @@ curl -X 'GET' \
 
 <a href="#">⬆️ Voltar ao topo</a>
 
-### 11.1.1. consultarARP_Id
+### 8.1.1. consultarARP_Id
 
 Serviço para obter dados e consultar o endpoint consultarARP_Id.
 
@@ -144,7 +144,7 @@ curl -X 'GET' \
 
 <a href="#">⬆️ Voltar ao topo</a>
 
-### 11.1.2. consultarARP_FimVigencia
+### 8.1.2. consultarARP_FimVigencia
 
 Serviço para obter dados e consultar o endpoint consultarARP_FimVigencia.
 
@@ -247,7 +247,7 @@ curl -X 'GET' \
 
 <a href="#">⬆️ Voltar ao topo</a>
 
-## 11.2. consultarARPItem
+## 8.2. consultarARPItem
 
 Serviço para obter dados e consultar o endpoint consultarARPItem.
 
@@ -373,7 +373,7 @@ curl -X 'GET' \
 
 <a href="#">⬆️ Voltar ao topo</a>
 
-### 11.2.1. consultarARPItem_Id
+### 8.2.1. consultarARPItem_Id
 
 Serviço para obter dados e consultar o endpoint consultarARPItem_Id.
 
@@ -399,7 +399,7 @@ curl -X 'GET' \
 
 <a href="#">⬆️ Voltar ao topo</a>
 
-## 11.3. consultarUnidadesItem
+## 8.3. consultarUnidadesItem
 
 Serviço para obter dados e consultar o endpoint consultarUnidadesItem.
 
@@ -485,7 +485,7 @@ curl -X 'GET' \
 
 <a href="#">⬆️ Voltar ao topo</a>
 
-## 11.4. consultarEmpenhosSaldoItem
+## 8.4. consultarEmpenhosSaldoItem
 
 Serviço para obter dados e consultar o endpoint consultarEmpenhosSaldoItem.
 
@@ -550,7 +550,7 @@ curl -X 'GET' \
 
 <a href="#">⬆️ Voltar ao topo</a>
 
-## 11.5. consultarAdesoesItem
+## 8.5. consultarAdesoesItem
 
 Serviço para obter dados e consultar o endpoint consultarAdesoesItem.
 

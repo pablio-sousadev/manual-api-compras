@@ -11,11 +11,11 @@
 
 <p style="font-weight: bold; color: #d9534f; margin-top: -5px; margin-bottom: 20px;">PÚBLICO-ALVO: DESENVOLVEDORES E INTEGRADORES DE SISTEMAS</p>
 
-# 12. Módulo Contratos
+# 9. Módulo Contratos
 
 O Módulo Contratos permite acesso às informações sobre contratos firmados pela Administração Pública.
 
-## 12.1. consultarContratos
+## 9.1. consultarContratos
 
 Serviço para obter dados e consultar o endpoint consultarContratos.
 
@@ -148,7 +148,7 @@ curl -X 'GET' \
 
 <a href="#">⬆️ Voltar ao topo</a>
 
-### 12.1.1. consultarContratos_Id
+### 9.1.1. consultarContratos_Id
 
 Serviço para obter dados e consultar o endpoint consultarContratos_Id.
 
@@ -174,7 +174,7 @@ curl -X 'GET' \
 
 <a href="#">⬆️ Voltar ao topo</a>
 
-### 12.1.2. consultarContratos_FimVigencia
+### 9.1.2. consultarContratos_FimVigencia
 
 Serviço para obter dados e consultar o endpoint consultarContratos_FimVigencia.
 
@@ -307,7 +307,7 @@ curl -X 'GET' \
 
 <a href="#">⬆️ Voltar ao topo</a>
 
-## 12.2. consultarContratosItem
+## 9.2. consultarContratosItem
 
 Serviço para obter dados e consultar o endpoint consultarContratosItem.
 
@@ -437,7 +437,7 @@ curl -X 'GET' \
 
 <a href="#">⬆️ Voltar ao topo</a>
 
-### 12.2.1. consultarContratosItem_Id
+### 9.2.1. consultarContratosItem_Id
 
 Serviço para obter dados e consultar o endpoint consultarContratosItem_Id.
 

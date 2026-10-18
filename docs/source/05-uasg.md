@@ -11,11 +11,11 @@
 
 <p style="font-weight: bold; color: #d9534f; margin-top: -5px; margin-bottom: 20px;">PÚBLICO-ALVO: DESENVOLVEDORES E INTEGRADORES DE SISTEMAS</p>
 
-# 8. Módulo UASG
+# 5. Módulo UASG
 
 Módulo para consulta de informações sobre as Unidades Administrativas de Serviços Gerais (UASG).
 
-## 8.1. consultarUasg
+## 5.1. consultarUasg
 
 Serviço para obter dados e consultar o endpoint consultarUasg.
 
@@ -111,7 +111,7 @@ curl -X 'GET' \
 
 <a href="#">⬆️ Voltar ao topo</a>
 
-### 8.1.1. consultarUasg_CSV
+### 5.1.1. consultarUasg_CSV
 
 Serviço para obter dados e consultar o endpoint consultarUasg_CSV.
 
@@ -130,7 +130,7 @@ curl -X 'GET' \
 
 <a href="#">⬆️ Voltar ao topo</a>
 
-## 8.2. consultarOrgao
+## 5.2. consultarOrgao
 
 Serviço para obter dados e consultar o endpoint consultarOrgao.
 
@@ -215,7 +215,7 @@ curl -X 'GET' \
 
 <a href="#">⬆️ Voltar ao topo</a>
 
-### 8.2.1. consultarOrgao_CSV
+### 5.2.1. consultarOrgao_CSV
 
 Serviço para obter dados e consultar o endpoint consultarOrgao_CSV.
 

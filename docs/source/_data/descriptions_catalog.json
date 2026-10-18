@@ -1,69 +1,69 @@
 {
   "modules": {
     "01 - CATÁLOGO - MATERIAL": {
-      "chapter": 4,
-      "filename": "04-catalogo-material.md",
-      "title": "4. Módulo Catálogo — Material",
+      "chapter": 1,
+      "filename": "01-catalogo-material.md",
+      "title": "1. Módulo Catálogo — Material",
       "intro": "O Catálogo de Materiais (CATMAT) e o Catálogo de Serviços (CATSER), do Sistema Integrado de Administração e Serviços Gerais – SIASG, são as bases de dados que identificam todos os materiais licitados e adquiridos e todos os serviços licitados contratados pela Administração Pública Federal. Todas as operações realizadas por meio do SIASG/Compras Governamentais utilizam esses catálogos para definir os objetos das respectivas licitações e contratações."
     },
     "02 - CATÁLOGO - SERVIÇO": {
-      "chapter": 5,
-      "filename": "05-catalogo-servico.md",
-      "title": "5. Módulo Catálogo — Serviço",
+      "chapter": 2,
+      "filename": "02-catalogo-servico.md",
+      "title": "2. Módulo Catálogo — Serviço",
       "intro": "O Catálogo de Materiais (CATMAT) e o Catálogo de Serviços (CATSER), do Sistema Integrado de Administração e Serviços Gerais – SIASG, são as bases de dados que identificam todos os materiais licitados e adquiridos e todos os serviços licitados contratados pela Administração Pública Federal."
     },
     "03 - PESQUISA DE PREÇO - PREÇOS PRATICADOS": {
-      "chapter": 6,
-      "filename": "06-pesquisa-preco.md",
-      "title": "6. Módulo Pesquisa de Preço — Preços Praticados",
+      "chapter": 3,
+      "filename": "03-pesquisa-preco.md",
+      "title": "3. Módulo Pesquisa de Preço — Preços Praticados",
       "intro": "Módulo responsável por consultar os preços praticados na administração pública."
     },
     "04 - PGC": {
-      "chapter": 7,
-      "filename": "07-pgc.md",
-      "title": "7. Módulo PGC — Planejamento e Gerenciamento de Contratações",
+      "chapter": 4,
+      "filename": "04-pgc.md",
+      "title": "4. Módulo PGC — Planejamento e Gerenciamento de Contratações",
       "intro": "O PGC, no contexto da administração pública brasileira, visa organizar e planejar as contratações."
     },
     "05 - UASG": {
-      "chapter": 8,
-      "filename": "08-uasg.md",
-      "title": "8. Módulo UASG",
+      "chapter": 5,
+      "filename": "05-uasg.md",
+      "title": "5. Módulo UASG",
       "intro": "Módulo para consulta de informações sobre as Unidades Administrativas de Serviços Gerais (UASG)."
     },
     "06 - LEGADO": {
-      "chapter": 9,
-      "filename": "09-legado.md",
-      "title": "9. Módulo Legado",
+      "chapter": 6,
+      "filename": "06-legado.md",
+      "title": "6. Módulo Legado",
       "intro": "Possibilita a obtenção de dados sobre as licitações realizadas pelo Governo Federal de acordo com a Lei 8.666/93 e legislação correlata."
     },
     "07 - CONTRATAÇÕES": {
-      "chapter": 10,
-      "filename": "10-contratacoes.md",
-      "title": "10. Módulo Contratações",
-      "intro": "O Módulo Contratações oferece acesso a informações detalhadas sobre os procedimentos de contratação.\n\n## 10.1. Indicadores de Modalidade\n(Descrição dos indicadores de modalidade)\n\n## 10.2. Modos de Disputa\n(Descrição dos modos de disputa)\n\n## 10.3. Critérios de Julgamento\n(Descrição dos critérios de julgamento)\n\n## 10.4. Amparos Legais\n(Descrição dos amparos legais)"
+      "chapter": 7,
+      "filename": "07-contratacoes.md",
+      "title": "7. Módulo Contratações",
+      "intro": "O Módulo Contratações oferece acesso a informações detalhadas sobre os procedimentos de contratação.\n\n## 7.1. Indicadores de Modalidade\n(Descrição dos indicadores de modalidade)\n\n## 7.2. Modos de Disputa\n(Descrição dos modos de disputa)\n\n## 7.3. Critérios de Julgamento\n(Descrição dos critérios de julgamento)\n\n## 7.4. Amparos Legais\n(Descrição dos amparos legais)"
     },
     "08 - ARP": {
-      "chapter": 11,
-      "filename": "11-arp.md",
-      "title": "11. Módulo ARP — Ata de Registro de Preços",
+      "chapter": 8,
+      "filename": "08-arp.md",
+      "title": "8. Módulo ARP — Ata de Registro de Preços",
       "intro": "O Módulo ARP (Ata de Registro de Preços) permite consultar atas vigentes, itens, quantitativos e histórico de adesões."
     },
     "09 - CONTRATOS": {
-      "chapter": 12,
-      "filename": "12-contratos.md",
-      "title": "12. Módulo Contratos",
+      "chapter": 9,
+      "filename": "09-contratos.md",
+      "title": "9. Módulo Contratos",
       "intro": "O Módulo Contratos permite acesso às informações sobre contratos firmados pela Administração Pública."
     },
     "10 - FORNECEDOR": {
-      "chapter": 13,
-      "filename": "13-fornecedor.md",
-      "title": "13. Módulo Fornecedor",
+      "chapter": 10,
+      "filename": "10-fornecedor.md",
+      "title": "10. Módulo Fornecedor",
       "intro": "O Módulo Fornecedor permite a consulta de dados cadastrais e situação dos fornecedores habilitados para participar de processos de contratação pública."
     },
     "11 - OCDS": {
-      "chapter": 14,
-      "filename": "14-ocds.md",
-      "title": "14. Módulo OCDS",
+      "chapter": 11,
+      "filename": "11-ocds.md",
+      "title": "11. Módulo OCDS",
       "intro": "O Módulo OCDS (Open Contracting Data Standard) disponibiliza dados de contratações públicas no formato aberto e padronizado internacionalmente pelo padrão OCDS, facilitando a interoperabilidade e a análise de dados de contratações governamentais por sistemas externos."
     }
   },

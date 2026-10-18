@@ -11,11 +11,11 @@
 
 <p style="font-weight: bold; color: #d9534f; margin-top: -5px; margin-bottom: 20px;">PÚBLICO-ALVO: DESENVOLVEDORES E INTEGRADORES DE SISTEMAS</p>
 
-# 5. Módulo Catálogo — Serviço
+# 2. Módulo Catálogo — Serviço
 
 O Catálogo de Materiais (CATMAT) e o Catálogo de Serviços (CATSER), do Sistema Integrado de Administração e Serviços Gerais – SIASG, são as bases de dados que identificam todos os materiais licitados e adquiridos e todos os serviços licitados contratados pela Administração Pública Federal.
 
-## 5.1. consultarSecaoServico
+## 2.1. consultarSecaoServico
 
 Serviço para obter dados e consultar o endpoint consultarSecaoServico.
 
@@ -70,7 +70,7 @@ curl -X 'GET' \
 
 <a href="#">⬆️ Voltar ao topo</a>
 
-## 5.2. consultarDivisaoServico
+## 2.2. consultarDivisaoServico
 
 Serviço para obter dados e consultar o endpoint consultarDivisaoServico.
 
@@ -130,7 +130,7 @@ curl -X 'GET' \
 
 <a href="#">⬆️ Voltar ao topo</a>
 
-## 5.3. consultarGrupoServico
+## 2.3. consultarGrupoServico
 
 Serviço para obter dados e consultar o endpoint consultarGrupoServico.
 
@@ -192,7 +192,7 @@ curl -X 'GET' \
 
 <a href="#">⬆️ Voltar ao topo</a>
 
-## 5.4. consultarClasseServico
+## 2.4. consultarClasseServico
 
 Serviço para obter dados e consultar o endpoint consultarClasseServico.
 
@@ -252,7 +252,7 @@ curl -X 'GET' \
 
 <a href="#">⬆️ Voltar ao topo</a>
 
-## 5.5. consultarSubClasseServico
+## 2.5. consultarSubClasseServico
 
 Serviço para obter dados e consultar o endpoint consultarSubClasseServico.
 
@@ -312,7 +312,7 @@ curl -X 'GET' \
 
 <a href="#">⬆️ Voltar ao topo</a>
 
-## 5.6. consultarItemServico
+## 2.6. consultarItemServico
 
 Serviço para obter dados e consultar o endpoint consultarItemServico.
 
@@ -399,7 +399,7 @@ curl -X 'GET' \
 
 <a href="#">⬆️ Voltar ao topo</a>
 
-## 5.7. consultarUndMedidaServico
+## 2.7. consultarUndMedidaServico
 
 Serviço para obter dados e consultar o endpoint consultarUndMedidaServico.
 
@@ -454,7 +454,7 @@ curl -X 'GET' \
 
 <a href="#">⬆️ Voltar ao topo</a>
 
-## 5.8. consultarNaturezaDespesaServico
+## 2.8. consultarNaturezaDespesaServico
 
 Serviço para obter dados e consultar o endpoint consultarNaturezaDespesaServico.
 

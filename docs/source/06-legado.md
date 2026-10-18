@@ -11,11 +11,11 @@
 
 <p style="font-weight: bold; color: #d9534f; margin-top: -5px; margin-bottom: 20px;">PÚBLICO-ALVO: DESENVOLVEDORES E INTEGRADORES DE SISTEMAS</p>
 
-# 9. Módulo Legado
+# 6. Módulo Legado
 
 Possibilita a obtenção de dados sobre as licitações realizadas pelo Governo Federal de acordo com a Lei 8.666/93 e legislação correlata.
 
-## 9.1. consultarLicitacao
+## 6.1. consultarLicitacao
 
 Serviço para obter dados e consultar o endpoint consultarLicitacao.
 
@@ -117,7 +117,7 @@ curl -X 'GET' \
 
 <a href="#">⬆️ Voltar ao topo</a>
 
-### 9.1.1. consultarLicitacao_Id
+### 6.1.1. consultarLicitacao_Id
 
 Serviço para obter dados e consultar o endpoint consultarLicitacao_Id.
 
@@ -143,7 +143,7 @@ curl -X 'GET' \
 
 <a href="#">⬆️ Voltar ao topo</a>
 
-## 9.2. consultarItemLicitacao
+## 6.2. consultarItemLicitacao
 
 Serviço para obter dados e consultar o endpoint consultarItemLicitacao.
 
@@ -249,7 +249,7 @@ curl -X 'GET' \
 
 <a href="#">⬆️ Voltar ao topo</a>
 
-### 9.2.1. consultarItemLicitacao_Id
+### 6.2.1. consultarItemLicitacao_Id
 
 Serviço para obter dados e consultar o endpoint consultarItemLicitacao_Id.
 
@@ -276,7 +276,7 @@ curl -X 'GET' \
 
 <a href="#">⬆️ Voltar ao topo</a>
 
-## 9.3. consultarPregoes
+## 6.3. consultarPregoes
 
 Serviço para obter dados e consultar o endpoint consultarPregoes.
 
@@ -373,7 +373,7 @@ curl -X 'GET' \
 
 <a href="#">⬆️ Voltar ao topo</a>
 
-### 9.3.1. consultarPregoes_Id
+### 6.3.1. consultarPregoes_Id
 
 Serviço para obter dados e consultar o endpoint consultarPregoes_Id.
 
@@ -399,7 +399,7 @@ curl -X 'GET' \
 
 <a href="#">⬆️ Voltar ao topo</a>
 
-## 9.4. consultarItensPregoes
+## 6.4. consultarItensPregoes
 
 Serviço para obter dados e consultar o endpoint consultarItensPregoes.
 
@@ -492,7 +492,7 @@ curl -X 'GET' \
 
 <a href="#">⬆️ Voltar ao topo</a>
 
-### 9.4.1. consultarItensPregoes_Id
+### 6.4.1. consultarItensPregoes_Id
 
 Serviço para obter dados e consultar o endpoint consultarItensPregoes_Id.
 
@@ -519,7 +519,7 @@ curl -X 'GET' \
 
 <a href="#">⬆️ Voltar ao topo</a>
 
-## 9.5. consultarComprasSemLicitacao
+## 6.5. consultarComprasSemLicitacao
 
 Serviço para obter dados e consultar o endpoint consultarComprasSemLicitacao.
 
@@ -624,7 +624,7 @@ curl -X 'GET' \
 
 <a href="#">⬆️ Voltar ao topo</a>
 
-### 9.5.1. consultarCompraSemLicitacao_Id
+### 6.5.1. consultarCompraSemLicitacao_Id
 
 Serviço para obter dados e consultar o endpoint consultarCompraSemLicitacao_Id.
 
@@ -649,7 +649,7 @@ curl -X 'GET' \
 
 <a href="#">⬆️ Voltar ao topo</a>
 
-## 9.6. consultarCompraItensSemLicitacao
+## 6.6. consultarCompraItensSemLicitacao
 
 Serviço para obter dados e consultar o endpoint consultarCompraItensSemLicitacao.
 
@@ -782,7 +782,7 @@ curl -X 'GET' \
 
 <a href="#">⬆️ Voltar ao topo</a>
 
-### 9.6.1. consultarItensComprasSemLicitacao_Id
+### 6.6.1. consultarItensComprasSemLicitacao_Id
 
 Serviço para obter dados e consultar o endpoint consultarItensComprasSemLicitacao_Id.
 
@@ -809,7 +809,7 @@ curl -X 'GET' \
 
 <a href="#">⬆️ Voltar ao topo</a>
 
-## 9.7. consultarRdc
+## 6.7. consultarRdc
 
 Serviço para obter dados e consultar o endpoint consultarRdc.
 

@@ -11,11 +11,11 @@
 
 <p style="font-weight: bold; color: #d9534f; margin-top: -5px; margin-bottom: 20px;">PÚBLICO-ALVO: DESENVOLVEDORES E INTEGRADORES DE SISTEMAS</p>
 
-# 7. Módulo PGC — Planejamento e Gerenciamento de Contratações
+# 4. Módulo PGC — Planejamento e Gerenciamento de Contratações
 
 O PGC, no contexto da administração pública brasileira, visa organizar e planejar as contratações.
 
-## 7.1. consultarPgcDetalhe
+## 4.1. consultarPgcDetalhe
 
 Serviço para obter dados e consultar o endpoint consultarPgcDetalhe.
 
@@ -168,7 +168,7 @@ curl -X 'GET' \
 
 <a href="#">⬆️ Voltar ao topo</a>
 
-### 7.1.1. consultarPgcDetalhe_CSV
+### 4.1.1. consultarPgcDetalhe_CSV
 
 Serviço para obter dados e consultar o endpoint consultarPgcDetalhe_CSV.
 
@@ -187,7 +187,7 @@ curl -X 'GET' \
 
 <a href="#">⬆️ Voltar ao topo</a>
 
-## 7.2. consultarPgcDetalheCatalogo
+## 4.2. consultarPgcDetalheCatalogo
 
 Serviço para obter dados e consultar o endpoint consultarPgcDetalheCatalogo.
 
@@ -340,7 +340,7 @@ curl -X 'GET' \
 
 <a href="#">⬆️ Voltar ao topo</a>
 
-### 7.2.1. consultarPgcDetalheCatalogo_CSV
+### 4.2.1. consultarPgcDetalheCatalogo_CSV
 
 Serviço para obter dados e consultar o endpoint consultarPgcDetalheCatalogo_CSV.
 
@@ -359,7 +359,7 @@ curl -X 'GET' \
 
 <a href="#">⬆️ Voltar ao topo</a>
 
-## 7.3. consultarPgcAgregacao
+## 4.3. consultarPgcAgregacao
 
 Serviço para obter dados e consultar o endpoint consultarPgcAgregacao.
 
@@ -422,7 +422,7 @@ curl -X 'GET' \
 
 <a href="#">⬆️ Voltar ao topo</a>
 
-### 7.3.1. consultarPgcAgregacao_CSV
+### 4.3.1. consultarPgcAgregacao_CSV
 
 Serviço para obter dados e consultar o endpoint consultarPgcAgregacao_CSV.
 
