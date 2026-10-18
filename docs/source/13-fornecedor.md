@@ -20,6 +20,7 @@ O Módulo Fornecedor permite a consulta de dados cadastrais e situação dos for
 Serviço que permite consultar dados cadastrais de fornecedores, incluindo informações sobre porte empresarial, natureza jurídica e situação de habilitação para licitar.
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-fornecedor/1_consultarFornecedor`  
+
 **Método HTTP:** <span class="badge-get">GET</span>
 
 **Exemplo de Requisição (cURL):**
@@ -62,6 +63,7 @@ curl -X 'GET' \
 | totalRegistros | Inteiro | Total de registros encontrados |
 | totalPaginas | Inteiro | Total de páginas disponíveis |
 | paginasRestantes | Inteiro | Número de páginas restantes |
+| resultado | Texto/Número | Valor do campo Resultado |
 
 **Exemplo de Retorno:**
 ```json
@@ -90,7 +92,6 @@ curl -X 'GET' \
 ```
 
 <a href="#">⬆️ Voltar ao topo</a>
-
 
 <div class="bottom-print-bar" style="text-align: right; margin: 20px 0;">
   <button onclick="window.print()" style="background-color: #0056b3; color: white; padding: 10px 20px; border: none; border-radius: 5px; font-size: 16px; cursor: pointer; box-shadow: 0 2px 4px rgba(0,0,0,0.2);">

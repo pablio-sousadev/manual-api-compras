@@ -213,7 +213,6 @@ curl -X 'GET' \
 | codigo | string | <span class="badge-req">🔴 Sim</span> | Código do item no catálogo |
 | dataAtualizacaoPncp | string | <span class="badge-opt">⚪ Não</span> | Data correspondente ao registro |
 
-
 <a href="#">⬆️ Voltar ao topo</a>
 
 ## 10.6. consultarItensContratacoes_PNCP_14133
@@ -398,7 +397,6 @@ curl -X 'GET' \
 | idCompraItem | string | <span class="badge-opt">⚪ Não</span> | Identificador único do item da compra |
 | dataAtualizacaoPncp | string | <span class="badge-opt">⚪ Não</span> | Data correspondente ao registro |
 
-
 <a href="#">⬆️ Voltar ao topo</a>
 
 ## 10.7. consultarResultadoItensContratacoes_PNCP_14133
@@ -573,9 +571,7 @@ curl -X 'GET' \
 | idCompraItem | string | <span class="badge-opt">⚪ Não</span> | Identificador único do item da compra |
 | dataAtualizacaoPncp | string | <span class="badge-opt">⚪ Não</span> | Data correspondente ao registro |
 
-
 <a href="#">⬆️ Voltar ao topo</a>
-
 
 <div class="bottom-print-bar" style="text-align: right; margin: 20px 0;">
   <button onclick="window.print()" style="background-color: #0056b3; color: white; padding: 10px 20px; border: none; border-radius: 5px; font-size: 16px; cursor: pointer; box-shadow: 0 2px 4px rgba(0,0,0,0.2);">

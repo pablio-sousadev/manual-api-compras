@@ -20,6 +20,7 @@ O Módulo Contratos permite acesso às informações sobre contratos firmados pe
 Serviço para obter dados e consultar o endpoint consultarContratos.
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-contratos/1_consultarContratos`  
+
 **Método HTTP:** <span class="badge-get">GET</span>
 
 **Exemplo de Requisição (cURL):**
@@ -170,7 +171,6 @@ curl -X 'GET' \
 |---|---|---|---|
 | codigo | string | <span class="badge-req">🔴 Sim</span> | Código do item no catálogo |
 | tipo | string | <span class="badge-req">🔴 Sim</span> | Tipo do item do catálogo a consultar (ex: material ou serviço) |
-
 
 <a href="#">⬆️ Voltar ao topo</a>
 
@@ -458,12 +458,10 @@ curl -X 'GET' \
 
 | Campo | Tipo | Obrigatório | Descrição |
 |---|---|---|---|
-| codigo | string | <span class="badge-req">🔴 Sim</span> | Código do item no catálogo |
 | tipo | string | <span class="badge-req">🔴 Sim</span> | Tipo do item do catálogo a consultar (ex: material ou serviço) |
-
+| codigo | string | <span class="badge-req">🔴 Sim</span> | Código do item no catálogo |
 
 <a href="#">⬆️ Voltar ao topo</a>
-
 
 <div class="bottom-print-bar" style="text-align: right; margin: 20px 0;">
   <button onclick="window.print()" style="background-color: #0056b3; color: white; padding: 10px 20px; border: none; border-radius: 5px; font-size: 16px; cursor: pointer; box-shadow: 0 2px 4px rgba(0,0,0,0.2);">

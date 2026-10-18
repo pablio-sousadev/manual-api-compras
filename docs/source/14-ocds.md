@@ -20,6 +20,7 @@ O Módulo OCDS (Open Contracting Data Standard) disponibiliza dados de contrata�
 Serviço que retorna os dados de contratações públicas no formato OCDS, incluindo informações sobre a licitação, partes envolvidas, itens licitados, lotes e resultados (adjudicações).
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-ocds/1_releases`  
+
 **Método HTTP:** <span class="badge-get">GET</span>
 
 **Exemplo de Requisição (cURL):**
@@ -40,8 +41,6 @@ curl -X 'GET' \
 | releaseEndDate | string | <span class="badge-req">🔴 Sim</span> | Data de fim do período de consulta (formato: YYYY-MM-DD) |
 
 **Dados de Retorno:**
-
-O retorno segue o padrão OCDS (Open Contracting Data Standard). Os principais campos são:
 
 | Campo | Tipo | Descrição |
 |---|---|---|
@@ -76,6 +75,7 @@ O retorno segue o padrão OCDS (Open Contracting Data Standard). Os principais c
 | links | Objeto | Links de navegação (paginação) |
 | links.next | Texto | URL para a próxima página |
 | links.prev | Texto | URL para a página anterior |
+| uri | Texto/Número | Valor do campo Uri |
 
 **Exemplo de Retorno:**
 ```json
@@ -273,7 +273,6 @@ O retorno segue o padrão OCDS (Open Contracting Data Standard). Os principais c
 ```
 
 <a href="#">⬆️ Voltar ao topo</a>
-
 
 <div class="bottom-print-bar" style="text-align: right; margin: 20px 0;">
   <button onclick="window.print()" style="background-color: #0056b3; color: white; padding: 10px 20px; border: none; border-radius: 5px; font-size: 16px; cursor: pointer; box-shadow: 0 2px 4px rgba(0,0,0,0.2);">

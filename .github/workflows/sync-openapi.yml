@@ -1,0 +1,38 @@
+name: Sincronizar Documentação com Swagger (/v3/api-docs)
+
+on:
+  schedule:
+    # Executa todos os dias às 06:00 (horário de Brasília / 09:00 UTC)
+    - cron: "0 9 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync-openapi:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout do repositório
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Sincronizar com https://dadosabertos.compras.gov.br/v3/api-docs
+        run: python docs/sync_openapi.py
+
+      - name: Verificar e publicar atualizações caso o Swagger tenha mudado
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if [[ -n $(git status --porcelain) ]]; then
+            git add docs/source/
+            git commit -m "chore(openapi): sincroniza documentacao automaticamente com /v3/api-docs"
+            git push origin main
+            echo "Alterações detectadas no Swagger e publicadas com sucesso!"
+          else
+            echo "Nenhuma alteração detectada no Swagger (/v3/api-docs)."
+          fi

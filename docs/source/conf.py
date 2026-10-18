@@ -12,6 +12,14 @@ def destaque_amarelo_claro_role(name, rawtext, text, lineno, inliner, options={}
 roles.register_local_role('destaque-amarelo-claro', destaque_amarelo_claro_role)
 
 sys.path.insert(0, os.path.abspath('.'))
+sys.path.insert(0, os.path.abspath('..'))
+
+# Sincroniza automaticamente a documentação com o Swagger ao vivo (/v3/api-docs) a cada build
+try:
+    import sync_openapi
+    sync_openapi.sync_all()
+except Exception as _sync_err:
+    print(f"[conf.py] Aviso na sincronização OpenAPI: {_sync_err}")
 
 # ── Informações do projeto ────────────────────────────────────────────────────
 project = 'Manual da API de Compras'

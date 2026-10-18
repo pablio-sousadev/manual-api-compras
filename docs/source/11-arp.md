@@ -32,17 +32,17 @@ curl -X 'GET' \
 
 **Parâmetros da Solicitação:**
 
-| Campo                     | Tipo    | Obrigatório | Descrição                                                                                                     |
-| ------------------------- | ------- | ----------- | ------------------------------------------------------------------------------------------------------------- |
-| pagina                    | integer | <span class="badge-opt">⚪ Não</span> | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
-| tamanhoPagina             | integer | <span class="badge-opt">⚪ Não</span> | Ajustar o tamanho de registros por página (limite máx. de 500 registros por página). (Default: 10)            |
-| codigoUnidadeGerenciadora | string  | <span class="badge-opt">⚪ Não</span> | Código do registro associado                                                                                  |
-| codigoModalidadeCompra    | string  | <span class="badge-opt">⚪ Não</span> | Código do registro associado                                                                                  |
-| numeroAtaRegistroPreco    | string  | <span class="badge-opt">⚪ Não</span> | Valor do campo Numero ata registro preco                                                                      |
-| dataVigenciaInicialMin    | string  | <span class="badge-req">🔴 Sim</span> | Data correspondente ao registro                                                                               |
-| dataVigenciaInicialMax    | string  | <span class="badge-req">🔴 Sim</span> | Data correspondente ao registro                                                                               |
-| dataAssinaturaInicial     | string  | <span class="badge-opt">⚪ Não</span> | Data correspondente ao registro                                                                               |
-| dataAssinaturaFinal       | string  | <span class="badge-opt">⚪ Não</span> | Data correspondente ao registro                                                                               |
+| Campo | Tipo | Obrigatório | Descrição |
+|---|---|---|---|
+| pagina | integer | <span class="badge-opt">⚪ Não</span> | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
+| tamanhoPagina | integer | <span class="badge-opt">⚪ Não</span> | Ajustar o tamanho de registros por página (limite máx. de 500 registros por página). (Default: 10) |
+| codigoUnidadeGerenciadora | string | <span class="badge-opt">⚪ Não</span> | Código do registro associado |
+| codigoModalidadeCompra | string | <span class="badge-opt">⚪ Não</span> | Código do registro associado |
+| numeroAtaRegistroPreco | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Numero ata registro preco |
+| dataVigenciaInicialMin | string | <span class="badge-req">🔴 Sim</span> | Data correspondente ao registro |
+| dataVigenciaInicialMax | string | <span class="badge-req">🔴 Sim</span> | Data correspondente ao registro |
+| dataAssinaturaInicial | string | <span class="badge-opt">⚪ Não</span> | Data correspondente ao registro |
+| dataAssinaturaFinal | string | <span class="badge-opt">⚪ Não</span> | Data correspondente ao registro |
 
 **Dados de Retorno:**
 
@@ -141,7 +141,6 @@ curl -X 'GET' \
 |---|---|---|---|
 | numeroControlePncpAta | string | <span class="badge-req">🔴 Sim</span> | Valor do campo Numero controle pncp ata |
 | dataAtualizacao | string | <span class="badge-opt">⚪ Não</span> | Data correspondente ao registro |
-
 
 <a href="#">⬆️ Voltar ao topo</a>
 
@@ -398,14 +397,13 @@ curl -X 'GET' \
 | numeroControlePncpAta | string | <span class="badge-req">🔴 Sim</span> | Valor do campo Numero controle pncp ata |
 | dataAtualizacao | string | <span class="badge-opt">⚪ Não</span> | Data correspondente ao registro |
 
-
 <a href="#">⬆️ Voltar ao topo</a>
 
 ## 11.3. consultarUnidadesItem
 
 Serviço para obter dados e consultar o endpoint consultarUnidadesItem.
 
-**Endpoint:** `https://dadosabertos.compras.gov.br/modulo-arp/3_consultarUnidadesItem`
+**Endpoint:** `https://dadosabertos.compras.gov.br/modulo-arp/3_consultarUnidadesItem`  
 
 **Método HTTP:** <span class="badge-get">GET</span>
 
@@ -556,7 +554,7 @@ curl -X 'GET' \
 
 Serviço para obter dados e consultar o endpoint consultarAdesoesItem.
 
-**Endpoint:** `https://dadosabertos.compras.gov.br/modulo-arp/5_consultarAdesoesItem` 
+**Endpoint:** `https://dadosabertos.compras.gov.br/modulo-arp/5_consultarAdesoesItem`  
 
 **Método HTTP:** <span class="badge-get">GET</span>
 
@@ -612,7 +610,6 @@ curl -X 'GET' \
 ```
 
 <a href="#">⬆️ Voltar ao topo</a>
-
 
 <div class="bottom-print-bar" style="text-align: right; margin: 20px 0;">
   <button onclick="window.print()" style="background-color: #0056b3; color: white; padding: 10px 20px; border: none; border-radius: 5px; font-size: 16px; cursor: pointer; box-shadow: 0 2px 4px rgba(0,0,0,0.2);">

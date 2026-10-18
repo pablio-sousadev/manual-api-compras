@@ -172,7 +172,6 @@ curl -X 'GET' \
   -H 'accept: */*'
 ```
 
-
 <a href="#">⬆️ Voltar ao topo</a>
 
 ## 6.2. consultarMaterialDetalhe
@@ -254,7 +253,6 @@ curl -X 'GET' \
   'https://dadosabertos.compras.gov.br/modulo-pesquisa-preco/2.1_consultarMaterialDetalhe_CSV' \
   -H 'accept: */*'
 ```
-
 
 <a href="#">⬆️ Voltar ao topo</a>
 
@@ -395,7 +393,6 @@ curl -X 'GET' \
   -H 'accept: */*'
 ```
 
-
 <a href="#">⬆️ Voltar ao topo</a>
 
 ## 6.4. consultarServicoDetalhe
@@ -478,9 +475,7 @@ curl -X 'GET' \
   -H 'accept: */*'
 ```
 
-
 <a href="#">⬆️ Voltar ao topo</a>
-
 
 <div class="bottom-print-bar" style="text-align: right; margin: 20px 0;">
   <button onclick="window.print()" style="background-color: #0056b3; color: white; padding: 10px 20px; border: none; border-radius: 5px; font-size: 16px; cursor: pointer; box-shadow: 0 2px 4px rgba(0,0,0,0.2);">

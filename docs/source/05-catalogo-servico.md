@@ -317,6 +317,7 @@ curl -X 'GET' \
 Serviço para obter dados e consultar o endpoint consultarItemServico.
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-servico/6_consultarItemServico`  
+
 **Método HTTP:** <span class="badge-get">GET</span>
 
 **Exemplo de Requisição (cURL):**
@@ -508,7 +509,6 @@ curl -X 'GET' \
 ```
 
 <a href="#">⬆️ Voltar ao topo</a>
-
 
 <div class="bottom-print-bar" style="text-align: right; margin: 20px 0;">
   <button onclick="window.print()" style="background-color: #0056b3; color: white; padding: 10px 20px; border: none; border-radius: 5px; font-size: 16px; cursor: pointer; box-shadow: 0 2px 4px rgba(0,0,0,0.2);">

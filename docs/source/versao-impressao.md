@@ -837,6 +837,7 @@ curl -X 'GET' \
 Serviço para obter dados e consultar o endpoint consultarItemServico.
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-servico/6_consultarItemServico`  
+
 **Método HTTP:** <span class="badge-get">GET</span>
 
 **Exemplo de Requisição (cURL):**
@@ -1192,7 +1193,6 @@ curl -X 'GET' \
   -H 'accept: */*'
 ```
 
-
 <a href="#sumario">⬆️ Voltar ao sumário</a>
 
 ### 6.2. consultarMaterialDetalhe
@@ -1274,7 +1274,6 @@ curl -X 'GET' \
   'https://dadosabertos.compras.gov.br/modulo-pesquisa-preco/2.1_consultarMaterialDetalhe_CSV' \
   -H 'accept: */*'
 ```
-
 
 <a href="#sumario">⬆️ Voltar ao sumário</a>
 
@@ -1415,7 +1414,6 @@ curl -X 'GET' \
   -H 'accept: */*'
 ```
 
-
 <a href="#sumario">⬆️ Voltar ao sumário</a>
 
 ### 6.4. consultarServicoDetalhe
@@ -1497,7 +1495,6 @@ curl -X 'GET' \
   'https://dadosabertos.compras.gov.br/modulo-pesquisa-preco/4.1_consultarServicoDetalhe_CSV' \
   -H 'accept: */*'
 ```
-
 
 <a href="#sumario">⬆️ Voltar ao sumário</a>
 
@@ -1677,7 +1674,6 @@ curl -X 'GET' \
   -H 'accept: */*'
 ```
 
-
 <a href="#sumario">⬆️ Voltar ao sumário</a>
 
 ### 7.2. consultarPgcDetalheCatalogo
@@ -1850,7 +1846,6 @@ curl -X 'GET' \
   -H 'accept: */*'
 ```
 
-
 <a href="#sumario">⬆️ Voltar ao sumário</a>
 
 ### 7.3. consultarPgcAgregacao
@@ -1932,7 +1927,6 @@ curl -X 'GET' \
   'https://dadosabertos.compras.gov.br/modulo-pgc/3.1_consultarPgcAgregacao_CSV' \
   -H 'accept: */*'
 ```
-
 
 <a href="#sumario">⬆️ Voltar ao sumário</a>
 
@@ -2055,7 +2049,6 @@ curl -X 'GET' \
   -H 'accept: */*'
 ```
 
-
 <a href="#sumario">⬆️ Voltar ao sumário</a>
 
 ### 8.2. consultarOrgao
@@ -2159,7 +2152,6 @@ curl -X 'GET' \
   'https://dadosabertos.compras.gov.br/modulo-uasg/2.1_consultarOrgao_CSV' \
   -H 'accept: */*'
 ```
-
 
 <a href="#sumario">⬆️ Voltar ao sumário</a>
 
@@ -2295,7 +2287,6 @@ curl -X 'GET' \
 | id_compra | string | <span class="badge-req">🔴 Sim</span> | Valor do campo Id compra |
 | dt_alteracao | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Dt alteracao |
 
-
 <a href="#sumario">⬆️ Voltar ao sumário</a>
 
 ### 9.2. consultarItemLicitacao
@@ -2429,7 +2420,6 @@ curl -X 'GET' \
 | id_compra_item | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Id compra item |
 | dt_alteracao | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Dt alteracao |
 
-
 <a href="#sumario">⬆️ Voltar ao sumário</a>
 
 ### 9.3. consultarPregoes
@@ -2455,7 +2445,7 @@ curl -X 'GET' \
 | tamanhoPagina | integer | <span class="badge-opt">⚪ Não</span> | Ajustar o tamanho de registros por página (limite máx. de 500 registros por página). (Default: 10) |
 | co_uasg | integer | <span class="badge-opt">⚪ Não</span> | Valor do campo Co uasg |
 | co_orgao | integer | <span class="badge-opt">⚪ Não</span> | Valor do campo Co orgao |
-| numero | integer | <span class="badge-req">🔴 Sim</span> | Valor do campo Numero |
+| numero | integer | <span class="badge-opt">⚪ Não</span> | Valor do campo Numero |
 | ds_tipo_pregao_compra | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Ds tipo pregao compra |
 | dt_data_edital_inicial | string | <span class="badge-req">🔴 Sim</span> | Valor do campo Dt data edital inicial |
 | dt_data_edital_final | string | <span class="badge-req">🔴 Sim</span> | Valor do campo Dt data edital final |
@@ -2536,6 +2526,7 @@ Serviço para obter dados e consultar o endpoint consultarPregoes_Id.
 > Este endpoint possui os mesmos dados de retorno do endpoint anterior. A diferença é que a consulta é realizada pelo identificador único da compra ou pelo número de controle PNCP.
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-legado/3.1_consultarPregoes_Id`  
+
 **Método HTTP:** <span class="badge-get">GET</span>
 
 **Exemplo de Requisição (cURL):**
@@ -2552,7 +2543,6 @@ curl -X 'GET' \
 | id_compra | string | <span class="badge-req">🔴 Sim</span> | Valor do campo Id compra |
 | dt_alteracao | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Dt alteracao |
 
-
 <a href="#sumario">⬆️ Voltar ao sumário</a>
 
 ### 9.4. consultarItensPregoes
@@ -2560,6 +2550,7 @@ curl -X 'GET' \
 Serviço para obter dados e consultar o endpoint consultarItensPregoes.
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-legado/4_consultarItensPregoes`  
+
 **Método HTTP:** <span class="badge-get">GET</span>
 
 **Exemplo de Requisição (cURL):**
@@ -2580,9 +2571,6 @@ curl -X 'GET' \
 | fornecedor_vencedor | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Fornecedor vencedor |
 | dt_hom_inicial | string | <span class="badge-req">🔴 Sim</span> | Valor do campo Dt hom inicial |
 | dt_hom_final | string | <span class="badge-req">🔴 Sim</span> | Valor do campo Dt hom final |
-| id_compra | string | <span class="badge-req">🔴 Sim</span> | Valor do campo Id compra |
-| id_compra_item | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Id compra item |
-| dt_alteracao | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Dt alteracao |
 
 **Dados de Retorno:**
 
@@ -2647,6 +2635,33 @@ curl -X 'GET' \
 "paginasRestantes": 0
 }
 ```
+
+<a href="#sumario">⬆️ Voltar ao sumário</a>
+
+#### 9.4.1. consultarItensPregoes_Id
+
+Serviço para obter dados e consultar o endpoint consultarItensPregoes_Id.
+
+> Este endpoint possui os mesmos dados de retorno do endpoint anterior. A diferença é que a consulta é realizada pelo identificador único da compra ou pelo número de controle PNCP.
+
+**Endpoint:** `https://dadosabertos.compras.gov.br/modulo-legado/4.1_consultarItensPregoes_Id`  
+
+**Método HTTP:** <span class="badge-get">GET</span>
+
+**Exemplo de Requisição (cURL):**
+```bash
+curl -X 'GET' \
+  'https://dadosabertos.compras.gov.br/modulo-legado/4.1_consultarItensPregoes_Id' \
+  -H 'accept: */*'
+```
+
+**Parâmetros da Solicitação:**
+
+| Campo | Tipo | Obrigatório | Descrição |
+|---|---|---|---|
+| id_compra | string | <span class="badge-req">🔴 Sim</span> | Valor do campo Id compra |
+| id_compra_item | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Id compra item |
+| dt_alteracao | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Dt alteracao |
 
 <a href="#sumario">⬆️ Voltar ao sumário</a>
 
@@ -2776,8 +2791,7 @@ curl -X 'GET' \
 
 | Campo | Tipo | Obrigatório | Descrição |
 |---|---|---|---|
-| id_compra | string | <span class="badge-req">🔴 Sim</span> | Valor do campo Id compra |
-
+| idCompra | string | <span class="badge-req">🔴 Sim</span> | Código identificador único da compra |
 
 <a href="#sumario">⬆️ Voltar ao sumário</a>
 
@@ -2939,7 +2953,6 @@ curl -X 'GET' \
 | id_compra_item | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Id compra item |
 | dt_alteracao | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Dt alteracao |
 
-
 <a href="#sumario">⬆️ Voltar ao sumário</a>
 
 ### 9.7. consultarRdc
@@ -2973,7 +2986,7 @@ curl -X 'GET' \
 | numero_aviso | integer | <span class="badge-opt">⚪ Não</span> | Valor do campo Numero aviso |
 | objeto | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Objeto |
 | orgao | integer | <span class="badge-opt">⚪ Não</span> | CNPJ do órgão (sem máscara) |
-| situacao_aviso | strinng | <span class="badge-opt">⚪ Não</span> | Valor do campo Situacao aviso |
+| situacao_aviso | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Situacao aviso |
 | uasg | integer | <span class="badge-opt">⚪ Não</span> | Valor do campo Uasg |
 | uf_uasg | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Uf uasg |
 | valor_estimado_total_max | number | <span class="badge-opt">⚪ Não</span> | Valor do campo Valor estimado total max |
@@ -3249,7 +3262,6 @@ curl -X 'GET' \
 | codigo | string | <span class="badge-req">🔴 Sim</span> | Código do item no catálogo |
 | dataAtualizacaoPncp | string | <span class="badge-opt">⚪ Não</span> | Data correspondente ao registro |
 
-
 <a href="#sumario">⬆️ Voltar ao sumário</a>
 
 ### 10.6. consultarItensContratacoes_PNCP_14133
@@ -3434,7 +3446,6 @@ curl -X 'GET' \
 | idCompraItem | string | <span class="badge-opt">⚪ Não</span> | Identificador único do item da compra |
 | dataAtualizacaoPncp | string | <span class="badge-opt">⚪ Não</span> | Data correspondente ao registro |
 
-
 <a href="#sumario">⬆️ Voltar ao sumário</a>
 
 ### 10.7. consultarResultadoItensContratacoes_PNCP_14133
@@ -3609,7 +3620,6 @@ curl -X 'GET' \
 | idCompraItem | string | <span class="badge-opt">⚪ Não</span> | Identificador único do item da compra |
 | dataAtualizacaoPncp | string | <span class="badge-opt">⚪ Não</span> | Data correspondente ao registro |
 
-
 <a href="#sumario">⬆️ Voltar ao sumário</a>
 
 ---
@@ -3635,17 +3645,17 @@ curl -X 'GET' \
 
 **Parâmetros da Solicitação:**
 
-| Campo                     | Tipo    | Obrigatório | Descrição                                                                                                     |
-| ------------------------- | ------- | ----------- | ------------------------------------------------------------------------------------------------------------- |
-| pagina                    | integer | <span class="badge-opt">⚪ Não</span> | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
-| tamanhoPagina             | integer | <span class="badge-opt">⚪ Não</span> | Ajustar o tamanho de registros por página (limite máx. de 500 registros por página). (Default: 10)            |
-| codigoUnidadeGerenciadora | string  | <span class="badge-opt">⚪ Não</span> | Código do registro associado                                                                                  |
-| codigoModalidadeCompra    | string  | <span class="badge-opt">⚪ Não</span> | Código do registro associado                                                                                  |
-| numeroAtaRegistroPreco    | string  | <span class="badge-opt">⚪ Não</span> | Valor do campo Numero ata registro preco                                                                      |
-| dataVigenciaInicialMin    | string  | <span class="badge-req">🔴 Sim</span> | Data correspondente ao registro                                                                               |
-| dataVigenciaInicialMax    | string  | <span class="badge-req">🔴 Sim</span> | Data correspondente ao registro                                                                               |
-| dataAssinaturaInicial     | string  | <span class="badge-opt">⚪ Não</span> | Data correspondente ao registro                                                                               |
-| dataAssinaturaFinal       | string  | <span class="badge-opt">⚪ Não</span> | Data correspondente ao registro                                                                               |
+| Campo | Tipo | Obrigatório | Descrição |
+|---|---|---|---|
+| pagina | integer | <span class="badge-opt">⚪ Não</span> | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
+| tamanhoPagina | integer | <span class="badge-opt">⚪ Não</span> | Ajustar o tamanho de registros por página (limite máx. de 500 registros por página). (Default: 10) |
+| codigoUnidadeGerenciadora | string | <span class="badge-opt">⚪ Não</span> | Código do registro associado |
+| codigoModalidadeCompra | string | <span class="badge-opt">⚪ Não</span> | Código do registro associado |
+| numeroAtaRegistroPreco | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Numero ata registro preco |
+| dataVigenciaInicialMin | string | <span class="badge-req">🔴 Sim</span> | Data correspondente ao registro |
+| dataVigenciaInicialMax | string | <span class="badge-req">🔴 Sim</span> | Data correspondente ao registro |
+| dataAssinaturaInicial | string | <span class="badge-opt">⚪ Não</span> | Data correspondente ao registro |
+| dataAssinaturaFinal | string | <span class="badge-opt">⚪ Não</span> | Data correspondente ao registro |
 
 **Dados de Retorno:**
 
@@ -3744,7 +3754,6 @@ curl -X 'GET' \
 |---|---|---|---|
 | numeroControlePncpAta | string | <span class="badge-req">🔴 Sim</span> | Valor do campo Numero controle pncp ata |
 | dataAtualizacao | string | <span class="badge-opt">⚪ Não</span> | Data correspondente ao registro |
-
 
 <a href="#sumario">⬆️ Voltar ao sumário</a>
 
@@ -4001,14 +4010,13 @@ curl -X 'GET' \
 | numeroControlePncpAta | string | <span class="badge-req">🔴 Sim</span> | Valor do campo Numero controle pncp ata |
 | dataAtualizacao | string | <span class="badge-opt">⚪ Não</span> | Data correspondente ao registro |
 
-
 <a href="#sumario">⬆️ Voltar ao sumário</a>
 
 ### 11.3. consultarUnidadesItem
 
 Serviço para obter dados e consultar o endpoint consultarUnidadesItem.
 
-**Endpoint:** `https://dadosabertos.compras.gov.br/modulo-arp/3_consultarUnidadesItem`
+**Endpoint:** `https://dadosabertos.compras.gov.br/modulo-arp/3_consultarUnidadesItem`  
 
 **Método HTTP:** <span class="badge-get">GET</span>
 
@@ -4159,7 +4167,7 @@ curl -X 'GET' \
 
 Serviço para obter dados e consultar o endpoint consultarAdesoesItem.
 
-**Endpoint:** `https://dadosabertos.compras.gov.br/modulo-arp/5_consultarAdesoesItem` 
+**Endpoint:** `https://dadosabertos.compras.gov.br/modulo-arp/5_consultarAdesoesItem`  
 
 **Método HTTP:** <span class="badge-get">GET</span>
 
@@ -4227,6 +4235,7 @@ O Módulo Contratos permite acesso às informações sobre contratos firmados pe
 Serviço para obter dados e consultar o endpoint consultarContratos.
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-contratos/1_consultarContratos`  
+
 **Método HTTP:** <span class="badge-get">GET</span>
 
 **Exemplo de Requisição (cURL):**
@@ -4377,7 +4386,6 @@ curl -X 'GET' \
 |---|---|---|---|
 | codigo | string | <span class="badge-req">🔴 Sim</span> | Código do item no catálogo |
 | tipo | string | <span class="badge-req">🔴 Sim</span> | Tipo do item do catálogo a consultar (ex: material ou serviço) |
-
 
 <a href="#sumario">⬆️ Voltar ao sumário</a>
 
@@ -4665,9 +4673,8 @@ curl -X 'GET' \
 
 | Campo | Tipo | Obrigatório | Descrição |
 |---|---|---|---|
-| codigo | string | <span class="badge-req">🔴 Sim</span> | Código do item no catálogo |
 | tipo | string | <span class="badge-req">🔴 Sim</span> | Tipo do item do catálogo a consultar (ex: material ou serviço) |
-
+| codigo | string | <span class="badge-req">🔴 Sim</span> | Código do item no catálogo |
 
 <a href="#sumario">⬆️ Voltar ao sumário</a>
 
@@ -4682,6 +4689,7 @@ O Módulo Fornecedor permite a consulta de dados cadastrais e situação dos for
 Serviço que permite consultar dados cadastrais de fornecedores, incluindo informações sobre porte empresarial, natureza jurídica e situação de habilitação para licitar.
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-fornecedor/1_consultarFornecedor`  
+
 **Método HTTP:** <span class="badge-get">GET</span>
 
 **Exemplo de Requisição (cURL):**
@@ -4724,6 +4732,7 @@ curl -X 'GET' \
 | totalRegistros | Inteiro | Total de registros encontrados |
 | totalPaginas | Inteiro | Total de páginas disponíveis |
 | paginasRestantes | Inteiro | Número de páginas restantes |
+| resultado | Texto/Número | Valor do campo Resultado |
 
 **Exemplo de Retorno:**
 ```json
@@ -4764,6 +4773,7 @@ O Módulo OCDS (Open Contracting Data Standard) disponibiliza dados de contrata�
 Serviço que retorna os dados de contratações públicas no formato OCDS, incluindo informações sobre a licitação, partes envolvidas, itens licitados, lotes e resultados (adjudicações).
 
 **Endpoint:** `https://dadosabertos.compras.gov.br/modulo-ocds/1_releases`  
+
 **Método HTTP:** <span class="badge-get">GET</span>
 
 **Exemplo de Requisição (cURL):**
@@ -4784,8 +4794,6 @@ curl -X 'GET' \
 | releaseEndDate | string | <span class="badge-req">🔴 Sim</span> | Data de fim do período de consulta (formato: YYYY-MM-DD) |
 
 **Dados de Retorno:**
-
-O retorno segue o padrão OCDS (Open Contracting Data Standard). Os principais campos são:
 
 | Campo | Tipo | Descrição |
 |---|---|---|
@@ -4820,6 +4828,7 @@ O retorno segue o padrão OCDS (Open Contracting Data Standard). Os principais c
 | links | Objeto | Links de navegação (paginação) |
 | links.next | Texto | URL para a próxima página |
 | links.prev | Texto | URL para a página anterior |
+| uri | Texto/Número | Valor do campo Uri |
 
 **Exemplo de Retorno:**
 ```json
