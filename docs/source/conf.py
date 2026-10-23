@@ -25,8 +25,8 @@ except Exception as _sync_err:
 project = 'Manual da API de Compras'
 copyright = '2026, Ministério da Gestão e Inovação em Serviços Públicos - MGI'
 author = 'COTIN/CGGES/DELOG/SEGES/MGI'
-release = '3.0'
-version = '3.0'
+release = ''
+version = ''
 
 # ── Extensões ─────────────────────────────────────────────────────────────────
 extensions = [
@@ -53,7 +53,7 @@ html_theme = 'sphinx_rtd_theme'
 
 html_theme_options = {
     'logo_only': False,
-    'display_version': True,
+    'display_version': False,
     'prev_next_buttons_location': 'bottom',
     'style_external_links': False,
     'collapse_navigation': False,

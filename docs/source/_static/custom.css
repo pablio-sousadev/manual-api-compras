@@ -256,6 +256,12 @@ blockquote p {
     }
 }
 
+/* Ocultar número de versão no topo da barra lateral (documentação automatizada) */
+.wy-side-nav-search .version,
+.wy-side-nav-search > div.version {
+    display: none !important;
+}
+
 /* Ocultar anúncios do Read the Docs (EthicalAds) */
 #ethical-ad-placement,
 .ethical-rtd,

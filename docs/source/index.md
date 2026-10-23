@@ -17,8 +17,7 @@
 > **Público-alvo:** Desenvolvedores e integradores de sistemas  
 > **Objetivo:** Consultar a referência técnica dos endpoints, parâmetros e dados de retorno da API de Compras Governamentais.
 
-**VERSÃO 3.0 – Ago/26** *(Referente à API Compras.gov.br v3 / Especificação OpenAPI 1.0.0)*  
-Ministério da Gestão e da Inovação em Serviços Públicos – MGI
+**Ministério da Gestão e da Inovação em Serviços Públicos – MGI**
 
 ---
 
