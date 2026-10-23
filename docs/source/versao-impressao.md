@@ -3084,17 +3084,56 @@ curl -X 'GET' \
 
 O Módulo Contratações disponibiliza os dados das contratações públicas regidas pela Lei nº 14.133/2021, incluindo as informações das contratações, dos itens e dos resultados por item, com identificação do número de controle do Portal Nacional de Contratações Públicas (PNCP). Os dados refletem as contratações publicadas no PNCP e permitem consultar, de forma estruturada, o planejamento, a seleção do fornecedor e os resultados das contratações federais.
 
-<h3 id="indicadores-de-modalidade">7.1. Indicadores de Modalidade</h3>
-Consulta os códigos e as descrições dos indicadores de modalidade de contratação, utilizados como parâmetro de filtro nos endpoints do Módulo Contratações.
+<h3 id="indicadores-de-modalidade-da-compra">7.1. Indicadores de Modalidade da Compra</h3>
+
+Cada procedimento de contratação pode ser classificado conforme a sua modalidade, seguindo os códigos abaixo:
+
+- **01** - CONVITE
+- **02** - TOMADA DE PREÇOS
+- **03** - CONCORRÊNCIA
+- **04** - CONCORRÊNCIA INTERNACIONAL
+- **05** - PREGÃO
+- **06** - DISPENSA DE LICITAÇÃO
+- **07** - INEXIGIBILIDADE DE LICITAÇÃO
+- **12** - CREDENCIAMENTO
+- **20** - CONCURSO
+- **22** - TOMADA DE PREÇOS POR TÉCNICA E PREÇO
+- **33** - CONCORRÊNCIA POR TÉCNICA E PREÇO
+- **44** - CONCORRÊNCIA INTERNACIONAL POR TÉCNICA E PREÇO
+- **57** - CONVÊNIO
 
 <h3 id="modos-de-disputa">7.2. Modos de Disputa</h3>
-Consulta os códigos e as descrições dos modos de disputa previstos na Lei nº 14.133/2021 (por exemplo, aberto e fechado), utilizados como parâmetro de filtro nos endpoints do módulo.
+
+O modo de disputa define a forma como os concorrentes competem em um certame público. Os principais modos são:
+
+- **1** - ABERTO
+- **2** - FECHADO
+- **3** - ABERTO-FECHADO
+- **4** - DISPENSA COM DISPUTA
+- **5** - NÃO SE APLICA
+- **6** - FECHADO-ABERTO
 
 <h3 id="criterios-de-julgamento">7.3. Critérios de Julgamento</h3>
-Consulta os códigos e as descrições dos critérios de julgamento das propostas (por exemplo, menor preço e melhor técnica ou conteúdo artístico), utilizados como parâmetro de filtro.
+
+Os critérios de julgamento estabelecem como a melhor proposta será escolhida, podendo seguir as seguintes regras:
+
+- **1** - MENOR PREÇO
+- **2** - MAIOR DESCONTO
+- **3** - MELHOR TÉCNICA OU CONTEÚDO ARTÍSTICO (INDISPONÍVEL)
+- **4** - TÉCNICA E PREÇO
+- **5** - MAIOR LANCE
+- **6** - MAIOR RETORNO ECONÔMICO
+- **7** - NÃO SE APLICA
+- **8** - MELHOR TÉCNICA
+- **9** - CONTEÚDO ARTÍSTICO
 
 <h3 id="amparos-legais">7.4. Amparos Legais</h3>
-Consulta os códigos e as descrições dos amparos legais das contratações, correspondentes aos dispositivos legais que fundamentam cada procedimento, utilizados como parâmetro de filtro.
+
+A legislação aplicável às contratações pode ser consultada através da documentação oficial do **PNCP (Portal Nacional de Contratações Públicas)**:
+
+- **Documentação Oficial:** [PNCP - Item 5.15 Amparo Legal](https://www.gov.br/pncp/pt-br/acesso-a-informacao/manuais/manualdeintegrao-pncpverso2-3-0.pdf)
+- **Extração de Dados via JSON:** [API de Amparos Legais](https://pncp.gov.br/api/pncp/swagger-ui/index.html?configUrl=/pncp-api/v3/api-docs/swagger-config#/Amparo%20legal/obterTodosRegistros_4)
+- **Visualização via Web:** [PNCP - Entidades de Domínio](https://pncp.gov.br/app/entidades-dominio)
 
 <h3 id="consultarcontratacoes-pncp-14133">7.5. consultarContratacoes_PNCP_14133</h3>
 
