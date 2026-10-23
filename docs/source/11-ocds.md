@@ -15,6 +15,8 @@
 
 O Módulo OCDS (Open Contracting Data Standard) disponibiliza dados de contratações públicas no formato aberto e padronizado internacionalmente pelo padrão OCDS, facilitando a interoperabilidade e a análise de dados de contratações governamentais por sistemas externos.
 
+> **Nota sobre paginação:** Por seguir a especificação internacional *Open Contracting Data Standard (OCDS)*, o endpoint deste módulo utiliza o parâmetro `page` (em inglês) para navegação entre páginas, enquanto os demais módulos da API utilizam o parâmetro `pagina`.
+
 ## 11.1. releases
 
 Serviço que retorna os dados de contratações públicas no formato OCDS, incluindo informações sobre a licitação, partes envolvidas, itens licitados, lotes e resultados (adjudicações).
@@ -75,7 +77,7 @@ curl -X 'GET' \
 | links | Objeto | Links de navegação (paginação) |
 | links.next | Texto | URL para a próxima página |
 | links.prev | Texto | URL para a página anterior |
-| uri | Texto/Número | Valor do campo Uri |
+| uri | Texto/Número | Informação referente a uri |
 
 **Exemplo de Retorno:**
 ```json

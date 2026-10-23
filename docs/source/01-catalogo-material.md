@@ -42,7 +42,7 @@ curl -X 'GET' \
 
 | Campo | Tipo | Descrição |
 |---|---|---|
-| resultado | Texto/Número | Valor do campo Resultado |
+| resultado | Texto/Número | Lista de registros retornados na página atual da consulta |
 | codigoGrupo | Texto/Número | Código do grupo do material/serviço |
 | nomeGrupo | Texto/Número | Nome do grupo do material |
 | statusGrupo | Texto/Número | Status do grupo. 0 – False/Inativo; 1 – True/Ativo |
@@ -99,7 +99,7 @@ curl -X 'GET' \
 
 | Campo | Tipo | Descrição |
 |---|---|---|
-| resultado | Texto/Número | Valor do campo Resultado |
+| resultado | Texto/Número | Lista de registros retornados na página atual da consulta |
 | codigoClasse | Texto/Número | Código da classe do material/serviço |
 | codigoGrupo | Texto/Número | Código do grupo do material/serviço |
 | nomeGrupo | Texto/Número | Nome do grupo do material |
@@ -162,7 +162,7 @@ curl -X 'GET' \
 
 | Campo | Tipo | Descrição |
 |---|---|---|
-| resultado | Texto/Número | Valor do campo Resultado |
+| resultado | Texto/Número | Lista de registros retornados na página atual da consulta |
 | codigoGrupo | Texto/Número | Código do grupo do material/serviço |
 | nomeGrupo | Texto/Número | Nome do grupo do material |
 | codigoClasse | Texto/Número | Código da classe do material/serviço |
@@ -232,7 +232,7 @@ curl -X 'GET' \
 
 | Campo | Tipo | Descrição |
 |---|---|---|
-| resultado | Texto/Número | Valor do campo Resultado |
+| resultado | Texto/Número | Lista de registros retornados na página atual da consulta |
 | codigoItem | Texto/Número | Código do item do material/serviço |
 | codigoGrupo | Texto/Número | Código do grupo do material/serviço |
 | nomeGrupo | Texto/Número | Nome do grupo do material |
@@ -309,7 +309,7 @@ curl -X 'GET' \
 
 | Campo | Tipo | Descrição |
 |---|---|---|
-| resultado | Texto/Número | Valor do campo Resultado |
+| resultado | Texto/Número | Lista de registros retornados na página atual da consulta |
 | codigoPdm | Texto/Número | Código do Produto Descritivo Básico (PDM) |
 | codigoNaturezaDespesa | Texto/Número | Código da natureza de despesa |
 | nomeNaturezaDespesa | Texto/Número | Descrição da natureza de despesa |
@@ -365,7 +365,7 @@ curl -X 'GET' \
 
 | Campo | Tipo | Descrição |
 |---|---|---|
-| resultado | Texto/Número | Valor do campo Resultado |
+| resultado | Texto/Número | Lista de registros retornados na página atual da consulta |
 | codigoPdm | Texto/Número | Código do Produto Descritivo Básico (PDM) |
 | siglaUnidadeFornecimento | Texto/Número | Sigla da unidade de fornecimento |
 | nomeUnidadeFornecimento | Texto/Número | Nome da unidade de fornecimento |
@@ -432,7 +432,7 @@ curl -X 'GET' \
 
 | Campo | Tipo | Descrição |
 |---|---|---|
-| resultado | Texto/Número | Valor do campo Resultado |
+| resultado | Texto/Número | Lista de registros retornados na página atual da consulta |
 | codigoItem | Texto/Número | Código do item do material/serviço |
 | itemSustentavel | Texto/Número | Indica se o item é sustentável. 0 – False/Não; 1 – True/Sim |
 | statusItem | Texto/Número | Status do item. 0 – False/Inativo; 1 – True/Ativo |

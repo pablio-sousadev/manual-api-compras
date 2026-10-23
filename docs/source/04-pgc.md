@@ -44,58 +44,58 @@ curl -X 'GET' \
 
 | Campo | Tipo | Descrição |
 |---|---|---|
-| resultado | Texto/Número | Valor do campo Resultado |
+| resultado | Texto/Número | Lista de registros retornados na página atual da consulta |
 | codigoUasg | Texto/Número | Código identificador da UASG (Unidade Administrativa de Serviços Gerais) |
 | nomeUasg | Texto/Número | Nome da UASG |
 | orgao | Texto/Número | CNPJ do órgão (sem máscara) |
-| numeroArtefato | Texto/Número | Valor do campo Numero artefato |
-| anoArtefato | Texto/Número | Valor do campo Ano artefato |
-| codigoEstadoArtefato | Texto/Número | Código do registro associado |
-| codigoCategoriaArtefato | Texto/Número | Código do registro associado |
-| descricaoArtefato | Texto/Número | Valor do campo Descricao artefato |
-| codigoTipoArtefato | Texto/Número | Código do registro associado |
-| ordemDfd | Texto/Número | Valor do campo Ordem dfd |
-| descricaoObjetoDfd | Texto/Número | Valor do campo Descricao objeto dfd |
-| nivelPrioridadeDfd | Texto/Número | Valor do campo Nivel prioridade dfd |
-| dataPrevistaFormalizacaoDemanda | Texto/Número | Data correspondente ao registro |
-| codigoAreaDfd | Texto/Número | Código do registro associado |
-| tipoItem | Texto/Número | Valor do campo Tipo item |
+| numeroArtefato | Texto/Número | Número sequencial do artefato de planejamento no PGC |
+| anoArtefato | Texto/Número | Ano de elaboração do artefato de planejamento no PGC |
+| codigoEstadoArtefato | Texto/Número | Código do estado ou situação atual do artefato de planejamento no PGC |
+| codigoCategoriaArtefato | Texto/Número | Código da categoria do artefato de planejamento no PGC |
+| descricaoArtefato | Texto/Número | Descrição textual do artefato de planejamento da contratação |
+| codigoTipoArtefato | Texto/Número | Código identificador do tipo de artefato de planejamento (DFD, ETP, TR etc.) |
+| ordemDfd | Texto/Número | Número de ordem do item dentro do Documento de Formalização de Demanda (DFD) |
+| descricaoObjetoDfd | Texto/Número | Descrição sucinta do objeto registrado no Documento de Formalização de Demanda (DFD) |
+| nivelPrioridadeDfd | Texto/Número | Grau de prioridade atribuído à demanda no Documento de Formalização de Demanda (DFD) |
+| dataPrevistaFormalizacaoDemanda | Texto/Número | Data prevista para a formalização da demanda pela área requisitante |
+| codigoAreaDfd | Texto/Número | Código identificador da área requisitante vinculada ao Documento de Formalização de Demanda (DFD) |
+| tipoItem | Texto/Número | Classificação do tipo do item no contrato (Material ou Serviço) |
 | itemSustentavel | Texto/Número | Indica se o item é sustentável. 0 – False/Não; 1 – True/Sim |
-| codigoGrupoMaterial | Texto/Número | Código do registro associado |
-| nomeGrupoMaterial | Texto/Número | Valor do campo Nome grupo material |
-| codigoClasseMaterial | Texto/Número | Código do registro associado |
-| nomeClasseMaterial | Texto/Número | Valor do campo Nome classe material |
-| codigoPdmMaterial | Texto/Número | Código do registro associado |
-| nomePdmMaterial | Texto/Número | Valor do campo Nome pdm material |
-| codigoSecaoServico | Texto/Número | Código do registro associado |
-| nomeSecaoServico | Texto/Número | Valor do campo Nome secao servico |
-| codigoDivisaoServico | Texto/Número | Código do registro associado |
-| nomeDivisaoServico | Texto/Número | Valor do campo Nome divisao servico |
-| codigoGrupoServico | Texto/Número | Código do registro associado |
-| nomeGrupoServico | Texto/Número | Valor do campo Nome grupo servico |
-| codigoClasseServico | Texto/Número | Código do registro associado |
-| nomeClasseServico | Texto/Número | Valor do campo Nome classe servico |
-| codigoSubclasseServico | Texto/Número | Código do registro associado |
-| nomeSubclasseServico | Texto/Número | Valor do campo Nome subclasse servico |
+| codigoGrupoMaterial | Texto/Número | Código do grupo de material na estrutura do catálogo CATMAT |
+| nomeGrupoMaterial | Texto/Número | Nome do grupo de material na estrutura do catálogo CATMAT |
+| codigoClasseMaterial | Texto/Número | Código da classe de material na hierarquia do catálogo CATMAT |
+| nomeClasseMaterial | Texto/Número | Nome da classe de material na estrutura do catálogo CATMAT |
+| codigoPdmMaterial | Texto/Número | Código do Padrão Descritivo de Material (PDM) no catálogo CATMAT |
+| nomePdmMaterial | Texto/Número | Nome do Padrão Descritivo de Material (PDM) no catálogo CATMAT |
+| codigoSecaoServico | Texto/Número | Código da seção de serviço na hierarquia do catálogo CATSER |
+| nomeSecaoServico | Texto/Número | Nome da seção de serviço na hierarquia do catálogo CATSER |
+| codigoDivisaoServico | Texto/Número | Código da divisão de serviço na estrutura do catálogo CATSER |
+| nomeDivisaoServico | Texto/Número | Nome da divisão de serviço na estrutura do catálogo CATSER |
+| codigoGrupoServico | Texto/Número | Código do grupo de serviço na estrutura do catálogo CATSER |
+| nomeGrupoServico | Texto/Número | Nome do grupo de serviço na estrutura do catálogo CATSER |
+| codigoClasseServico | Texto/Número | Código da classe de serviço na hierarquia do catálogo CATSER |
+| nomeClasseServico | Texto/Número | Nome da classe de serviço na estrutura do catálogo CATSER |
+| codigoSubclasseServico | Texto/Número | Código da subclasse de serviço na estrutura do catálogo CATSER |
+| nomeSubclasseServico | Texto/Número | Nome da subclasse de serviço na hierarquia do catálogo CATSER |
 | codigoItemCatalogo | Texto/Número | Código do item no catálogo de materiais ou serviços |
-| descricaoItemCatalogo | Texto/Número | Valor do campo Descricao item catalogo |
+| descricaoItemCatalogo | Texto/Número | Descrição padronizada do item no catálogo de materiais (CATMAT) ou serviços (CATSER) |
 | siglaUnidadeFornecimento | Texto/Número | Sigla da unidade de fornecimento |
 | nomeUnidadeFornecimento | Texto/Número | Nome da unidade de fornecimento |
-| quantidadeItem | Texto/Número | Valor do campo Quantidade item |
-| valorUnitarioItem | Texto/Número | Valor do campo Valor unitario item |
-| valorTotalItem | Texto/Número | Valor do campo Valor total item |
-| tituloProjetoCompra | Texto/Número | Valor do campo Titulo projeto compra |
-| descricaoProjetoCompra | Texto/Número | Valor do campo Descricao projeto compra |
+| quantidadeItem | Texto/Número | Quantidade prevista do item no planejamento ou contrato |
+| valorUnitarioItem | Texto/Número | Valor unitário estimado ou pactuado para o item |
+| valorTotalItem | Texto/Número | Valor total estimado ou contratado para o item no planejamento/contrato |
+| tituloProjetoCompra | Texto/Número | Título de identificação do projeto de compra no planejamento (PGC) |
+| descricaoProjetoCompra | Texto/Número | Descrição do escopo do projeto de compra no planejamento anual (PGC) |
 | anoPcaProjetoCompra | Texto/Número | Ano do projeto de compra no PCA |
-| dataInicioProcessoCompra | Texto/Número | Data correspondente ao registro |
-| dataFimProcessoCompra | Texto/Número | Data correspondente ao registro |
-| duracaoProcessoCompra | Texto/Número | Valor do campo Duracao processo compra |
-| numeroItemPncp | Texto/Número | Valor do campo Numero item pncp |
+| dataInicioProcessoCompra | Texto/Número | Data prevista para o início do processo de contratação conforme planejamento no PGC |
+| dataFimProcessoCompra | Texto/Número | Data prevista ou efetiva para conclusão do processo de contratação no planejamento |
+| duracaoProcessoCompra | Texto/Número | Duração estimada do processo de contratação em dias |
+| numeroItemPncp | Texto/Número | Número sequencial do item da contratação registrado no PNCP |
 | statusContratacaoExecucao | Texto/Número | Status do registro. 0 – False/Inativo; 1 – True/Ativo |
-| dataHoraPublicacaoPncp | Texto/Número | Data correspondente ao registro |
-| dataHoraAtualizacaoArtefato | Texto/Número | Data correspondente ao registro |
-| dataHoraAtualizacaoProjetoCompra | Texto/Número | Data correspondente ao registro |
-| dataHoraAtualizacaoDfd | Texto/Número | Data correspondente ao registro |
+| dataHoraPublicacaoPncp | Texto/Número | Data e hora em que o Plano de Contratações Anual ou artefato foi publicado no PNCP |
+| dataHoraAtualizacaoArtefato | Texto/Número | Data e hora da última alteração do artefato de planejamento no PGC |
+| dataHoraAtualizacaoProjetoCompra | Texto/Número | Data e hora da última atualização do projeto de compra no PGC |
+| dataHoraAtualizacaoDfd | Texto/Número | Data e hora da última atualização do Documento de Formalização de Demanda (DFD) |
 | dataHoraAtualizacaoItem | Texto/Número | Data e hora da última atualização do item |
 | totalRegistros | Texto/Número | Total de registros encontrados |
 | totalPaginas | Texto/Número | Total de páginas disponíveis |
@@ -216,58 +216,58 @@ curl -X 'GET' \
 
 | Campo | Tipo | Descrição |
 |---|---|---|
-| resultado | Texto/Número | Valor do campo Resultado |
+| resultado | Texto/Número | Lista de registros retornados na página atual da consulta |
 | codigoUasg | Texto/Número | Código identificador da UASG (Unidade Administrativa de Serviços Gerais) |
 | nomeUasg | Texto/Número | Nome da UASG |
 | orgao | Texto/Número | CNPJ do órgão (sem máscara) |
-| numeroArtefato | Texto/Número | Valor do campo Numero artefato |
-| anoArtefato | Texto/Número | Valor do campo Ano artefato |
-| codigoEstadoArtefato | Texto/Número | Código do registro associado |
-| codigoCategoriaArtefato | Texto/Número | Código do registro associado |
-| descricaoArtefato | Texto/Número | Valor do campo Descricao artefato |
-| codigoTipoArtefato | Texto/Número | Código do registro associado |
-| ordemDfd | Texto/Número | Valor do campo Ordem dfd |
-| descricaoObjetoDfd | Texto/Número | Valor do campo Descricao objeto dfd |
-| nivelPrioridadeDfd | Texto/Número | Valor do campo Nivel prioridade dfd |
-| dataPrevistaFormalizacaoDemanda | Texto/Número | Data correspondente ao registro |
-| codigoAreaDfd | Texto/Número | Código do registro associado |
-| tipoItem | Texto/Número | Valor do campo Tipo item |
+| numeroArtefato | Texto/Número | Número sequencial do artefato de planejamento no PGC |
+| anoArtefato | Texto/Número | Ano de elaboração do artefato de planejamento no PGC |
+| codigoEstadoArtefato | Texto/Número | Código do estado ou situação atual do artefato de planejamento no PGC |
+| codigoCategoriaArtefato | Texto/Número | Código da categoria do artefato de planejamento no PGC |
+| descricaoArtefato | Texto/Número | Descrição textual do artefato de planejamento da contratação |
+| codigoTipoArtefato | Texto/Número | Código identificador do tipo de artefato de planejamento (DFD, ETP, TR etc.) |
+| ordemDfd | Texto/Número | Número de ordem do item dentro do Documento de Formalização de Demanda (DFD) |
+| descricaoObjetoDfd | Texto/Número | Descrição sucinta do objeto registrado no Documento de Formalização de Demanda (DFD) |
+| nivelPrioridadeDfd | Texto/Número | Grau de prioridade atribuído à demanda no Documento de Formalização de Demanda (DFD) |
+| dataPrevistaFormalizacaoDemanda | Texto/Número | Data prevista para a formalização da demanda pela área requisitante |
+| codigoAreaDfd | Texto/Número | Código identificador da área requisitante vinculada ao Documento de Formalização de Demanda (DFD) |
+| tipoItem | Texto/Número | Classificação do tipo do item no contrato (Material ou Serviço) |
 | itemSustentavel | Texto/Número | Indica se o item é sustentável. 0 – False/Não; 1 – True/Sim |
-| codigoGrupoMaterial | Texto/Número | Código do registro associado |
-| nomeGrupoMaterial | Texto/Número | Valor do campo Nome grupo material |
-| codigoClasseMaterial | Texto/Número | Código do registro associado |
-| nomeClasseMaterial | Texto/Número | Valor do campo Nome classe material |
-| codigoPdmMaterial | Texto/Número | Código do registro associado |
-| nomePdmMaterial | Texto/Número | Valor do campo Nome pdm material |
-| codigoSecaoServico | Texto/Número | Código do registro associado |
-| nomeSecaoServico | Texto/Número | Valor do campo Nome secao servico |
-| codigoDivisaoServico | Texto/Número | Código do registro associado |
-| nomeDivisaoServico | Texto/Número | Valor do campo Nome divisao servico |
-| codigoGrupoServico | Texto/Número | Código do registro associado |
-| nomeGrupoServico | Texto/Número | Valor do campo Nome grupo servico |
-| codigoClasseServico | Texto/Número | Código do registro associado |
-| nomeClasseServico | Texto/Número | Valor do campo Nome classe servico |
-| codigoSubclasseServico | Texto/Número | Código do registro associado |
-| nomeSubclasseServico | Texto/Número | Valor do campo Nome subclasse servico |
+| codigoGrupoMaterial | Texto/Número | Código do grupo de material na estrutura do catálogo CATMAT |
+| nomeGrupoMaterial | Texto/Número | Nome do grupo de material na estrutura do catálogo CATMAT |
+| codigoClasseMaterial | Texto/Número | Código da classe de material na hierarquia do catálogo CATMAT |
+| nomeClasseMaterial | Texto/Número | Nome da classe de material na estrutura do catálogo CATMAT |
+| codigoPdmMaterial | Texto/Número | Código do Padrão Descritivo de Material (PDM) no catálogo CATMAT |
+| nomePdmMaterial | Texto/Número | Nome do Padrão Descritivo de Material (PDM) no catálogo CATMAT |
+| codigoSecaoServico | Texto/Número | Código da seção de serviço na hierarquia do catálogo CATSER |
+| nomeSecaoServico | Texto/Número | Nome da seção de serviço na hierarquia do catálogo CATSER |
+| codigoDivisaoServico | Texto/Número | Código da divisão de serviço na estrutura do catálogo CATSER |
+| nomeDivisaoServico | Texto/Número | Nome da divisão de serviço na estrutura do catálogo CATSER |
+| codigoGrupoServico | Texto/Número | Código do grupo de serviço na estrutura do catálogo CATSER |
+| nomeGrupoServico | Texto/Número | Nome do grupo de serviço na estrutura do catálogo CATSER |
+| codigoClasseServico | Texto/Número | Código da classe de serviço na hierarquia do catálogo CATSER |
+| nomeClasseServico | Texto/Número | Nome da classe de serviço na estrutura do catálogo CATSER |
+| codigoSubclasseServico | Texto/Número | Código da subclasse de serviço na estrutura do catálogo CATSER |
+| nomeSubclasseServico | Texto/Número | Nome da subclasse de serviço na hierarquia do catálogo CATSER |
 | codigoItemCatalogo | Texto/Número | Código do item no catálogo de materiais ou serviços |
-| descricaoItemCatalogo | Texto/Número | Valor do campo Descricao item catalogo |
+| descricaoItemCatalogo | Texto/Número | Descrição padronizada do item no catálogo de materiais (CATMAT) ou serviços (CATSER) |
 | siglaUnidadeFornecimento | Texto/Número | Sigla da unidade de fornecimento |
 | nomeUnidadeFornecimento | Texto/Número | Nome da unidade de fornecimento |
-| quantidadeItem | Texto/Número | Valor do campo Quantidade item |
-| valorUnitarioItem | Texto/Número | Valor do campo Valor unitario item |
-| valorTotalItem | Texto/Número | Valor do campo Valor total item |
-| tituloProjetoCompra | Texto/Número | Valor do campo Titulo projeto compra |
-| descricaoProjetoCompra | Texto/Número | Valor do campo Descricao projeto compra |
+| quantidadeItem | Texto/Número | Quantidade prevista do item no planejamento ou contrato |
+| valorUnitarioItem | Texto/Número | Valor unitário estimado ou pactuado para o item |
+| valorTotalItem | Texto/Número | Valor total estimado ou contratado para o item no planejamento/contrato |
+| tituloProjetoCompra | Texto/Número | Título de identificação do projeto de compra no planejamento (PGC) |
+| descricaoProjetoCompra | Texto/Número | Descrição do escopo do projeto de compra no planejamento anual (PGC) |
 | anoPcaProjetoCompra | Texto/Número | Ano do projeto de compra no PCA |
-| dataInicioProcessoCompra | Texto/Número | Data correspondente ao registro |
-| dataFimProcessoCompra | Texto/Número | Data correspondente ao registro |
-| duracaoProcessoCompra | Texto/Número | Valor do campo Duracao processo compra |
-| numeroItemPncp | Texto/Número | Valor do campo Numero item pncp |
+| dataInicioProcessoCompra | Texto/Número | Data prevista para o início do processo de contratação conforme planejamento no PGC |
+| dataFimProcessoCompra | Texto/Número | Data prevista ou efetiva para conclusão do processo de contratação no planejamento |
+| duracaoProcessoCompra | Texto/Número | Duração estimada do processo de contratação em dias |
+| numeroItemPncp | Texto/Número | Número sequencial do item da contratação registrado no PNCP |
 | statusContratacaoExecucao | Texto/Número | Status do registro. 0 – False/Inativo; 1 – True/Ativo |
-| dataHoraPublicacaoPncp | Texto/Número | Data correspondente ao registro |
-| dataHoraAtualizacaoArtefato | Texto/Número | Data correspondente ao registro |
-| dataHoraAtualizacaoProjetoCompra | Texto/Número | Data correspondente ao registro |
-| dataHoraAtualizacaoDfd | Texto/Número | Data correspondente ao registro |
+| dataHoraPublicacaoPncp | Texto/Número | Data e hora em que o Plano de Contratações Anual ou artefato foi publicado no PNCP |
+| dataHoraAtualizacaoArtefato | Texto/Número | Data e hora da última alteração do artefato de planejamento no PGC |
+| dataHoraAtualizacaoProjetoCompra | Texto/Número | Data e hora da última atualização do projeto de compra no PGC |
+| dataHoraAtualizacaoDfd | Texto/Número | Data e hora da última atualização do Documento de Formalização de Demanda (DFD) |
 | dataHoraAtualizacaoItem | Texto/Número | Data e hora da última atualização do item |
 | totalRegistros | Texto/Número | Total de registros encontrados |
 | totalPaginas | Texto/Número | Total de páginas disponíveis |
@@ -380,21 +380,21 @@ curl -X 'GET' \
 |---|---|---|---|
 | pagina | integer | <span class="badge-opt">⚪ Não</span> | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
 | orgao | string | <span class="badge-req">🔴 Sim</span> | CNPJ do órgão (sem máscara) |
-| ano | integer | <span class="badge-req">🔴 Sim</span> | Valor do campo Ano |
+| ano | integer | <span class="badge-req">🔴 Sim</span> | Ano de referência do registro ou da contratação |
 
 **Dados de Retorno:**
 
 | Campo | Tipo | Descrição |
 |---|---|---|
-| resultado | Texto/Número | Valor do campo Resultado |
+| resultado | Texto/Número | Lista de registros retornados na página atual da consulta |
 | orgao | Texto/Número | CNPJ do órgão (sem máscara) |
-| ano | Texto/Número | Valor do campo Ano |
+| ano | Texto/Número | Ano de referência do registro ou da contratação |
 | poder | Texto/Número | Poder da federação. E – Executivo; L – Legislativo; J – Judiciário |
 | esfera | Texto/Número | Esfera governamental. F – Federal; E – Estadual; M – Municipal |
-| dataHoraPublicacaoPncp | Texto/Número | Data correspondente ao registro |
+| dataHoraPublicacaoPncp | Texto/Número | Data e hora em que o Plano de Contratações Anual ou artefato foi publicado no PNCP |
 | dataHoraAtualizacao | Texto/Número | Data e hora da última atualização do registro |
-| quantidadeTotalItens | Texto/Número | Valor do campo Quantidade total itens |
-| valorTotalEstimado | Texto/Número | Valor do campo Valor total estimado |
+| quantidadeTotalItens | Texto/Número | Soma total de itens constantes no projeto de compra ou artefato |
+| valorTotalEstimado | Texto/Número | Valor total estimado pela Administração para a contratação ou item (em R$) |
 | totalRegistros | Texto/Número | Total de registros encontrados |
 | totalPaginas | Texto/Número | Total de páginas disponíveis |
 | paginasRestantes | Texto/Número | Número de páginas restantes |

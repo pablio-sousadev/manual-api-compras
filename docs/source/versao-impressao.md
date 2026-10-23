@@ -17,7 +17,7 @@
 > **Público-alvo:** Desenvolvedores e integradores de sistemas  
 > **Objetivo:** Consultar a referência técnica dos endpoints, parâmetros e dados de retorno da API de Compras Governamentais.
 
-**VERSÃO 3.0 – Ago/26**  
+**VERSÃO 3.0 – Ago/26** *(Referente à API Compras.gov.br v3 / Especificação OpenAPI 1.0.0)*  
 Ministério da Gestão e da Inovação em Serviços Públicos – MGI
 
 ---
@@ -27,9 +27,11 @@ Ministério da Gestão e da Inovação em Serviços Públicos – MGI
 - <a href="#introducao">Introdução</a>
 - <a href="#objetivos">Objetivos</a>
 - <a href="#outros-topicos-relevantes">Outros tópicos relevantes</a>
+- <a href="#limites-de-uso">Limites de uso</a>
+- <a href="#primeiros-passos">Primeiros passos</a>
 - <a href="#modulo-catalogo-material">1. Módulo Catálogo — Material</a>
 - <a href="#modulo-catalogo-servico">2. Módulo Catálogo — Serviço</a>
-- <a href="#modulo-pesquisa-de-preco-precos-praticados">3. Módulo Pesquisa de Preço — Preços Praticados</a>
+- <a href="#modulo-pesquisa-de-precos">3. Módulo Pesquisa de Preços</a>
 - <a href="#modulo-pgc-planejamento-e-gerenciamento-de-contratacoes">4. Módulo PGC — Planejamento e Gerenciamento de Contratações</a>
 - <a href="#modulo-uasg">5. Módulo UASG</a>
 - <a href="#modulo-legado">6. Módulo Legado</a>
@@ -51,7 +53,11 @@ O Compras.gov.br atua nas três grandes fases do ciclo de contratação pública
 
 <h2 id="objetivos">Objetivos</h2>
 
-A transparência desempenha um papel fundamental na gestão pública.
+A API de Dados Abertos do Compras.gov.br tem por objetivo disponibilizar, de forma aberta, estruturada e legível por máquina, os dados das contratações públicas do Governo Federal, permitindo que sistemas externos, órgãos de controle, pesquisadores, empresas e a sociedade em geral possam consultá-los, integrá-los e reutilizá-los de maneira automatizada.
+
+O serviço atende ao dever de transparência ativa previsto na Lei de Acesso à Informação (Lei nº 12.527, de 18 de novembro de 2011), que determina, em seu art. 8º, inciso III, que os órgãos e entidades públicas devem "possibilitar o acesso automatizado por sistemas externos em formatos abertos, estruturados e legíveis por máquina", e está alinhado à política brasileira de dados abertos, que busca ampliar o controle social, a pesquisa, a inovação e a geração de valor a partir dos dados públicos.
+
+Ao oferecer acesso programático, padronizado e gratuito aos dados de contratações, a API amplia a transparência dos gastos públicos, reduz a assimetria de informação e favorece o desenvolvimento de soluções tecnológicas voltadas à melhoria da gestão pública.
 
 ---
 
@@ -59,7 +65,23 @@ A transparência desempenha um papel fundamental na gestão pública.
 
 O acesso aos dados é feito através de URLs, o protocolo de comunicação utilizado é o REST - Representational State Transfer/ HTTP 1.1 e os dados trafegados utilizam a notação JSON - JavaScript Object Notation.
 
-Em cada consulta é possível especificar uma série de parâmetros de filtro, que devem compor a URL. Você (ser humano ou máquina) pode navegar através de todos os recursos apenas utilizando os links disponíveis. O acesso à API é realizado através do seguinte endereço: Swagger UI - Dados Abertos Compras
+Em cada consulta é possível especificar uma série de parâmetros de filtro, que devem compor a URL. Você (ser humano ou máquina) pode navegar através de todos os recursos apenas utilizando os links disponíveis. O acesso à API é realizado através do seguinte endereço: [Swagger UI - Dados Abertos Compras](https://dadosabertos.compras.gov.br/swagger-ui/index.html)
+
+---
+
+<h2 id="limites-de-uso">Limites de uso</h2>
+
+O acesso à API está sujeito a limite de 100 (cem) chamadas a cada 60 (sessenta) segundos por endereço IP. Requisições que excedam esse limite recebem resposta com código HTTP 429 (*Too Many Requests*). Para conjuntos de dados de maior volume, recomenda-se utilizar a paginação disponível em cada endpoint, com até 500 registros por página, ou recorrer ao Repositório de Dados do Compras.gov.br, que disponibiliza os mesmos dados em arquivos para download.
+
+---
+
+<h2 id="primeiros-passos">Primeiros passos</h2>
+
+1. Consulte a documentação interativa ([Swagger UI](https://dadosabertos.compras.gov.br/swagger-ui/index.html)), que permite testar cada endpoint diretamente no navegador.
+2. Escolha o módulo correspondente ao dado de interesse.
+3. Informe os parâmetros obrigatórios do endpoint (indicados com 🔴 na tabela de parâmetros).
+4. Utilize `pagina` e `tamanhoPagina` para navegar pelos resultados (observação: no Módulo 11 – OCDS, por seguir o padrão internacional, o parâmetro de paginação é `page`).
+5. Para volumes maiores, prefira o Repositório de Dados.
 
 ---
 
@@ -94,7 +116,7 @@ curl -X 'GET' \
 
 | Campo | Tipo | Descrição |
 |---|---|---|
-| resultado | Texto/Número | Valor do campo Resultado |
+| resultado | Texto/Número | Lista de registros retornados na página atual da consulta |
 | codigoGrupo | Texto/Número | Código do grupo do material/serviço |
 | nomeGrupo | Texto/Número | Nome do grupo do material |
 | statusGrupo | Texto/Número | Status do grupo. 0 – False/Inativo; 1 – True/Ativo |
@@ -151,7 +173,7 @@ curl -X 'GET' \
 
 | Campo | Tipo | Descrição |
 |---|---|---|
-| resultado | Texto/Número | Valor do campo Resultado |
+| resultado | Texto/Número | Lista de registros retornados na página atual da consulta |
 | codigoClasse | Texto/Número | Código da classe do material/serviço |
 | codigoGrupo | Texto/Número | Código do grupo do material/serviço |
 | nomeGrupo | Texto/Número | Nome do grupo do material |
@@ -214,7 +236,7 @@ curl -X 'GET' \
 
 | Campo | Tipo | Descrição |
 |---|---|---|
-| resultado | Texto/Número | Valor do campo Resultado |
+| resultado | Texto/Número | Lista de registros retornados na página atual da consulta |
 | codigoGrupo | Texto/Número | Código do grupo do material/serviço |
 | nomeGrupo | Texto/Número | Nome do grupo do material |
 | codigoClasse | Texto/Número | Código da classe do material/serviço |
@@ -284,7 +306,7 @@ curl -X 'GET' \
 
 | Campo | Tipo | Descrição |
 |---|---|---|
-| resultado | Texto/Número | Valor do campo Resultado |
+| resultado | Texto/Número | Lista de registros retornados na página atual da consulta |
 | codigoItem | Texto/Número | Código do item do material/serviço |
 | codigoGrupo | Texto/Número | Código do grupo do material/serviço |
 | nomeGrupo | Texto/Número | Nome do grupo do material |
@@ -361,7 +383,7 @@ curl -X 'GET' \
 
 | Campo | Tipo | Descrição |
 |---|---|---|
-| resultado | Texto/Número | Valor do campo Resultado |
+| resultado | Texto/Número | Lista de registros retornados na página atual da consulta |
 | codigoPdm | Texto/Número | Código do Produto Descritivo Básico (PDM) |
 | codigoNaturezaDespesa | Texto/Número | Código da natureza de despesa |
 | nomeNaturezaDespesa | Texto/Número | Descrição da natureza de despesa |
@@ -417,7 +439,7 @@ curl -X 'GET' \
 
 | Campo | Tipo | Descrição |
 |---|---|---|
-| resultado | Texto/Número | Valor do campo Resultado |
+| resultado | Texto/Número | Lista de registros retornados na página atual da consulta |
 | codigoPdm | Texto/Número | Código do Produto Descritivo Básico (PDM) |
 | siglaUnidadeFornecimento | Texto/Número | Sigla da unidade de fornecimento |
 | nomeUnidadeFornecimento | Texto/Número | Nome da unidade de fornecimento |
@@ -484,7 +506,7 @@ curl -X 'GET' \
 
 | Campo | Tipo | Descrição |
 |---|---|---|
-| resultado | Texto/Número | Valor do campo Resultado |
+| resultado | Texto/Número | Lista de registros retornados na página atual da consulta |
 | codigoItem | Texto/Número | Código do item do material/serviço |
 | itemSustentavel | Texto/Número | Indica se o item é sustentável. 0 – False/Não; 1 – True/Sim |
 | statusItem | Texto/Número | Status do item. 0 – False/Inativo; 1 – True/Ativo |
@@ -561,7 +583,7 @@ curl -X 'GET' \
 
 | Campo | Tipo | Descrição |
 |---|---|---|
-| resultado | Texto/Número | Valor do campo Resultado |
+| resultado | Texto/Número | Lista de registros retornados na página atual da consulta |
 | codigoSecao | Texto/Número | Código da seção do serviço |
 | nomeSecao | Texto/Número | Nome da seção |
 | statusSecao | Texto/Número | Status da seção. 0 – False/Inativo; 1 – True/Ativo |
@@ -617,7 +639,7 @@ curl -X 'GET' \
 
 | Campo | Tipo | Descrição |
 |---|---|---|
-| resultado | Texto/Número | Valor do campo Resultado |
+| resultado | Texto/Número | Lista de registros retornados na página atual da consulta |
 | codigoSecao | Texto/Número | Código da seção do serviço |
 | nomeSecao | Texto/Número | Nome da seção |
 | codigoDivisao | Texto/Número | Código da divisão do serviço |
@@ -677,7 +699,7 @@ curl -X 'GET' \
 
 | Campo | Tipo | Descrição |
 |---|---|---|
-| resultado | Texto/Número | Valor do campo Resultado |
+| resultado | Texto/Número | Lista de registros retornados na página atual da consulta |
 | nomeSecao | Texto/Número | Nome da seção |
 | codigoDivisao | Texto/Número | Código da divisão do serviço |
 | nomeDivisao | Texto/Número | Nome da divisão |
@@ -739,7 +761,7 @@ curl -X 'GET' \
 
 | Campo | Tipo | Descrição |
 |---|---|---|
-| resultado | Texto/Número | Valor do campo Resultado |
+| resultado | Texto/Número | Lista de registros retornados na página atual da consulta |
 | codigoGrupo | Texto/Número | Código do grupo do material/serviço |
 | nomeGrupo | Texto/Número | Nome do grupo do material |
 | codigoClasse | Texto/Número | Código da classe do material/serviço |
@@ -799,7 +821,7 @@ curl -X 'GET' \
 
 | Campo | Tipo | Descrição |
 |---|---|---|
-| resultado | Texto/Número | Valor do campo Resultado |
+| resultado | Texto/Número | Lista de registros retornados na página atual da consulta |
 | codigoClasse | Texto/Número | Código da classe do material/serviço |
 | nomeClasse | Texto/Número | Nome da classe do material |
 | codigoSubclasse | Texto/Número | Código da subclasse do serviço |
@@ -866,7 +888,7 @@ curl -X 'GET' \
 
 | Campo | Tipo | Descrição |
 |---|---|---|
-| resultado | Texto/Número | Valor do campo Resultado |
+| resultado | Texto/Número | Lista de registros retornados na página atual da consulta |
 | codigoSecao | Texto/Número | Código da seção do serviço |
 | nomeSecao | Texto/Número | Nome da seção |
 | codigoDivisao | Texto/Número | Código da divisão do serviço |
@@ -945,7 +967,7 @@ curl -X 'GET' \
 
 | Campo | Tipo | Descrição |
 |---|---|---|
-| resultado | Texto/Número | Valor do campo Resultado |
+| resultado | Texto/Número | Lista de registros retornados na página atual da consulta |
 | codigoServico | Texto/Número | Código do item de serviço |
 | siglaUnidadeMedida | Texto/Número | Sigla da unidade de medida |
 | nomeUnidadeMedida | Texto/Número | Nome da unidade de medida |
@@ -1001,7 +1023,7 @@ curl -X 'GET' \
 
 | Campo | Tipo | Descrição |
 |---|---|---|
-| resultado | Texto/Número | Valor do campo Resultado |
+| resultado | Texto/Número | Lista de registros retornados na página atual da consulta |
 | codigoServico | Texto/Número | Código do item de serviço |
 | codigoNaturezaDespesa | Texto/Número | Código da natureza de despesa |
 | nomeNaturezaDespesa | Texto/Número | Descrição da natureza de despesa |
@@ -1031,9 +1053,9 @@ curl -X 'GET' \
 
 ---
 
-<h2 id="modulo-pesquisa-de-preco-precos-praticados">3. Módulo Pesquisa de Preço — Preços Praticados</h2>
+<h2 id="modulo-pesquisa-de-precos">3. Módulo Pesquisa de Preços</h2>
 
-Módulo responsável por consultar os preços praticados na administração pública.
+O Módulo Pesquisa de Preço disponibiliza os preços praticados nas contratações públicas federais, permitindo consultar, por material ou serviço, os valores registrados em contratações anteriores. Constitui importante subsídio para a pesquisa de preços e para a estimativa de valores de referência nas contratações.
 
 <h3 id="consultarmaterial">3.1. consultarMaterial</h3>
 
@@ -1073,7 +1095,7 @@ curl -X 'GET' \
 
 | Campo | Tipo | Descrição |
 |---|---|---|
-| resultado | Texto/Número | Valor do campo Resultado |
+| resultado | Texto/Número | Lista de registros retornados na página atual da consulta |
 | idCompra | Texto/Número | Código identificador único da compra |
 | dataCompra | Texto/Número | Data da compra |
 | forma | Texto/Número | Forma de aquisição: SISPP (preços praticados) ou SISRP (menor preço) |
@@ -1223,7 +1245,7 @@ curl -X 'GET' \
 
 | Campo | Tipo | Descrição |
 |---|---|---|
-| resultado | Texto/Número | Valor do campo Resultado |
+| resultado | Texto/Número | Lista de registros retornados na página atual da consulta |
 | idCompra | Texto/Número | Código identificador único da compra |
 | idItemCompra | Texto/Número | Código do item da compra |
 | numeroItemCompra | Texto/Número | Número do item da compra |
@@ -1312,7 +1334,7 @@ curl -X 'GET' \
 
 | Campo | Tipo | Descrição |
 |---|---|---|
-| resultado | Texto/Número | Valor do campo Resultado |
+| resultado | Texto/Número | Lista de registros retornados na página atual da consulta |
 | idCompra | Texto/Número | Código identificador único da compra |
 | idItemCompra | Texto/Número | Código do item da compra |
 | forma | Texto/Número | Forma de aquisição: SISPP (preços praticados) ou SISRP (menor preço) |
@@ -1444,7 +1466,7 @@ curl -X 'GET' \
 
 | Campo | Tipo | Descrição |
 |---|---|---|
-| resultado | Texto/Número | Valor do campo Resultado |
+| resultado | Texto/Número | Lista de registros retornados na página atual da consulta |
 | idCompra | Texto/Número | Código identificador único da compra |
 | idItemCompra | Texto/Número | Código do item da compra |
 | numeroItemCompra | Texto/Número | Número do item da compra |
@@ -1532,58 +1554,58 @@ curl -X 'GET' \
 
 | Campo | Tipo | Descrição |
 |---|---|---|
-| resultado | Texto/Número | Valor do campo Resultado |
+| resultado | Texto/Número | Lista de registros retornados na página atual da consulta |
 | codigoUasg | Texto/Número | Código identificador da UASG (Unidade Administrativa de Serviços Gerais) |
 | nomeUasg | Texto/Número | Nome da UASG |
 | orgao | Texto/Número | CNPJ do órgão (sem máscara) |
-| numeroArtefato | Texto/Número | Valor do campo Numero artefato |
-| anoArtefato | Texto/Número | Valor do campo Ano artefato |
-| codigoEstadoArtefato | Texto/Número | Código do registro associado |
-| codigoCategoriaArtefato | Texto/Número | Código do registro associado |
-| descricaoArtefato | Texto/Número | Valor do campo Descricao artefato |
-| codigoTipoArtefato | Texto/Número | Código do registro associado |
-| ordemDfd | Texto/Número | Valor do campo Ordem dfd |
-| descricaoObjetoDfd | Texto/Número | Valor do campo Descricao objeto dfd |
-| nivelPrioridadeDfd | Texto/Número | Valor do campo Nivel prioridade dfd |
-| dataPrevistaFormalizacaoDemanda | Texto/Número | Data correspondente ao registro |
-| codigoAreaDfd | Texto/Número | Código do registro associado |
-| tipoItem | Texto/Número | Valor do campo Tipo item |
+| numeroArtefato | Texto/Número | Número sequencial do artefato de planejamento no PGC |
+| anoArtefato | Texto/Número | Ano de elaboração do artefato de planejamento no PGC |
+| codigoEstadoArtefato | Texto/Número | Código do estado ou situação atual do artefato de planejamento no PGC |
+| codigoCategoriaArtefato | Texto/Número | Código da categoria do artefato de planejamento no PGC |
+| descricaoArtefato | Texto/Número | Descrição textual do artefato de planejamento da contratação |
+| codigoTipoArtefato | Texto/Número | Código identificador do tipo de artefato de planejamento (DFD, ETP, TR etc.) |
+| ordemDfd | Texto/Número | Número de ordem do item dentro do Documento de Formalização de Demanda (DFD) |
+| descricaoObjetoDfd | Texto/Número | Descrição sucinta do objeto registrado no Documento de Formalização de Demanda (DFD) |
+| nivelPrioridadeDfd | Texto/Número | Grau de prioridade atribuído à demanda no Documento de Formalização de Demanda (DFD) |
+| dataPrevistaFormalizacaoDemanda | Texto/Número | Data prevista para a formalização da demanda pela área requisitante |
+| codigoAreaDfd | Texto/Número | Código identificador da área requisitante vinculada ao Documento de Formalização de Demanda (DFD) |
+| tipoItem | Texto/Número | Classificação do tipo do item no contrato (Material ou Serviço) |
 | itemSustentavel | Texto/Número | Indica se o item é sustentável. 0 – False/Não; 1 – True/Sim |
-| codigoGrupoMaterial | Texto/Número | Código do registro associado |
-| nomeGrupoMaterial | Texto/Número | Valor do campo Nome grupo material |
-| codigoClasseMaterial | Texto/Número | Código do registro associado |
-| nomeClasseMaterial | Texto/Número | Valor do campo Nome classe material |
-| codigoPdmMaterial | Texto/Número | Código do registro associado |
-| nomePdmMaterial | Texto/Número | Valor do campo Nome pdm material |
-| codigoSecaoServico | Texto/Número | Código do registro associado |
-| nomeSecaoServico | Texto/Número | Valor do campo Nome secao servico |
-| codigoDivisaoServico | Texto/Número | Código do registro associado |
-| nomeDivisaoServico | Texto/Número | Valor do campo Nome divisao servico |
-| codigoGrupoServico | Texto/Número | Código do registro associado |
-| nomeGrupoServico | Texto/Número | Valor do campo Nome grupo servico |
-| codigoClasseServico | Texto/Número | Código do registro associado |
-| nomeClasseServico | Texto/Número | Valor do campo Nome classe servico |
-| codigoSubclasseServico | Texto/Número | Código do registro associado |
-| nomeSubclasseServico | Texto/Número | Valor do campo Nome subclasse servico |
+| codigoGrupoMaterial | Texto/Número | Código do grupo de material na estrutura do catálogo CATMAT |
+| nomeGrupoMaterial | Texto/Número | Nome do grupo de material na estrutura do catálogo CATMAT |
+| codigoClasseMaterial | Texto/Número | Código da classe de material na hierarquia do catálogo CATMAT |
+| nomeClasseMaterial | Texto/Número | Nome da classe de material na estrutura do catálogo CATMAT |
+| codigoPdmMaterial | Texto/Número | Código do Padrão Descritivo de Material (PDM) no catálogo CATMAT |
+| nomePdmMaterial | Texto/Número | Nome do Padrão Descritivo de Material (PDM) no catálogo CATMAT |
+| codigoSecaoServico | Texto/Número | Código da seção de serviço na hierarquia do catálogo CATSER |
+| nomeSecaoServico | Texto/Número | Nome da seção de serviço na hierarquia do catálogo CATSER |
+| codigoDivisaoServico | Texto/Número | Código da divisão de serviço na estrutura do catálogo CATSER |
+| nomeDivisaoServico | Texto/Número | Nome da divisão de serviço na estrutura do catálogo CATSER |
+| codigoGrupoServico | Texto/Número | Código do grupo de serviço na estrutura do catálogo CATSER |
+| nomeGrupoServico | Texto/Número | Nome do grupo de serviço na estrutura do catálogo CATSER |
+| codigoClasseServico | Texto/Número | Código da classe de serviço na hierarquia do catálogo CATSER |
+| nomeClasseServico | Texto/Número | Nome da classe de serviço na estrutura do catálogo CATSER |
+| codigoSubclasseServico | Texto/Número | Código da subclasse de serviço na estrutura do catálogo CATSER |
+| nomeSubclasseServico | Texto/Número | Nome da subclasse de serviço na hierarquia do catálogo CATSER |
 | codigoItemCatalogo | Texto/Número | Código do item no catálogo de materiais ou serviços |
-| descricaoItemCatalogo | Texto/Número | Valor do campo Descricao item catalogo |
+| descricaoItemCatalogo | Texto/Número | Descrição padronizada do item no catálogo de materiais (CATMAT) ou serviços (CATSER) |
 | siglaUnidadeFornecimento | Texto/Número | Sigla da unidade de fornecimento |
 | nomeUnidadeFornecimento | Texto/Número | Nome da unidade de fornecimento |
-| quantidadeItem | Texto/Número | Valor do campo Quantidade item |
-| valorUnitarioItem | Texto/Número | Valor do campo Valor unitario item |
-| valorTotalItem | Texto/Número | Valor do campo Valor total item |
-| tituloProjetoCompra | Texto/Número | Valor do campo Titulo projeto compra |
-| descricaoProjetoCompra | Texto/Número | Valor do campo Descricao projeto compra |
+| quantidadeItem | Texto/Número | Quantidade prevista do item no planejamento ou contrato |
+| valorUnitarioItem | Texto/Número | Valor unitário estimado ou pactuado para o item |
+| valorTotalItem | Texto/Número | Valor total estimado ou contratado para o item no planejamento/contrato |
+| tituloProjetoCompra | Texto/Número | Título de identificação do projeto de compra no planejamento (PGC) |
+| descricaoProjetoCompra | Texto/Número | Descrição do escopo do projeto de compra no planejamento anual (PGC) |
 | anoPcaProjetoCompra | Texto/Número | Ano do projeto de compra no PCA |
-| dataInicioProcessoCompra | Texto/Número | Data correspondente ao registro |
-| dataFimProcessoCompra | Texto/Número | Data correspondente ao registro |
-| duracaoProcessoCompra | Texto/Número | Valor do campo Duracao processo compra |
-| numeroItemPncp | Texto/Número | Valor do campo Numero item pncp |
+| dataInicioProcessoCompra | Texto/Número | Data prevista para o início do processo de contratação conforme planejamento no PGC |
+| dataFimProcessoCompra | Texto/Número | Data prevista ou efetiva para conclusão do processo de contratação no planejamento |
+| duracaoProcessoCompra | Texto/Número | Duração estimada do processo de contratação em dias |
+| numeroItemPncp | Texto/Número | Número sequencial do item da contratação registrado no PNCP |
 | statusContratacaoExecucao | Texto/Número | Status do registro. 0 – False/Inativo; 1 – True/Ativo |
-| dataHoraPublicacaoPncp | Texto/Número | Data correspondente ao registro |
-| dataHoraAtualizacaoArtefato | Texto/Número | Data correspondente ao registro |
-| dataHoraAtualizacaoProjetoCompra | Texto/Número | Data correspondente ao registro |
-| dataHoraAtualizacaoDfd | Texto/Número | Data correspondente ao registro |
+| dataHoraPublicacaoPncp | Texto/Número | Data e hora em que o Plano de Contratações Anual ou artefato foi publicado no PNCP |
+| dataHoraAtualizacaoArtefato | Texto/Número | Data e hora da última alteração do artefato de planejamento no PGC |
+| dataHoraAtualizacaoProjetoCompra | Texto/Número | Data e hora da última atualização do projeto de compra no PGC |
+| dataHoraAtualizacaoDfd | Texto/Número | Data e hora da última atualização do Documento de Formalização de Demanda (DFD) |
 | dataHoraAtualizacaoItem | Texto/Número | Data e hora da última atualização do item |
 | totalRegistros | Texto/Número | Total de registros encontrados |
 | totalPaginas | Texto/Número | Total de páginas disponíveis |
@@ -1704,58 +1726,58 @@ curl -X 'GET' \
 
 | Campo | Tipo | Descrição |
 |---|---|---|
-| resultado | Texto/Número | Valor do campo Resultado |
+| resultado | Texto/Número | Lista de registros retornados na página atual da consulta |
 | codigoUasg | Texto/Número | Código identificador da UASG (Unidade Administrativa de Serviços Gerais) |
 | nomeUasg | Texto/Número | Nome da UASG |
 | orgao | Texto/Número | CNPJ do órgão (sem máscara) |
-| numeroArtefato | Texto/Número | Valor do campo Numero artefato |
-| anoArtefato | Texto/Número | Valor do campo Ano artefato |
-| codigoEstadoArtefato | Texto/Número | Código do registro associado |
-| codigoCategoriaArtefato | Texto/Número | Código do registro associado |
-| descricaoArtefato | Texto/Número | Valor do campo Descricao artefato |
-| codigoTipoArtefato | Texto/Número | Código do registro associado |
-| ordemDfd | Texto/Número | Valor do campo Ordem dfd |
-| descricaoObjetoDfd | Texto/Número | Valor do campo Descricao objeto dfd |
-| nivelPrioridadeDfd | Texto/Número | Valor do campo Nivel prioridade dfd |
-| dataPrevistaFormalizacaoDemanda | Texto/Número | Data correspondente ao registro |
-| codigoAreaDfd | Texto/Número | Código do registro associado |
-| tipoItem | Texto/Número | Valor do campo Tipo item |
+| numeroArtefato | Texto/Número | Número sequencial do artefato de planejamento no PGC |
+| anoArtefato | Texto/Número | Ano de elaboração do artefato de planejamento no PGC |
+| codigoEstadoArtefato | Texto/Número | Código do estado ou situação atual do artefato de planejamento no PGC |
+| codigoCategoriaArtefato | Texto/Número | Código da categoria do artefato de planejamento no PGC |
+| descricaoArtefato | Texto/Número | Descrição textual do artefato de planejamento da contratação |
+| codigoTipoArtefato | Texto/Número | Código identificador do tipo de artefato de planejamento (DFD, ETP, TR etc.) |
+| ordemDfd | Texto/Número | Número de ordem do item dentro do Documento de Formalização de Demanda (DFD) |
+| descricaoObjetoDfd | Texto/Número | Descrição sucinta do objeto registrado no Documento de Formalização de Demanda (DFD) |
+| nivelPrioridadeDfd | Texto/Número | Grau de prioridade atribuído à demanda no Documento de Formalização de Demanda (DFD) |
+| dataPrevistaFormalizacaoDemanda | Texto/Número | Data prevista para a formalização da demanda pela área requisitante |
+| codigoAreaDfd | Texto/Número | Código identificador da área requisitante vinculada ao Documento de Formalização de Demanda (DFD) |
+| tipoItem | Texto/Número | Classificação do tipo do item no contrato (Material ou Serviço) |
 | itemSustentavel | Texto/Número | Indica se o item é sustentável. 0 – False/Não; 1 – True/Sim |
-| codigoGrupoMaterial | Texto/Número | Código do registro associado |
-| nomeGrupoMaterial | Texto/Número | Valor do campo Nome grupo material |
-| codigoClasseMaterial | Texto/Número | Código do registro associado |
-| nomeClasseMaterial | Texto/Número | Valor do campo Nome classe material |
-| codigoPdmMaterial | Texto/Número | Código do registro associado |
-| nomePdmMaterial | Texto/Número | Valor do campo Nome pdm material |
-| codigoSecaoServico | Texto/Número | Código do registro associado |
-| nomeSecaoServico | Texto/Número | Valor do campo Nome secao servico |
-| codigoDivisaoServico | Texto/Número | Código do registro associado |
-| nomeDivisaoServico | Texto/Número | Valor do campo Nome divisao servico |
-| codigoGrupoServico | Texto/Número | Código do registro associado |
-| nomeGrupoServico | Texto/Número | Valor do campo Nome grupo servico |
-| codigoClasseServico | Texto/Número | Código do registro associado |
-| nomeClasseServico | Texto/Número | Valor do campo Nome classe servico |
-| codigoSubclasseServico | Texto/Número | Código do registro associado |
-| nomeSubclasseServico | Texto/Número | Valor do campo Nome subclasse servico |
+| codigoGrupoMaterial | Texto/Número | Código do grupo de material na estrutura do catálogo CATMAT |
+| nomeGrupoMaterial | Texto/Número | Nome do grupo de material na estrutura do catálogo CATMAT |
+| codigoClasseMaterial | Texto/Número | Código da classe de material na hierarquia do catálogo CATMAT |
+| nomeClasseMaterial | Texto/Número | Nome da classe de material na estrutura do catálogo CATMAT |
+| codigoPdmMaterial | Texto/Número | Código do Padrão Descritivo de Material (PDM) no catálogo CATMAT |
+| nomePdmMaterial | Texto/Número | Nome do Padrão Descritivo de Material (PDM) no catálogo CATMAT |
+| codigoSecaoServico | Texto/Número | Código da seção de serviço na hierarquia do catálogo CATSER |
+| nomeSecaoServico | Texto/Número | Nome da seção de serviço na hierarquia do catálogo CATSER |
+| codigoDivisaoServico | Texto/Número | Código da divisão de serviço na estrutura do catálogo CATSER |
+| nomeDivisaoServico | Texto/Número | Nome da divisão de serviço na estrutura do catálogo CATSER |
+| codigoGrupoServico | Texto/Número | Código do grupo de serviço na estrutura do catálogo CATSER |
+| nomeGrupoServico | Texto/Número | Nome do grupo de serviço na estrutura do catálogo CATSER |
+| codigoClasseServico | Texto/Número | Código da classe de serviço na hierarquia do catálogo CATSER |
+| nomeClasseServico | Texto/Número | Nome da classe de serviço na estrutura do catálogo CATSER |
+| codigoSubclasseServico | Texto/Número | Código da subclasse de serviço na estrutura do catálogo CATSER |
+| nomeSubclasseServico | Texto/Número | Nome da subclasse de serviço na hierarquia do catálogo CATSER |
 | codigoItemCatalogo | Texto/Número | Código do item no catálogo de materiais ou serviços |
-| descricaoItemCatalogo | Texto/Número | Valor do campo Descricao item catalogo |
+| descricaoItemCatalogo | Texto/Número | Descrição padronizada do item no catálogo de materiais (CATMAT) ou serviços (CATSER) |
 | siglaUnidadeFornecimento | Texto/Número | Sigla da unidade de fornecimento |
 | nomeUnidadeFornecimento | Texto/Número | Nome da unidade de fornecimento |
-| quantidadeItem | Texto/Número | Valor do campo Quantidade item |
-| valorUnitarioItem | Texto/Número | Valor do campo Valor unitario item |
-| valorTotalItem | Texto/Número | Valor do campo Valor total item |
-| tituloProjetoCompra | Texto/Número | Valor do campo Titulo projeto compra |
-| descricaoProjetoCompra | Texto/Número | Valor do campo Descricao projeto compra |
+| quantidadeItem | Texto/Número | Quantidade prevista do item no planejamento ou contrato |
+| valorUnitarioItem | Texto/Número | Valor unitário estimado ou pactuado para o item |
+| valorTotalItem | Texto/Número | Valor total estimado ou contratado para o item no planejamento/contrato |
+| tituloProjetoCompra | Texto/Número | Título de identificação do projeto de compra no planejamento (PGC) |
+| descricaoProjetoCompra | Texto/Número | Descrição do escopo do projeto de compra no planejamento anual (PGC) |
 | anoPcaProjetoCompra | Texto/Número | Ano do projeto de compra no PCA |
-| dataInicioProcessoCompra | Texto/Número | Data correspondente ao registro |
-| dataFimProcessoCompra | Texto/Número | Data correspondente ao registro |
-| duracaoProcessoCompra | Texto/Número | Valor do campo Duracao processo compra |
-| numeroItemPncp | Texto/Número | Valor do campo Numero item pncp |
+| dataInicioProcessoCompra | Texto/Número | Data prevista para o início do processo de contratação conforme planejamento no PGC |
+| dataFimProcessoCompra | Texto/Número | Data prevista ou efetiva para conclusão do processo de contratação no planejamento |
+| duracaoProcessoCompra | Texto/Número | Duração estimada do processo de contratação em dias |
+| numeroItemPncp | Texto/Número | Número sequencial do item da contratação registrado no PNCP |
 | statusContratacaoExecucao | Texto/Número | Status do registro. 0 – False/Inativo; 1 – True/Ativo |
-| dataHoraPublicacaoPncp | Texto/Número | Data correspondente ao registro |
-| dataHoraAtualizacaoArtefato | Texto/Número | Data correspondente ao registro |
-| dataHoraAtualizacaoProjetoCompra | Texto/Número | Data correspondente ao registro |
-| dataHoraAtualizacaoDfd | Texto/Número | Data correspondente ao registro |
+| dataHoraPublicacaoPncp | Texto/Número | Data e hora em que o Plano de Contratações Anual ou artefato foi publicado no PNCP |
+| dataHoraAtualizacaoArtefato | Texto/Número | Data e hora da última alteração do artefato de planejamento no PGC |
+| dataHoraAtualizacaoProjetoCompra | Texto/Número | Data e hora da última atualização do projeto de compra no PGC |
+| dataHoraAtualizacaoDfd | Texto/Número | Data e hora da última atualização do Documento de Formalização de Demanda (DFD) |
 | dataHoraAtualizacaoItem | Texto/Número | Data e hora da última atualização do item |
 | totalRegistros | Texto/Número | Total de registros encontrados |
 | totalPaginas | Texto/Número | Total de páginas disponíveis |
@@ -1868,21 +1890,21 @@ curl -X 'GET' \
 |---|---|---|---|
 | pagina | integer | <span class="badge-opt">⚪ Não</span> | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
 | orgao | string | <span class="badge-req">🔴 Sim</span> | CNPJ do órgão (sem máscara) |
-| ano | integer | <span class="badge-req">🔴 Sim</span> | Valor do campo Ano |
+| ano | integer | <span class="badge-req">🔴 Sim</span> | Ano de referência do registro ou da contratação |
 
 **Dados de Retorno:**
 
 | Campo | Tipo | Descrição |
 |---|---|---|
-| resultado | Texto/Número | Valor do campo Resultado |
+| resultado | Texto/Número | Lista de registros retornados na página atual da consulta |
 | orgao | Texto/Número | CNPJ do órgão (sem máscara) |
-| ano | Texto/Número | Valor do campo Ano |
+| ano | Texto/Número | Ano de referência do registro ou da contratação |
 | poder | Texto/Número | Poder da federação. E – Executivo; L – Legislativo; J – Judiciário |
 | esfera | Texto/Número | Esfera governamental. F – Federal; E – Estadual; M – Municipal |
-| dataHoraPublicacaoPncp | Texto/Número | Data correspondente ao registro |
+| dataHoraPublicacaoPncp | Texto/Número | Data e hora em que o Plano de Contratações Anual ou artefato foi publicado no PNCP |
 | dataHoraAtualizacao | Texto/Número | Data e hora da última atualização do registro |
-| quantidadeTotalItens | Texto/Número | Valor do campo Quantidade total itens |
-| valorTotalEstimado | Texto/Número | Valor do campo Valor total estimado |
+| quantidadeTotalItens | Texto/Número | Soma total de itens constantes no projeto de compra ou artefato |
+| valorTotalEstimado | Texto/Número | Valor total estimado pela Administração para a contratação ou item (em R$) |
 | totalRegistros | Texto/Número | Total de registros encontrados |
 | totalPaginas | Texto/Número | Total de páginas disponíveis |
 | paginasRestantes | Texto/Número | Número de páginas restantes |
@@ -1967,29 +1989,29 @@ curl -X 'GET' \
 
 | Campo | Tipo | Descrição |
 |---|---|---|
-| resultado | Texto/Número | Valor do campo Resultado |
+| resultado | Texto/Número | Lista de registros retornados na página atual da consulta |
 | codigoUasg | Texto/Número | Código identificador da UASG (Unidade Administrativa de Serviços Gerais) |
 | nomeUasg | Texto/Número | Nome da UASG |
 | usoSisg | Texto/Número | Indica se a UASG usa o SISG. 0 – False/Não; 1 – True/Sim |
-| adesaoSiasg | Texto/Número | Valor do campo Adesao siasg |
+| adesaoSiasg | Texto/Número | Indica se a unidade administrativa possui termo de adesão ativo ao SIASG |
 | siglaUf | Texto/Número | Sigla da unidade federativa (UF) |
 | codigoMunicipio | Texto/Número | Código do município (IBGE) |
-| codigoMunicipioIbge | Texto/Número | Código do registro associado |
-| nomeMunicipioIbge | Texto/Número | Valor do campo Nome municipio ibge |
-| codigoUnidadePolo | Texto/Número | Código do registro associado |
-| nomeUnidadePolo | Texto/Número | Valor do campo Nome unidade polo |
-| codigoUnidadeEspelho | Texto/Número | Código do registro associado |
-| nomeUnidadeEspelho | Texto/Número | Valor do campo Nome unidade espelho |
-| uasgCadastradora | Texto/Número | Valor do campo Uasg cadastradora |
-| cnpjCpfUasg | Texto/Número | Valor do campo Cnpj cpf uasg |
+| codigoMunicipioIbge | Texto/Número | Código oficial do município sede da unidade segundo a tabela do IBGE |
+| nomeMunicipioIbge | Texto/Número | Nome oficial do município conforme tabela territorial do IBGE |
+| codigoUnidadePolo | Texto/Número | Código da UASG polo à qual a unidade administrativa está vinculada |
+| nomeUnidadePolo | Texto/Número | Nome da UASG polo centralizadora à qual a unidade está vinculada |
+| codigoUnidadeEspelho | Texto/Número | Código da UASG espelho vinculada à unidade para fins de integração |
+| nomeUnidadeEspelho | Texto/Número | Nome da unidade administrativa configurada como UASG espelho |
+| uasgCadastradora | Texto/Número | Código da UASG responsável pelo cadastramento do fornecedor no SICAF |
+| cnpjCpfUasg | Texto/Número | Número de inscrição no CNPJ ou CPF vinculado à UASG |
 | codigoOrgao | Texto/Número | Código do órgão |
 | cnpjCpfOrgao | Texto/Número | CNPJ ou CPF do órgão |
 | cnpjCpfOrgaoVinculado | Texto/Número | CNPJ ou CPF do órgão vinculado |
 | cnpjCpfOrgaoSuperior | Texto/Número | CNPJ ou CPF do órgão superior |
-| codigoSiorg | Texto/Número | Código do registro associado |
+| codigoSiorg | Texto/Número | Código da unidade administrativa no Sistema de Informações Organizacionais do Governo Federal (SIORG) |
 | statusUasg | Texto/Número | Status da UASG. 0 – False/Inativo; 1 – True/Ativo (Obrigatório) |
-| dataImplantacaoSidec | Texto/Número | Data correspondente ao registro |
-| dataHoraMovimento | Texto/Número | Data correspondente ao registro |
+| dataImplantacaoSidec | Texto/Número | Data de implantação do módulo de divulgação de compras (SIDEC) na unidade administrativa |
+| dataHoraMovimento | Texto/Número | Data e hora da última movimentação ou atualização cadastral da unidade/órgão |
 | totalRegistros | Texto/Número | Total de registros encontrados |
 | totalPaginas | Texto/Número | Total de páginas disponíveis |
 | paginasRestantes | Texto/Número | Número de páginas restantes |
@@ -2081,24 +2103,24 @@ curl -X 'GET' \
 
 | Campo | Tipo | Descrição |
 |---|---|---|
-| resultado | Texto/Número | Valor do campo Resultado |
+| resultado | Texto/Número | Lista de registros retornados na página atual da consulta |
 | codigoOrgao | Texto/Número | Código do órgão |
 | nomeOrgao | Texto/Número | Nome do órgão |
-| nomeMnemonicoOrgao | Texto/Número | Valor do campo Nome mnemonico orgao |
+| nomeMnemonicoOrgao | Texto/Número | Sigla ou nome mnemônico de identificação do órgão público |
 | cnpjCpfOrgao | Texto/Número | CNPJ ou CPF do órgão |
-| codigoOrgaoVinculado | Texto/Número | Código do registro associado |
+| codigoOrgaoVinculado | Texto/Número | Código identificador do órgão vinculado ou supervisionado |
 | cnpjCpfOrgaoVinculado | Texto/Número | CNPJ ou CPF do órgão vinculado |
-| nomeOrgaoVinculado | Texto/Número | Valor do campo Nome orgao vinculado |
-| codigoOrgaoSuperior | Texto/Número | Código do registro associado |
+| nomeOrgaoVinculado | Texto/Número | Nome oficial do órgão ou entidade vinculada |
+| codigoOrgaoSuperior | Texto/Número | Código identificador do órgão superior na estrutura da Administração Pública |
 | cnpjCpfOrgaoSuperior | Texto/Número | CNPJ ou CPF do órgão superior |
-| nomeOrgaoSuperior | Texto/Número | Valor do campo Nome orgao superior |
-| codigoTipoAdministracao | Texto/Número | Código do registro associado |
-| nomeTipoAdministracao | Texto/Número | Valor do campo Nome tipo administracao |
+| nomeOrgaoSuperior | Texto/Número | Nome oficial do ministério ou órgão superior vinculante |
+| codigoTipoAdministracao | Texto/Número | Código da natureza de administração do órgão (direta, autárquica, fundacional, empresa pública etc.) |
+| nomeTipoAdministracao | Texto/Número | Descrição da natureza jurídica da administração do órgão (Administração Direta, Autarquia, Fundação etc.) |
 | poder | Texto/Número | Poder da federação. E – Executivo; L – Legislativo; J – Judiciário |
 | esfera | Texto/Número | Esfera governamental. F – Federal; E – Estadual; M – Municipal |
 | usoSisg | Texto/Número | Indica se a UASG usa o SISG. 0 – False/Não; 1 – True/Sim |
 | statusOrgao | Texto/Número | Status do órgão. 0 – False/Inativo; 1 – True/Ativo (Obrigatório) |
-| dataHoraMovimento | Texto/Número | Data correspondente ao registro |
+| dataHoraMovimento | Texto/Número | Data e hora da última movimentação ou atualização cadastral da unidade/órgão |
 | totalRegistros | Texto/Número | Total de registros encontrados |
 | totalPaginas | Texto/Número | Total de páginas disponíveis |
 | paginasRestantes | Texto/Número | Número de páginas restantes |
@@ -2181,8 +2203,8 @@ curl -X 'GET' \
 |---|---|---|---|
 | pagina | integer | <span class="badge-opt">⚪ Não</span> | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
 | tamanhoPagina | integer | <span class="badge-opt">⚪ Não</span> | Ajustar o tamanho de registros por página (limite máx. de 500 registros por página). (Default: 10) |
-| uasg | integer | <span class="badge-opt">⚪ Não</span> | Valor do campo Uasg |
-| numero_aviso | integer | <span class="badge-opt">⚪ Não</span> | Valor do campo Numero aviso |
+| uasg | integer | <span class="badge-opt">⚪ Não</span> | Código numérico de 6 dígitos da UASG responsável |
+| numero_aviso | integer | <span class="badge-opt">⚪ Não</span> | Número do aviso da licitação ou contratação direta |
 | modalidade | integer | <span class="badge-opt">⚪ Não</span> | Código da modalidade de licitação |
 | data_publicacao_inicial | string | <span class="badge-req">🔴 Sim</span> | Data de início da publicação (formato: YYYY-MM-DD) |
 | data_publicacao_final | string | <span class="badge-req">🔴 Sim</span> | Data final da publicação, limitado a 365 dias (formato: YYYY-MM-DD) |
@@ -2192,31 +2214,31 @@ curl -X 'GET' \
 
 | Campo | Tipo | Descrição |
 |---|---|---|
-| resultado | Texto/Número | Valor do campo Resultado |
-| id_compra | Texto/Número | Valor do campo Id compra |
-| identificador | Texto/Número | Valor do campo Identificador |
-| numero_processo | Texto/Número | Valor do campo Numero processo |
-| uasg | Texto/Número | Valor do campo Uasg |
+| resultado | Texto/Número | Lista de registros retornados na página atual da consulta |
+| id_compra | Texto/Número | Identificador único composto da compra no SIASG (UASG + modalidade + número + ano) |
+| identificador | Texto/Número | Código identificador único do registro na consulta |
+| numero_processo | Texto/Número | Número dos autos do processo administrativo da contratação |
+| uasg | Texto/Número | Código numérico de 6 dígitos da UASG responsável |
 | modalidade | Texto/Número | Código da modalidade de licitação |
-| nome_modalidade | Texto/Número | Valor do campo Nome modalidade |
-| numero_aviso | Texto/Número | Valor do campo Numero aviso |
-| situacao_aviso | Texto/Número | Valor do campo Situacao aviso |
-| tipo_pregao | Texto/Número | Valor do campo Tipo pregao |
-| tipo_recurso | Texto/Número | Valor do campo Tipo recurso |
-| nome_responsavel | Texto/Número | Valor do campo Nome responsavel |
-| funcao_responsavel | Texto/Número | Valor do campo Funcao responsavel |
-| numero_itens | Texto/Número | Valor do campo Numero itens |
-| valor_estimado_total | Texto/Número | Valor do campo Valor estimado total |
-| valor_homologado_total | Texto/Número | Valor do campo Valor homologado total |
-| informacoes_gerais | Texto/Número | Valor do campo Informacoes gerais |
-| objeto | Texto/Número | Valor do campo Objeto |
-| endereco_entrega_edital | Texto/Número | Valor do campo Endereco entrega edital |
-| codigo_municipio_uasg | Texto/Número | Código do registro associado |
-| data_abertura_proposta | Texto/Número | Data correspondente ao registro |
-| data_entrega_edital | Texto/Número | Data correspondente ao registro |
-| data_entrega_proposta | Texto/Número | Data correspondente ao registro |
-| data_publicacao | Texto/Número | Data correspondente ao registro |
-| dt_alteracao | Texto/Número | Valor do campo Dt alteracao |
+| nome_modalidade | Texto/Número | Denominação da modalidade licitatória |
+| numero_aviso | Texto/Número | Número do aviso da licitação ou contratação direta |
+| situacao_aviso | Texto/Número | Situação de publicação do aviso de licitação |
+| tipo_pregao | Texto/Número | Forma de realização do pregão no sistema legado |
+| tipo_recurso | Texto/Número | Origem ou tipo de recurso orçamentário utilizado na contratação |
+| nome_responsavel | Texto/Número | Nome do agente público responsável pela condução da licitação |
+| funcao_responsavel | Texto/Número | Cargo ou função do agente público responsável pela condução da licitação |
+| numero_itens | Texto/Número | Quantidade total de itens que compõem a licitação |
+| valor_estimado_total | Texto/Número | Soma total dos valores estimados dos itens da contratação |
+| valor_homologado_total | Texto/Número | Soma total dos valores homologados na contratação legada |
+| informacoes_gerais | Texto/Número | Informações gerais sobre a sessão pública e condições da licitação |
+| objeto | Texto/Número | Descrição do objeto da contratação, ata ou contrato |
+| endereco_entrega_edital | Texto/Número | Endereço físico ou eletrônico para retirada do edital e entrega de documentação |
+| codigo_municipio_uasg | Texto/Número | Código do município de localização da UASG responsável |
+| data_abertura_proposta | Texto/Número | Data de abertura das propostas comerciais da licitação |
+| data_entrega_edital | Texto/Número | Data a partir da qual o edital da licitação ficou disponível aos interessados |
+| data_entrega_proposta | Texto/Número | Data limite para entrega das propostas pelos licitantes |
+| data_publicacao | Texto/Número | Data de publicação do aviso de licitação no Diário Oficial da União |
+| dt_alteracao | Texto/Número | Data da última alteração registrada no processo ou item |
 | pertence14133 | Texto/Número | Indica se pertence ao regime da Lei nº 14.133/2021. 0 – False; 1 – True |
 | totalRegistros | Texto/Número | Total de registros encontrados |
 | totalPaginas | Texto/Número | Total de páginas disponíveis |
@@ -2283,8 +2305,8 @@ curl -X 'GET' \
 
 | Campo | Tipo | Obrigatório | Descrição |
 |---|---|---|---|
-| id_compra | string | <span class="badge-req">🔴 Sim</span> | Valor do campo Id compra |
-| dt_alteracao | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Dt alteracao |
+| id_compra | string | <span class="badge-req">🔴 Sim</span> | Identificador único composto da compra no SIASG (UASG + modalidade + número + ano) |
+| dt_alteracao | string | <span class="badge-opt">⚪ Não</span> | Data da última alteração registrada no processo ou item |
 
 <a href="#sumario">⬆️ Voltar ao sumário</a>
 
@@ -2309,46 +2331,46 @@ curl -X 'GET' \
 |---|---|---|---|
 | pagina | integer | <span class="badge-opt">⚪ Não</span> | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
 | tamanhoPagina | integer | <span class="badge-opt">⚪ Não</span> | Ajustar o tamanho de registros por página (limite máx. de 500 registros por página). (Default: 10) |
-| uasg | integer | <span class="badge-opt">⚪ Não</span> | Valor do campo Uasg |
-| numero_aviso | integer | <span class="badge-opt">⚪ Não</span> | Valor do campo Numero aviso |
+| uasg | integer | <span class="badge-opt">⚪ Não</span> | Código numérico de 6 dígitos da UASG responsável |
+| numero_aviso | integer | <span class="badge-opt">⚪ Não</span> | Número do aviso da licitação ou contratação direta |
 | modalidade | integer | <span class="badge-req">🔴 Sim</span> | Código da modalidade de licitação |
-| decreto_7174 | boolean | <span class="badge-opt">⚪ Não</span> | Valor do campo Decreto 7174 |
-| codigo_item_material | integer | <span class="badge-opt">⚪ Não</span> | Código do registro associado |
-| codigo_item_servico | integer | <span class="badge-opt">⚪ Não</span> | Código do registro associado |
-| cnpj_fornecedor | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Cnpj fornecedor |
-| cpfVencedor | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Cpf vencedor |
+| decreto_7174 | boolean | <span class="badge-opt">⚪ Não</span> | Indica se há aplicação de margem de preferência para bens e serviços de informática (Decreto nº 7.174/2010) |
+| codigo_item_material | integer | <span class="badge-opt">⚪ Não</span> | Código do item de material no catálogo CATMAT (legado) |
+| codigo_item_servico | integer | <span class="badge-opt">⚪ Não</span> | Código do item de serviço no catálogo CATSER (legado) |
+| cnpj_fornecedor | string | <span class="badge-opt">⚪ Não</span> | Número do CNPJ do fornecedor participante ou contratado |
+| cpfVencedor | string | <span class="badge-opt">⚪ Não</span> | Número do CPF do licitante vencedor (quando pessoa física) |
 
 **Dados de Retorno:**
 
 | Campo | Tipo | Descrição |
 |---|---|---|
-| resultado | Texto/Número | Valor do campo Resultado |
-| numero_licitacao | Texto/Número | Valor do campo Numero licitacao |
-| uasg | Texto/Número | Valor do campo Uasg |
-| nome_uasg | Texto/Número | Valor do campo Nome uasg |
+| resultado | Texto/Número | Lista de registros retornados na página atual da consulta |
+| numero_licitacao | Texto/Número | Número identificador do certame licitatório |
+| uasg | Texto/Número | Código numérico de 6 dígitos da UASG responsável |
+| nome_uasg | Texto/Número | Nome por extenso da Unidade Administrativa de Serviços Gerais (UASG) |
 | modalidade | Texto/Número | Código da modalidade de licitação |
-| nome_modalidade | Texto/Número | Valor do campo Nome modalidade |
-| numero_aviso | Texto/Número | Valor do campo Numero aviso |
-| numero_item_licitacao | Texto/Número | Valor do campo Numero item licitacao |
-| codigo_item_material | Texto/Número | Código do registro associado |
-| nome_material | Texto/Número | Valor do campo Nome material |
-| codigo_item_servico | Texto/Número | Código do registro associado |
-| nome_servico | Texto/Número | Valor do campo Nome servico |
-| cnpj_fornecedor | Texto/Número | Valor do campo Cnpj fornecedor |
-| nome_fornecedor | Texto/Número | Valor do campo Nome fornecedor |
+| nome_modalidade | Texto/Número | Denominação da modalidade licitatória |
+| numero_aviso | Texto/Número | Número do aviso da licitação ou contratação direta |
+| numero_item_licitacao | Texto/Número | Número sequencial do item dentro da licitação |
+| codigo_item_material | Texto/Número | Código do item de material no catálogo CATMAT (legado) |
+| nome_material | Texto/Número | Descrição resumida do material licitado |
+| codigo_item_servico | Texto/Número | Código do item de serviço no catálogo CATSER (legado) |
+| nome_servico | Texto/Número | Descrição resumida do serviço licitado |
+| cnpj_fornecedor | Texto/Número | Número do CNPJ do fornecedor participante ou contratado |
+| nome_fornecedor | Texto/Número | Razão social ou nome do fornecedor participante |
 | quantidade | Texto/Número | Quantidade adquirida |
-| unidade | Texto/Número | Valor do campo Unidade |
-| descricao_item | Texto/Número | Valor do campo Descricao item |
-| beneficio | Texto/Número | Valor do campo Beneficio |
-| valor_estimado | Texto/Número | Valor do campo Valor estimado |
-| decreto_7174 | Texto/Número | Valor do campo Decreto 7174 |
-| criterio_julgamento | Texto/Número | Valor do campo Criterio julgamento |
-| cpf_vencedor | Texto/Número | Valor do campo Cpf vencedor |
-| nome_vencedor_pf | Texto/Número | Valor do campo Nome vencedor pf |
-| sustentavel | Texto/Número | Valor do campo Sustentavel |
-| dt_alteracao | Texto/Número | Valor do campo Dt alteracao |
-| id_compra | Texto/Número | Valor do campo Id compra |
-| id_compra_item | Texto/Número | Valor do campo Id compra item |
+| unidade | Texto/Número | Unidade de medida ou fornecimento do item |
+| descricao_item | Texto/Número | Descrição do item de material ou serviço constante do processo licitatório |
+| beneficio | Texto/Número | Descrição ou tipo de benefício concedido a ME/EPP no item da licitação |
+| valor_estimado | Texto/Número | Valor estimado da licitação no sistema legado |
+| decreto_7174 | Texto/Número | Indica se há aplicação de margem de preferência para bens e serviços de informática (Decreto nº 7.174/2010) |
+| criterio_julgamento | Texto/Número | Critério de julgamento utilizado na avaliação das propostas da licitação |
+| cpf_vencedor | Texto/Número | Número do CPF do fornecedor vencedor pessoa física no sistema legado |
+| nome_vencedor_pf | Texto/Número | Nome civil do licitante pessoa física vencedor do certame |
+| sustentavel | Texto/Número | Indica se o item possui critérios de sustentabilidade ambiental, social ou econômica |
+| dt_alteracao | Texto/Número | Data da última alteração registrada no processo ou item |
+| id_compra | Texto/Número | Identificador único composto da compra no SIASG (UASG + modalidade + número + ano) |
+| id_compra_item | Texto/Número | Identificador único do item específico dentro da compra no SIASG |
 | totalRegistros | Texto/Número | Total de registros encontrados |
 | totalPaginas | Texto/Número | Total de páginas disponíveis |
 | paginasRestantes | Texto/Número | Número de páginas restantes |
@@ -2415,9 +2437,9 @@ curl -X 'GET' \
 
 | Campo | Tipo | Obrigatório | Descrição |
 |---|---|---|---|
-| id_compra | string | <span class="badge-req">🔴 Sim</span> | Valor do campo Id compra |
-| id_compra_item | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Id compra item |
-| dt_alteracao | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Dt alteracao |
+| id_compra | string | <span class="badge-req">🔴 Sim</span> | Identificador único composto da compra no SIASG (UASG + modalidade + número + ano) |
+| id_compra_item | string | <span class="badge-opt">⚪ Não</span> | Identificador único do item específico dentro da compra no SIASG |
+| dt_alteracao | string | <span class="badge-opt">⚪ Não</span> | Data da última alteração registrada no processo ou item |
 
 <a href="#sumario">⬆️ Voltar ao sumário</a>
 
@@ -2442,40 +2464,40 @@ curl -X 'GET' \
 |---|---|---|---|
 | pagina | integer | <span class="badge-opt">⚪ Não</span> | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
 | tamanhoPagina | integer | <span class="badge-opt">⚪ Não</span> | Ajustar o tamanho de registros por página (limite máx. de 500 registros por página). (Default: 10) |
-| co_uasg | integer | <span class="badge-opt">⚪ Não</span> | Valor do campo Co uasg |
-| co_orgao | integer | <span class="badge-opt">⚪ Não</span> | Valor do campo Co orgao |
-| numero | integer | <span class="badge-opt">⚪ Não</span> | Valor do campo Numero |
-| ds_tipo_pregao_compra | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Ds tipo pregao compra |
-| dt_data_edital_inicial | string | <span class="badge-req">🔴 Sim</span> | Valor do campo Dt data edital inicial |
-| dt_data_edital_final | string | <span class="badge-req">🔴 Sim</span> | Valor do campo Dt data edital final |
+| co_uasg | integer | <span class="badge-opt">⚪ Não</span> | Código identificador da Unidade Administrativa de Serviços Gerais (UASG) |
+| co_orgao | integer | <span class="badge-opt">⚪ Não</span> | Código identificador do órgão na estrutura organizacional do SIASG |
+| numero | integer | <span class="badge-opt">⚪ Não</span> | Número sequencial da licitação ou pregão no ano |
+| ds_tipo_pregao_compra | string | <span class="badge-opt">⚪ Não</span> | Classificação do pregão quanto à forma de contratação (tradicional ou registro de preços) |
+| dt_data_edital_inicial | string | <span class="badge-req">🔴 Sim</span> | Data inicial do período de disponibilização do edital para filtro |
+| dt_data_edital_final | string | <span class="badge-req">🔴 Sim</span> | Data final do período de disponibilização do edital para filtro |
 | pertence14133 | boolean | <span class="badge-opt">⚪ Não</span> | Indica se pertence ao regime da Lei nº 14.133/2021. 0 – False; 1 – True |
 
 **Dados de Retorno:**
 
 | Campo | Tipo | Descrição |
 |---|---|---|
-| resultado | Texto/Número | Valor do campo Resultado |
-| id_compra | Texto/Número | Valor do campo Id compra |
-| co_processo | Texto/Número | Valor do campo Co processo |
-| co_portaria | Texto/Número | Valor do campo Co portaria |
-| co_uasg | Texto/Número | Valor do campo Co uasg |
-| no_ausg | Texto/Número | Valor do campo No ausg |
-| co_orgao | Texto/Número | Valor do campo Co orgao |
-| no_orgao | Texto/Número | Valor do campo No orgao |
-| numero | Texto/Número | Valor do campo Numero |
-| ds_situacao_pregao | Texto/Número | Valor do campo Ds situacao pregao |
-| ds_tipo_pregao | Texto/Número | Valor do campo Ds tipo pregao |
-| ds_tipo_pregao_compra | Texto/Número | Valor do campo Ds tipo pregao compra |
-| tx_objeto | Texto/Número | Valor do campo Tx objeto |
-| valor_estimado_total | Texto/Número | Valor do campo Valor estimado total |
-| valor_homologado_total | Texto/Número | Valor do campo Valor homologado total |
-| dt_portaria | Texto/Número | Valor do campo Dt portaria |
-| dt_data_edital | Texto/Número | Valor do campo Dt data edital |
-| dt_inicio_proposta | Texto/Número | Valor do campo Dt inicio proposta |
-| dt_fim_proposta | Texto/Número | Valor do campo Dt fim proposta |
-| dt_alteracao | Texto/Número | Valor do campo Dt alteracao |
-| dt_encerramento | Texto/Número | Valor do campo Dt encerramento |
-| dt_resultado | Texto/Número | Valor do campo Dt resultado |
+| resultado | Texto/Número | Lista de registros retornados na página atual da consulta |
+| id_compra | Texto/Número | Identificador único composto da compra no SIASG (UASG + modalidade + número + ano) |
+| co_processo | Texto/Número | Número do processo administrativo vinculado à contratação |
+| co_portaria | Texto/Número | Número da portaria de designação da comissão ou pregoeiro |
+| co_uasg | Texto/Número | Código identificador da Unidade Administrativa de Serviços Gerais (UASG) |
+| no_ausg | Texto/Número | Nome da Unidade Administrativa de Serviços Gerais (UASG) responsável pelo certame |
+| co_orgao | Texto/Número | Código identificador do órgão na estrutura organizacional do SIASG |
+| no_orgao | Texto/Número | Nome oficial do órgão público contratante |
+| numero | Texto/Número | Número sequencial da licitação ou pregão no ano |
+| ds_situacao_pregao | Texto/Número | Descrição da situação operacional do pregão eletrônico |
+| ds_tipo_pregao | Texto/Número | Descrição da forma de realização do pregão (eletrônico ou presencial) |
+| ds_tipo_pregao_compra | Texto/Número | Classificação do pregão quanto à forma de contratação (tradicional ou registro de preços) |
+| tx_objeto | Texto/Número | Texto descritivo do objeto do pregão ou processo de compra |
+| valor_estimado_total | Texto/Número | Soma total dos valores estimados dos itens da contratação |
+| valor_homologado_total | Texto/Número | Soma total dos valores homologados na contratação legada |
+| dt_portaria | Texto/Número | Data de expedição da portaria de designação do pregoeiro e equipe de apoio |
+| dt_data_edital | Texto/Número | Data de disponibilização do edital do pregão |
+| dt_inicio_proposta | Texto/Número | Data e hora de início para envio de propostas no pregão |
+| dt_fim_proposta | Texto/Número | Data e hora limite para acolhimento de propostas no pregão |
+| dt_alteracao | Texto/Número | Data da última alteração registrada no processo ou item |
+| dt_encerramento | Texto/Número | Data de encerramento da sessão pública do pregão |
+| dt_resultado | Texto/Número | Data de divulgação do resultado final do julgamento |
 | pertence14133 | Texto/Número | Indica se pertence ao regime da Lei nº 14.133/2021. 0 – False; 1 – True |
 | totalRegistros | Texto/Número | Total de registros encontrados |
 | totalPaginas | Texto/Número | Total de páginas disponíveis |
@@ -2539,8 +2561,8 @@ curl -X 'GET' \
 
 | Campo | Tipo | Obrigatório | Descrição |
 |---|---|---|---|
-| id_compra | string | <span class="badge-req">🔴 Sim</span> | Valor do campo Id compra |
-| dt_alteracao | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Dt alteracao |
+| id_compra | string | <span class="badge-req">🔴 Sim</span> | Identificador único composto da compra no SIASG (UASG + modalidade + número + ano) |
+| dt_alteracao | string | <span class="badge-opt">⚪ Não</span> | Data da última alteração registrada no processo ou item |
 
 <a href="#sumario">⬆️ Voltar ao sumário</a>
 
@@ -2565,38 +2587,38 @@ curl -X 'GET' \
 |---|---|---|---|
 | pagina | integer | <span class="badge-opt">⚪ Não</span> | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
 | tamanhoPagina | integer | <span class="badge-opt">⚪ Não</span> | Ajustar o tamanho de registros por página (limite máx. de 500 registros por página). (Default: 10) |
-| co_uasg | integer | <span class="badge-opt">⚪ Não</span> | Valor do campo Co uasg |
-| decreto_7174 | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Decreto 7174 |
-| fornecedor_vencedor | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Fornecedor vencedor |
-| dt_hom_inicial | string | <span class="badge-req">🔴 Sim</span> | Valor do campo Dt hom inicial |
-| dt_hom_final | string | <span class="badge-req">🔴 Sim</span> | Valor do campo Dt hom final |
+| co_uasg | integer | <span class="badge-opt">⚪ Não</span> | Código identificador da Unidade Administrativa de Serviços Gerais (UASG) |
+| decreto_7174 | string | <span class="badge-opt">⚪ Não</span> | Indica se há aplicação de margem de preferência para bens e serviços de informática (Decreto nº 7.174/2010) |
+| fornecedor_vencedor | string | <span class="badge-opt">⚪ Não</span> | Nome ou razão social do fornecedor declarado vencedor do item |
+| dt_hom_inicial | string | <span class="badge-req">🔴 Sim</span> | Data inicial do período de homologação para filtro da consulta |
+| dt_hom_final | string | <span class="badge-req">🔴 Sim</span> | Data final do período de homologação para filtro da consulta |
 
 **Dados de Retorno:**
 
 | Campo | Tipo | Descrição |
 |---|---|---|
-| resultado | Texto/Número | Valor do campo Resultado |
-| id_compra | Texto/Número | Valor do campo Id compra |
-| id_compra_item | Texto/Número | Valor do campo Id compra item |
-| decreto_7174 | Texto/Número | Valor do campo Decreto 7174 |
-| situacao_item | Texto/Número | Valor do campo Situacao item |
-| descricao_item | Texto/Número | Valor do campo Descricao item |
-| descricao_detalhada_item | Texto/Número | Valor do campo Descricao detalhada item |
-| margem_preferencial | Texto/Número | Valor do campo Margem preferencial |
-| tratamento_diferenciado | Texto/Número | Valor do campo Tratamento diferenciado |
-| quantidade_item | Texto/Número | Valor do campo Quantidade item |
-| unidade_fornecimento | Texto/Número | Valor do campo Unidade fornecimento |
-| valor_estimado_item | Texto/Número | Valor do campo Valor estimado item |
-| menor_lance | Texto/Número | Valor do campo Menor lance |
-| valor_negociado | Texto/Número | Valor do campo Valor negociado |
-| valor_homologado_item | Texto/Número | Valor do campo Valor homologado item |
-| fornecedor_vencedor | Texto/Número | Valor do campo Fornecedor vencedor |
-| no_adjudic | Texto/Número | Valor do campo No adjudic |
-| no_hom | Texto/Número | Valor do campo No hom |
-| dt_encerramento | Texto/Número | Valor do campo Dt encerramento |
-| dt_adjudic | Texto/Número | Valor do campo Dt adjudic |
-| dt_hom | Texto/Número | Valor do campo Dt hom |
-| dt_alteracao | Texto/Número | Valor do campo Dt alteracao |
+| resultado | Texto/Número | Lista de registros retornados na página atual da consulta |
+| id_compra | Texto/Número | Identificador único composto da compra no SIASG (UASG + modalidade + número + ano) |
+| id_compra_item | Texto/Número | Identificador único do item específico dentro da compra no SIASG |
+| decreto_7174 | Texto/Número | Indica se há aplicação de margem de preferência para bens e serviços de informática (Decreto nº 7.174/2010) |
+| situacao_item | Texto/Número | Situação final do item no certame (Homologado, Cancelado, Deserto etc.) |
+| descricao_item | Texto/Número | Descrição do item de material ou serviço constante do processo licitatório |
+| descricao_detalhada_item | Texto/Número | Especificação técnica complementar do item licitado |
+| margem_preferencial | Texto/Número | Indicador de aplicação de margem de preferência no item do pregão legado |
+| tratamento_diferenciado | Texto/Número | Indicador do tipo de tratamento diferenciado conferido a ME/EPP na licitação |
+| quantidade_item | Texto/Número | Quantidade demandada do item na licitação |
+| unidade_fornecimento | Texto/Número | Unidade física de fornecimento do material ou prestação do serviço |
+| valor_estimado_item | Texto/Número | Valor total estimado para o item na licitação legada |
+| menor_lance | Texto/Número | Valor do menor lance válido ofertado durante a fase competitiva do item |
+| valor_negociado | Texto/Número | Valor final negociado com o fornecedor vencedor no pregão |
+| valor_homologado_item | Texto/Número | Valor homologado para o item no certame legado |
+| fornecedor_vencedor | Texto/Número | Nome ou razão social do fornecedor declarado vencedor do item |
+| no_adjudic | Texto/Número | Nome da autoridade ou pregoeiro responsável pela adjudicação |
+| no_hom | Texto/Número | Nome da autoridade competente responsável pela homologação do certame |
+| dt_encerramento | Texto/Número | Data de encerramento da sessão pública do pregão |
+| dt_adjudic | Texto/Número | Data de adjudicação do objeto ou item do pregão ao licitante vencedor |
+| dt_hom | Texto/Número | Data de homologação do resultado do pregão pela autoridade competente |
+| dt_alteracao | Texto/Número | Data da última alteração registrada no processo ou item |
 | totalRegistros | Texto/Número | Total de registros encontrados |
 | totalPaginas | Texto/Número | Total de páginas disponíveis |
 | paginasRestantes | Texto/Número | Número de páginas restantes |
@@ -2658,9 +2680,9 @@ curl -X 'GET' \
 
 | Campo | Tipo | Obrigatório | Descrição |
 |---|---|---|---|
-| id_compra | string | <span class="badge-req">🔴 Sim</span> | Valor do campo Id compra |
-| id_compra_item | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Id compra item |
-| dt_alteracao | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Dt alteracao |
+| id_compra | string | <span class="badge-req">🔴 Sim</span> | Identificador único composto da compra no SIASG (UASG + modalidade + número + ano) |
+| id_compra_item | string | <span class="badge-opt">⚪ Não</span> | Identificador único do item específico dentro da compra no SIASG |
+| dt_alteracao | string | <span class="badge-opt">⚪ Não</span> | Data da última alteração registrada no processo ou item |
 
 <a href="#sumario">⬆️ Voltar ao sumário</a>
 
@@ -2685,46 +2707,46 @@ curl -X 'GET' \
 |---|---|---|---|
 | pagina | integer | <span class="badge-opt">⚪ Não</span> | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
 | tamanhoPagina | integer | <span class="badge-opt">⚪ Não</span> | Ajustar o tamanho de registros por página (limite máx. de 500 registros por página). (Default: 10) |
-| dt_ano_aviso | integer | <span class="badge-req">🔴 Sim</span> | Valor do campo Dt ano aviso |
-| nu_aviso_licitacao | integer | <span class="badge-opt">⚪ Não</span> | Valor do campo Nu aviso licitacao |
-| co_modalidade_licitacao | integer | <span class="badge-opt">⚪ Não</span> | Valor do campo Co modalidade licitacao |
-| co_orgao | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Co orgao |
-| co_orgao_superior | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Co orgao superior |
-| co_uasg | integer | <span class="badge-opt">⚪ Não</span> | Valor do campo Co uasg |
-| dtDeclaracaoDispensaInicial | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Dt declaracao dispensa inicial |
-| dtDeclaracaoDispensaFinal | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Dt declaracao dispensa final |
-| dtRatificacao | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Dt ratificacao |
-| dtPublicacao | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Dt publicacao |
+| dt_ano_aviso | integer | <span class="badge-req">🔴 Sim</span> | Ano de publicação do aviso de contratação direta ou licitação |
+| nu_aviso_licitacao | integer | <span class="badge-opt">⚪ Não</span> | Número identificador do aviso de licitação publicado |
+| co_modalidade_licitacao | integer | <span class="badge-opt">⚪ Não</span> | Código numérico da modalidade de licitação no sistema legado |
+| co_orgao | string | <span class="badge-opt">⚪ Não</span> | Código identificador do órgão na estrutura organizacional do SIASG |
+| co_orgao_superior | string | <span class="badge-opt">⚪ Não</span> | Código identificador do órgão superior ao qual a entidade está vinculada |
+| co_uasg | integer | <span class="badge-opt">⚪ Não</span> | Código identificador da Unidade Administrativa de Serviços Gerais (UASG) |
+| dtDeclaracaoDispensaInicial | string | <span class="badge-opt">⚪ Não</span> | Data inicial do período de declaração de dispensa/inexigibilidade para filtro |
+| dtDeclaracaoDispensaFinal | string | <span class="badge-opt">⚪ Não</span> | Data final do período de declaração de dispensa/inexigibilidade para filtro |
+| dtRatificacao | string | <span class="badge-opt">⚪ Não</span> | Data de ratificação da dispensa ou inexigibilidade pela autoridade competente |
+| dtPublicacao | string | <span class="badge-opt">⚪ Não</span> | Data de publicação do ato de contratação direta na imprensa oficial |
 | pertence14133 | boolean | <span class="badge-opt">⚪ Não</span> | Indica se pertence ao regime da Lei nº 14.133/2021. 0 – False; 1 – True |
 
 **Dados de Retorno:**
 
 | Campo | Tipo | Descrição |
 |---|---|---|
-| resultado | Texto/Número | Valor do campo Resultado |
-| id_compra | Texto/Número | Valor do campo Id compra |
-| co_orgao | Texto/Número | Valor do campo Co orgao |
-| co_orgao_superior | Texto/Número | Valor do campo Co orgao superior |
-| co_uasg | Texto/Número | Valor do campo Co uasg |
-| no_ausg | Texto/Número | Valor do campo No ausg |
-| co_modalidade_licitacao | Texto/Número | Valor do campo Co modalidade licitacao |
-| ds_lei | Texto/Número | Valor do campo Ds lei |
-| nu_processo | Texto/Número | Valor do campo Nu processo |
-| qt_total_item | Texto/Número | Valor do campo Qt total item |
-| vr_estimado | Texto/Número | Valor do campo Vr estimado |
-| nu_aviso_licitacao | Texto/Número | Valor do campo Nu aviso licitacao |
-| ds_objeto_licitacao | Texto/Número | Valor do campo Ds objeto licitacao |
-| ds_fundamento_legal | Texto/Número | Valor do campo Ds fundamento legal |
-| ds_justificativa | Texto/Número | Valor do campo Ds justificativa |
-| no_responsavel_decl_disp | Texto/Número | Valor do campo No responsavel decl disp |
-| no_cargo_resp_decl_disp | Texto/Número | Valor do campo No cargo resp decl disp |
-| no_responsavel_ratificacao | Texto/Número | Valor do campo No responsavel ratificacao |
-| no_cargo_resp_ratificacao | Texto/Número | Valor do campo No cargo resp ratificacao |
-| dt_declaracao_dispensa | Texto/Número | Valor do campo Dt declaracao dispensa |
-| dt_ratificacao | Texto/Número | Valor do campo Dt ratificacao |
-| dt_publicacao | Texto/Número | Valor do campo Dt publicacao |
-| dt_ano_aviso | Texto/Número | Valor do campo Dt ano aviso |
-| dt_alteracao | Texto/Número | Valor do campo Dt alteracao |
+| resultado | Texto/Número | Lista de registros retornados na página atual da consulta |
+| id_compra | Texto/Número | Identificador único composto da compra no SIASG (UASG + modalidade + número + ano) |
+| co_orgao | Texto/Número | Código identificador do órgão na estrutura organizacional do SIASG |
+| co_orgao_superior | Texto/Número | Código identificador do órgão superior ao qual a entidade está vinculada |
+| co_uasg | Texto/Número | Código identificador da Unidade Administrativa de Serviços Gerais (UASG) |
+| no_ausg | Texto/Número | Nome da Unidade Administrativa de Serviços Gerais (UASG) responsável pelo certame |
+| co_modalidade_licitacao | Texto/Número | Código numérico da modalidade de licitação no sistema legado |
+| ds_lei | Texto/Número | Norma legal de regência aplicável ao procedimento licitatório |
+| nu_processo | Texto/Número | Número do processo administrativo no órgão de origem |
+| qt_total_item | Texto/Número | Quantidade total de unidades previstas para o item na contratação |
+| vr_estimado | Texto/Número | Valor financeiro estimado para a contratação direta ou pregão |
+| nu_aviso_licitacao | Texto/Número | Número identificador do aviso de licitação publicado |
+| ds_objeto_licitacao | Texto/Número | Descrição do objeto geral do certame licitatório |
+| ds_fundamento_legal | Texto/Número | Descrição do fundamento legal que embasa a dispensa ou inexigibilidade de licitação |
+| ds_justificativa | Texto/Número | Justificativa administrativa registrada para a contratação direta ou procedimento |
+| no_responsavel_decl_disp | Texto/Número | Nome do servidor ou autoridade responsável pela declaração de dispensa/inexigibilidade |
+| no_cargo_resp_decl_disp | Texto/Número | Cargo da autoridade responsável pela declaração de dispensa ou inexigibilidade |
+| no_responsavel_ratificacao | Texto/Número | Nome da autoridade competente que ratificou a dispensa ou inexigibilidade |
+| no_cargo_resp_ratificacao | Texto/Número | Cargo da autoridade superior responsável pela ratificação da contratação direta |
+| dt_declaracao_dispensa | Texto/Número | Data da declaração formal da dispensa ou inexigibilidade de licitação |
+| dt_ratificacao | Texto/Número | Data de ratificação do procedimento pela autoridade superior |
+| dt_publicacao | Texto/Número | Data de publicação oficial do ato ou aviso no Diário Oficial |
+| dt_ano_aviso | Texto/Número | Ano de publicação do aviso de contratação direta ou licitação |
+| dt_alteracao | Texto/Número | Data da última alteração registrada no processo ou item |
 | pertence14133 | Texto/Número | Indica se pertence ao regime da Lei nº 14.133/2021. 0 – False; 1 – True |
 | totalRegistros | Texto/Número | Total de registros encontrados |
 | totalPaginas | Texto/Número | Total de páginas disponíveis |
@@ -2815,59 +2837,59 @@ curl -X 'GET' \
 |---|---|---|---|
 | pagina | integer | <span class="badge-opt">⚪ Não</span> | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
 | tamanhoPagina | integer | <span class="badge-opt">⚪ Não</span> | Ajustar o tamanho de registros por página (limite máx. de 500 registros por página). (Default: 10) |
-| co_uasg | integer | <span class="badge-opt">⚪ Não</span> | Valor do campo Co uasg |
-| co_orgao | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Co orgao |
-| dt_ano_aviso_licitacao | integer | <span class="badge-req">🔴 Sim</span> | Valor do campo Dt ano aviso licitacao |
-| co_modalidade_licitacao | integer | <span class="badge-opt">⚪ Não</span> | Valor do campo Co modalidade licitacao |
-| co_conjunto_materiais | integer | <span class="badge-opt">⚪ Não</span> | Valor do campo Co conjunto materiais |
-| co_servico | integer | <span class="badge-opt">⚪ Não</span> | Valor do campo Co servico |
-| nu_cpf_cnpj_fornecedor | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Nu cpf cnpj fornecedor |
+| co_uasg | integer | <span class="badge-opt">⚪ Não</span> | Código identificador da Unidade Administrativa de Serviços Gerais (UASG) |
+| co_orgao | string | <span class="badge-opt">⚪ Não</span> | Código identificador do órgão na estrutura organizacional do SIASG |
+| dt_ano_aviso_licitacao | integer | <span class="badge-req">🔴 Sim</span> | Ano de referência do aviso de licitação no sistema legado |
+| co_modalidade_licitacao | integer | <span class="badge-opt">⚪ Não</span> | Código numérico da modalidade de licitação no sistema legado |
+| co_conjunto_materiais | integer | <span class="badge-opt">⚪ Não</span> | Código identificador do conjunto de materiais no catálogo legado |
+| co_servico | integer | <span class="badge-opt">⚪ Não</span> | Código identificador do serviço no catálogo CATSER |
+| nu_cpf_cnpj_fornecedor | string | <span class="badge-opt">⚪ Não</span> | Número do CPF ou CNPJ do fornecedor contratado na dispensa/inexigibilidade |
 
 **Dados de Retorno:**
 
 | Campo | Tipo | Descrição |
 |---|---|---|
-| resultado | Texto/Número | Valor do campo Resultado |
-| co_conjunto_materiais | Texto/Número | Valor do campo Co conjunto materiais |
-| co_servico | Texto/Número | Valor do campo Co servico |
-| ds_detalhada | Texto/Número | Valor do campo Ds detalhada |
-| in_tipo_fornecedor_vencedor | Texto/Número | Valor do campo In tipo fornecedor vencedor |
-| no_fornecedor_vencedor | Texto/Número | Valor do campo No fornecedor vencedor |
-| no_conjunto_materiais | Texto/Número | Valor do campo No conjunto materiais |
-| no_marca_material | Texto/Número | Valor do campo No marca material |
-| no_servico | Texto/Número | Valor do campo No servico |
-| no_unidade_medida | Texto/Número | Valor do campo No unidade medida |
-| nu_cnpj_vencedor | Texto/Número | Valor do campo Nu cnpj vencedor |
-| nu_cpf_vencedor | Texto/Número | Valor do campo Nu cpf vencedor |
-| qt_material_alt | Texto/Número | Valor do campo Qt material alt |
-| vr_estimado | Texto/Número | Valor do campo Vr estimado |
-| in_material_servico | Texto/Número | Valor do campo In material servico |
-| dt_publicacao | Texto/Número | Valor do campo Dt publicacao |
-| id_compra | Texto/Número | Valor do campo Id compra |
-| id_compra_item | Texto/Número | Valor do campo Id compra item |
-| co_uasg | Texto/Número | Valor do campo Co uasg |
-| co_modalidade_licitacao | Texto/Número | Valor do campo Co modalidade licitacao |
-| no_modalidade_licitacao | Texto/Número | Valor do campo No modalidade licitacao |
-| nu_aviso_licitacao | Texto/Número | Valor do campo Nu aviso licitacao |
-| dt_ano_aviso_licitacao | Texto/Número | Valor do campo Dt ano aviso licitacao |
-| nu_inciso | Texto/Número | Valor do campo Nu inciso |
-| nu_processo | Texto/Número | Valor do campo Nu processo |
-| qt_total_item | Texto/Número | Valor do campo Qt total item |
-| ds_objeto_licitacao | Texto/Número | Valor do campo Ds objeto licitacao |
-| ds_fundamento_legal | Texto/Número | Valor do campo Ds fundamento legal |
-| ds_justificativa | Texto/Número | Valor do campo Ds justificativa |
-| nu_cpf_resp_decl_disp | Texto/Número | Valor do campo Nu cpf resp decl disp |
-| nu_cpf_resp_ratificacao | Texto/Número | Valor do campo Nu cpf resp ratificacao |
-| nu_cpf_resp_publicacao | Texto/Número | Valor do campo Nu cpf resp publicacao |
-| no_responsavel_decl_disp | Texto/Número | Valor do campo No responsavel decl disp |
-| no_cargo_resp_decl_disp | Texto/Número | Valor do campo No cargo resp decl disp |
-| no_responsavel_ratificacao | Texto/Número | Valor do campo No responsavel ratificacao |
-| no_cargo_resp_ratificacao | Texto/Número | Valor do campo No cargo resp ratificacao |
-| nu_item_material | Texto/Número | Valor do campo Nu item material |
-| vr_estimado_item | Texto/Número | Valor do campo Vr estimado item |
-| ds_fabricante | Texto/Número | Valor do campo Ds fabricante |
-| dt_alteracao | Texto/Número | Valor do campo Dt alteracao |
-| co_orgao | Texto/Número | Valor do campo Co orgao |
+| resultado | Texto/Número | Lista de registros retornados na página atual da consulta |
+| co_conjunto_materiais | Texto/Número | Código identificador do conjunto de materiais no catálogo legado |
+| co_servico | Texto/Número | Código identificador do serviço no catálogo CATSER |
+| ds_detalhada | Texto/Número | Detalhamento das especificações do item no pregão ou contratação direta |
+| in_tipo_fornecedor_vencedor | Texto/Número | Indicador da natureza do fornecedor vencedor (Pessoa Jurídica, Pessoa Física ou Estrangeiro) |
+| no_fornecedor_vencedor | Texto/Número | Nome empresarial ou nome civil do fornecedor vencedor do item |
+| no_conjunto_materiais | Texto/Número | Denominação do conjunto ou grupo de materiais no catálogo |
+| no_marca_material | Texto/Número | Marca comercial do produto ofertado pelo licitante vencedor |
+| no_servico | Texto/Número | Nome descritivo do serviço no catálogo CATSER |
+| no_unidade_medida | Texto/Número | Unidade de medida de fornecimento adotada para o item |
+| nu_cnpj_vencedor | Texto/Número | Número de inscrição no CNPJ da empresa vencedora do item |
+| nu_cpf_vencedor | Texto/Número | Número do CPF da pessoa física vencedora do item |
+| qt_material_alt | Texto/Número | Quantidade solicitada na unidade de fornecimento alternativa do material |
+| vr_estimado | Texto/Número | Valor financeiro estimado para a contratação direta ou pregão |
+| in_material_servico | Texto/Número | Indicador da natureza do item licitado (M para Material ou S para Serviço) |
+| dt_publicacao | Texto/Número | Data de publicação oficial do ato ou aviso no Diário Oficial |
+| id_compra | Texto/Número | Identificador único composto da compra no SIASG (UASG + modalidade + número + ano) |
+| id_compra_item | Texto/Número | Identificador único do item específico dentro da compra no SIASG |
+| co_uasg | Texto/Número | Código identificador da Unidade Administrativa de Serviços Gerais (UASG) |
+| co_modalidade_licitacao | Texto/Número | Código numérico da modalidade de licitação no sistema legado |
+| no_modalidade_licitacao | Texto/Número | Denominação da modalidade de licitação no sistema legado |
+| nu_aviso_licitacao | Texto/Número | Número identificador do aviso de licitação publicado |
+| dt_ano_aviso_licitacao | Texto/Número | Ano de referência do aviso de licitação no sistema legado |
+| nu_inciso | Texto/Número | Número do inciso legal que fundamenta a dispensa ou inexigibilidade |
+| nu_processo | Texto/Número | Número do processo administrativo no órgão de origem |
+| qt_total_item | Texto/Número | Quantidade total de unidades previstas para o item na contratação |
+| ds_objeto_licitacao | Texto/Número | Descrição do objeto geral do certame licitatório |
+| ds_fundamento_legal | Texto/Número | Descrição do fundamento legal que embasa a dispensa ou inexigibilidade de licitação |
+| ds_justificativa | Texto/Número | Justificativa administrativa registrada para a contratação direta ou procedimento |
+| nu_cpf_resp_decl_disp | Texto/Número | CPF ou matrícula do responsável pela declaração de dispensa/inexigibilidade |
+| nu_cpf_resp_ratificacao | Texto/Número | CPF ou matrícula da autoridade responsável pela ratificação |
+| nu_cpf_resp_publicacao | Texto/Número | CPF ou matrícula do servidor responsável pelo envio para publicação |
+| no_responsavel_decl_disp | Texto/Número | Nome do servidor ou autoridade responsável pela declaração de dispensa/inexigibilidade |
+| no_cargo_resp_decl_disp | Texto/Número | Cargo da autoridade responsável pela declaração de dispensa ou inexigibilidade |
+| no_responsavel_ratificacao | Texto/Número | Nome da autoridade competente que ratificou a dispensa ou inexigibilidade |
+| no_cargo_resp_ratificacao | Texto/Número | Cargo da autoridade superior responsável pela ratificação da contratação direta |
+| nu_item_material | Texto/Número | Número sequencial do item dentro do processo de compra |
+| vr_estimado_item | Texto/Número | Valor estimado correspondente ao item específico da contratação |
+| ds_fabricante | Texto/Número | Nome ou identificação do fabricante do material ofertado |
+| dt_alteracao | Texto/Número | Data da última alteração registrada no processo ou item |
+| co_orgao | Texto/Número | Código identificador do órgão na estrutura organizacional do SIASG |
 | totalRegistros | Texto/Número | Total de registros encontrados |
 | totalPaginas | Texto/Número | Total de páginas disponíveis |
 | paginasRestantes | Texto/Número | Número de páginas restantes |
@@ -2948,9 +2970,9 @@ curl -X 'GET' \
 
 | Campo | Tipo | Obrigatório | Descrição |
 |---|---|---|---|
-| id_compra | string | <span class="badge-req">🔴 Sim</span> | Valor do campo Id compra |
-| id_compra_item | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Id compra item |
-| dt_alteracao | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Dt alteracao |
+| id_compra | string | <span class="badge-req">🔴 Sim</span> | Identificador único composto da compra no SIASG (UASG + modalidade + número + ano) |
+| id_compra_item | string | <span class="badge-opt">⚪ Não</span> | Identificador único do item específico dentro da compra no SIASG |
+| dt_alteracao | string | <span class="badge-opt">⚪ Não</span> | Data da última alteração registrada no processo ou item |
 
 <a href="#sumario">⬆️ Voltar ao sumário</a>
 
@@ -2975,49 +2997,49 @@ curl -X 'GET' \
 |---|---|---|---|
 | pagina | integer | <span class="badge-opt">⚪ Não</span> | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
 | tamanhoPagina | integer | <span class="badge-opt">⚪ Não</span> | Ajustar o tamanho de registros por página (limite máx. de 500 registros por página). (Default: 10) |
-| data_publicacao_min | string | <span class="badge-req">🔴 Sim</span> | Data correspondente ao registro |
-| data_publicacao_max | string | <span class="badge-req">🔴 Sim</span> | Data correspondente ao registro |
-| endereco_entrega_edital | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Endereco entrega edital |
-| forma_de_realizacao | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Forma de realizacao |
-| funcao_responsavel | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Funcao responsavel |
+| data_publicacao_min | string | <span class="badge-req">🔴 Sim</span> | Data inicial do período de publicação para filtro da consulta |
+| data_publicacao_max | string | <span class="badge-req">🔴 Sim</span> | Data final do período de publicação para filtro da consulta |
+| endereco_entrega_edital | string | <span class="badge-opt">⚪ Não</span> | Endereço físico ou eletrônico para retirada do edital e entrega de documentação |
+| forma_de_realizacao | string | <span class="badge-opt">⚪ Não</span> | Forma de condução da licitação (presencial ou eletrônica) |
+| funcao_responsavel | string | <span class="badge-opt">⚪ Não</span> | Cargo ou função do agente público responsável pela condução da licitação |
 | modalidade | integer | <span class="badge-opt">⚪ Não</span> | Código da modalidade de licitação |
-| nome_responsavel | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Nome responsavel |
-| numero_aviso | integer | <span class="badge-opt">⚪ Não</span> | Valor do campo Numero aviso |
-| objeto | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Objeto |
+| nome_responsavel | string | <span class="badge-opt">⚪ Não</span> | Nome do agente público responsável pela condução da licitação |
+| numero_aviso | integer | <span class="badge-opt">⚪ Não</span> | Número do aviso da licitação ou contratação direta |
+| objeto | string | <span class="badge-opt">⚪ Não</span> | Descrição do objeto da contratação, ata ou contrato |
 | orgao | integer | <span class="badge-opt">⚪ Não</span> | CNPJ do órgão (sem máscara) |
-| situacao_aviso | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Situacao aviso |
-| uasg | integer | <span class="badge-opt">⚪ Não</span> | Valor do campo Uasg |
-| uf_uasg | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Uf uasg |
-| valor_estimado_total_max | number | <span class="badge-opt">⚪ Não</span> | Valor do campo Valor estimado total max |
-| valor_estimado_total_min | number | <span class="badge-opt">⚪ Não</span> | Valor do campo Valor estimado total min |
-| valor_homologado_total_max | number | <span class="badge-opt">⚪ Não</span> | Valor do campo Valor homologado total max |
-| valor_homologado_total_min | number | <span class="badge-opt">⚪ Não</span> | Valor do campo Valor homologado total min |
+| situacao_aviso | string | <span class="badge-opt">⚪ Não</span> | Situação de publicação do aviso de licitação |
+| uasg | integer | <span class="badge-opt">⚪ Não</span> | Código numérico de 6 dígitos da UASG responsável |
+| uf_uasg | string | <span class="badge-opt">⚪ Não</span> | Sigla da Unidade da Federação (UF) de localização da UASG |
+| valor_estimado_total_max | number | <span class="badge-opt">⚪ Não</span> | Limite máximo do valor total estimado para filtro |
+| valor_estimado_total_min | number | <span class="badge-opt">⚪ Não</span> | Limite mínimo do valor total estimado para filtro |
+| valor_homologado_total_max | number | <span class="badge-opt">⚪ Não</span> | Limite máximo do valor total homologado para filtro |
+| valor_homologado_total_min | number | <span class="badge-opt">⚪ Não</span> | Limite mínimo do valor total homologado para filtro |
 
 **Dados de Retorno:**
 
 | Campo | Tipo | Descrição |
 |---|---|---|
-| resultado | Texto/Número | Valor do campo Resultado |
-| data_abertura_proposta | Texto/Número | Data correspondente ao registro |
-| data_entrega_edital | Texto/Número | Data correspondente ao registro |
-| data_entrega_proposta | Texto/Número | Data correspondente ao registro |
-| data_publicacao | Texto/Número | Data correspondente ao registro |
-| endereco_entrega_edital | Texto/Número | Valor do campo Endereco entrega edital |
-| forma_de_realizacao_licitacao | Texto/Número | Valor do campo Forma de realizacao licitacao |
-| funcao_responsavel | Texto/Número | Valor do campo Funcao responsavel |
-| identificador | Texto/Número | Valor do campo Identificador |
-| informacoes_gerais | Texto/Número | Valor do campo Informacoes gerais |
+| resultado | Texto/Número | Lista de registros retornados na página atual da consulta |
+| data_abertura_proposta | Texto/Número | Data de abertura das propostas comerciais da licitação |
+| data_entrega_edital | Texto/Número | Data a partir da qual o edital da licitação ficou disponível aos interessados |
+| data_entrega_proposta | Texto/Número | Data limite para entrega das propostas pelos licitantes |
+| data_publicacao | Texto/Número | Data de publicação do aviso de licitação no Diário Oficial da União |
+| endereco_entrega_edital | Texto/Número | Endereço físico ou eletrônico para retirada do edital e entrega de documentação |
+| forma_de_realizacao_licitacao | Texto/Número | Modalidade operacional de realização do certame (eletrônico ou presencial) |
+| funcao_responsavel | Texto/Número | Cargo ou função do agente público responsável pela condução da licitação |
+| identificador | Texto/Número | Código identificador único do registro na consulta |
+| informacoes_gerais | Texto/Número | Informações gerais sobre a sessão pública e condições da licitação |
 | modalidade | Texto/Número | Código da modalidade de licitação |
-| nome_responsavel | Texto/Número | Valor do campo Nome responsavel |
-| numero_aviso | Texto/Número | Valor do campo Numero aviso |
-| numero_itens | Texto/Número | Valor do campo Numero itens |
-| numero_processo | Texto/Número | Valor do campo Numero processo |
-| objeto | Texto/Número | Valor do campo Objeto |
-| situacao_aviso | Texto/Número | Valor do campo Situacao aviso |
-| tipo_recurso | Texto/Número | Valor do campo Tipo recurso |
-| uasg | Texto/Número | Valor do campo Uasg |
-| orgao_uasg | Texto/Número | Valor do campo Orgao uasg |
-| uf_uasg | Texto/Número | Valor do campo Uf uasg |
+| nome_responsavel | Texto/Número | Nome do agente público responsável pela condução da licitação |
+| numero_aviso | Texto/Número | Número do aviso da licitação ou contratação direta |
+| numero_itens | Texto/Número | Quantidade total de itens que compõem a licitação |
+| numero_processo | Texto/Número | Número dos autos do processo administrativo da contratação |
+| objeto | Texto/Número | Descrição do objeto da contratação, ata ou contrato |
+| situacao_aviso | Texto/Número | Situação de publicação do aviso de licitação |
+| tipo_recurso | Texto/Número | Origem ou tipo de recurso orçamentário utilizado na contratação |
+| uasg | Texto/Número | Código numérico de 6 dígitos da UASG responsável |
+| orgao_uasg | Texto/Número | Código do órgão ao qual a UASG está subordinada |
+| uf_uasg | Texto/Número | Sigla da Unidade da Federação (UF) de localização da UASG |
 | totalRegistros | Texto/Número | Total de registros encontrados |
 | totalPaginas | Texto/Número | Total de páginas disponíveis |
 | paginasRestantes | Texto/Número | Número de páginas restantes |
@@ -3061,19 +3083,19 @@ curl -X 'GET' \
 
 <h2 id="modulo-contratacoes">7. Módulo Contratações</h2>
 
-O Módulo Contratações oferece acesso a informações detalhadas sobre os procedimentos de contratação.
+O Módulo Contratações disponibiliza os dados das contratações públicas regidas pela Lei nº 14.133/2021, incluindo as informações das contratações, dos itens e dos resultados por item, com identificação do número de controle do Portal Nacional de Contratações Públicas (PNCP). Os dados refletem as contratações publicadas no PNCP e permitem consultar, de forma estruturada, o planejamento, a seleção do fornecedor e os resultados das contratações federais.
 
 <h3 id="indicadores-de-modalidade">7.1. Indicadores de Modalidade</h3>
-(Descrição dos indicadores de modalidade)
+Consulta os códigos e as descrições dos indicadores de modalidade de contratação, utilizados como parâmetro de filtro nos endpoints do Módulo Contratações.
 
 <h3 id="modos-de-disputa">7.2. Modos de Disputa</h3>
-(Descrição dos modos de disputa)
+Consulta os códigos e as descrições dos modos de disputa previstos na Lei nº 14.133/2021 (por exemplo, aberto e fechado), utilizados como parâmetro de filtro nos endpoints do módulo.
 
 <h3 id="criterios-de-julgamento">7.3. Critérios de Julgamento</h3>
-(Descrição dos critérios de julgamento)
+Consulta os códigos e as descrições dos critérios de julgamento das propostas (por exemplo, menor preço e melhor técnica ou conteúdo artístico), utilizados como parâmetro de filtro.
 
 <h3 id="amparos-legais">7.4. Amparos Legais</h3>
-(Descrição dos amparos legais)
+Consulta os códigos e as descrições dos amparos legais das contratações, correspondentes aos dispositivos legais que fundamentam cada procedimento, utilizados como parâmetro de filtro.
 
 <h3 id="consultarcontratacoes-pncp-14133">7.5. consultarContratacoes_PNCP_14133</h3>
 
@@ -3096,75 +3118,75 @@ curl -X 'GET' \
 |---|---|---|---|
 | pagina | integer | <span class="badge-opt">⚪ Não</span> | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
 | tamanhoPagina | integer | <span class="badge-opt">⚪ Não</span> | Ajustar o tamanho de registros por página (limite máx. de 500 registros por página). (Default: 10) |
-| unidadeOrgaoCodigoUnidade | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Unidade orgao codigo unidade |
+| unidadeOrgaoCodigoUnidade | string | <span class="badge-opt">⚪ Não</span> | Código da unidade administrativa (UASG) pertencente ao órgão titular da contratação |
 | codigoOrgao | integer | <span class="badge-opt">⚪ Não</span> | Código do órgão |
-| orgaoEntidadeCnpj | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Orgao entidade cnpj |
-| dataPublicacaoPncpInicial | string | <span class="badge-req">🔴 Sim</span> | Data correspondente ao registro |
-| dataPublicacaoPncpFinal | string | <span class="badge-req">🔴 Sim</span> | Data correspondente ao registro |
-| codigoModalidade | integer | <span class="badge-req">🔴 Sim</span> | Código do registro associado |
-| unidadeOrgaoCodigoIbge | integer | <span class="badge-opt">⚪ Não</span> | Valor do campo Unidade orgao codigo ibge |
-| unidadeOrgaoUfSigla | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Unidade orgao uf sigla |
-| dataAualizacaoPncp | string | <span class="badge-opt">⚪ Não</span> | Data correspondente ao registro |
-| amparoLegalCodigoPncp | integer | <span class="badge-opt">⚪ Não</span> | Valor do campo Amparo legal codigo pncp |
-| contratacaoExcluida | boolean | <span class="badge-opt">⚪ Não</span> | Valor do campo Contratacao excluida |
+| orgaoEntidadeCnpj | string | <span class="badge-opt">⚪ Não</span> | Número do CNPJ do órgão ou entidade titular da contratação |
+| dataPublicacaoPncpInicial | string | <span class="badge-req">🔴 Sim</span> | Data inicial do período de publicação no PNCP (formato AAAA-MM-DD) |
+| dataPublicacaoPncpFinal | string | <span class="badge-req">🔴 Sim</span> | Data final do período de publicação no PNCP (formato AAAA-MM-DD) |
+| codigoModalidade | integer | <span class="badge-req">🔴 Sim</span> | Código numérico da modalidade da contratação |
+| unidadeOrgaoCodigoIbge | integer | <span class="badge-opt">⚪ Não</span> | Código IBGE do município onde se localiza a unidade administrativa do órgão titular |
+| unidadeOrgaoUfSigla | string | <span class="badge-opt">⚪ Não</span> | Sigla da Unidade Federativa (UF) da unidade administrativa do órgão titular |
+| dataAualizacaoPncp | string | <span class="badge-opt">⚪ Não</span> | Data de atualização da contratação no PNCP utilizada como parâmetro de filtro |
+| amparoLegalCodigoPncp | integer | <span class="badge-opt">⚪ Não</span> | Código identificador do amparo legal da contratação no PNCP |
+| contratacaoExcluida | boolean | <span class="badge-opt">⚪ Não</span> | Indica se o registro da contratação foi excluído no PNCP |
 
 **Dados de Retorno:**
 
 | Campo | Tipo | Descrição |
 |---|---|---|
-| resultado | Texto/Número | Valor do campo Resultado |
+| resultado | Texto/Número | Lista de registros retornados na página atual da consulta |
 | idCompra | Texto/Número | Código identificador único da compra |
-| numeroControlePNCP | Texto/Número | Valor do campo Numero controle p n c p |
-| anoCompraPncp | Texto/Número | Valor do campo Ano compra pncp |
-| sequencialCompraPncp | Texto/Número | Valor do campo Sequencial compra pncp |
-| orgaoEntidadeCnpj | Texto/Número | Valor do campo Orgao entidade cnpj |
-| orgaoSubrogadoCnpj | Texto/Número | Valor do campo Orgao subrogado cnpj |
+| numeroControlePNCP | Texto/Número | Número de controle único da contratação no PNCP (formato CNPJ-esfera-sequencial/ano) |
+| anoCompraPncp | Texto/Número | Ano da contratação registrado no Portal Nacional de Contratações Públicas (PNCP) |
+| sequencialCompraPncp | Texto/Número | Número sequencial da contratação dentro do ano e órgão no PNCP |
+| orgaoEntidadeCnpj | Texto/Número | Número do CNPJ do órgão ou entidade titular da contratação |
+| orgaoSubrogadoCnpj | Texto/Número | Número do CNPJ do órgão ou entidade para o qual a contratação foi sub-rogada |
 | codigoOrgao | Texto/Número | Código do órgão |
-| orgaoEntidadeRazaoSocial | Texto/Número | Valor do campo Orgao entidade razao social |
-| orgaoSubrogadoRazaoSocial | Texto/Número | Valor do campo Orgao subrogado razao social |
-| orgaoEntidadeEsferaId | Texto/Número | Valor do campo Orgao entidade esfera id |
-| orgaoSubrogadoEsferaId | Texto/Número | Valor do campo Orgao subrogado esfera id |
-| orgaoEntidadePoderId | Texto/Número | Valor do campo Orgao entidade poder id |
-| orgaoSubrogadoPoderId | Texto/Número | Valor do campo Orgao subrogado poder id |
-| unidadeOrgaoCodigoUnidade | Texto/Número | Valor do campo Unidade orgao codigo unidade |
-| unidadeSubrogadaCodigoUnidade | Texto/Número | Valor do campo Unidade subrogada codigo unidade |
-| unidadeOrgaoNomeUnidade | Texto/Número | Valor do campo Unidade orgao nome unidade |
-| unidadeSubrogadaNomeUnidade | Texto/Número | Valor do campo Unidade subrogada nome unidade |
-| unidadeOrgaoUfSigla | Texto/Número | Valor do campo Unidade orgao uf sigla |
-| unidadeSubrogadaUfSigla | Texto/Número | Valor do campo Unidade subrogada uf sigla |
-| unidadeOrgaoMunicipioNome | Texto/Número | Valor do campo Unidade orgao municipio nome |
-| unidadeSubrogadaMunicipioNome | Texto/Número | Valor do campo Unidade subrogada municipio nome |
-| unidadeOrgaoCodigoIbge | Texto/Número | Valor do campo Unidade orgao codigo ibge |
-| unidadeSubrogadaCodigoIbge | Texto/Número | Valor do campo Unidade subrogada codigo ibge |
-| numeroCompra | Texto/Número | Valor do campo Numero compra |
-| modalidadeIdPncp | Texto/Número | Valor do campo Modalidade id pncp |
-| codigoModalidade | Texto/Número | Código do registro associado |
-| modalidadeNome | Texto/Número | Valor do campo Modalidade nome |
-| srp | Texto/Número | Valor do campo Srp |
-| modoDisputaIdPncp | Texto/Número | Valor do campo Modo disputa id pncp |
-| codigoModoDisputa | Texto/Número | Código do registro associado |
-| amparoLegalCodigoPncp | Texto/Número | Valor do campo Amparo legal codigo pncp |
-| amparoLegalNome | Texto/Número | Valor do campo Amparo legal nome |
-| amparoLegalDescricao | Texto/Número | Valor do campo Amparo legal descricao |
-| informacaoComplementar | Texto/Número | Valor do campo Informacao complementar |
-| processo | Texto/Número | Valor do campo Processo |
+| orgaoEntidadeRazaoSocial | Texto/Número | Razão social ou nome oficial do órgão/entidade titular da contratação |
+| orgaoSubrogadoRazaoSocial | Texto/Número | Razão social ou nome oficial do órgão/entidade sub-rogado |
+| orgaoEntidadeEsferaId | Texto/Número | Sigla identificadora da esfera governamental do órgão titular (F = Federal, E = Estadual, M = Municipal) |
+| orgaoSubrogadoEsferaId | Texto/Número | Sigla da esfera governamental do órgão sub-rogado |
+| orgaoEntidadePoderId | Texto/Número | Sigla identificadora do Poder ao qual pertence o órgão titular (E = Executivo, L = Legislativo, J = Judiciário) |
+| orgaoSubrogadoPoderId | Texto/Número | Sigla do Poder ao qual pertence o órgão sub-rogado |
+| unidadeOrgaoCodigoUnidade | Texto/Número | Código da unidade administrativa (UASG) pertencente ao órgão titular da contratação |
+| unidadeSubrogadaCodigoUnidade | Texto/Número | Código da unidade administrativa (UASG) para a qual a contratação foi sub-rogada |
+| unidadeOrgaoNomeUnidade | Texto/Número | Nome oficial da unidade administrativa (UASG) do órgão titular |
+| unidadeSubrogadaNomeUnidade | Texto/Número | Nome oficial da unidade administrativa (UASG) sub-rogada |
+| unidadeOrgaoUfSigla | Texto/Número | Sigla da Unidade Federativa (UF) da unidade administrativa do órgão titular |
+| unidadeSubrogadaUfSigla | Texto/Número | Sigla da Unidade Federativa (UF) da unidade administrativa sub-rogada |
+| unidadeOrgaoMunicipioNome | Texto/Número | Nome do município de localização da unidade administrativa do órgão titular |
+| unidadeSubrogadaMunicipioNome | Texto/Número | Nome do município de localização da unidade administrativa sub-rogada |
+| unidadeOrgaoCodigoIbge | Texto/Número | Código IBGE do município onde se localiza a unidade administrativa do órgão titular |
+| unidadeSubrogadaCodigoIbge | Texto/Número | Código IBGE do município de localização da unidade administrativa sub-rogada |
+| numeroCompra | Texto/Número | Número sequencial da compra ou contratação no ano |
+| modalidadeIdPncp | Texto/Número | Código identificador da modalidade de contratação na tabela de domínio do PNCP |
+| codigoModalidade | Texto/Número | Código numérico da modalidade da contratação |
+| modalidadeNome | Texto/Número | Nome da modalidade de contratação (ex.: Pregão Eletrônico, Concorrência, Dispensa) |
+| srp | Texto/Número | Indica se a contratação utiliza o Sistema de Registro de Preços (SRP) |
+| modoDisputaIdPncp | Texto/Número | Código identificador do modo de disputa na tabela de domínio do PNCP |
+| codigoModoDisputa | Texto/Número | Código identificador do modo de disputa adotado na seleção do fornecedor |
+| amparoLegalCodigoPncp | Texto/Número | Código identificador do amparo legal da contratação no PNCP |
+| amparoLegalNome | Texto/Número | Nome ou identificação resumida do amparo legal da contratação (lei, artigo e inciso) |
+| amparoLegalDescricao | Texto/Número | Descrição detalhada do dispositivo legal que fundamenta a contratação |
+| informacaoComplementar | Texto/Número | Informações adicionais relevantes sobre a contratação ou edital |
+| processo | Texto/Número | Número do processo administrativo de contratação |
 | objetoCompra | Texto/Número | Descrição do objeto da compra |
-| existeResultado | Texto/Número | Valor do campo Existe resultado |
-| orcamentoSigilosoCodigo | Texto/Número | Valor do campo Orcamento sigiloso codigo |
-| orcamentoSigilosoDescricao | Texto/Número | Valor do campo Orcamento sigiloso descricao |
-| situacaoCompraIdPncp | Texto/Número | Valor do campo Situacao compra id pncp |
-| situacaoCompraNomePncp | Texto/Número | Valor do campo Situacao compra nome pncp |
-| tipoInstrumentoConvocatorioCodigoPncp | Texto/Número | Valor do campo Tipo instrumento convocatorio codigo pncp |
-| tipoInstrumentoConvocatorioNome | Texto/Número | Valor do campo Tipo instrumento convocatorio nome |
-| modoDisputaNomePncp | Texto/Número | Valor do campo Modo disputa nome pncp |
-| valorTotalEstimado | Texto/Número | Valor do campo Valor total estimado |
-| valorTotalHomologado | Texto/Número | Valor do campo Valor total homologado |
-| dataInclusaoPncp | Texto/Número | Data correspondente ao registro |
-| dataAtualizacaoPncp | Texto/Número | Data correspondente ao registro |
-| dataPublicacaoPncp | Texto/Número | Data correspondente ao registro |
-| dataAberturaPropostaPncp | Texto/Número | Data correspondente ao registro |
-| dataEncerramentoPropostaPncp | Texto/Número | Data correspondente ao registro |
-| contratacaoExcluida | Texto/Número | Valor do campo Contratacao excluida |
+| existeResultado | Texto/Número | Indica se o item da contratação já possui resultado de julgamento registrado |
+| orcamentoSigilosoCodigo | Texto/Número | Código indicador do regime de sigilo do orçamento estimado |
+| orcamentoSigilosoDescricao | Texto/Número | Descrição da condição de publicidade ou sigilo do orçamento estimado |
+| situacaoCompraIdPncp | Texto/Número | Código identificador da situação atual da contratação no PNCP |
+| situacaoCompraNomePncp | Texto/Número | Descrição da situação atual da contratação no PNCP (ex.: Divulgada no PNCP, Revogada, Anulada, Suspensa) |
+| tipoInstrumentoConvocatorioCodigoPncp | Texto/Número | Código identificador do instrumento convocatório na tabela do PNCP |
+| tipoInstrumentoConvocatorioNome | Texto/Número | Denominação do instrumento convocatório utilizado (Edital, Aviso de Contratação Direta, Ato que autoriza a Contratação Direta) |
+| modoDisputaNomePncp | Texto/Número | Nome do modo de disputa adotado (ex.: Aberto, Aberto-Fechado, Fechado, Não se aplica) |
+| valorTotalEstimado | Texto/Número | Valor total estimado pela Administração para a contratação ou item (em R$) |
+| valorTotalHomologado | Texto/Número | Valor total efetivamente homologado na contratação ou resultado (em R$) |
+| dataInclusaoPncp | Texto/Número | Data de inclusão inicial do registro no Portal Nacional de Contratações Públicas (PNCP) |
+| dataAtualizacaoPncp | Texto/Número | Data da última atualização do registro no Portal Nacional de Contratações Públicas (PNCP) |
+| dataPublicacaoPncp | Texto/Número | Data de publicação oficial da contratação ou edital no PNCP |
+| dataAberturaPropostaPncp | Texto/Número | Data e hora de início do recebimento de propostas registradas no PNCP |
+| dataEncerramentoPropostaPncp | Texto/Número | Data e hora de encerramento do recebimento de propostas no PNCP |
+| contratacaoExcluida | Texto/Número | Indica se o registro da contratação foi excluído no PNCP |
 | totalRegistros | Texto/Número | Total de registros encontrados |
 | totalPaginas | Texto/Número | Total de páginas disponíveis |
 | paginasRestantes | Texto/Número | Número de páginas restantes |
@@ -3259,7 +3281,7 @@ curl -X 'GET' \
 |---|---|---|---|
 | tipo | string | <span class="badge-req">🔴 Sim</span> | Tipo do item do catálogo a consultar (ex: material ou serviço) |
 | codigo | string | <span class="badge-req">🔴 Sim</span> | Código do item no catálogo |
-| dataAtualizacaoPncp | string | <span class="badge-opt">⚪ Não</span> | Data correspondente ao registro |
+| dataAtualizacaoPncp | string | <span class="badge-opt">⚪ Não</span> | Data da última atualização do registro no Portal Nacional de Contratações Públicas (PNCP) |
 
 <a href="#sumario">⬆️ Voltar ao sumário</a>
 
@@ -3284,73 +3306,73 @@ curl -X 'GET' \
 |---|---|---|---|
 | pagina | integer | <span class="badge-opt">⚪ Não</span> | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
 | tamanhoPagina | integer | <span class="badge-opt">⚪ Não</span> | Ajustar o tamanho de registros por página (limite máx. de 500 registros por página). (Default: 10) |
-| unidadeOrgaoCodigoUnidade | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Unidade orgao codigo unidade |
-| orgaoEntidadeCnpj | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Orgao entidade cnpj |
-| situacaoCompraItem | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Situacao compra item |
-| materialOuServico | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Material ou servico |
+| unidadeOrgaoCodigoUnidade | string | <span class="badge-opt">⚪ Não</span> | Código da unidade administrativa (UASG) pertencente ao órgão titular da contratação |
+| orgaoEntidadeCnpj | string | <span class="badge-opt">⚪ Não</span> | Número do CNPJ do órgão ou entidade titular da contratação |
+| situacaoCompraItem | string | <span class="badge-opt">⚪ Não</span> | Código identificador da situação do item da contratação |
+| materialOuServico | string | <span class="badge-opt">⚪ Não</span> | Sigla que classifica a natureza do item: 'M' (Material) ou 'S' (Serviço) |
 | codigoClasse | integer | <span class="badge-opt">⚪ Não</span> | Código da classe do material/serviço |
 | codigoGrupo | integer | <span class="badge-opt">⚪ Não</span> | Código do grupo do material/serviço |
-| codItemCatalogo | integer | <span class="badge-opt">⚪ Não</span> | Valor do campo Cod item catalogo |
-| temResultado | boolean | <span class="badge-opt">⚪ Não</span> | Valor do campo Tem resultado |
-| codFornecedor | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Cod fornecedor |
-| dataInclusaoPncpInicial | string | <span class="badge-req">🔴 Sim</span> | Data correspondente ao registro |
-| dataInclusaoPncpFinal | string | <span class="badge-req">🔴 Sim</span> | Data correspondente ao registro |
-| dataAtualizacaoPncp | string | <span class="badge-opt">⚪ Não</span> | Data correspondente ao registro |
+| codItemCatalogo | integer | <span class="badge-opt">⚪ Não</span> | Código do item de material (CATMAT) ou serviço (CATSER) no catálogo de compras |
+| temResultado | boolean | <span class="badge-opt">⚪ Não</span> | Indica se o item possui resultado de homologação divulgado (true/false) |
+| codFornecedor | string | <span class="badge-opt">⚪ Não</span> | Código identificador interno do fornecedor no sistema |
+| dataInclusaoPncpInicial | string | <span class="badge-req">🔴 Sim</span> | Data inicial do período de inclusão no PNCP para filtro da consulta |
+| dataInclusaoPncpFinal | string | <span class="badge-req">🔴 Sim</span> | Data final do período de inclusão no PNCP para filtro da consulta |
+| dataAtualizacaoPncp | string | <span class="badge-opt">⚪ Não</span> | Data da última atualização do registro no Portal Nacional de Contratações Públicas (PNCP) |
 | bps | boolean | <span class="badge-opt">⚪ Não</span> | Indica se está vinculado ao Banco de Preços em Saúde (BPS). 0 – False/Não; 1 – True/Sim |
-| margemPreferenciaNormal | boolean | <span class="badge-opt">⚪ Não</span> | Valor do campo Margem preferencia normal |
-| codigoNCM | string | <span class="badge-opt">⚪ Não</span> | Código do registro associado |
+| margemPreferenciaNormal | boolean | <span class="badge-opt">⚪ Não</span> | Indica se o item prevê aplicação de margem de preferência normal para produtos manufaturados ou serviços nacionais |
+| codigoNCM | string | <span class="badge-opt">⚪ Não</span> | Código da Nomenclatura Comum do Mercosul (NCM) associado ao item |
 | codigoPdm | string | <span class="badge-opt">⚪ Não</span> | Código do Produto Descritivo Básico (PDM) |
 
 **Dados de Retorno:**
 
 | Campo | Tipo | Descrição |
 |---|---|---|
-| resultado | Texto/Número | Valor do campo Resultado |
+| resultado | Texto/Número | Lista de registros retornados na página atual da consulta |
 | idCompra | Texto/Número | Código identificador único da compra |
 | idCompraItem | Texto/Número | Identificador único do item da compra |
-| idContratacaoPNCP | Texto/Número | Valor do campo Id contratacao p n c p |
-| unidadeOrgaoCodigoUnidade | Texto/Número | Valor do campo Unidade orgao codigo unidade |
-| orgaoEntidadeCnpj | Texto/Número | Valor do campo Orgao entidade cnpj |
-| numeroItemPncp | Texto/Número | Valor do campo Numero item pncp |
+| idContratacaoPNCP | Texto/Número | Identificador único da contratação na base do Portal Nacional de Contratações Públicas (PNCP) |
+| unidadeOrgaoCodigoUnidade | Texto/Número | Código da unidade administrativa (UASG) pertencente ao órgão titular da contratação |
+| orgaoEntidadeCnpj | Texto/Número | Número do CNPJ do órgão ou entidade titular da contratação |
+| numeroItemPncp | Texto/Número | Número sequencial do item da contratação registrado no PNCP |
 | numeroItemCompra | Texto/Número | Número do item da compra |
-| numeroGrupo | Texto/Número | Valor do campo Numero grupo |
-| descricaoResumida | Texto/Número | Valor do campo Descricao resumida |
-| materialOuServico | Texto/Número | Valor do campo Material ou servico |
-| materialOuServicoNome | Texto/Número | Valor do campo Material ou servico nome |
+| numeroGrupo | Texto/Número | Número do grupo ou lote ao qual o item pertence na licitação |
+| descricaoResumida | Texto/Número | Descrição resumida do objeto ou item contratado |
+| materialOuServico | Texto/Número | Sigla que classifica a natureza do item: 'M' (Material) ou 'S' (Serviço) |
+| materialOuServicoNome | Texto/Número | Descrição por extenso da natureza do item ('Material' ou 'Serviço') |
 | codigoClasse | Texto/Número | Código da classe do material/serviço |
 | codigoGrupo | Texto/Número | Código do grupo do material/serviço |
-| codItemCatalogo | Texto/Número | Valor do campo Cod item catalogo |
-| descricaodetalhada | Texto/Número | Valor do campo Descricaodetalhada |
-| unidadeMedida | Texto/Número | Valor do campo Unidade medida |
-| orcamentoSigiloso | Texto/Número | Valor do campo Orcamento sigiloso |
-| itemCategoriaIdPncp | Texto/Número | Valor do campo Item categoria id pncp |
-| itemCategoriaNome | Texto/Número | Valor do campo Item categoria nome |
-| criterioJulgamentoIdPncp | Texto/Número | Valor do campo Criterio julgamento id pncp |
-| criterioJulgamentoNome | Texto/Número | Valor do campo Criterio julgamento nome |
-| situacaoCompraItem | Texto/Número | Valor do campo Situacao compra item |
-| situacaoCompraItemNome | Texto/Número | Valor do campo Situacao compra item nome |
-| tipoBeneficio | Texto/Número | Valor do campo Tipo beneficio |
-| tipoBeneficioNome | Texto/Número | Valor do campo Tipo beneficio nome |
-| incentivoProdutivoBasico | Texto/Número | Valor do campo Incentivo produtivo basico |
+| codItemCatalogo | Texto/Número | Código do item de material (CATMAT) ou serviço (CATSER) no catálogo de compras |
+| descricaodetalhada | Texto/Número | Descrição complementar detalhada das características do item |
+| unidadeMedida | Texto/Número | Unidade de fornecimento ou medida comercial do item (ex.: Unidade, Caixa, Mês, Quilograma) |
+| orcamentoSigiloso | Texto/Número | Indica se o valor estimado da contratação possui caráter sigiloso (art. 24 da Lei nº 14.133/2021) |
+| itemCategoriaIdPncp | Texto/Número | Código identificador da categoria do item no padrão do PNCP |
+| itemCategoriaNome | Texto/Número | Denominação da categoria na qual o item se enquadra no PNCP |
+| criterioJulgamentoIdPncp | Texto/Número | Código identificador do critério de julgamento do item no PNCP |
+| criterioJulgamentoNome | Texto/Número | Denominação do critério de julgamento adotado para seleção da proposta (ex.: menor preço, maior desconto) |
+| situacaoCompraItem | Texto/Número | Código identificador da situação do item da contratação |
+| situacaoCompraItemNome | Texto/Número | Descrição da situação do item da contratação (ex.: Em Andamento, Homologado, Deserto, Fracassado) |
+| tipoBeneficio | Texto/Número | Código do tipo de benefício aplicável a ME/EPP (LC nº 123/2006) |
+| tipoBeneficioNome | Texto/Número | Descrição do tipo de benefício ME/EPP (Participação exclusiva, Subcontratação, Cota reservada ou Não se aplica) |
+| incentivoProdutivoBasico | Texto/Número | Indica se o item exige cumprimento do Processo Produtivo Básico (PPB) |
 | quantidade | Texto/Número | Quantidade adquirida |
-| valorUnitarioEstimado | Texto/Número | Valor do campo Valor unitario estimado |
-| valorTotal | Texto/Número | Valor do campo Valor total |
-| temResultado | Texto/Número | Valor do campo Tem resultado |
-| codFornecedor | Texto/Número | Valor do campo Cod fornecedor |
+| valorUnitarioEstimado | Texto/Número | Valor unitário estimado de referência para a aquisição do item (em R$) |
+| valorTotal | Texto/Número | Valor financeiro total do item (quantidade multiplicada pelo valor unitário) |
+| temResultado | Texto/Número | Indica se o item possui resultado de homologação divulgado (true/false) |
+| codFornecedor | Texto/Número | Código identificador interno do fornecedor no sistema |
 | nomeFornecedor | Texto/Número | Nome do fornecedor |
-| quantidadeResultado | Texto/Número | Valor do campo Quantidade resultado |
-| valorUnitarioResultado | Texto/Número | Valor do campo Valor unitario resultado |
-| valorTotalResultado | Texto/Número | Valor do campo Valor total resultado |
-| dataInclusaoPncp | Texto/Número | Data correspondente ao registro |
-| dataAtualizacaoPncp | Texto/Número | Data correspondente ao registro |
+| quantidadeResultado | Texto/Número | Quantidade adjudicada ao fornecedor no resultado do item |
+| valorUnitarioResultado | Texto/Número | Valor unitário adjudicado no resultado do item (em R$) |
+| valorTotalResultado | Texto/Número | Valor total homologado para o fornecedor vencedor no resultado do item |
+| dataInclusaoPncp | Texto/Número | Data de inclusão inicial do registro no Portal Nacional de Contratações Públicas (PNCP) |
+| dataAtualizacaoPncp | Texto/Número | Data da última atualização do registro no Portal Nacional de Contratações Públicas (PNCP) |
 | dataResultado | Texto/Número | Data do resultado da compra |
-| margemPreferenciaNormal | Texto/Número | Valor do campo Margem preferencia normal |
-| percentualMargemPreferenciaNormal | Texto/Número | Valor do campo Percentual margem preferencia normal |
-| margemPreferenciaAdicional | Texto/Número | Valor do campo Margem preferencia adicional |
-| percentualMargemPreferenciaAdicional | Texto/Número | Valor do campo Percentual margem preferencia adicional |
-| codigoNCM | Texto/Número | Código do registro associado |
-| descricaoNCM | Texto/Número | Valor do campo Descricao n c m |
-| numeroControlePNCPCompra | Texto/Número | Valor do campo Numero controle p n c p compra |
+| margemPreferenciaNormal | Texto/Número | Indica se o item prevê aplicação de margem de preferência normal para produtos manufaturados ou serviços nacionais |
+| percentualMargemPreferenciaNormal | Texto/Número | Percentual numérico de margem de preferência normal aplicado ao item |
+| margemPreferenciaAdicional | Texto/Número | Indica se o item prevê aplicação de margem de preferência adicional (inovação/desenvolvimento nacional) |
+| percentualMargemPreferenciaAdicional | Texto/Número | Percentual numérico de margem de preferência adicional aplicado ao item |
+| codigoNCM | Texto/Número | Código da Nomenclatura Comum do Mercosul (NCM) associado ao item |
+| descricaoNCM | Texto/Número | Descrição da mercadoria conforme a tabela da Nomenclatura Comum do Mercosul (NCM) |
+| numeroControlePNCPCompra | Texto/Número | Número de controle PNCP da compra que originou o registro |
 | codigoPdm | Texto/Número | Código do Produto Descritivo Básico (PDM) |
 | nomePdm | Texto/Número | Nome do PDM |
 | totalRegistros | Texto/Número | Total de registros encontrados |
@@ -3443,7 +3465,7 @@ curl -X 'GET' \
 | tipo | string | <span class="badge-req">🔴 Sim</span> | Tipo do item do catálogo a consultar (ex: material ou serviço) |
 | codigo | string | <span class="badge-req">🔴 Sim</span> | Código do item no catálogo |
 | idCompraItem | string | <span class="badge-opt">⚪ Não</span> | Identificador único do item da compra |
-| dataAtualizacaoPncp | string | <span class="badge-opt">⚪ Não</span> | Data correspondente ao registro |
+| dataAtualizacaoPncp | string | <span class="badge-opt">⚪ Não</span> | Data da última atualização do registro no Portal Nacional de Contratações Públicas (PNCP) |
 
 <a href="#sumario">⬆️ Voltar ao sumário</a>
 
@@ -3468,70 +3490,70 @@ curl -X 'GET' \
 |---|---|---|---|
 | pagina | integer | <span class="badge-opt">⚪ Não</span> | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
 | tamanhoPagina | integer | <span class="badge-opt">⚪ Não</span> | Ajustar o tamanho de registros por página (limite máx. de 500 registros por página). (Default: 10) |
-| unidadeOrgaoCodigoUnidade | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Unidade orgao codigo unidade |
-| orgaoEntidadeCnpj | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Orgao entidade cnpj |
+| unidadeOrgaoCodigoUnidade | string | <span class="badge-opt">⚪ Não</span> | Código da unidade administrativa (UASG) pertencente ao órgão titular da contratação |
+| orgaoEntidadeCnpj | string | <span class="badge-opt">⚪ Não</span> | Número do CNPJ do órgão ou entidade titular da contratação |
 | niFornecedor | string | <span class="badge-opt">⚪ Não</span> | Número de identificação do fornecedor (CPF/CNPJ/Estrangeiro) |
-| codigoPais | string | <span class="badge-opt">⚪ Não</span> | Código do registro associado |
-| porteFornecedorId | integer | <span class="badge-opt">⚪ Não</span> | Valor do campo Porte fornecedor id |
-| naturezaJuridicaId | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Natureza juridica id |
-| situacaoCompraItemResultadoId | integer | <span class="badge-opt">⚪ Não</span> | Valor do campo Situacao compra item resultado id |
-| valorUnitarioHomologadoInicial | number | <span class="badge-opt">⚪ Não</span> | Valor do campo Valor unitario homologado inicial |
-| valorUnitarioHomologadoFinal | number | <span class="badge-opt">⚪ Não</span> | Valor do campo Valor unitario homologado final |
-| valorTotalHomologadoInicial | number | <span class="badge-opt">⚪ Não</span> | Valor do campo Valor total homologado inicial |
-| valorTotalHomologadoFinal | number | <span class="badge-opt">⚪ Não</span> | Valor do campo Valor total homologado final |
-| dataResultadoPncpInicial | string | <span class="badge-req">🔴 Sim</span> | Data correspondente ao registro |
-| dataResultadoPncpFinal | string | <span class="badge-req">🔴 Sim</span> | Data correspondente ao registro |
-| aplicacaoMargemPreferencia | boolean | <span class="badge-opt">⚪ Não</span> | Valor do campo Aplicacao margem preferencia |
-| aplicacaoBeneficioMeepp | boolean | <span class="badge-opt">⚪ Não</span> | Valor do campo Aplicacao beneficio meepp |
-| aplicacaoCriterioDesempate | boolean | <span class="badge-opt">⚪ Não</span> | Valor do campo Aplicacao criterio desempate |
+| codigoPais | string | <span class="badge-opt">⚪ Não</span> | Código ISO de identificação do país de origem do fornecedor |
+| porteFornecedorId | integer | <span class="badge-opt">⚪ Não</span> | Código identificador do porte empresarial do fornecedor (ME, EPP, Demais etc.) |
+| naturezaJuridicaId | string | <span class="badge-opt">⚪ Não</span> | Código CONCLA/IBGE da natureza jurídica do fornecedor |
+| situacaoCompraItemResultadoId | integer | <span class="badge-opt">⚪ Não</span> | Código identificador da situação do resultado do item no PNCP |
+| valorUnitarioHomologadoInicial | number | <span class="badge-opt">⚪ Não</span> | Valor unitário originalmente homologado no certame |
+| valorUnitarioHomologadoFinal | number | <span class="badge-opt">⚪ Não</span> | Valor unitário final após negociação ou atualização na ata |
+| valorTotalHomologadoInicial | number | <span class="badge-opt">⚪ Não</span> | Limite inferior do valor total homologado para filtro |
+| valorTotalHomologadoFinal | number | <span class="badge-opt">⚪ Não</span> | Limite superior do valor total homologado para filtro |
+| dataResultadoPncpInicial | string | <span class="badge-req">🔴 Sim</span> | Data inicial do período de publicação do resultado no PNCP |
+| dataResultadoPncpFinal | string | <span class="badge-req">🔴 Sim</span> | Data final do período de publicação do resultado no PNCP |
+| aplicacaoMargemPreferencia | boolean | <span class="badge-opt">⚪ Não</span> | Indica se houve aplicação de margem de preferência no julgamento do item |
+| aplicacaoBeneficioMeepp | boolean | <span class="badge-opt">⚪ Não</span> | Indica se houve aplicação de benefício destinado a microempresas e empresas de pequeno porte (LC nº 123/2006) |
+| aplicacaoCriterioDesempate | boolean | <span class="badge-opt">⚪ Não</span> | Indica se foi utilizado critério de desempate no julgamento do item |
 
 **Dados de Retorno:**
 
 | Campo | Tipo | Descrição |
 |---|---|---|
-| resultado | Texto/Número | Valor do campo Resultado |
+| resultado | Texto/Número | Lista de registros retornados na página atual da consulta |
 | idCompraItem | Texto/Número | Identificador único do item da compra |
 | idCompra | Texto/Número | Código identificador único da compra |
-| idContratacaoPNCP | Texto/Número | Valor do campo Id contratacao p n c p |
-| unidadeOrgaoCodigoUnidade | Texto/Número | Valor do campo Unidade orgao codigo unidade |
-| unidadeOrgaoUfSigla | Texto/Número | Valor do campo Unidade orgao uf sigla |
-| numeroItemPncp | Texto/Número | Valor do campo Numero item pncp |
-| sequencialResultado | Texto/Número | Valor do campo Sequencial resultado |
+| idContratacaoPNCP | Texto/Número | Identificador único da contratação na base do Portal Nacional de Contratações Públicas (PNCP) |
+| unidadeOrgaoCodigoUnidade | Texto/Número | Código da unidade administrativa (UASG) pertencente ao órgão titular da contratação |
+| unidadeOrgaoUfSigla | Texto/Número | Sigla da Unidade Federativa (UF) da unidade administrativa do órgão titular |
+| numeroItemPncp | Texto/Número | Número sequencial do item da contratação registrado no PNCP |
+| sequencialResultado | Texto/Número | Número sequencial do registro de resultado do item no PNCP |
 | niFornecedor | Texto/Número | Número de identificação do fornecedor (CPF/CNPJ/Estrangeiro) |
-| tipoPessoa | Texto/Número | Valor do campo Tipo pessoa |
-| nomeRazaoSocialFornecedor | Texto/Número | Valor do campo Nome razao social fornecedor |
-| codigoPais | Texto/Número | Código do registro associado |
-| indicadorSubcontratacao | Texto/Número | Valor do campo Indicador subcontratacao |
-| ordemClassificacaoSrp | Texto/Número | Valor do campo Ordem classificacao srp |
-| quantidadeHomologada | Texto/Número | Valor do campo Quantidade homologada |
-| valorUnitarioHomologado | Texto/Número | Valor do campo Valor unitario homologado |
-| valorTotalHomologado | Texto/Número | Valor do campo Valor total homologado |
-| percentualDesconto | Texto/Número | Valor do campo Percentual desconto |
-| situacaoCompraItemResultadoId | Texto/Número | Valor do campo Situacao compra item resultado id |
-| situacaoCompraItemResultadoNome | Texto/Número | Valor do campo Situacao compra item resultado nome |
-| motivoCancelamento | Texto/Número | Valor do campo Motivo cancelamento |
-| porteFornecedorId | Texto/Número | Valor do campo Porte fornecedor id |
-| porteFornecedorNome | Texto/Número | Valor do campo Porte fornecedor nome |
-| naturezaJuridicaNome | Texto/Número | Valor do campo Natureza juridica nome |
-| naturezaJuridicaId | Texto/Número | Valor do campo Natureza juridica id |
-| dataInclusaoPncp | Texto/Número | Data correspondente ao registro |
-| dataAtualizacaoPncp | Texto/Número | Data correspondente ao registro |
-| dataCancelamentoPncp | Texto/Número | Data correspondente ao registro |
-| dataResultadoPncp | Texto/Número | Data correspondente ao registro |
-| numeroControlePNCPCompra | Texto/Número | Valor do campo Numero controle p n c p compra |
-| orgaoEntidadeCnpj | Texto/Número | Valor do campo Orgao entidade cnpj |
-| aplicacaoMargemPreferencia | Texto/Número | Valor do campo Aplicacao margem preferencia |
-| amparoLegalMargemPreferenciaId | Texto/Número | Valor do campo Amparo legal margem preferencia id |
-| amparoLegalMargemPreferenciaNome | Texto/Número | Valor do campo Amparo legal margem preferencia nome |
-| aplicacaoBeneficioMeepp | Texto/Número | Valor do campo Aplicacao beneficio meepp |
-| aplicacaoCriterioDesempate | Texto/Número | Valor do campo Aplicacao criterio desempate |
-| amparoLegalCriterioDesempateId | Texto/Número | Valor do campo Amparo legal criterio desempate id |
-| amparoLegalCriterioDesempateNome | Texto/Número | Valor do campo Amparo legal criterio desempate nome |
-| moedaEstrangeiraId | Texto/Número | Valor do campo Moeda estrangeira id |
-| dataCotacaoMoedaEstrangeira | Texto/Número | Data correspondente ao registro |
-| valorNominalMoedaEstrangeira | Texto/Número | Valor do campo Valor nominal moeda estrangeira |
-| paisOrigemProdutoServicoId | Texto/Número | Valor do campo Pais origem produto servico id |
-| timezoneCotacaoMoedaEstrangeira | Texto/Número | Valor do campo Timezone cotacao moeda estrangeira |
+| tipoPessoa | Texto/Número | Classificação da personalidade do fornecedor (PJ = Pessoa Jurídica, PF = Pessoa Física, PE = Pessoa Estrangeira) |
+| nomeRazaoSocialFornecedor | Texto/Número | Nome empresarial (razão social) ou nome completo do fornecedor |
+| codigoPais | Texto/Número | Código ISO de identificação do país de origem do fornecedor |
+| indicadorSubcontratacao | Texto/Número | Indica se houve previsão ou ocorrência de subcontratação para o item |
+| ordemClassificacaoSrp | Texto/Número | Ordem de classificação do fornecedor no cadastro de reserva do registro de preços |
+| quantidadeHomologada | Texto/Número | Quantidade do item efetivamente homologada para o fornecedor na ata ou compra |
+| valorUnitarioHomologado | Texto/Número | Valor unitário homologado ao fornecedor vencedor do item (em R$) |
+| valorTotalHomologado | Texto/Número | Valor total efetivamente homologado na contratação ou resultado (em R$) |
+| percentualDesconto | Texto/Número | Percentual de desconto ofertado ou homologado sobre o valor de referência |
+| situacaoCompraItemResultadoId | Texto/Número | Código identificador da situação do resultado do item no PNCP |
+| situacaoCompraItemResultadoNome | Texto/Número | Descrição da situação do resultado do item (ex.: Informado, Cancelado) |
+| motivoCancelamento | Texto/Número | Justificativa registrada para o cancelamento do item ou do resultado da contratação |
+| porteFornecedorId | Texto/Número | Código identificador do porte empresarial do fornecedor (ME, EPP, Demais etc.) |
+| porteFornecedorNome | Texto/Número | Descrição do enquadramento de porte empresarial do fornecedor |
+| naturezaJuridicaNome | Texto/Número | Descrição da natureza jurídica do fornecedor contratado |
+| naturezaJuridicaId | Texto/Número | Código CONCLA/IBGE da natureza jurídica do fornecedor |
+| dataInclusaoPncp | Texto/Número | Data de inclusão inicial do registro no Portal Nacional de Contratações Públicas (PNCP) |
+| dataAtualizacaoPncp | Texto/Número | Data da última atualização do registro no Portal Nacional de Contratações Públicas (PNCP) |
+| dataCancelamentoPncp | Texto/Número | Data de registro do cancelamento do item ou resultado no PNCP |
+| dataResultadoPncp | Texto/Número | Data de homologação ou publicação do resultado do item no PNCP |
+| numeroControlePNCPCompra | Texto/Número | Número de controle PNCP da compra que originou o registro |
+| orgaoEntidadeCnpj | Texto/Número | Número do CNPJ do órgão ou entidade titular da contratação |
+| aplicacaoMargemPreferencia | Texto/Número | Indica se houve aplicação de margem de preferência no julgamento do item |
+| amparoLegalMargemPreferenciaId | Texto/Número | Código identificador do amparo legal que regulamenta a margem de preferência |
+| amparoLegalMargemPreferenciaNome | Texto/Número | Denominação do ato normativo que regulamenta a margem de preferência |
+| aplicacaoBeneficioMeepp | Texto/Número | Indica se houve aplicação de benefício destinado a microempresas e empresas de pequeno porte (LC nº 123/2006) |
+| aplicacaoCriterioDesempate | Texto/Número | Indica se foi utilizado critério de desempate no julgamento do item |
+| amparoLegalCriterioDesempateId | Texto/Número | Código identificador do amparo legal referente ao critério de desempate aplicado |
+| amparoLegalCriterioDesempateNome | Texto/Número | Denominação do amparo legal referente ao critério de desempate aplicado |
+| moedaEstrangeiraId | Texto/Número | Código identificador da moeda estrangeira utilizada na cotação da proposta |
+| dataCotacaoMoedaEstrangeira | Texto/Número | Data da cotação de câmbio utilizada para conversão de valores em moeda estrangeira |
+| valorNominalMoedaEstrangeira | Texto/Número | Valor nominal da proposta expresso na moeda estrangeira de origem |
+| paisOrigemProdutoServicoId | Texto/Número | Código ISO do país de origem do produto ou serviço ofertado |
+| timezoneCotacaoMoedaEstrangeira | Texto/Número | Fuso horário de referência da cotação de moeda estrangeira |
 | totalRegistros | Texto/Número | Total de registros encontrados |
 | totalPaginas | Texto/Número | Total de páginas disponíveis |
 | paginasRestantes | Texto/Número | Número de páginas restantes |
@@ -3617,7 +3639,7 @@ curl -X 'GET' \
 | tipo | string | <span class="badge-req">🔴 Sim</span> | Tipo do item do catálogo a consultar (ex: material ou serviço) |
 | codigo | string | <span class="badge-req">🔴 Sim</span> | Código do item no catálogo |
 | idCompraItem | string | <span class="badge-opt">⚪ Não</span> | Identificador único do item da compra |
-| dataAtualizacaoPncp | string | <span class="badge-opt">⚪ Não</span> | Data correspondente ao registro |
+| dataAtualizacaoPncp | string | <span class="badge-opt">⚪ Não</span> | Data da última atualização do registro no Portal Nacional de Contratações Públicas (PNCP) |
 
 <a href="#sumario">⬆️ Voltar ao sumário</a>
 
@@ -3648,43 +3670,43 @@ curl -X 'GET' \
 |---|---|---|---|
 | pagina | integer | <span class="badge-opt">⚪ Não</span> | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
 | tamanhoPagina | integer | <span class="badge-opt">⚪ Não</span> | Ajustar o tamanho de registros por página (limite máx. de 500 registros por página). (Default: 10) |
-| codigoUnidadeGerenciadora | string | <span class="badge-opt">⚪ Não</span> | Código do registro associado |
-| codigoModalidadeCompra | string | <span class="badge-opt">⚪ Não</span> | Código do registro associado |
-| numeroAtaRegistroPreco | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Numero ata registro preco |
-| dataVigenciaInicialMin | string | <span class="badge-req">🔴 Sim</span> | Data correspondente ao registro |
-| dataVigenciaInicialMax | string | <span class="badge-req">🔴 Sim</span> | Data correspondente ao registro |
-| dataAssinaturaInicial | string | <span class="badge-opt">⚪ Não</span> | Data correspondente ao registro |
-| dataAssinaturaFinal | string | <span class="badge-opt">⚪ Não</span> | Data correspondente ao registro |
+| codigoUnidadeGerenciadora | string | <span class="badge-opt">⚪ Não</span> | Código da UASG responsável pelo gerenciamento da ata de registro de preços |
+| codigoModalidadeCompra | string | <span class="badge-opt">⚪ Não</span> | Código numérico da modalidade da compra originária |
+| numeroAtaRegistroPreco | string | <span class="badge-opt">⚪ Não</span> | Número da ata de registro de preços no formato sequencial/ano |
+| dataVigenciaInicialMin | string | <span class="badge-req">🔴 Sim</span> | Limite inferior da data de início de vigência para filtro da consulta |
+| dataVigenciaInicialMax | string | <span class="badge-req">🔴 Sim</span> | Limite superior da data de início de vigência para filtro da consulta |
+| dataAssinaturaInicial | string | <span class="badge-opt">⚪ Não</span> | Data inicial do período de assinatura para filtro da consulta |
+| dataAssinaturaFinal | string | <span class="badge-opt">⚪ Não</span> | Data final do período de assinatura para filtro da consulta |
 
 **Dados de Retorno:**
 
 | Campo | Tipo | Descrição |
 |---|---|---|
-| resultado | Texto/Número | Valor do campo Resultado |
-| numeroAtaRegistroPreco | Texto/Número | Valor do campo Numero ata registro preco |
-| codigoUnidadeGerenciadora | Texto/Número | Código do registro associado |
-| nomeUnidadeGerenciadora | Texto/Número | Valor do campo Nome unidade gerenciadora |
+| resultado | Texto/Número | Lista de registros retornados na página atual da consulta |
+| numeroAtaRegistroPreco | Texto/Número | Número da ata de registro de preços no formato sequencial/ano |
+| codigoUnidadeGerenciadora | Texto/Número | Código da UASG responsável pelo gerenciamento da ata de registro de preços |
+| nomeUnidadeGerenciadora | Texto/Número | Nome da UASG gerenciadora responsável pela ata de registro de preços |
 | codigoOrgao | Texto/Número | Código do órgão |
 | nomeOrgao | Texto/Número | Nome do órgão |
-| linkAtaPNCP | Texto/Número | Valor do campo Link ata p n c p |
-| linkCompraPNCP | Texto/Número | Valor do campo Link compra p n c p |
-| numeroCompra | Texto/Número | Valor do campo Numero compra |
-| anoCompra | Texto/Número | Valor do campo Ano compra |
-| codigoModalidadeCompra | Texto/Número | Código do registro associado |
-| nomeModalidadeCompra | Texto/Número | Valor do campo Nome modalidade compra |
-| dataAssinatura | Texto/Número | Data correspondente ao registro |
-| dataVigenciaInicial | Texto/Número | Data correspondente ao registro |
-| dataVigenciaFinal | Texto/Número | Data correspondente ao registro |
-| valorTotal | Texto/Número | Valor do campo Valor total |
+| linkAtaPNCP | Texto/Número | URL de acesso direto à página da ata de registro de preços no Portal PNCP |
+| linkCompraPNCP | Texto/Número | URL de acesso direto à contratação originária no Portal PNCP |
+| numeroCompra | Texto/Número | Número sequencial da compra ou contratação no ano |
+| anoCompra | Texto/Número | Ano de abertura do processo de compra ou licitação |
+| codigoModalidadeCompra | Texto/Número | Código numérico da modalidade da compra originária |
+| nomeModalidadeCompra | Texto/Número | Nome da modalidade de contratação que deu origem à ata ou contrato |
+| dataAssinatura | Texto/Número | Data de assinatura da ata de registro de preços ou do instrumento contratual |
+| dataVigenciaInicial | Texto/Número | Data de início da vigência da ata de registro de preços ou do contrato |
+| dataVigenciaFinal | Texto/Número | Data de término da vigência da ata de registro de preços ou do contrato |
+| valorTotal | Texto/Número | Valor financeiro total do item (quantidade multiplicada pelo valor unitário) |
 | statusAta | Texto/Número | Status do registro. 0 – False/Inativo; 1 – True/Ativo |
-| objeto | Texto/Número | Valor do campo Objeto |
-| quantidadeItens | Texto/Número | Valor do campo Quantidade itens |
+| objeto | Texto/Número | Descrição do objeto da contratação, ata ou contrato |
+| quantidadeItens | Texto/Número | Quantidade total de itens vinculados ao registro |
 | dataHoraAtualizacao | Texto/Número | Data e hora da última atualização do registro |
-| dataHoraInclusao | Texto/Número | Data correspondente ao registro |
-| dataHoraExclusao | Texto/Número | Data correspondente ao registro |
-| ataExcluido | Texto/Número | Valor do campo Ata excluido |
-| numeroControlePncpAta | Texto/Número | Valor do campo Numero controle pncp ata |
-| numeroControlePncpCompra | Texto/Número | Valor do campo Numero controle pncp compra |
+| dataHoraInclusao | Texto/Número | Data e hora de inclusão inicial do registro na base de dados |
+| dataHoraExclusao | Texto/Número | Data e hora em que o registro foi marcado como excluído no sistema |
+| ataExcluido | Texto/Número | Indica se o registro da ata de registro de preços foi excluído |
+| numeroControlePncpAta | Texto/Número | Número de controle único da ata de registro de preços no PNCP |
+| numeroControlePncpCompra | Texto/Número | Número de controle único da contratação originária no PNCP |
 | idCompra | Texto/Número | Código identificador único da compra |
 | totalRegistros | Texto/Número | Total de registros encontrados |
 | totalPaginas | Texto/Número | Total de páginas disponíveis |
@@ -3751,8 +3773,8 @@ curl -X 'GET' \
 
 | Campo | Tipo | Obrigatório | Descrição |
 |---|---|---|---|
-| numeroControlePncpAta | string | <span class="badge-req">🔴 Sim</span> | Valor do campo Numero controle pncp ata |
-| dataAtualizacao | string | <span class="badge-opt">⚪ Não</span> | Data correspondente ao registro |
+| numeroControlePncpAta | string | <span class="badge-req">🔴 Sim</span> | Número de controle único da ata de registro de preços no PNCP |
+| dataAtualizacao | string | <span class="badge-opt">⚪ Não</span> | Data da última atualização cadastral do registro |
 
 <a href="#sumario">⬆️ Voltar ao sumário</a>
 
@@ -3777,43 +3799,43 @@ curl -X 'GET' \
 |---|---|---|---|
 | pagina | integer | <span class="badge-opt">⚪ Não</span> | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
 | tamanhoPagina | integer | <span class="badge-opt">⚪ Não</span> | Ajustar o tamanho de registros por página (limite máx. de 500 registros por página). (Default: 10) |
-| codigoUnidadeGerenciadora | string | <span class="badge-opt">⚪ Não</span> | Código do registro associado |
-| codigoModalidadeCompra | string | <span class="badge-opt">⚪ Não</span> | Código do registro associado |
-| numeroAtaRegistroPreco | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Numero ata registro preco |
-| dataVigenciaFinalMin | string | <span class="badge-req">🔴 Sim</span> | Data correspondente ao registro |
-| dataVigenciaFinalMax | string | <span class="badge-req">🔴 Sim</span> | Data correspondente ao registro |
-| dataAssinaturaInicial | string | <span class="badge-opt">⚪ Não</span> | Data correspondente ao registro |
-| dataAssinaturaFinal | string | <span class="badge-opt">⚪ Não</span> | Data correspondente ao registro |
+| codigoUnidadeGerenciadora | string | <span class="badge-opt">⚪ Não</span> | Código da UASG responsável pelo gerenciamento da ata de registro de preços |
+| codigoModalidadeCompra | string | <span class="badge-opt">⚪ Não</span> | Código numérico da modalidade da compra originária |
+| numeroAtaRegistroPreco | string | <span class="badge-opt">⚪ Não</span> | Número da ata de registro de preços no formato sequencial/ano |
+| dataVigenciaFinalMin | string | <span class="badge-req">🔴 Sim</span> | Limite inferior da data de fim de vigência para filtro da consulta |
+| dataVigenciaFinalMax | string | <span class="badge-req">🔴 Sim</span> | Limite superior da data de fim de vigência para filtro da consulta |
+| dataAssinaturaInicial | string | <span class="badge-opt">⚪ Não</span> | Data inicial do período de assinatura para filtro da consulta |
+| dataAssinaturaFinal | string | <span class="badge-opt">⚪ Não</span> | Data final do período de assinatura para filtro da consulta |
 
 **Dados de Retorno:**
 
 | Campo | Tipo | Descrição |
 |---|---|---|
-| resultado | Texto/Número | Valor do campo Resultado |
-| numeroAtaRegistroPreco | Texto/Número | Valor do campo Numero ata registro preco |
-| codigoUnidadeGerenciadora | Texto/Número | Código do registro associado |
-| nomeUnidadeGerenciadora | Texto/Número | Valor do campo Nome unidade gerenciadora |
+| resultado | Texto/Número | Lista de registros retornados na página atual da consulta |
+| numeroAtaRegistroPreco | Texto/Número | Número da ata de registro de preços no formato sequencial/ano |
+| codigoUnidadeGerenciadora | Texto/Número | Código da UASG responsável pelo gerenciamento da ata de registro de preços |
+| nomeUnidadeGerenciadora | Texto/Número | Nome da UASG gerenciadora responsável pela ata de registro de preços |
 | codigoOrgao | Texto/Número | Código do órgão |
 | nomeOrgao | Texto/Número | Nome do órgão |
-| linkAtaPNCP | Texto/Número | Valor do campo Link ata p n c p |
-| linkCompraPNCP | Texto/Número | Valor do campo Link compra p n c p |
-| numeroCompra | Texto/Número | Valor do campo Numero compra |
-| anoCompra | Texto/Número | Valor do campo Ano compra |
-| codigoModalidadeCompra | Texto/Número | Código do registro associado |
-| nomeModalidadeCompra | Texto/Número | Valor do campo Nome modalidade compra |
-| dataAssinatura | Texto/Número | Data correspondente ao registro |
-| dataVigenciaInicial | Texto/Número | Data correspondente ao registro |
-| dataVigenciaFinal | Texto/Número | Data correspondente ao registro |
-| valorTotal | Texto/Número | Valor do campo Valor total |
+| linkAtaPNCP | Texto/Número | URL de acesso direto à página da ata de registro de preços no Portal PNCP |
+| linkCompraPNCP | Texto/Número | URL de acesso direto à contratação originária no Portal PNCP |
+| numeroCompra | Texto/Número | Número sequencial da compra ou contratação no ano |
+| anoCompra | Texto/Número | Ano de abertura do processo de compra ou licitação |
+| codigoModalidadeCompra | Texto/Número | Código numérico da modalidade da compra originária |
+| nomeModalidadeCompra | Texto/Número | Nome da modalidade de contratação que deu origem à ata ou contrato |
+| dataAssinatura | Texto/Número | Data de assinatura da ata de registro de preços ou do instrumento contratual |
+| dataVigenciaInicial | Texto/Número | Data de início da vigência da ata de registro de preços ou do contrato |
+| dataVigenciaFinal | Texto/Número | Data de término da vigência da ata de registro de preços ou do contrato |
+| valorTotal | Texto/Número | Valor financeiro total do item (quantidade multiplicada pelo valor unitário) |
 | statusAta | Texto/Número | Status do registro. 0 – False/Inativo; 1 – True/Ativo |
-| objeto | Texto/Número | Valor do campo Objeto |
-| quantidadeItens | Texto/Número | Valor do campo Quantidade itens |
+| objeto | Texto/Número | Descrição do objeto da contratação, ata ou contrato |
+| quantidadeItens | Texto/Número | Quantidade total de itens vinculados ao registro |
 | dataHoraAtualizacao | Texto/Número | Data e hora da última atualização do registro |
-| dataHoraInclusao | Texto/Número | Data correspondente ao registro |
-| dataHoraExclusao | Texto/Número | Data correspondente ao registro |
-| ataExcluido | Texto/Número | Valor do campo Ata excluido |
-| numeroControlePncpAta | Texto/Número | Valor do campo Numero controle pncp ata |
-| numeroControlePncpCompra | Texto/Número | Valor do campo Numero controle pncp compra |
+| dataHoraInclusao | Texto/Número | Data e hora de inclusão inicial do registro na base de dados |
+| dataHoraExclusao | Texto/Número | Data e hora em que o registro foi marcado como excluído no sistema |
+| ataExcluido | Texto/Número | Indica se o registro da ata de registro de preços foi excluído |
+| numeroControlePncpAta | Texto/Número | Número de controle único da ata de registro de preços no PNCP |
+| numeroControlePncpCompra | Texto/Número | Número de controle único da contratação originária no PNCP |
 | idCompra | Texto/Número | Código identificador único da compra |
 | totalRegistros | Texto/Número | Total de registros encontrados |
 | totalPaginas | Texto/Número | Total de páginas disponíveis |
@@ -3880,56 +3902,56 @@ curl -X 'GET' \
 |---|---|---|---|
 | pagina | integer | <span class="badge-opt">⚪ Não</span> | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
 | tamanhoPagina | integer | <span class="badge-opt">⚪ Não</span> | Ajustar o tamanho de registros por página (limite máx. de 500 registros por página). (Default: 10) |
-| codigoUnidadeGerenciadora | integer | <span class="badge-opt">⚪ Não</span> | Código do registro associado |
-| codigoModalidadeCompra | string | <span class="badge-opt">⚪ Não</span> | Código do registro associado |
-| dataVigenciaInicialMin | string | <span class="badge-req">🔴 Sim</span> | Data correspondente ao registro |
-| dataVigenciaInicialMax | string | <span class="badge-req">🔴 Sim</span> | Data correspondente ao registro |
-| dataAssinaturaInicial | string | <span class="badge-opt">⚪ Não</span> | Data correspondente ao registro |
-| dataAssinaturaFinal | string | <span class="badge-opt">⚪ Não</span> | Data correspondente ao registro |
-| numeroItem | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Numero item |
+| codigoUnidadeGerenciadora | integer | <span class="badge-opt">⚪ Não</span> | Código da UASG responsável pelo gerenciamento da ata de registro de preços |
+| codigoModalidadeCompra | string | <span class="badge-opt">⚪ Não</span> | Código numérico da modalidade da compra originária |
+| dataVigenciaInicialMin | string | <span class="badge-req">🔴 Sim</span> | Limite inferior da data de início de vigência para filtro da consulta |
+| dataVigenciaInicialMax | string | <span class="badge-req">🔴 Sim</span> | Limite superior da data de início de vigência para filtro da consulta |
+| dataAssinaturaInicial | string | <span class="badge-opt">⚪ Não</span> | Data inicial do período de assinatura para filtro da consulta |
+| dataAssinaturaFinal | string | <span class="badge-opt">⚪ Não</span> | Data final do período de assinatura para filtro da consulta |
+| numeroItem | string | <span class="badge-opt">⚪ Não</span> | Número sequencial de identificação do item no processo |
 | codigoItem | integer | <span class="badge-opt">⚪ Não</span> | Código do item do material/serviço |
-| tipoItem | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Tipo item |
+| tipoItem | string | <span class="badge-opt">⚪ Não</span> | Classificação do tipo do item no contrato (Material ou Serviço) |
 | niFornecedor | string | <span class="badge-opt">⚪ Não</span> | Número de identificação do fornecedor (CPF/CNPJ/Estrangeiro) |
 | codigoPdm | integer | <span class="badge-opt">⚪ Não</span> | Código do Produto Descritivo Básico (PDM) |
-| numeroCompra | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Numero compra |
+| numeroCompra | string | <span class="badge-opt">⚪ Não</span> | Número sequencial da compra ou contratação no ano |
 
 **Dados de Retorno:**
 
 | Campo | Tipo | Descrição |
 |---|---|---|
-| resultado | Texto/Número | Valor do campo Resultado |
-| numeroAtaRegistroPreco | Texto/Número | Valor do campo Numero ata registro preco |
-| codigoUnidadeGerenciadora | Texto/Número | Código do registro associado |
-| numeroCompra | Texto/Número | Valor do campo Numero compra |
-| anoCompra | Texto/Número | Valor do campo Ano compra |
-| codigoModalidadeCompra | Texto/Número | Código do registro associado |
-| dataAssinatura | Texto/Número | Data correspondente ao registro |
-| dataVigenciaInicial | Texto/Número | Data correspondente ao registro |
-| dataVigenciaFinal | Texto/Número | Data correspondente ao registro |
-| numeroItem | Texto/Número | Valor do campo Numero item |
+| resultado | Texto/Número | Lista de registros retornados na página atual da consulta |
+| numeroAtaRegistroPreco | Texto/Número | Número da ata de registro de preços no formato sequencial/ano |
+| codigoUnidadeGerenciadora | Texto/Número | Código da UASG responsável pelo gerenciamento da ata de registro de preços |
+| numeroCompra | Texto/Número | Número sequencial da compra ou contratação no ano |
+| anoCompra | Texto/Número | Ano de abertura do processo de compra ou licitação |
+| codigoModalidadeCompra | Texto/Número | Código numérico da modalidade da compra originária |
+| dataAssinatura | Texto/Número | Data de assinatura da ata de registro de preços ou do instrumento contratual |
+| dataVigenciaInicial | Texto/Número | Data de início da vigência da ata de registro de preços ou do contrato |
+| dataVigenciaFinal | Texto/Número | Data de término da vigência da ata de registro de preços ou do contrato |
+| numeroItem | Texto/Número | Número sequencial de identificação do item no processo |
 | codigoItem | Texto/Número | Código do item do material/serviço |
 | descricaoItem | Texto/Número | Descrição do item |
-| tipoItem | Texto/Número | Valor do campo Tipo item |
-| quantidadeHomologadaItem | Texto/Número | Valor do campo Quantidade homologada item |
-| classificacaoFornecedor | Texto/Número | Valor do campo Classificacao fornecedor |
+| tipoItem | Texto/Número | Classificação do tipo do item no contrato (Material ou Serviço) |
+| quantidadeHomologadaItem | Texto/Número | Quantidade total homologada para o item na contratação |
+| classificacaoFornecedor | Texto/Número | Posição de classificação do fornecedor no resultado do item ou ata |
 | niFornecedor | Texto/Número | Número de identificação do fornecedor (CPF/CNPJ/Estrangeiro) |
-| nomeRazaoSocialFornecedor | Texto/Número | Valor do campo Nome razao social fornecedor |
-| quantidadeHomologadaVencedor | Texto/Número | Valor do campo Quantidade homologada vencedor |
-| valorUnitario | Texto/Número | Valor do campo Valor unitario |
-| valorTotal | Texto/Número | Valor do campo Valor total |
-| maximoAdesao | Texto/Número | Valor do campo Maximo adesao |
-| nomeUnidadeGerenciadora | Texto/Número | Valor do campo Nome unidade gerenciadora |
-| nomeModalidadeCompra | Texto/Número | Valor do campo Nome modalidade compra |
+| nomeRazaoSocialFornecedor | Texto/Número | Nome empresarial (razão social) ou nome completo do fornecedor |
+| quantidadeHomologadaVencedor | Texto/Número | Quantidade total adjudicada e homologada ao fornecedor vencedor |
+| valorUnitario | Texto/Número | Valor unitário praticado ou contratado para o item (em R$) |
+| valorTotal | Texto/Número | Valor financeiro total do item (quantidade multiplicada pelo valor unitário) |
+| maximoAdesao | Texto/Número | Quantidade máxima total permitida para adesões (caronas) ao item da ata |
+| nomeUnidadeGerenciadora | Texto/Número | Nome da UASG gerenciadora responsável pela ata de registro de preços |
+| nomeModalidadeCompra | Texto/Número | Nome da modalidade de contratação que deu origem à ata ou contrato |
 | idCompra | Texto/Número | Código identificador único da compra |
-| numeroControlePncpCompra | Texto/Número | Valor do campo Numero controle pncp compra |
-| dataHoraInclusao | Texto/Número | Data correspondente ao registro |
+| numeroControlePncpCompra | Texto/Número | Número de controle único da contratação originária no PNCP |
+| dataHoraInclusao | Texto/Número | Data e hora de inclusão inicial do registro na base de dados |
 | dataHoraAtualizacao | Texto/Número | Data e hora da última atualização do registro |
-| quantidadeEmpenhada | Texto/Número | Valor do campo Quantidade empenhada |
+| quantidadeEmpenhada | Texto/Número | Quantidade do item já empenhada pelas unidades participantes ou caronas |
 | percentualMaiorDesconto | Texto/Número | Maior percentual de desconto aplicado |
-| situacaoSicaf | Texto/Número | Valor do campo Situacao sicaf |
-| dataHoraExclusao | Texto/Número | Data correspondente ao registro |
-| itemExcluido | Texto/Número | Valor do campo Item excluido |
-| numeroControlePncpAta | Texto/Número | Valor do campo Numero controle pncp ata |
+| situacaoSicaf | Texto/Número | Situação cadastral do fornecedor no Sistema de Cadastramento Unificado de Fornecedores (SICAF) |
+| dataHoraExclusao | Texto/Número | Data e hora em que o registro foi marcado como excluído no sistema |
+| itemExcluido | Texto/Número | Indica se o item da contratação foi excluído no sistema |
+| numeroControlePncpAta | Texto/Número | Número de controle único da ata de registro de preços no PNCP |
 | codigoPdm | Texto/Número | Código do Produto Descritivo Básico (PDM) |
 | nomePdm | Texto/Número | Nome do PDM |
 | totalRegistros | Texto/Número | Total de registros encontrados |
@@ -4006,8 +4028,8 @@ curl -X 'GET' \
 
 | Campo | Tipo | Obrigatório | Descrição |
 |---|---|---|---|
-| numeroControlePncpAta | string | <span class="badge-req">🔴 Sim</span> | Valor do campo Numero controle pncp ata |
-| dataAtualizacao | string | <span class="badge-opt">⚪ Não</span> | Data correspondente ao registro |
+| numeroControlePncpAta | string | <span class="badge-req">🔴 Sim</span> | Número de controle único da ata de registro de preços no PNCP |
+| dataAtualizacao | string | <span class="badge-opt">⚪ Não</span> | Data da última atualização cadastral do registro |
 
 <a href="#sumario">⬆️ Voltar ao sumário</a>
 
@@ -4032,34 +4054,34 @@ curl -X 'GET' \
 |---|---|---|---|
 | pagina | integer | <span class="badge-opt">⚪ Não</span> | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
 | tamanhoPagina | integer | <span class="badge-opt">⚪ Não</span> | Ajustar o tamanho de registros por página (limite máx. de 500 registros por página). (Default: 10) |
-| numeroAta | string | <span class="badge-req">🔴 Sim</span> | Valor do campo Numero ata |
-| unidadeGerenciadora | string | <span class="badge-req">🔴 Sim</span> | Valor do campo Unidade gerenciadora |
-| numeroItem | string | <span class="badge-req">🔴 Sim</span> | Valor do campo Numero item |
-| dataAtualizacao | string | <span class="badge-opt">⚪ Não</span> | Data correspondente ao registro |
+| numeroAta | string | <span class="badge-req">🔴 Sim</span> | Número identificador da ata de registro de preços |
+| unidadeGerenciadora | string | <span class="badge-req">🔴 Sim</span> | Identificação da unidade gerenciadora da ata de registro de preços |
+| numeroItem | string | <span class="badge-req">🔴 Sim</span> | Número sequencial de identificação do item no processo |
+| dataAtualizacao | string | <span class="badge-opt">⚪ Não</span> | Data da última atualização cadastral do registro |
 
 **Dados de Retorno:**
 
 | Campo | Tipo | Descrição |
 |---|---|---|
-| resultado | Texto/Número | Valor do campo Resultado |
-| numeroAta | Texto/Número | Valor do campo Numero ata |
-| unidadeGerenciadora | Texto/Número | Valor do campo Unidade gerenciadora |
-| numeroItem | Texto/Número | Valor do campo Numero item |
+| resultado | Texto/Número | Lista de registros retornados na página atual da consulta |
+| numeroAta | Texto/Número | Número identificador da ata de registro de preços |
+| unidadeGerenciadora | Texto/Número | Identificação da unidade gerenciadora da ata de registro de preços |
+| numeroItem | Texto/Número | Número sequencial de identificação do item no processo |
 | codigoPdm | Texto/Número | Código do Produto Descritivo Básico (PDM) |
 | descricaoItem | Texto/Número | Descrição do item |
-| fornecedor | Texto/Número | Valor do campo Fornecedor |
-| quantidadeRegistrada | Texto/Número | Valor do campo Quantidade registrada |
-| saldoAdesoes | Texto/Número | Valor do campo Saldo adesoes |
-| saldoRemanejamentoEmpenho | Texto/Número | Valor do campo Saldo remanejamento empenho |
-| qtdLimiteAdesao | Texto/Número | Valor do campo Qtd limite adesao |
-| qtdLimiteInformadoCompra | Texto/Número | Valor do campo Qtd limite informado compra |
-| aceitaAdesao | Texto/Número | Valor do campo Aceita adesao |
-| dataHoraInclusao | Texto/Número | Data correspondente ao registro |
+| fornecedor | Texto/Número | Identificação ou razão social do fornecedor contratado |
+| quantidadeRegistrada | Texto/Número | Quantidade originalmente registrada para o item na ata de registro de preços |
+| saldoAdesoes | Texto/Número | Saldo remanescente disponível para novas adesões (caronas) ao item da ata |
+| saldoRemanejamentoEmpenho | Texto/Número | Saldo disponível para remanejamento de quantitativos entre unidades da ata |
+| qtdLimiteAdesao | Texto/Número | Quantidade limite disponível para adesão ao item da ata de registro de preços |
+| qtdLimiteInformadoCompra | Texto/Número | Quantidade limite de adesão informada no instrumento convocatório da compra |
+| aceitaAdesao | Texto/Número | Indica se a ata de registro de preços permite adesão por órgãos não participantes (carona) |
+| dataHoraInclusao | Texto/Número | Data e hora de inclusão inicial do registro na base de dados |
 | dataHoraAtualizacao | Texto/Número | Data e hora da última atualização do registro |
-| dataHoraExclusao | Texto/Número | Data correspondente ao registro |
-| codigoUnidade | Texto/Número | Código do registro associado |
-| nomeUnidade | Texto/Número | Valor do campo Nome unidade |
-| tipoUnidade | Texto/Número | Valor do campo Tipo unidade |
+| dataHoraExclusao | Texto/Número | Data e hora em que o registro foi marcado como excluído no sistema |
+| codigoUnidade | Texto/Número | Código da unidade administrativa participante ou requisitante |
+| nomeUnidade | Texto/Número | Nome da unidade administrativa participante ou gerenciadora |
+| tipoUnidade | Texto/Número | Papel da unidade na ata de registro de preços (Gerenciadora, Participante ou Não Participante/Carona) |
 | totalRegistros | Texto/Número | Total de registros encontrados |
 | totalPaginas | Texto/Número | Total de páginas disponíveis |
 | paginasRestantes | Texto/Número | Número de páginas restantes |
@@ -4118,22 +4140,22 @@ curl -X 'GET' \
 |---|---|---|---|
 | pagina | integer | <span class="badge-opt">⚪ Não</span> | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
 | tamanhoPagina | integer | <span class="badge-opt">⚪ Não</span> | Ajustar o tamanho de registros por página (limite máx. de 500 registros por página). (Default: 10) |
-| numeroAta | string | <span class="badge-req">🔴 Sim</span> | Valor do campo Numero ata |
-| unidadeGerenciadora | string | <span class="badge-req">🔴 Sim</span> | Valor do campo Unidade gerenciadora |
-| dataAtualizacao | string | <span class="badge-opt">⚪ Não</span> | Data correspondente ao registro |
+| numeroAta | string | <span class="badge-req">🔴 Sim</span> | Número identificador da ata de registro de preços |
+| unidadeGerenciadora | string | <span class="badge-req">🔴 Sim</span> | Identificação da unidade gerenciadora da ata de registro de preços |
+| dataAtualizacao | string | <span class="badge-opt">⚪ Não</span> | Data da última atualização cadastral do registro |
 
 **Dados de Retorno:**
 
 | Campo | Tipo | Descrição |
 |---|---|---|
-| resultado | Texto/Número | Valor do campo Resultado |
-| numeroItem | Texto/Número | Valor do campo Numero item |
-| unidade | Texto/Número | Valor do campo Unidade |
+| resultado | Texto/Número | Lista de registros retornados na página atual da consulta |
+| numeroItem | Texto/Número | Número sequencial de identificação do item no processo |
+| unidade | Texto/Número | Unidade de medida ou fornecimento do item |
 | tipo | Texto/Número | Tipo do item do catálogo a consultar (ex: material ou serviço) |
-| quantidadeRegistrada | Texto/Número | Valor do campo Quantidade registrada |
-| quantidadeEmpenhada | Texto/Número | Valor do campo Quantidade empenhada |
-| saldoEmpenho | Texto/Número | Valor do campo Saldo empenho |
-| dataHoraInclusao | Texto/Número | Data correspondente ao registro |
+| quantidadeRegistrada | Texto/Número | Quantidade originalmente registrada para o item na ata de registro de preços |
+| quantidadeEmpenhada | Texto/Número | Quantidade do item já empenhada pelas unidades participantes ou caronas |
+| saldoEmpenho | Texto/Número | Saldo quantitativo disponível para emissão de novos empenhos na unidade |
+| dataHoraInclusao | Texto/Número | Data e hora de inclusão inicial do registro na base de dados |
 | dataHoraAtualizacao | Texto/Número | Data e hora da última atualização do registro |
 | totalRegistros | Texto/Número | Total de registros encontrados |
 | totalPaginas | Texto/Número | Total de páginas disponíveis |
@@ -4183,22 +4205,22 @@ curl -X 'GET' \
 |---|---|---|---|
 | pagina | integer | <span class="badge-opt">⚪ Não</span> | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
 | tamanhoPagina | integer | <span class="badge-opt">⚪ Não</span> | Ajustar o tamanho de registros por página (limite máx. de 500 registros por página). (Default: 10) |
-| numeroAta | string | <span class="badge-req">🔴 Sim</span> | Valor do campo Numero ata |
-| unidadeGerenciadora | string | <span class="badge-req">🔴 Sim</span> | Valor do campo Unidade gerenciadora |
-| numeroItem | string | <span class="badge-req">🔴 Sim</span> | Valor do campo Numero item |
-| unidade | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Unidade |
-| dataAtualizacao | string | <span class="badge-opt">⚪ Não</span> | Data correspondente ao registro |
+| numeroAta | string | <span class="badge-req">🔴 Sim</span> | Número identificador da ata de registro de preços |
+| unidadeGerenciadora | string | <span class="badge-req">🔴 Sim</span> | Identificação da unidade gerenciadora da ata de registro de preços |
+| numeroItem | string | <span class="badge-req">🔴 Sim</span> | Número sequencial de identificação do item no processo |
+| unidade | string | <span class="badge-opt">⚪ Não</span> | Unidade de medida ou fornecimento do item |
+| dataAtualizacao | string | <span class="badge-opt">⚪ Não</span> | Data da última atualização cadastral do registro |
 
 **Dados de Retorno:**
 
 | Campo | Tipo | Descrição |
 |---|---|---|
-| resultado | Texto/Número | Valor do campo Resultado |
-| numeroAta | Texto/Número | Valor do campo Numero ata |
-| unidadeGerenciadora | Texto/Número | Valor do campo Unidade gerenciadora |
-| unidadeNaoParticipante | Texto/Número | Valor do campo Unidade nao participante |
-| dataAprovacaoAnalise | Texto/Número | Data correspondente ao registro |
-| quantidadeAprovadaAdesao | Texto/Número | Valor do campo Quantidade aprovada adesao |
+| resultado | Texto/Número | Lista de registros retornados na página atual da consulta |
+| numeroAta | Texto/Número | Número identificador da ata de registro de preços |
+| unidadeGerenciadora | Texto/Número | Identificação da unidade gerenciadora da ata de registro de preços |
+| unidadeNaoParticipante | Texto/Número | Indica se a unidade atua como órgão não participante (carona) na ata |
+| dataAprovacaoAnalise | Texto/Número | Data de aprovação da análise de viabilidade ou planejamento da demanda |
+| quantidadeAprovadaAdesao | Texto/Número | Quantidade total do item já aprovada em solicitações de adesão (carona) |
 | totalRegistros | Texto/Número | Total de registros encontrados |
 | totalPaginas | Texto/Número | Total de páginas disponíveis |
 | paginasRestantes | Texto/Número | Número de páginas restantes |
@@ -4251,60 +4273,60 @@ curl -X 'GET' \
 | pagina | integer | <span class="badge-opt">⚪ Não</span> | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
 | tamanhoPagina | integer | <span class="badge-opt">⚪ Não</span> | Ajustar o tamanho de registros por página (limite máx. de 500 registros por página). (Default: 10) |
 | codigoOrgao | string | <span class="badge-req">🔴 Sim</span> | Código do órgão |
-| codigoUnidadeGestora | string | <span class="badge-opt">⚪ Não</span> | Código do registro associado |
-| codigoUnidadeGestoraOrigemContrato | string | <span class="badge-opt">⚪ Não</span> | Código do registro associado |
-| codigoUnidadeRealizadoraCompra | string | <span class="badge-opt">⚪ Não</span> | Código do registro associado |
-| numeroContrato | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Numero contrato |
-| codigoModalidadeCompra | string | <span class="badge-opt">⚪ Não</span> | Código do registro associado |
-| codigoTipo | string | <span class="badge-opt">⚪ Não</span> | Código do registro associado |
-| codigoCategoria | string | <span class="badge-opt">⚪ Não</span> | Código do registro associado |
+| codigoUnidadeGestora | string | <span class="badge-opt">⚪ Não</span> | Código da Unidade Gestora (UG) responsável pela execução e gestão do contrato |
+| codigoUnidadeGestoraOrigemContrato | string | <span class="badge-opt">⚪ Não</span> | Código da Unidade Gestora de origem onde o contrato foi inicialmente firmado |
+| codigoUnidadeRealizadoraCompra | string | <span class="badge-opt">⚪ Não</span> | Código da UASG responsável pela condução da licitação ou compra que originou o contrato |
+| numeroContrato | string | <span class="badge-opt">⚪ Não</span> | Número identificador do contrato administrativo firmado |
+| codigoModalidadeCompra | string | <span class="badge-opt">⚪ Não</span> | Código numérico da modalidade da compra originária |
+| codigoTipo | string | <span class="badge-opt">⚪ Não</span> | Código identificador do tipo de termo ou instrumento contratual |
+| codigoCategoria | string | <span class="badge-opt">⚪ Não</span> | Código da categoria do contrato ou da contratação |
 | niFornecedor | string | <span class="badge-opt">⚪ Não</span> | Número de identificação do fornecedor (CPF/CNPJ/Estrangeiro) |
-| dataVigenciaInicialMin | string | <span class="badge-req">🔴 Sim</span> | Data correspondente ao registro |
-| dataVigenciaInicialMax | string | <span class="badge-req">🔴 Sim</span> | Data correspondente ao registro |
+| dataVigenciaInicialMin | string | <span class="badge-req">🔴 Sim</span> | Limite inferior da data de início de vigência para filtro da consulta |
+| dataVigenciaInicialMax | string | <span class="badge-req">🔴 Sim</span> | Limite superior da data de início de vigência para filtro da consulta |
 
 **Dados de Retorno:**
 
 | Campo | Tipo | Descrição |
 |---|---|---|
-| resultado | Texto/Número | Valor do campo Resultado |
+| resultado | Texto/Número | Lista de registros retornados na página atual da consulta |
 | codigoOrgao | Texto/Número | Código do órgão |
 | nomeOrgao | Texto/Número | Nome do órgão |
-| codigoUnidadeGestora | Texto/Número | Código do registro associado |
-| nomeUnidadeGestora | Texto/Número | Valor do campo Nome unidade gestora |
-| codigoUnidadeGestoraOrigemContrato | Texto/Número | Código do registro associado |
-| nomeUnidadeGestoraOrigemContrato | Texto/Número | Valor do campo Nome unidade gestora origem contrato |
-| receitaDespesa | Texto/Número | Valor do campo Receita despesa |
-| numeroContrato | Texto/Número | Valor do campo Numero contrato |
-| codigoUnidadeRealizadoraCompra | Texto/Número | Código do registro associado |
-| nomeUnidadeRealizadoraCompra | Texto/Número | Valor do campo Nome unidade realizadora compra |
-| numeroCompra | Texto/Número | Valor do campo Numero compra |
-| codigoModalidadeCompra | Texto/Número | Código do registro associado |
-| nomeModalidadeCompra | Texto/Número | Valor do campo Nome modalidade compra |
-| codigoTipo | Texto/Número | Código do registro associado |
-| nomeTipo | Texto/Número | Valor do campo Nome tipo |
-| codigoCategoria | Texto/Número | Código do registro associado |
-| nomeCategoria | Texto/Número | Valor do campo Nome categoria |
-| codigoSubcategoria | Texto/Número | Código do registro associado |
-| nomeSubcategoria | Texto/Número | Valor do campo Nome subcategoria |
+| codigoUnidadeGestora | Texto/Número | Código da Unidade Gestora (UG) responsável pela execução e gestão do contrato |
+| nomeUnidadeGestora | Texto/Número | Nome da Unidade Gestora (UG) atual responsável pelo contrato |
+| codigoUnidadeGestoraOrigemContrato | Texto/Número | Código da Unidade Gestora de origem onde o contrato foi inicialmente firmado |
+| nomeUnidadeGestoraOrigemContrato | Texto/Número | Nome da Unidade Gestora (UG) que celebrou originalmente o contrato |
+| receitaDespesa | Texto/Número | Classificação da natureza financeira do contrato (Despesa ou Receita) |
+| numeroContrato | Texto/Número | Número identificador do contrato administrativo firmado |
+| codigoUnidadeRealizadoraCompra | Texto/Número | Código da UASG responsável pela condução da licitação ou compra que originou o contrato |
+| nomeUnidadeRealizadoraCompra | Texto/Número | Nome da UASG que realizou o procedimento licitatório da compra |
+| numeroCompra | Texto/Número | Número sequencial da compra ou contratação no ano |
+| codigoModalidadeCompra | Texto/Número | Código numérico da modalidade da compra originária |
+| nomeModalidadeCompra | Texto/Número | Nome da modalidade de contratação que deu origem à ata ou contrato |
+| codigoTipo | Texto/Número | Código identificador do tipo de termo ou instrumento contratual |
+| nomeTipo | Texto/Número | Denominação do tipo de instrumento contratual (Contrato, Termo Aditivo, Empenho etc.) |
+| codigoCategoria | Texto/Número | Código da categoria do contrato ou da contratação |
+| nomeCategoria | Texto/Número | Denominação da categoria do contrato (ex.: Compras, Serviços, Obras, Locação) |
+| codigoSubcategoria | Texto/Número | Código da subcategoria do contrato administrativo |
+| nomeSubcategoria | Texto/Número | Denominação da subcategoria do contrato administrativo |
 | niFornecedor | Texto/Número | Número de identificação do fornecedor (CPF/CNPJ/Estrangeiro) |
-| nomeRazaoSocialFornecedor | Texto/Número | Valor do campo Nome razao social fornecedor |
-| processo | Texto/Número | Valor do campo Processo |
-| objeto | Texto/Número | Valor do campo Objeto |
-| informacoesComplementares | Texto/Número | Valor do campo Informacoes complementares |
-| dataVigenciaInicial | Texto/Número | Data correspondente ao registro |
-| dataVigenciaFinal | Texto/Número | Data correspondente ao registro |
-| valorGlobal | Texto/Número | Valor do campo Valor global |
-| numeroParcelas | Texto/Número | Valor do campo Numero parcelas |
-| valorParcela | Texto/Número | Valor do campo Valor parcela |
-| valorAcumulado | Texto/Número | Valor do campo Valor acumulado |
-| totalDespesasAcessorias | Texto/Número | Valor do campo Total despesas acessorias |
-| dataHoraInclusao | Texto/Número | Data correspondente ao registro |
-| numeroControlePncpContrato | Texto/Número | Valor do campo Numero controle pncp contrato |
-| numeroControlePncpCompra | Texto/Número | Valor do campo Numero controle pncp compra |
+| nomeRazaoSocialFornecedor | Texto/Número | Nome empresarial (razão social) ou nome completo do fornecedor |
+| processo | Texto/Número | Número do processo administrativo de contratação |
+| objeto | Texto/Número | Descrição do objeto da contratação, ata ou contrato |
+| informacoesComplementares | Texto/Número | Observações e informações complementares registradas no contrato |
+| dataVigenciaInicial | Texto/Número | Data de início da vigência da ata de registro de preços ou do contrato |
+| dataVigenciaFinal | Texto/Número | Data de término da vigência da ata de registro de preços ou do contrato |
+| valorGlobal | Texto/Número | Valor global pactuado no instrumento contratual |
+| numeroParcelas | Texto/Número | Quantidade de parcelas previstas no cronograma do contrato |
+| valorParcela | Texto/Número | Valor financeiro de cada parcela prevista no contrato |
+| valorAcumulado | Texto/Número | Valor financeiro total acumulado do contrato considerando termos aditivos e apostilamentos |
+| totalDespesasAcessorias | Texto/Número | Valor total das despesas acessórias (frete, seguro, impostos) vinculadas à compra |
+| dataHoraInclusao | Texto/Número | Data e hora de inclusão inicial do registro na base de dados |
+| numeroControlePncpContrato | Texto/Número | Número de controle único do contrato administrativo no PNCP |
+| numeroControlePncpCompra | Texto/Número | Número de controle único da contratação originária no PNCP |
 | idCompra | Texto/Número | Código identificador único da compra |
-| dataHoraExclusao | Texto/Número | Data correspondente ao registro |
-| contratoExcluido | Texto/Número | Valor do campo Contrato excluido |
-| unidadesRequisitantes | Texto/Número | Valor do campo Unidades requisitantes |
+| dataHoraExclusao | Texto/Número | Data e hora em que o registro foi marcado como excluído no sistema |
+| contratoExcluido | Texto/Número | Indica se o registro do contrato foi excluído do sistema |
+| unidadesRequisitantes | Texto/Número | Identificação das áreas ou unidades internas requisitantes da demanda |
 | totalRegistros | Texto/Número | Total de registros encontrados |
 | totalPaginas | Texto/Número | Total de páginas disponíveis |
 | paginasRestantes | Texto/Número | Número de páginas restantes |
@@ -4410,60 +4432,60 @@ curl -X 'GET' \
 | pagina | integer | <span class="badge-opt">⚪ Não</span> | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
 | tamanhoPagina | integer | <span class="badge-opt">⚪ Não</span> | Ajustar o tamanho de registros por página (limite máx. de 500 registros por página). (Default: 10) |
 | codigoOrgao | string | <span class="badge-req">🔴 Sim</span> | Código do órgão |
-| codigoUnidadeGestora | string | <span class="badge-opt">⚪ Não</span> | Código do registro associado |
-| codigoUnidadeGestoraOrigemContrato | string | <span class="badge-opt">⚪ Não</span> | Código do registro associado |
-| codigoUnidadeRealizadoraCompra | string | <span class="badge-opt">⚪ Não</span> | Código do registro associado |
-| numeroContrato | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Numero contrato |
-| codigoModalidadeCompra | string | <span class="badge-opt">⚪ Não</span> | Código do registro associado |
-| codigoTipo | string | <span class="badge-opt">⚪ Não</span> | Código do registro associado |
-| codigoCategoria | string | <span class="badge-opt">⚪ Não</span> | Código do registro associado |
+| codigoUnidadeGestora | string | <span class="badge-opt">⚪ Não</span> | Código da Unidade Gestora (UG) responsável pela execução e gestão do contrato |
+| codigoUnidadeGestoraOrigemContrato | string | <span class="badge-opt">⚪ Não</span> | Código da Unidade Gestora de origem onde o contrato foi inicialmente firmado |
+| codigoUnidadeRealizadoraCompra | string | <span class="badge-opt">⚪ Não</span> | Código da UASG responsável pela condução da licitação ou compra que originou o contrato |
+| numeroContrato | string | <span class="badge-opt">⚪ Não</span> | Número identificador do contrato administrativo firmado |
+| codigoModalidadeCompra | string | <span class="badge-opt">⚪ Não</span> | Código numérico da modalidade da compra originária |
+| codigoTipo | string | <span class="badge-opt">⚪ Não</span> | Código identificador do tipo de termo ou instrumento contratual |
+| codigoCategoria | string | <span class="badge-opt">⚪ Não</span> | Código da categoria do contrato ou da contratação |
 | niFornecedor | string | <span class="badge-opt">⚪ Não</span> | Número de identificação do fornecedor (CPF/CNPJ/Estrangeiro) |
-| dataVigenciaFinalMin | string | <span class="badge-req">🔴 Sim</span> | Data correspondente ao registro |
-| dataVigenciaFinalMax | string | <span class="badge-req">🔴 Sim</span> | Data correspondente ao registro |
+| dataVigenciaFinalMin | string | <span class="badge-req">🔴 Sim</span> | Limite inferior da data de fim de vigência para filtro da consulta |
+| dataVigenciaFinalMax | string | <span class="badge-req">🔴 Sim</span> | Limite superior da data de fim de vigência para filtro da consulta |
 
 **Dados de Retorno:**
 
 | Campo | Tipo | Descrição |
 |---|---|---|
-| resultado | Texto/Número | Valor do campo Resultado |
+| resultado | Texto/Número | Lista de registros retornados na página atual da consulta |
 | codigoOrgao | Texto/Número | Código do órgão |
 | nomeOrgao | Texto/Número | Nome do órgão |
-| codigoUnidadeGestora | Texto/Número | Código do registro associado |
-| nomeUnidadeGestora | Texto/Número | Valor do campo Nome unidade gestora |
-| codigoUnidadeGestoraOrigemContrato | Texto/Número | Código do registro associado |
-| nomeUnidadeGestoraOrigemContrato | Texto/Número | Valor do campo Nome unidade gestora origem contrato |
-| receitaDespesa | Texto/Número | Valor do campo Receita despesa |
-| numeroContrato | Texto/Número | Valor do campo Numero contrato |
-| codigoUnidadeRealizadoraCompra | Texto/Número | Código do registro associado |
-| nomeUnidadeRealizadoraCompra | Texto/Número | Valor do campo Nome unidade realizadora compra |
-| numeroCompra | Texto/Número | Valor do campo Numero compra |
-| codigoModalidadeCompra | Texto/Número | Código do registro associado |
-| nomeModalidadeCompra | Texto/Número | Valor do campo Nome modalidade compra |
-| codigoTipo | Texto/Número | Código do registro associado |
-| nomeTipo | Texto/Número | Valor do campo Nome tipo |
-| codigoCategoria | Texto/Número | Código do registro associado |
-| nomeCategoria | Texto/Número | Valor do campo Nome categoria |
-| codigoSubcategoria | Texto/Número | Código do registro associado |
-| nomeSubcategoria | Texto/Número | Valor do campo Nome subcategoria |
+| codigoUnidadeGestora | Texto/Número | Código da Unidade Gestora (UG) responsável pela execução e gestão do contrato |
+| nomeUnidadeGestora | Texto/Número | Nome da Unidade Gestora (UG) atual responsável pelo contrato |
+| codigoUnidadeGestoraOrigemContrato | Texto/Número | Código da Unidade Gestora de origem onde o contrato foi inicialmente firmado |
+| nomeUnidadeGestoraOrigemContrato | Texto/Número | Nome da Unidade Gestora (UG) que celebrou originalmente o contrato |
+| receitaDespesa | Texto/Número | Classificação da natureza financeira do contrato (Despesa ou Receita) |
+| numeroContrato | Texto/Número | Número identificador do contrato administrativo firmado |
+| codigoUnidadeRealizadoraCompra | Texto/Número | Código da UASG responsável pela condução da licitação ou compra que originou o contrato |
+| nomeUnidadeRealizadoraCompra | Texto/Número | Nome da UASG que realizou o procedimento licitatório da compra |
+| numeroCompra | Texto/Número | Número sequencial da compra ou contratação no ano |
+| codigoModalidadeCompra | Texto/Número | Código numérico da modalidade da compra originária |
+| nomeModalidadeCompra | Texto/Número | Nome da modalidade de contratação que deu origem à ata ou contrato |
+| codigoTipo | Texto/Número | Código identificador do tipo de termo ou instrumento contratual |
+| nomeTipo | Texto/Número | Denominação do tipo de instrumento contratual (Contrato, Termo Aditivo, Empenho etc.) |
+| codigoCategoria | Texto/Número | Código da categoria do contrato ou da contratação |
+| nomeCategoria | Texto/Número | Denominação da categoria do contrato (ex.: Compras, Serviços, Obras, Locação) |
+| codigoSubcategoria | Texto/Número | Código da subcategoria do contrato administrativo |
+| nomeSubcategoria | Texto/Número | Denominação da subcategoria do contrato administrativo |
 | niFornecedor | Texto/Número | Número de identificação do fornecedor (CPF/CNPJ/Estrangeiro) |
-| nomeRazaoSocialFornecedor | Texto/Número | Valor do campo Nome razao social fornecedor |
-| processo | Texto/Número | Valor do campo Processo |
-| objeto | Texto/Número | Valor do campo Objeto |
-| informacoesComplementares | Texto/Número | Valor do campo Informacoes complementares |
-| dataVigenciaInicial | Texto/Número | Data correspondente ao registro |
-| dataVigenciaFinal | Texto/Número | Data correspondente ao registro |
-| valorGlobal | Texto/Número | Valor do campo Valor global |
-| numeroParcelas | Texto/Número | Valor do campo Numero parcelas |
-| valorParcela | Texto/Número | Valor do campo Valor parcela |
-| valorAcumulado | Texto/Número | Valor do campo Valor acumulado |
-| totalDespesasAcessorias | Texto/Número | Valor do campo Total despesas acessorias |
-| dataHoraInclusao | Texto/Número | Data correspondente ao registro |
-| numeroControlePncpContrato | Texto/Número | Valor do campo Numero controle pncp contrato |
-| numeroControlePncpCompra | Texto/Número | Valor do campo Numero controle pncp compra |
+| nomeRazaoSocialFornecedor | Texto/Número | Nome empresarial (razão social) ou nome completo do fornecedor |
+| processo | Texto/Número | Número do processo administrativo de contratação |
+| objeto | Texto/Número | Descrição do objeto da contratação, ata ou contrato |
+| informacoesComplementares | Texto/Número | Observações e informações complementares registradas no contrato |
+| dataVigenciaInicial | Texto/Número | Data de início da vigência da ata de registro de preços ou do contrato |
+| dataVigenciaFinal | Texto/Número | Data de término da vigência da ata de registro de preços ou do contrato |
+| valorGlobal | Texto/Número | Valor global pactuado no instrumento contratual |
+| numeroParcelas | Texto/Número | Quantidade de parcelas previstas no cronograma do contrato |
+| valorParcela | Texto/Número | Valor financeiro de cada parcela prevista no contrato |
+| valorAcumulado | Texto/Número | Valor financeiro total acumulado do contrato considerando termos aditivos e apostilamentos |
+| totalDespesasAcessorias | Texto/Número | Valor total das despesas acessórias (frete, seguro, impostos) vinculadas à compra |
+| dataHoraInclusao | Texto/Número | Data e hora de inclusão inicial do registro na base de dados |
+| numeroControlePncpContrato | Texto/Número | Número de controle único do contrato administrativo no PNCP |
+| numeroControlePncpCompra | Texto/Número | Número de controle único da contratação originária no PNCP |
 | idCompra | Texto/Número | Código identificador único da compra |
-| dataHoraExclusao | Texto/Número | Data correspondente ao registro |
-| contratoExcluido | Texto/Número | Valor do campo Contrato excluido |
-| unidadesRequisitantes | Texto/Número | Valor do campo Unidades requisitantes |
+| dataHoraExclusao | Texto/Número | Data e hora em que o registro foi marcado como excluído no sistema |
+| contratoExcluido | Texto/Número | Indica se o registro do contrato foi excluído do sistema |
+| unidadesRequisitantes | Texto/Número | Identificação das áreas ou unidades internas requisitantes da demanda |
 | totalRegistros | Texto/Número | Total de registros encontrados |
 | totalPaginas | Texto/Número | Total de páginas disponíveis |
 | paginasRestantes | Texto/Número | Número de páginas restantes |
@@ -4543,16 +4565,16 @@ curl -X 'GET' \
 | pagina | integer | <span class="badge-opt">⚪ Não</span> | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
 | tamanhoPagina | integer | <span class="badge-opt">⚪ Não</span> | Ajustar o tamanho de registros por página (limite máx. de 500 registros por página). (Default: 10) |
 | codigoOrgao | string | <span class="badge-req">🔴 Sim</span> | Código do órgão |
-| codigoUnidadeGestora | string | <span class="badge-opt">⚪ Não</span> | Código do registro associado |
-| codigoUnidadeGestoraOrigemContrato | string | <span class="badge-opt">⚪ Não</span> | Código do registro associado |
-| codigoUnidadeRealizadoraCompra | string | <span class="badge-opt">⚪ Não</span> | Código do registro associado |
-| numeroContrato | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Numero contrato |
-| codigoModalidadeCompra | string | <span class="badge-opt">⚪ Não</span> | Código do registro associado |
-| tipoItem | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Tipo item |
+| codigoUnidadeGestora | string | <span class="badge-opt">⚪ Não</span> | Código da Unidade Gestora (UG) responsável pela execução e gestão do contrato |
+| codigoUnidadeGestoraOrigemContrato | string | <span class="badge-opt">⚪ Não</span> | Código da Unidade Gestora de origem onde o contrato foi inicialmente firmado |
+| codigoUnidadeRealizadoraCompra | string | <span class="badge-opt">⚪ Não</span> | Código da UASG responsável pela condução da licitação ou compra que originou o contrato |
+| numeroContrato | string | <span class="badge-opt">⚪ Não</span> | Número identificador do contrato administrativo firmado |
+| codigoModalidadeCompra | string | <span class="badge-opt">⚪ Não</span> | Código numérico da modalidade da compra originária |
+| tipoItem | string | <span class="badge-opt">⚪ Não</span> | Classificação do tipo do item no contrato (Material ou Serviço) |
 | codigoItem | integer | <span class="badge-opt">⚪ Não</span> | Código do item do material/serviço |
 | niFornecedor | string | <span class="badge-opt">⚪ Não</span> | Número de identificação do fornecedor (CPF/CNPJ/Estrangeiro) |
-| dataVigenciaInicialMin | string | <span class="badge-req">🔴 Sim</span> | Data correspondente ao registro |
-| dataVigenciaInicialMax | string | <span class="badge-req">🔴 Sim</span> | Data correspondente ao registro |
+| dataVigenciaInicialMin | string | <span class="badge-req">🔴 Sim</span> | Limite inferior da data de início de vigência para filtro da consulta |
+| dataVigenciaInicialMax | string | <span class="badge-req">🔴 Sim</span> | Limite superior da data de início de vigência para filtro da consulta |
 | poder | string | <span class="badge-opt">⚪ Não</span> | Poder da federação. E – Executivo; L – Legislativo; J – Judiciário |
 | esfera | string | <span class="badge-opt">⚪ Não</span> | Esfera governamental. F – Federal; E – Estadual; M – Municipal |
 | idCompra | string | <span class="badge-opt">⚪ Não</span> | Código identificador único da compra |
@@ -4561,42 +4583,42 @@ curl -X 'GET' \
 
 | Campo | Tipo | Descrição |
 |---|---|---|
-| resultado | Texto/Número | Valor do campo Resultado |
+| resultado | Texto/Número | Lista de registros retornados na página atual da consulta |
 | codigoOrgao | Texto/Número | Código do órgão |
-| codigoUnidadeGestora | Texto/Número | Código do registro associado |
-| codigoUnidadeGestoraOrigemContrato | Texto/Número | Código do registro associado |
-| codigoUnidadeRealizadoraCompra | Texto/Número | Código do registro associado |
-| codigoModalidadeCompra | Texto/Número | Código do registro associado |
-| numeroContrato | Texto/Número | Valor do campo Numero contrato |
+| codigoUnidadeGestora | Texto/Número | Código da Unidade Gestora (UG) responsável pela execução e gestão do contrato |
+| codigoUnidadeGestoraOrigemContrato | Texto/Número | Código da Unidade Gestora de origem onde o contrato foi inicialmente firmado |
+| codigoUnidadeRealizadoraCompra | Texto/Número | Código da UASG responsável pela condução da licitação ou compra que originou o contrato |
+| codigoModalidadeCompra | Texto/Número | Código numérico da modalidade da compra originária |
+| numeroContrato | Texto/Número | Número identificador do contrato administrativo firmado |
 | niFornecedor | Texto/Número | Número de identificação do fornecedor (CPF/CNPJ/Estrangeiro) |
-| nomeRazaoSocialFornecedor | Texto/Número | Valor do campo Nome razao social fornecedor |
-| processo | Texto/Número | Valor do campo Processo |
-| dataVigenciaInicial | Texto/Número | Data correspondente ao registro |
-| dataVigenciaFinal | Texto/Número | Data correspondente ao registro |
-| valorGlobal | Texto/Número | Valor do campo Valor global |
-| tipoItem | Texto/Número | Valor do campo Tipo item |
+| nomeRazaoSocialFornecedor | Texto/Número | Nome empresarial (razão social) ou nome completo do fornecedor |
+| processo | Texto/Número | Número do processo administrativo de contratação |
+| dataVigenciaInicial | Texto/Número | Data de início da vigência da ata de registro de preços ou do contrato |
+| dataVigenciaFinal | Texto/Número | Data de término da vigência da ata de registro de preços ou do contrato |
+| valorGlobal | Texto/Número | Valor global pactuado no instrumento contratual |
+| tipoItem | Texto/Número | Classificação do tipo do item no contrato (Material ou Serviço) |
 | codigoItem | Texto/Número | Código do item do material/serviço |
-| descricaoIitem | Texto/Número | Valor do campo Descricao iitem |
-| quantidadeItem | Texto/Número | Valor do campo Quantidade item |
-| valorUnitarioItem | Texto/Número | Valor do campo Valor unitario item |
-| valorTotalItem | Texto/Número | Valor do campo Valor total item |
-| dataHoraInclusao | Texto/Número | Data correspondente ao registro |
-| numeroControlePncpContrato | Texto/Número | Valor do campo Numero controle pncp contrato |
+| descricaoIitem | Texto/Número | Descrição detalhada do item vinculado à ata de registro de preços |
+| quantidadeItem | Texto/Número | Quantidade prevista do item no planejamento ou contrato |
+| valorUnitarioItem | Texto/Número | Valor unitário estimado ou pactuado para o item |
+| valorTotalItem | Texto/Número | Valor total estimado ou contratado para o item no planejamento/contrato |
+| dataHoraInclusao | Texto/Número | Data e hora de inclusão inicial do registro na base de dados |
+| numeroControlePncpContrato | Texto/Número | Número de controle único do contrato administrativo no PNCP |
 | idCompra | Texto/Número | Código identificador único da compra |
-| dataHoraExclusaoContrato | Texto/Número | Data correspondente ao registro |
-| contratoExcluido | Texto/Número | Valor do campo Contrato excluido |
+| dataHoraExclusaoContrato | Texto/Número | Data e hora de exclusão do contrato administrativo |
+| contratoExcluido | Texto/Número | Indica se o registro do contrato foi excluído do sistema |
 | nomeOrgao | Texto/Número | Nome do órgão |
-| nomeUnidadeGestora | Texto/Número | Valor do campo Nome unidade gestora |
-| nomeUnidadeGestoraOrigemContrato | Texto/Número | Valor do campo Nome unidade gestora origem contrato |
-| nomeUnidadeRealizadoraCompra | Texto/Número | Valor do campo Nome unidade realizadora compra |
-| nomeModalidadeCompra | Texto/Número | Valor do campo Nome modalidade compra |
-| numeroCompra | Texto/Número | Valor do campo Numero compra |
-| dataHoraExclusaoItem | Texto/Número | Data correspondente ao registro |
-| contratoItemExcluido | Texto/Número | Valor do campo Contrato item excluido |
-| numeroItem | Texto/Número | Valor do campo Numero item |
+| nomeUnidadeGestora | Texto/Número | Nome da Unidade Gestora (UG) atual responsável pelo contrato |
+| nomeUnidadeGestoraOrigemContrato | Texto/Número | Nome da Unidade Gestora (UG) que celebrou originalmente o contrato |
+| nomeUnidadeRealizadoraCompra | Texto/Número | Nome da UASG que realizou o procedimento licitatório da compra |
+| nomeModalidadeCompra | Texto/Número | Nome da modalidade de contratação que deu origem à ata ou contrato |
+| numeroCompra | Texto/Número | Número sequencial da compra ou contratação no ano |
+| dataHoraExclusaoItem | Texto/Número | Data e hora de exclusão do item vinculado ao contrato |
+| contratoItemExcluido | Texto/Número | Indica se o item específico do contrato foi excluído |
+| numeroItem | Texto/Número | Número sequencial de identificação do item no processo |
 | esfera | Texto/Número | Esfera governamental. F – Federal; E – Estadual; M – Municipal |
 | poder | Texto/Número | Poder da federação. E – Executivo; L – Legislativo; J – Judiciário |
-| numeroControlePncpCompra | Texto/Número | Valor do campo Numero controle pncp compra |
+| numeroControlePncpCompra | Texto/Número | Número de controle único da contratação originária no PNCP |
 | totalRegistros | Texto/Número | Total de registros encontrados |
 | totalPaginas | Texto/Número | Total de páginas disponíveis |
 | paginasRestantes | Texto/Número | Número de páginas restantes |
@@ -4731,7 +4753,7 @@ curl -X 'GET' \
 | totalRegistros | Inteiro | Total de registros encontrados |
 | totalPaginas | Inteiro | Total de páginas disponíveis |
 | paginasRestantes | Inteiro | Número de páginas restantes |
-| resultado | Texto/Número | Valor do campo Resultado |
+| resultado | Texto/Número | Lista de registros retornados na página atual da consulta |
 
 **Exemplo de Retorno:**
 ```json
@@ -4766,6 +4788,8 @@ curl -X 'GET' \
 <h2 id="modulo-ocds">11. Módulo OCDS</h2>
 
 O Módulo OCDS (Open Contracting Data Standard) disponibiliza dados de contratações públicas no formato aberto e padronizado internacionalmente pelo padrão OCDS, facilitando a interoperabilidade e a análise de dados de contratações governamentais por sistemas externos.
+
+> **Nota sobre paginação:** Por seguir a especificação internacional *Open Contracting Data Standard (OCDS)*, o endpoint deste módulo utiliza o parâmetro `page` (em inglês) para navegação entre páginas, enquanto os demais módulos da API utilizam o parâmetro `pagina`.
 
 <h3 id="releases">11.1. releases</h3>
 
@@ -4827,7 +4851,7 @@ curl -X 'GET' \
 | links | Objeto | Links de navegação (paginação) |
 | links.next | Texto | URL para a próxima página |
 | links.prev | Texto | URL para a página anterior |
-| uri | Texto/Número | Valor do campo Uri |
+| uri | Texto/Número | Informação referente a uri |
 
 **Exemplo de Retorno:**
 ```json

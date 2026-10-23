@@ -47,29 +47,29 @@ curl -X 'GET' \
 
 | Campo | Tipo | Descrição |
 |---|---|---|
-| resultado | Texto/Número | Valor do campo Resultado |
+| resultado | Texto/Número | Lista de registros retornados na página atual da consulta |
 | codigoUasg | Texto/Número | Código identificador da UASG (Unidade Administrativa de Serviços Gerais) |
 | nomeUasg | Texto/Número | Nome da UASG |
 | usoSisg | Texto/Número | Indica se a UASG usa o SISG. 0 – False/Não; 1 – True/Sim |
-| adesaoSiasg | Texto/Número | Valor do campo Adesao siasg |
+| adesaoSiasg | Texto/Número | Indica se a unidade administrativa possui termo de adesão ativo ao SIASG |
 | siglaUf | Texto/Número | Sigla da unidade federativa (UF) |
 | codigoMunicipio | Texto/Número | Código do município (IBGE) |
-| codigoMunicipioIbge | Texto/Número | Código do registro associado |
-| nomeMunicipioIbge | Texto/Número | Valor do campo Nome municipio ibge |
-| codigoUnidadePolo | Texto/Número | Código do registro associado |
-| nomeUnidadePolo | Texto/Número | Valor do campo Nome unidade polo |
-| codigoUnidadeEspelho | Texto/Número | Código do registro associado |
-| nomeUnidadeEspelho | Texto/Número | Valor do campo Nome unidade espelho |
-| uasgCadastradora | Texto/Número | Valor do campo Uasg cadastradora |
-| cnpjCpfUasg | Texto/Número | Valor do campo Cnpj cpf uasg |
+| codigoMunicipioIbge | Texto/Número | Código oficial do município sede da unidade segundo a tabela do IBGE |
+| nomeMunicipioIbge | Texto/Número | Nome oficial do município conforme tabela territorial do IBGE |
+| codigoUnidadePolo | Texto/Número | Código da UASG polo à qual a unidade administrativa está vinculada |
+| nomeUnidadePolo | Texto/Número | Nome da UASG polo centralizadora à qual a unidade está vinculada |
+| codigoUnidadeEspelho | Texto/Número | Código da UASG espelho vinculada à unidade para fins de integração |
+| nomeUnidadeEspelho | Texto/Número | Nome da unidade administrativa configurada como UASG espelho |
+| uasgCadastradora | Texto/Número | Código da UASG responsável pelo cadastramento do fornecedor no SICAF |
+| cnpjCpfUasg | Texto/Número | Número de inscrição no CNPJ ou CPF vinculado à UASG |
 | codigoOrgao | Texto/Número | Código do órgão |
 | cnpjCpfOrgao | Texto/Número | CNPJ ou CPF do órgão |
 | cnpjCpfOrgaoVinculado | Texto/Número | CNPJ ou CPF do órgão vinculado |
 | cnpjCpfOrgaoSuperior | Texto/Número | CNPJ ou CPF do órgão superior |
-| codigoSiorg | Texto/Número | Código do registro associado |
+| codigoSiorg | Texto/Número | Código da unidade administrativa no Sistema de Informações Organizacionais do Governo Federal (SIORG) |
 | statusUasg | Texto/Número | Status da UASG. 0 – False/Inativo; 1 – True/Ativo (Obrigatório) |
-| dataImplantacaoSidec | Texto/Número | Data correspondente ao registro |
-| dataHoraMovimento | Texto/Número | Data correspondente ao registro |
+| dataImplantacaoSidec | Texto/Número | Data de implantação do módulo de divulgação de compras (SIDEC) na unidade administrativa |
+| dataHoraMovimento | Texto/Número | Data e hora da última movimentação ou atualização cadastral da unidade/órgão |
 | totalRegistros | Texto/Número | Total de registros encontrados |
 | totalPaginas | Texto/Número | Total de páginas disponíveis |
 | paginasRestantes | Texto/Número | Número de páginas restantes |
@@ -161,24 +161,24 @@ curl -X 'GET' \
 
 | Campo | Tipo | Descrição |
 |---|---|---|
-| resultado | Texto/Número | Valor do campo Resultado |
+| resultado | Texto/Número | Lista de registros retornados na página atual da consulta |
 | codigoOrgao | Texto/Número | Código do órgão |
 | nomeOrgao | Texto/Número | Nome do órgão |
-| nomeMnemonicoOrgao | Texto/Número | Valor do campo Nome mnemonico orgao |
+| nomeMnemonicoOrgao | Texto/Número | Sigla ou nome mnemônico de identificação do órgão público |
 | cnpjCpfOrgao | Texto/Número | CNPJ ou CPF do órgão |
-| codigoOrgaoVinculado | Texto/Número | Código do registro associado |
+| codigoOrgaoVinculado | Texto/Número | Código identificador do órgão vinculado ou supervisionado |
 | cnpjCpfOrgaoVinculado | Texto/Número | CNPJ ou CPF do órgão vinculado |
-| nomeOrgaoVinculado | Texto/Número | Valor do campo Nome orgao vinculado |
-| codigoOrgaoSuperior | Texto/Número | Código do registro associado |
+| nomeOrgaoVinculado | Texto/Número | Nome oficial do órgão ou entidade vinculada |
+| codigoOrgaoSuperior | Texto/Número | Código identificador do órgão superior na estrutura da Administração Pública |
 | cnpjCpfOrgaoSuperior | Texto/Número | CNPJ ou CPF do órgão superior |
-| nomeOrgaoSuperior | Texto/Número | Valor do campo Nome orgao superior |
-| codigoTipoAdministracao | Texto/Número | Código do registro associado |
-| nomeTipoAdministracao | Texto/Número | Valor do campo Nome tipo administracao |
+| nomeOrgaoSuperior | Texto/Número | Nome oficial do ministério ou órgão superior vinculante |
+| codigoTipoAdministracao | Texto/Número | Código da natureza de administração do órgão (direta, autárquica, fundacional, empresa pública etc.) |
+| nomeTipoAdministracao | Texto/Número | Descrição da natureza jurídica da administração do órgão (Administração Direta, Autarquia, Fundação etc.) |
 | poder | Texto/Número | Poder da federação. E – Executivo; L – Legislativo; J – Judiciário |
 | esfera | Texto/Número | Esfera governamental. F – Federal; E – Estadual; M – Municipal |
 | usoSisg | Texto/Número | Indica se a UASG usa o SISG. 0 – False/Não; 1 – True/Sim |
 | statusOrgao | Texto/Número | Status do órgão. 0 – False/Inativo; 1 – True/Ativo (Obrigatório) |
-| dataHoraMovimento | Texto/Número | Data correspondente ao registro |
+| dataHoraMovimento | Texto/Número | Data e hora da última movimentação ou atualização cadastral da unidade/órgão |
 | totalRegistros | Texto/Número | Total de registros encontrados |
 | totalPaginas | Texto/Número | Total de páginas disponíveis |
 | paginasRestantes | Texto/Número | Número de páginas restantes |

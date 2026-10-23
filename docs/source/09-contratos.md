@@ -37,60 +37,60 @@ curl -X 'GET' \
 | pagina | integer | <span class="badge-opt">⚪ Não</span> | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
 | tamanhoPagina | integer | <span class="badge-opt">⚪ Não</span> | Ajustar o tamanho de registros por página (limite máx. de 500 registros por página). (Default: 10) |
 | codigoOrgao | string | <span class="badge-req">🔴 Sim</span> | Código do órgão |
-| codigoUnidadeGestora | string | <span class="badge-opt">⚪ Não</span> | Código do registro associado |
-| codigoUnidadeGestoraOrigemContrato | string | <span class="badge-opt">⚪ Não</span> | Código do registro associado |
-| codigoUnidadeRealizadoraCompra | string | <span class="badge-opt">⚪ Não</span> | Código do registro associado |
-| numeroContrato | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Numero contrato |
-| codigoModalidadeCompra | string | <span class="badge-opt">⚪ Não</span> | Código do registro associado |
-| codigoTipo | string | <span class="badge-opt">⚪ Não</span> | Código do registro associado |
-| codigoCategoria | string | <span class="badge-opt">⚪ Não</span> | Código do registro associado |
+| codigoUnidadeGestora | string | <span class="badge-opt">⚪ Não</span> | Código da Unidade Gestora (UG) responsável pela execução e gestão do contrato |
+| codigoUnidadeGestoraOrigemContrato | string | <span class="badge-opt">⚪ Não</span> | Código da Unidade Gestora de origem onde o contrato foi inicialmente firmado |
+| codigoUnidadeRealizadoraCompra | string | <span class="badge-opt">⚪ Não</span> | Código da UASG responsável pela condução da licitação ou compra que originou o contrato |
+| numeroContrato | string | <span class="badge-opt">⚪ Não</span> | Número identificador do contrato administrativo firmado |
+| codigoModalidadeCompra | string | <span class="badge-opt">⚪ Não</span> | Código numérico da modalidade da compra originária |
+| codigoTipo | string | <span class="badge-opt">⚪ Não</span> | Código identificador do tipo de termo ou instrumento contratual |
+| codigoCategoria | string | <span class="badge-opt">⚪ Não</span> | Código da categoria do contrato ou da contratação |
 | niFornecedor | string | <span class="badge-opt">⚪ Não</span> | Número de identificação do fornecedor (CPF/CNPJ/Estrangeiro) |
-| dataVigenciaInicialMin | string | <span class="badge-req">🔴 Sim</span> | Data correspondente ao registro |
-| dataVigenciaInicialMax | string | <span class="badge-req">🔴 Sim</span> | Data correspondente ao registro |
+| dataVigenciaInicialMin | string | <span class="badge-req">🔴 Sim</span> | Limite inferior da data de início de vigência para filtro da consulta |
+| dataVigenciaInicialMax | string | <span class="badge-req">🔴 Sim</span> | Limite superior da data de início de vigência para filtro da consulta |
 
 **Dados de Retorno:**
 
 | Campo | Tipo | Descrição |
 |---|---|---|
-| resultado | Texto/Número | Valor do campo Resultado |
+| resultado | Texto/Número | Lista de registros retornados na página atual da consulta |
 | codigoOrgao | Texto/Número | Código do órgão |
 | nomeOrgao | Texto/Número | Nome do órgão |
-| codigoUnidadeGestora | Texto/Número | Código do registro associado |
-| nomeUnidadeGestora | Texto/Número | Valor do campo Nome unidade gestora |
-| codigoUnidadeGestoraOrigemContrato | Texto/Número | Código do registro associado |
-| nomeUnidadeGestoraOrigemContrato | Texto/Número | Valor do campo Nome unidade gestora origem contrato |
-| receitaDespesa | Texto/Número | Valor do campo Receita despesa |
-| numeroContrato | Texto/Número | Valor do campo Numero contrato |
-| codigoUnidadeRealizadoraCompra | Texto/Número | Código do registro associado |
-| nomeUnidadeRealizadoraCompra | Texto/Número | Valor do campo Nome unidade realizadora compra |
-| numeroCompra | Texto/Número | Valor do campo Numero compra |
-| codigoModalidadeCompra | Texto/Número | Código do registro associado |
-| nomeModalidadeCompra | Texto/Número | Valor do campo Nome modalidade compra |
-| codigoTipo | Texto/Número | Código do registro associado |
-| nomeTipo | Texto/Número | Valor do campo Nome tipo |
-| codigoCategoria | Texto/Número | Código do registro associado |
-| nomeCategoria | Texto/Número | Valor do campo Nome categoria |
-| codigoSubcategoria | Texto/Número | Código do registro associado |
-| nomeSubcategoria | Texto/Número | Valor do campo Nome subcategoria |
+| codigoUnidadeGestora | Texto/Número | Código da Unidade Gestora (UG) responsável pela execução e gestão do contrato |
+| nomeUnidadeGestora | Texto/Número | Nome da Unidade Gestora (UG) atual responsável pelo contrato |
+| codigoUnidadeGestoraOrigemContrato | Texto/Número | Código da Unidade Gestora de origem onde o contrato foi inicialmente firmado |
+| nomeUnidadeGestoraOrigemContrato | Texto/Número | Nome da Unidade Gestora (UG) que celebrou originalmente o contrato |
+| receitaDespesa | Texto/Número | Classificação da natureza financeira do contrato (Despesa ou Receita) |
+| numeroContrato | Texto/Número | Número identificador do contrato administrativo firmado |
+| codigoUnidadeRealizadoraCompra | Texto/Número | Código da UASG responsável pela condução da licitação ou compra que originou o contrato |
+| nomeUnidadeRealizadoraCompra | Texto/Número | Nome da UASG que realizou o procedimento licitatório da compra |
+| numeroCompra | Texto/Número | Número sequencial da compra ou contratação no ano |
+| codigoModalidadeCompra | Texto/Número | Código numérico da modalidade da compra originária |
+| nomeModalidadeCompra | Texto/Número | Nome da modalidade de contratação que deu origem à ata ou contrato |
+| codigoTipo | Texto/Número | Código identificador do tipo de termo ou instrumento contratual |
+| nomeTipo | Texto/Número | Denominação do tipo de instrumento contratual (Contrato, Termo Aditivo, Empenho etc.) |
+| codigoCategoria | Texto/Número | Código da categoria do contrato ou da contratação |
+| nomeCategoria | Texto/Número | Denominação da categoria do contrato (ex.: Compras, Serviços, Obras, Locação) |
+| codigoSubcategoria | Texto/Número | Código da subcategoria do contrato administrativo |
+| nomeSubcategoria | Texto/Número | Denominação da subcategoria do contrato administrativo |
 | niFornecedor | Texto/Número | Número de identificação do fornecedor (CPF/CNPJ/Estrangeiro) |
-| nomeRazaoSocialFornecedor | Texto/Número | Valor do campo Nome razao social fornecedor |
-| processo | Texto/Número | Valor do campo Processo |
-| objeto | Texto/Número | Valor do campo Objeto |
-| informacoesComplementares | Texto/Número | Valor do campo Informacoes complementares |
-| dataVigenciaInicial | Texto/Número | Data correspondente ao registro |
-| dataVigenciaFinal | Texto/Número | Data correspondente ao registro |
-| valorGlobal | Texto/Número | Valor do campo Valor global |
-| numeroParcelas | Texto/Número | Valor do campo Numero parcelas |
-| valorParcela | Texto/Número | Valor do campo Valor parcela |
-| valorAcumulado | Texto/Número | Valor do campo Valor acumulado |
-| totalDespesasAcessorias | Texto/Número | Valor do campo Total despesas acessorias |
-| dataHoraInclusao | Texto/Número | Data correspondente ao registro |
-| numeroControlePncpContrato | Texto/Número | Valor do campo Numero controle pncp contrato |
-| numeroControlePncpCompra | Texto/Número | Valor do campo Numero controle pncp compra |
+| nomeRazaoSocialFornecedor | Texto/Número | Nome empresarial (razão social) ou nome completo do fornecedor |
+| processo | Texto/Número | Número do processo administrativo de contratação |
+| objeto | Texto/Número | Descrição do objeto da contratação, ata ou contrato |
+| informacoesComplementares | Texto/Número | Observações e informações complementares registradas no contrato |
+| dataVigenciaInicial | Texto/Número | Data de início da vigência da ata de registro de preços ou do contrato |
+| dataVigenciaFinal | Texto/Número | Data de término da vigência da ata de registro de preços ou do contrato |
+| valorGlobal | Texto/Número | Valor global pactuado no instrumento contratual |
+| numeroParcelas | Texto/Número | Quantidade de parcelas previstas no cronograma do contrato |
+| valorParcela | Texto/Número | Valor financeiro de cada parcela prevista no contrato |
+| valorAcumulado | Texto/Número | Valor financeiro total acumulado do contrato considerando termos aditivos e apostilamentos |
+| totalDespesasAcessorias | Texto/Número | Valor total das despesas acessórias (frete, seguro, impostos) vinculadas à compra |
+| dataHoraInclusao | Texto/Número | Data e hora de inclusão inicial do registro na base de dados |
+| numeroControlePncpContrato | Texto/Número | Número de controle único do contrato administrativo no PNCP |
+| numeroControlePncpCompra | Texto/Número | Número de controle único da contratação originária no PNCP |
 | idCompra | Texto/Número | Código identificador único da compra |
-| dataHoraExclusao | Texto/Número | Data correspondente ao registro |
-| contratoExcluido | Texto/Número | Valor do campo Contrato excluido |
-| unidadesRequisitantes | Texto/Número | Valor do campo Unidades requisitantes |
+| dataHoraExclusao | Texto/Número | Data e hora em que o registro foi marcado como excluído no sistema |
+| contratoExcluido | Texto/Número | Indica se o registro do contrato foi excluído do sistema |
+| unidadesRequisitantes | Texto/Número | Identificação das áreas ou unidades internas requisitantes da demanda |
 | totalRegistros | Texto/Número | Total de registros encontrados |
 | totalPaginas | Texto/Número | Total de páginas disponíveis |
 | paginasRestantes | Texto/Número | Número de páginas restantes |
@@ -196,60 +196,60 @@ curl -X 'GET' \
 | pagina | integer | <span class="badge-opt">⚪ Não</span> | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
 | tamanhoPagina | integer | <span class="badge-opt">⚪ Não</span> | Ajustar o tamanho de registros por página (limite máx. de 500 registros por página). (Default: 10) |
 | codigoOrgao | string | <span class="badge-req">🔴 Sim</span> | Código do órgão |
-| codigoUnidadeGestora | string | <span class="badge-opt">⚪ Não</span> | Código do registro associado |
-| codigoUnidadeGestoraOrigemContrato | string | <span class="badge-opt">⚪ Não</span> | Código do registro associado |
-| codigoUnidadeRealizadoraCompra | string | <span class="badge-opt">⚪ Não</span> | Código do registro associado |
-| numeroContrato | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Numero contrato |
-| codigoModalidadeCompra | string | <span class="badge-opt">⚪ Não</span> | Código do registro associado |
-| codigoTipo | string | <span class="badge-opt">⚪ Não</span> | Código do registro associado |
-| codigoCategoria | string | <span class="badge-opt">⚪ Não</span> | Código do registro associado |
+| codigoUnidadeGestora | string | <span class="badge-opt">⚪ Não</span> | Código da Unidade Gestora (UG) responsável pela execução e gestão do contrato |
+| codigoUnidadeGestoraOrigemContrato | string | <span class="badge-opt">⚪ Não</span> | Código da Unidade Gestora de origem onde o contrato foi inicialmente firmado |
+| codigoUnidadeRealizadoraCompra | string | <span class="badge-opt">⚪ Não</span> | Código da UASG responsável pela condução da licitação ou compra que originou o contrato |
+| numeroContrato | string | <span class="badge-opt">⚪ Não</span> | Número identificador do contrato administrativo firmado |
+| codigoModalidadeCompra | string | <span class="badge-opt">⚪ Não</span> | Código numérico da modalidade da compra originária |
+| codigoTipo | string | <span class="badge-opt">⚪ Não</span> | Código identificador do tipo de termo ou instrumento contratual |
+| codigoCategoria | string | <span class="badge-opt">⚪ Não</span> | Código da categoria do contrato ou da contratação |
 | niFornecedor | string | <span class="badge-opt">⚪ Não</span> | Número de identificação do fornecedor (CPF/CNPJ/Estrangeiro) |
-| dataVigenciaFinalMin | string | <span class="badge-req">🔴 Sim</span> | Data correspondente ao registro |
-| dataVigenciaFinalMax | string | <span class="badge-req">🔴 Sim</span> | Data correspondente ao registro |
+| dataVigenciaFinalMin | string | <span class="badge-req">🔴 Sim</span> | Limite inferior da data de fim de vigência para filtro da consulta |
+| dataVigenciaFinalMax | string | <span class="badge-req">🔴 Sim</span> | Limite superior da data de fim de vigência para filtro da consulta |
 
 **Dados de Retorno:**
 
 | Campo | Tipo | Descrição |
 |---|---|---|
-| resultado | Texto/Número | Valor do campo Resultado |
+| resultado | Texto/Número | Lista de registros retornados na página atual da consulta |
 | codigoOrgao | Texto/Número | Código do órgão |
 | nomeOrgao | Texto/Número | Nome do órgão |
-| codigoUnidadeGestora | Texto/Número | Código do registro associado |
-| nomeUnidadeGestora | Texto/Número | Valor do campo Nome unidade gestora |
-| codigoUnidadeGestoraOrigemContrato | Texto/Número | Código do registro associado |
-| nomeUnidadeGestoraOrigemContrato | Texto/Número | Valor do campo Nome unidade gestora origem contrato |
-| receitaDespesa | Texto/Número | Valor do campo Receita despesa |
-| numeroContrato | Texto/Número | Valor do campo Numero contrato |
-| codigoUnidadeRealizadoraCompra | Texto/Número | Código do registro associado |
-| nomeUnidadeRealizadoraCompra | Texto/Número | Valor do campo Nome unidade realizadora compra |
-| numeroCompra | Texto/Número | Valor do campo Numero compra |
-| codigoModalidadeCompra | Texto/Número | Código do registro associado |
-| nomeModalidadeCompra | Texto/Número | Valor do campo Nome modalidade compra |
-| codigoTipo | Texto/Número | Código do registro associado |
-| nomeTipo | Texto/Número | Valor do campo Nome tipo |
-| codigoCategoria | Texto/Número | Código do registro associado |
-| nomeCategoria | Texto/Número | Valor do campo Nome categoria |
-| codigoSubcategoria | Texto/Número | Código do registro associado |
-| nomeSubcategoria | Texto/Número | Valor do campo Nome subcategoria |
+| codigoUnidadeGestora | Texto/Número | Código da Unidade Gestora (UG) responsável pela execução e gestão do contrato |
+| nomeUnidadeGestora | Texto/Número | Nome da Unidade Gestora (UG) atual responsável pelo contrato |
+| codigoUnidadeGestoraOrigemContrato | Texto/Número | Código da Unidade Gestora de origem onde o contrato foi inicialmente firmado |
+| nomeUnidadeGestoraOrigemContrato | Texto/Número | Nome da Unidade Gestora (UG) que celebrou originalmente o contrato |
+| receitaDespesa | Texto/Número | Classificação da natureza financeira do contrato (Despesa ou Receita) |
+| numeroContrato | Texto/Número | Número identificador do contrato administrativo firmado |
+| codigoUnidadeRealizadoraCompra | Texto/Número | Código da UASG responsável pela condução da licitação ou compra que originou o contrato |
+| nomeUnidadeRealizadoraCompra | Texto/Número | Nome da UASG que realizou o procedimento licitatório da compra |
+| numeroCompra | Texto/Número | Número sequencial da compra ou contratação no ano |
+| codigoModalidadeCompra | Texto/Número | Código numérico da modalidade da compra originária |
+| nomeModalidadeCompra | Texto/Número | Nome da modalidade de contratação que deu origem à ata ou contrato |
+| codigoTipo | Texto/Número | Código identificador do tipo de termo ou instrumento contratual |
+| nomeTipo | Texto/Número | Denominação do tipo de instrumento contratual (Contrato, Termo Aditivo, Empenho etc.) |
+| codigoCategoria | Texto/Número | Código da categoria do contrato ou da contratação |
+| nomeCategoria | Texto/Número | Denominação da categoria do contrato (ex.: Compras, Serviços, Obras, Locação) |
+| codigoSubcategoria | Texto/Número | Código da subcategoria do contrato administrativo |
+| nomeSubcategoria | Texto/Número | Denominação da subcategoria do contrato administrativo |
 | niFornecedor | Texto/Número | Número de identificação do fornecedor (CPF/CNPJ/Estrangeiro) |
-| nomeRazaoSocialFornecedor | Texto/Número | Valor do campo Nome razao social fornecedor |
-| processo | Texto/Número | Valor do campo Processo |
-| objeto | Texto/Número | Valor do campo Objeto |
-| informacoesComplementares | Texto/Número | Valor do campo Informacoes complementares |
-| dataVigenciaInicial | Texto/Número | Data correspondente ao registro |
-| dataVigenciaFinal | Texto/Número | Data correspondente ao registro |
-| valorGlobal | Texto/Número | Valor do campo Valor global |
-| numeroParcelas | Texto/Número | Valor do campo Numero parcelas |
-| valorParcela | Texto/Número | Valor do campo Valor parcela |
-| valorAcumulado | Texto/Número | Valor do campo Valor acumulado |
-| totalDespesasAcessorias | Texto/Número | Valor do campo Total despesas acessorias |
-| dataHoraInclusao | Texto/Número | Data correspondente ao registro |
-| numeroControlePncpContrato | Texto/Número | Valor do campo Numero controle pncp contrato |
-| numeroControlePncpCompra | Texto/Número | Valor do campo Numero controle pncp compra |
+| nomeRazaoSocialFornecedor | Texto/Número | Nome empresarial (razão social) ou nome completo do fornecedor |
+| processo | Texto/Número | Número do processo administrativo de contratação |
+| objeto | Texto/Número | Descrição do objeto da contratação, ata ou contrato |
+| informacoesComplementares | Texto/Número | Observações e informações complementares registradas no contrato |
+| dataVigenciaInicial | Texto/Número | Data de início da vigência da ata de registro de preços ou do contrato |
+| dataVigenciaFinal | Texto/Número | Data de término da vigência da ata de registro de preços ou do contrato |
+| valorGlobal | Texto/Número | Valor global pactuado no instrumento contratual |
+| numeroParcelas | Texto/Número | Quantidade de parcelas previstas no cronograma do contrato |
+| valorParcela | Texto/Número | Valor financeiro de cada parcela prevista no contrato |
+| valorAcumulado | Texto/Número | Valor financeiro total acumulado do contrato considerando termos aditivos e apostilamentos |
+| totalDespesasAcessorias | Texto/Número | Valor total das despesas acessórias (frete, seguro, impostos) vinculadas à compra |
+| dataHoraInclusao | Texto/Número | Data e hora de inclusão inicial do registro na base de dados |
+| numeroControlePncpContrato | Texto/Número | Número de controle único do contrato administrativo no PNCP |
+| numeroControlePncpCompra | Texto/Número | Número de controle único da contratação originária no PNCP |
 | idCompra | Texto/Número | Código identificador único da compra |
-| dataHoraExclusao | Texto/Número | Data correspondente ao registro |
-| contratoExcluido | Texto/Número | Valor do campo Contrato excluido |
-| unidadesRequisitantes | Texto/Número | Valor do campo Unidades requisitantes |
+| dataHoraExclusao | Texto/Número | Data e hora em que o registro foi marcado como excluído no sistema |
+| contratoExcluido | Texto/Número | Indica se o registro do contrato foi excluído do sistema |
+| unidadesRequisitantes | Texto/Número | Identificação das áreas ou unidades internas requisitantes da demanda |
 | totalRegistros | Texto/Número | Total de registros encontrados |
 | totalPaginas | Texto/Número | Total de páginas disponíveis |
 | paginasRestantes | Texto/Número | Número de páginas restantes |
@@ -329,16 +329,16 @@ curl -X 'GET' \
 | pagina | integer | <span class="badge-opt">⚪ Não</span> | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
 | tamanhoPagina | integer | <span class="badge-opt">⚪ Não</span> | Ajustar o tamanho de registros por página (limite máx. de 500 registros por página). (Default: 10) |
 | codigoOrgao | string | <span class="badge-req">🔴 Sim</span> | Código do órgão |
-| codigoUnidadeGestora | string | <span class="badge-opt">⚪ Não</span> | Código do registro associado |
-| codigoUnidadeGestoraOrigemContrato | string | <span class="badge-opt">⚪ Não</span> | Código do registro associado |
-| codigoUnidadeRealizadoraCompra | string | <span class="badge-opt">⚪ Não</span> | Código do registro associado |
-| numeroContrato | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Numero contrato |
-| codigoModalidadeCompra | string | <span class="badge-opt">⚪ Não</span> | Código do registro associado |
-| tipoItem | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Tipo item |
+| codigoUnidadeGestora | string | <span class="badge-opt">⚪ Não</span> | Código da Unidade Gestora (UG) responsável pela execução e gestão do contrato |
+| codigoUnidadeGestoraOrigemContrato | string | <span class="badge-opt">⚪ Não</span> | Código da Unidade Gestora de origem onde o contrato foi inicialmente firmado |
+| codigoUnidadeRealizadoraCompra | string | <span class="badge-opt">⚪ Não</span> | Código da UASG responsável pela condução da licitação ou compra que originou o contrato |
+| numeroContrato | string | <span class="badge-opt">⚪ Não</span> | Número identificador do contrato administrativo firmado |
+| codigoModalidadeCompra | string | <span class="badge-opt">⚪ Não</span> | Código numérico da modalidade da compra originária |
+| tipoItem | string | <span class="badge-opt">⚪ Não</span> | Classificação do tipo do item no contrato (Material ou Serviço) |
 | codigoItem | integer | <span class="badge-opt">⚪ Não</span> | Código do item do material/serviço |
 | niFornecedor | string | <span class="badge-opt">⚪ Não</span> | Número de identificação do fornecedor (CPF/CNPJ/Estrangeiro) |
-| dataVigenciaInicialMin | string | <span class="badge-req">🔴 Sim</span> | Data correspondente ao registro |
-| dataVigenciaInicialMax | string | <span class="badge-req">🔴 Sim</span> | Data correspondente ao registro |
+| dataVigenciaInicialMin | string | <span class="badge-req">🔴 Sim</span> | Limite inferior da data de início de vigência para filtro da consulta |
+| dataVigenciaInicialMax | string | <span class="badge-req">🔴 Sim</span> | Limite superior da data de início de vigência para filtro da consulta |
 | poder | string | <span class="badge-opt">⚪ Não</span> | Poder da federação. E – Executivo; L – Legislativo; J – Judiciário |
 | esfera | string | <span class="badge-opt">⚪ Não</span> | Esfera governamental. F – Federal; E – Estadual; M – Municipal |
 | idCompra | string | <span class="badge-opt">⚪ Não</span> | Código identificador único da compra |
@@ -347,42 +347,42 @@ curl -X 'GET' \
 
 | Campo | Tipo | Descrição |
 |---|---|---|
-| resultado | Texto/Número | Valor do campo Resultado |
+| resultado | Texto/Número | Lista de registros retornados na página atual da consulta |
 | codigoOrgao | Texto/Número | Código do órgão |
-| codigoUnidadeGestora | Texto/Número | Código do registro associado |
-| codigoUnidadeGestoraOrigemContrato | Texto/Número | Código do registro associado |
-| codigoUnidadeRealizadoraCompra | Texto/Número | Código do registro associado |
-| codigoModalidadeCompra | Texto/Número | Código do registro associado |
-| numeroContrato | Texto/Número | Valor do campo Numero contrato |
+| codigoUnidadeGestora | Texto/Número | Código da Unidade Gestora (UG) responsável pela execução e gestão do contrato |
+| codigoUnidadeGestoraOrigemContrato | Texto/Número | Código da Unidade Gestora de origem onde o contrato foi inicialmente firmado |
+| codigoUnidadeRealizadoraCompra | Texto/Número | Código da UASG responsável pela condução da licitação ou compra que originou o contrato |
+| codigoModalidadeCompra | Texto/Número | Código numérico da modalidade da compra originária |
+| numeroContrato | Texto/Número | Número identificador do contrato administrativo firmado |
 | niFornecedor | Texto/Número | Número de identificação do fornecedor (CPF/CNPJ/Estrangeiro) |
-| nomeRazaoSocialFornecedor | Texto/Número | Valor do campo Nome razao social fornecedor |
-| processo | Texto/Número | Valor do campo Processo |
-| dataVigenciaInicial | Texto/Número | Data correspondente ao registro |
-| dataVigenciaFinal | Texto/Número | Data correspondente ao registro |
-| valorGlobal | Texto/Número | Valor do campo Valor global |
-| tipoItem | Texto/Número | Valor do campo Tipo item |
+| nomeRazaoSocialFornecedor | Texto/Número | Nome empresarial (razão social) ou nome completo do fornecedor |
+| processo | Texto/Número | Número do processo administrativo de contratação |
+| dataVigenciaInicial | Texto/Número | Data de início da vigência da ata de registro de preços ou do contrato |
+| dataVigenciaFinal | Texto/Número | Data de término da vigência da ata de registro de preços ou do contrato |
+| valorGlobal | Texto/Número | Valor global pactuado no instrumento contratual |
+| tipoItem | Texto/Número | Classificação do tipo do item no contrato (Material ou Serviço) |
 | codigoItem | Texto/Número | Código do item do material/serviço |
-| descricaoIitem | Texto/Número | Valor do campo Descricao iitem |
-| quantidadeItem | Texto/Número | Valor do campo Quantidade item |
-| valorUnitarioItem | Texto/Número | Valor do campo Valor unitario item |
-| valorTotalItem | Texto/Número | Valor do campo Valor total item |
-| dataHoraInclusao | Texto/Número | Data correspondente ao registro |
-| numeroControlePncpContrato | Texto/Número | Valor do campo Numero controle pncp contrato |
+| descricaoIitem | Texto/Número | Descrição detalhada do item vinculado à ata de registro de preços |
+| quantidadeItem | Texto/Número | Quantidade prevista do item no planejamento ou contrato |
+| valorUnitarioItem | Texto/Número | Valor unitário estimado ou pactuado para o item |
+| valorTotalItem | Texto/Número | Valor total estimado ou contratado para o item no planejamento/contrato |
+| dataHoraInclusao | Texto/Número | Data e hora de inclusão inicial do registro na base de dados |
+| numeroControlePncpContrato | Texto/Número | Número de controle único do contrato administrativo no PNCP |
 | idCompra | Texto/Número | Código identificador único da compra |
-| dataHoraExclusaoContrato | Texto/Número | Data correspondente ao registro |
-| contratoExcluido | Texto/Número | Valor do campo Contrato excluido |
+| dataHoraExclusaoContrato | Texto/Número | Data e hora de exclusão do contrato administrativo |
+| contratoExcluido | Texto/Número | Indica se o registro do contrato foi excluído do sistema |
 | nomeOrgao | Texto/Número | Nome do órgão |
-| nomeUnidadeGestora | Texto/Número | Valor do campo Nome unidade gestora |
-| nomeUnidadeGestoraOrigemContrato | Texto/Número | Valor do campo Nome unidade gestora origem contrato |
-| nomeUnidadeRealizadoraCompra | Texto/Número | Valor do campo Nome unidade realizadora compra |
-| nomeModalidadeCompra | Texto/Número | Valor do campo Nome modalidade compra |
-| numeroCompra | Texto/Número | Valor do campo Numero compra |
-| dataHoraExclusaoItem | Texto/Número | Data correspondente ao registro |
-| contratoItemExcluido | Texto/Número | Valor do campo Contrato item excluido |
-| numeroItem | Texto/Número | Valor do campo Numero item |
+| nomeUnidadeGestora | Texto/Número | Nome da Unidade Gestora (UG) atual responsável pelo contrato |
+| nomeUnidadeGestoraOrigemContrato | Texto/Número | Nome da Unidade Gestora (UG) que celebrou originalmente o contrato |
+| nomeUnidadeRealizadoraCompra | Texto/Número | Nome da UASG que realizou o procedimento licitatório da compra |
+| nomeModalidadeCompra | Texto/Número | Nome da modalidade de contratação que deu origem à ata ou contrato |
+| numeroCompra | Texto/Número | Número sequencial da compra ou contratação no ano |
+| dataHoraExclusaoItem | Texto/Número | Data e hora de exclusão do item vinculado ao contrato |
+| contratoItemExcluido | Texto/Número | Indica se o item específico do contrato foi excluído |
+| numeroItem | Texto/Número | Número sequencial de identificação do item no processo |
 | esfera | Texto/Número | Esfera governamental. F – Federal; E – Estadual; M – Municipal |
 | poder | Texto/Número | Poder da federação. E – Executivo; L – Legislativo; J – Judiciário |
-| numeroControlePncpCompra | Texto/Número | Valor do campo Numero controle pncp compra |
+| numeroControlePncpCompra | Texto/Número | Número de controle único da contratação originária no PNCP |
 | totalRegistros | Texto/Número | Total de registros encontrados |
 | totalPaginas | Texto/Número | Total de páginas disponíveis |
 | paginasRestantes | Texto/Número | Número de páginas restantes |

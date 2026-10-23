@@ -11,9 +11,9 @@
 
 <p style="font-weight: bold; color: #d9534f; margin-top: -5px; margin-bottom: 20px;">PÚBLICO-ALVO: DESENVOLVEDORES E INTEGRADORES DE SISTEMAS</p>
 
-# 3. Módulo Pesquisa de Preço — Preços Praticados
+# 3. Módulo Pesquisa de Preços
 
-Módulo responsável por consultar os preços praticados na administração pública.
+O Módulo Pesquisa de Preço disponibiliza os preços praticados nas contratações públicas federais, permitindo consultar, por material ou serviço, os valores registrados em contratações anteriores. Constitui importante subsídio para a pesquisa de preços e para a estimativa de valores de referência nas contratações.
 
 ## 3.1. consultarMaterial
 
@@ -53,7 +53,7 @@ curl -X 'GET' \
 
 | Campo | Tipo | Descrição |
 |---|---|---|
-| resultado | Texto/Número | Valor do campo Resultado |
+| resultado | Texto/Número | Lista de registros retornados na página atual da consulta |
 | idCompra | Texto/Número | Código identificador único da compra |
 | dataCompra | Texto/Número | Data da compra |
 | forma | Texto/Número | Forma de aquisição: SISPP (preços praticados) ou SISRP (menor preço) |
@@ -203,7 +203,7 @@ curl -X 'GET' \
 
 | Campo | Tipo | Descrição |
 |---|---|---|
-| resultado | Texto/Número | Valor do campo Resultado |
+| resultado | Texto/Número | Lista de registros retornados na página atual da consulta |
 | idCompra | Texto/Número | Código identificador único da compra |
 | idItemCompra | Texto/Número | Código do item da compra |
 | numeroItemCompra | Texto/Número | Número do item da compra |
@@ -292,7 +292,7 @@ curl -X 'GET' \
 
 | Campo | Tipo | Descrição |
 |---|---|---|
-| resultado | Texto/Número | Valor do campo Resultado |
+| resultado | Texto/Número | Lista de registros retornados na página atual da consulta |
 | idCompra | Texto/Número | Código identificador único da compra |
 | idItemCompra | Texto/Número | Código do item da compra |
 | forma | Texto/Número | Forma de aquisição: SISPP (preços praticados) ou SISRP (menor preço) |
@@ -424,7 +424,7 @@ curl -X 'GET' \
 
 | Campo | Tipo | Descrição |
 |---|---|---|
-| resultado | Texto/Número | Valor do campo Resultado |
+| resultado | Texto/Número | Lista de registros retornados na página atual da consulta |
 | idCompra | Texto/Número | Código identificador único da compra |
 | idItemCompra | Texto/Número | Código do item da compra |
 | numeroItemCompra | Texto/Número | Número do item da compra |

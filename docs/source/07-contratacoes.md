@@ -13,19 +13,19 @@
 
 # 7. Módulo Contratações
 
-O Módulo Contratações oferece acesso a informações detalhadas sobre os procedimentos de contratação.
+O Módulo Contratações disponibiliza os dados das contratações públicas regidas pela Lei nº 14.133/2021, incluindo as informações das contratações, dos itens e dos resultados por item, com identificação do número de controle do Portal Nacional de Contratações Públicas (PNCP). Os dados refletem as contratações publicadas no PNCP e permitem consultar, de forma estruturada, o planejamento, a seleção do fornecedor e os resultados das contratações federais.
 
 ## 7.1. Indicadores de Modalidade
-(Descrição dos indicadores de modalidade)
+Consulta os códigos e as descrições dos indicadores de modalidade de contratação, utilizados como parâmetro de filtro nos endpoints do Módulo Contratações.
 
 ## 7.2. Modos de Disputa
-(Descrição dos modos de disputa)
+Consulta os códigos e as descrições dos modos de disputa previstos na Lei nº 14.133/2021 (por exemplo, aberto e fechado), utilizados como parâmetro de filtro nos endpoints do módulo.
 
 ## 7.3. Critérios de Julgamento
-(Descrição dos critérios de julgamento)
+Consulta os códigos e as descrições dos critérios de julgamento das propostas (por exemplo, menor preço e melhor técnica ou conteúdo artístico), utilizados como parâmetro de filtro.
 
 ## 7.4. Amparos Legais
-(Descrição dos amparos legais)
+Consulta os códigos e as descrições dos amparos legais das contratações, correspondentes aos dispositivos legais que fundamentam cada procedimento, utilizados como parâmetro de filtro.
 
 ## 7.5. consultarContratacoes_PNCP_14133
 
@@ -48,75 +48,75 @@ curl -X 'GET' \
 |---|---|---|---|
 | pagina | integer | <span class="badge-opt">⚪ Não</span> | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
 | tamanhoPagina | integer | <span class="badge-opt">⚪ Não</span> | Ajustar o tamanho de registros por página (limite máx. de 500 registros por página). (Default: 10) |
-| unidadeOrgaoCodigoUnidade | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Unidade orgao codigo unidade |
+| unidadeOrgaoCodigoUnidade | string | <span class="badge-opt">⚪ Não</span> | Código da unidade administrativa (UASG) pertencente ao órgão titular da contratação |
 | codigoOrgao | integer | <span class="badge-opt">⚪ Não</span> | Código do órgão |
-| orgaoEntidadeCnpj | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Orgao entidade cnpj |
-| dataPublicacaoPncpInicial | string | <span class="badge-req">🔴 Sim</span> | Data correspondente ao registro |
-| dataPublicacaoPncpFinal | string | <span class="badge-req">🔴 Sim</span> | Data correspondente ao registro |
-| codigoModalidade | integer | <span class="badge-req">🔴 Sim</span> | Código do registro associado |
-| unidadeOrgaoCodigoIbge | integer | <span class="badge-opt">⚪ Não</span> | Valor do campo Unidade orgao codigo ibge |
-| unidadeOrgaoUfSigla | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Unidade orgao uf sigla |
-| dataAualizacaoPncp | string | <span class="badge-opt">⚪ Não</span> | Data correspondente ao registro |
-| amparoLegalCodigoPncp | integer | <span class="badge-opt">⚪ Não</span> | Valor do campo Amparo legal codigo pncp |
-| contratacaoExcluida | boolean | <span class="badge-opt">⚪ Não</span> | Valor do campo Contratacao excluida |
+| orgaoEntidadeCnpj | string | <span class="badge-opt">⚪ Não</span> | Número do CNPJ do órgão ou entidade titular da contratação |
+| dataPublicacaoPncpInicial | string | <span class="badge-req">🔴 Sim</span> | Data inicial do período de publicação no PNCP (formato AAAA-MM-DD) |
+| dataPublicacaoPncpFinal | string | <span class="badge-req">🔴 Sim</span> | Data final do período de publicação no PNCP (formato AAAA-MM-DD) |
+| codigoModalidade | integer | <span class="badge-req">🔴 Sim</span> | Código numérico da modalidade da contratação |
+| unidadeOrgaoCodigoIbge | integer | <span class="badge-opt">⚪ Não</span> | Código IBGE do município onde se localiza a unidade administrativa do órgão titular |
+| unidadeOrgaoUfSigla | string | <span class="badge-opt">⚪ Não</span> | Sigla da Unidade Federativa (UF) da unidade administrativa do órgão titular |
+| dataAualizacaoPncp | string | <span class="badge-opt">⚪ Não</span> | Data de atualização da contratação no PNCP utilizada como parâmetro de filtro |
+| amparoLegalCodigoPncp | integer | <span class="badge-opt">⚪ Não</span> | Código identificador do amparo legal da contratação no PNCP |
+| contratacaoExcluida | boolean | <span class="badge-opt">⚪ Não</span> | Indica se o registro da contratação foi excluído no PNCP |
 
 **Dados de Retorno:**
 
 | Campo | Tipo | Descrição |
 |---|---|---|
-| resultado | Texto/Número | Valor do campo Resultado |
+| resultado | Texto/Número | Lista de registros retornados na página atual da consulta |
 | idCompra | Texto/Número | Código identificador único da compra |
-| numeroControlePNCP | Texto/Número | Valor do campo Numero controle p n c p |
-| anoCompraPncp | Texto/Número | Valor do campo Ano compra pncp |
-| sequencialCompraPncp | Texto/Número | Valor do campo Sequencial compra pncp |
-| orgaoEntidadeCnpj | Texto/Número | Valor do campo Orgao entidade cnpj |
-| orgaoSubrogadoCnpj | Texto/Número | Valor do campo Orgao subrogado cnpj |
+| numeroControlePNCP | Texto/Número | Número de controle único da contratação no PNCP (formato CNPJ-esfera-sequencial/ano) |
+| anoCompraPncp | Texto/Número | Ano da contratação registrado no Portal Nacional de Contratações Públicas (PNCP) |
+| sequencialCompraPncp | Texto/Número | Número sequencial da contratação dentro do ano e órgão no PNCP |
+| orgaoEntidadeCnpj | Texto/Número | Número do CNPJ do órgão ou entidade titular da contratação |
+| orgaoSubrogadoCnpj | Texto/Número | Número do CNPJ do órgão ou entidade para o qual a contratação foi sub-rogada |
 | codigoOrgao | Texto/Número | Código do órgão |
-| orgaoEntidadeRazaoSocial | Texto/Número | Valor do campo Orgao entidade razao social |
-| orgaoSubrogadoRazaoSocial | Texto/Número | Valor do campo Orgao subrogado razao social |
-| orgaoEntidadeEsferaId | Texto/Número | Valor do campo Orgao entidade esfera id |
-| orgaoSubrogadoEsferaId | Texto/Número | Valor do campo Orgao subrogado esfera id |
-| orgaoEntidadePoderId | Texto/Número | Valor do campo Orgao entidade poder id |
-| orgaoSubrogadoPoderId | Texto/Número | Valor do campo Orgao subrogado poder id |
-| unidadeOrgaoCodigoUnidade | Texto/Número | Valor do campo Unidade orgao codigo unidade |
-| unidadeSubrogadaCodigoUnidade | Texto/Número | Valor do campo Unidade subrogada codigo unidade |
-| unidadeOrgaoNomeUnidade | Texto/Número | Valor do campo Unidade orgao nome unidade |
-| unidadeSubrogadaNomeUnidade | Texto/Número | Valor do campo Unidade subrogada nome unidade |
-| unidadeOrgaoUfSigla | Texto/Número | Valor do campo Unidade orgao uf sigla |
-| unidadeSubrogadaUfSigla | Texto/Número | Valor do campo Unidade subrogada uf sigla |
-| unidadeOrgaoMunicipioNome | Texto/Número | Valor do campo Unidade orgao municipio nome |
-| unidadeSubrogadaMunicipioNome | Texto/Número | Valor do campo Unidade subrogada municipio nome |
-| unidadeOrgaoCodigoIbge | Texto/Número | Valor do campo Unidade orgao codigo ibge |
-| unidadeSubrogadaCodigoIbge | Texto/Número | Valor do campo Unidade subrogada codigo ibge |
-| numeroCompra | Texto/Número | Valor do campo Numero compra |
-| modalidadeIdPncp | Texto/Número | Valor do campo Modalidade id pncp |
-| codigoModalidade | Texto/Número | Código do registro associado |
-| modalidadeNome | Texto/Número | Valor do campo Modalidade nome |
-| srp | Texto/Número | Valor do campo Srp |
-| modoDisputaIdPncp | Texto/Número | Valor do campo Modo disputa id pncp |
-| codigoModoDisputa | Texto/Número | Código do registro associado |
-| amparoLegalCodigoPncp | Texto/Número | Valor do campo Amparo legal codigo pncp |
-| amparoLegalNome | Texto/Número | Valor do campo Amparo legal nome |
-| amparoLegalDescricao | Texto/Número | Valor do campo Amparo legal descricao |
-| informacaoComplementar | Texto/Número | Valor do campo Informacao complementar |
-| processo | Texto/Número | Valor do campo Processo |
+| orgaoEntidadeRazaoSocial | Texto/Número | Razão social ou nome oficial do órgão/entidade titular da contratação |
+| orgaoSubrogadoRazaoSocial | Texto/Número | Razão social ou nome oficial do órgão/entidade sub-rogado |
+| orgaoEntidadeEsferaId | Texto/Número | Sigla identificadora da esfera governamental do órgão titular (F = Federal, E = Estadual, M = Municipal) |
+| orgaoSubrogadoEsferaId | Texto/Número | Sigla da esfera governamental do órgão sub-rogado |
+| orgaoEntidadePoderId | Texto/Número | Sigla identificadora do Poder ao qual pertence o órgão titular (E = Executivo, L = Legislativo, J = Judiciário) |
+| orgaoSubrogadoPoderId | Texto/Número | Sigla do Poder ao qual pertence o órgão sub-rogado |
+| unidadeOrgaoCodigoUnidade | Texto/Número | Código da unidade administrativa (UASG) pertencente ao órgão titular da contratação |
+| unidadeSubrogadaCodigoUnidade | Texto/Número | Código da unidade administrativa (UASG) para a qual a contratação foi sub-rogada |
+| unidadeOrgaoNomeUnidade | Texto/Número | Nome oficial da unidade administrativa (UASG) do órgão titular |
+| unidadeSubrogadaNomeUnidade | Texto/Número | Nome oficial da unidade administrativa (UASG) sub-rogada |
+| unidadeOrgaoUfSigla | Texto/Número | Sigla da Unidade Federativa (UF) da unidade administrativa do órgão titular |
+| unidadeSubrogadaUfSigla | Texto/Número | Sigla da Unidade Federativa (UF) da unidade administrativa sub-rogada |
+| unidadeOrgaoMunicipioNome | Texto/Número | Nome do município de localização da unidade administrativa do órgão titular |
+| unidadeSubrogadaMunicipioNome | Texto/Número | Nome do município de localização da unidade administrativa sub-rogada |
+| unidadeOrgaoCodigoIbge | Texto/Número | Código IBGE do município onde se localiza a unidade administrativa do órgão titular |
+| unidadeSubrogadaCodigoIbge | Texto/Número | Código IBGE do município de localização da unidade administrativa sub-rogada |
+| numeroCompra | Texto/Número | Número sequencial da compra ou contratação no ano |
+| modalidadeIdPncp | Texto/Número | Código identificador da modalidade de contratação na tabela de domínio do PNCP |
+| codigoModalidade | Texto/Número | Código numérico da modalidade da contratação |
+| modalidadeNome | Texto/Número | Nome da modalidade de contratação (ex.: Pregão Eletrônico, Concorrência, Dispensa) |
+| srp | Texto/Número | Indica se a contratação utiliza o Sistema de Registro de Preços (SRP) |
+| modoDisputaIdPncp | Texto/Número | Código identificador do modo de disputa na tabela de domínio do PNCP |
+| codigoModoDisputa | Texto/Número | Código identificador do modo de disputa adotado na seleção do fornecedor |
+| amparoLegalCodigoPncp | Texto/Número | Código identificador do amparo legal da contratação no PNCP |
+| amparoLegalNome | Texto/Número | Nome ou identificação resumida do amparo legal da contratação (lei, artigo e inciso) |
+| amparoLegalDescricao | Texto/Número | Descrição detalhada do dispositivo legal que fundamenta a contratação |
+| informacaoComplementar | Texto/Número | Informações adicionais relevantes sobre a contratação ou edital |
+| processo | Texto/Número | Número do processo administrativo de contratação |
 | objetoCompra | Texto/Número | Descrição do objeto da compra |
-| existeResultado | Texto/Número | Valor do campo Existe resultado |
-| orcamentoSigilosoCodigo | Texto/Número | Valor do campo Orcamento sigiloso codigo |
-| orcamentoSigilosoDescricao | Texto/Número | Valor do campo Orcamento sigiloso descricao |
-| situacaoCompraIdPncp | Texto/Número | Valor do campo Situacao compra id pncp |
-| situacaoCompraNomePncp | Texto/Número | Valor do campo Situacao compra nome pncp |
-| tipoInstrumentoConvocatorioCodigoPncp | Texto/Número | Valor do campo Tipo instrumento convocatorio codigo pncp |
-| tipoInstrumentoConvocatorioNome | Texto/Número | Valor do campo Tipo instrumento convocatorio nome |
-| modoDisputaNomePncp | Texto/Número | Valor do campo Modo disputa nome pncp |
-| valorTotalEstimado | Texto/Número | Valor do campo Valor total estimado |
-| valorTotalHomologado | Texto/Número | Valor do campo Valor total homologado |
-| dataInclusaoPncp | Texto/Número | Data correspondente ao registro |
-| dataAtualizacaoPncp | Texto/Número | Data correspondente ao registro |
-| dataPublicacaoPncp | Texto/Número | Data correspondente ao registro |
-| dataAberturaPropostaPncp | Texto/Número | Data correspondente ao registro |
-| dataEncerramentoPropostaPncp | Texto/Número | Data correspondente ao registro |
-| contratacaoExcluida | Texto/Número | Valor do campo Contratacao excluida |
+| existeResultado | Texto/Número | Indica se o item da contratação já possui resultado de julgamento registrado |
+| orcamentoSigilosoCodigo | Texto/Número | Código indicador do regime de sigilo do orçamento estimado |
+| orcamentoSigilosoDescricao | Texto/Número | Descrição da condição de publicidade ou sigilo do orçamento estimado |
+| situacaoCompraIdPncp | Texto/Número | Código identificador da situação atual da contratação no PNCP |
+| situacaoCompraNomePncp | Texto/Número | Descrição da situação atual da contratação no PNCP (ex.: Divulgada no PNCP, Revogada, Anulada, Suspensa) |
+| tipoInstrumentoConvocatorioCodigoPncp | Texto/Número | Código identificador do instrumento convocatório na tabela do PNCP |
+| tipoInstrumentoConvocatorioNome | Texto/Número | Denominação do instrumento convocatório utilizado (Edital, Aviso de Contratação Direta, Ato que autoriza a Contratação Direta) |
+| modoDisputaNomePncp | Texto/Número | Nome do modo de disputa adotado (ex.: Aberto, Aberto-Fechado, Fechado, Não se aplica) |
+| valorTotalEstimado | Texto/Número | Valor total estimado pela Administração para a contratação ou item (em R$) |
+| valorTotalHomologado | Texto/Número | Valor total efetivamente homologado na contratação ou resultado (em R$) |
+| dataInclusaoPncp | Texto/Número | Data de inclusão inicial do registro no Portal Nacional de Contratações Públicas (PNCP) |
+| dataAtualizacaoPncp | Texto/Número | Data da última atualização do registro no Portal Nacional de Contratações Públicas (PNCP) |
+| dataPublicacaoPncp | Texto/Número | Data de publicação oficial da contratação ou edital no PNCP |
+| dataAberturaPropostaPncp | Texto/Número | Data e hora de início do recebimento de propostas registradas no PNCP |
+| dataEncerramentoPropostaPncp | Texto/Número | Data e hora de encerramento do recebimento de propostas no PNCP |
+| contratacaoExcluida | Texto/Número | Indica se o registro da contratação foi excluído no PNCP |
 | totalRegistros | Texto/Número | Total de registros encontrados |
 | totalPaginas | Texto/Número | Total de páginas disponíveis |
 | paginasRestantes | Texto/Número | Número de páginas restantes |
@@ -211,7 +211,7 @@ curl -X 'GET' \
 |---|---|---|---|
 | tipo | string | <span class="badge-req">🔴 Sim</span> | Tipo do item do catálogo a consultar (ex: material ou serviço) |
 | codigo | string | <span class="badge-req">🔴 Sim</span> | Código do item no catálogo |
-| dataAtualizacaoPncp | string | <span class="badge-opt">⚪ Não</span> | Data correspondente ao registro |
+| dataAtualizacaoPncp | string | <span class="badge-opt">⚪ Não</span> | Data da última atualização do registro no Portal Nacional de Contratações Públicas (PNCP) |
 
 <a href="#">⬆️ Voltar ao topo</a>
 
@@ -236,73 +236,73 @@ curl -X 'GET' \
 |---|---|---|---|
 | pagina | integer | <span class="badge-opt">⚪ Não</span> | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
 | tamanhoPagina | integer | <span class="badge-opt">⚪ Não</span> | Ajustar o tamanho de registros por página (limite máx. de 500 registros por página). (Default: 10) |
-| unidadeOrgaoCodigoUnidade | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Unidade orgao codigo unidade |
-| orgaoEntidadeCnpj | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Orgao entidade cnpj |
-| situacaoCompraItem | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Situacao compra item |
-| materialOuServico | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Material ou servico |
+| unidadeOrgaoCodigoUnidade | string | <span class="badge-opt">⚪ Não</span> | Código da unidade administrativa (UASG) pertencente ao órgão titular da contratação |
+| orgaoEntidadeCnpj | string | <span class="badge-opt">⚪ Não</span> | Número do CNPJ do órgão ou entidade titular da contratação |
+| situacaoCompraItem | string | <span class="badge-opt">⚪ Não</span> | Código identificador da situação do item da contratação |
+| materialOuServico | string | <span class="badge-opt">⚪ Não</span> | Sigla que classifica a natureza do item: 'M' (Material) ou 'S' (Serviço) |
 | codigoClasse | integer | <span class="badge-opt">⚪ Não</span> | Código da classe do material/serviço |
 | codigoGrupo | integer | <span class="badge-opt">⚪ Não</span> | Código do grupo do material/serviço |
-| codItemCatalogo | integer | <span class="badge-opt">⚪ Não</span> | Valor do campo Cod item catalogo |
-| temResultado | boolean | <span class="badge-opt">⚪ Não</span> | Valor do campo Tem resultado |
-| codFornecedor | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Cod fornecedor |
-| dataInclusaoPncpInicial | string | <span class="badge-req">🔴 Sim</span> | Data correspondente ao registro |
-| dataInclusaoPncpFinal | string | <span class="badge-req">🔴 Sim</span> | Data correspondente ao registro |
-| dataAtualizacaoPncp | string | <span class="badge-opt">⚪ Não</span> | Data correspondente ao registro |
+| codItemCatalogo | integer | <span class="badge-opt">⚪ Não</span> | Código do item de material (CATMAT) ou serviço (CATSER) no catálogo de compras |
+| temResultado | boolean | <span class="badge-opt">⚪ Não</span> | Indica se o item possui resultado de homologação divulgado (true/false) |
+| codFornecedor | string | <span class="badge-opt">⚪ Não</span> | Código identificador interno do fornecedor no sistema |
+| dataInclusaoPncpInicial | string | <span class="badge-req">🔴 Sim</span> | Data inicial do período de inclusão no PNCP para filtro da consulta |
+| dataInclusaoPncpFinal | string | <span class="badge-req">🔴 Sim</span> | Data final do período de inclusão no PNCP para filtro da consulta |
+| dataAtualizacaoPncp | string | <span class="badge-opt">⚪ Não</span> | Data da última atualização do registro no Portal Nacional de Contratações Públicas (PNCP) |
 | bps | boolean | <span class="badge-opt">⚪ Não</span> | Indica se está vinculado ao Banco de Preços em Saúde (BPS). 0 – False/Não; 1 – True/Sim |
-| margemPreferenciaNormal | boolean | <span class="badge-opt">⚪ Não</span> | Valor do campo Margem preferencia normal |
-| codigoNCM | string | <span class="badge-opt">⚪ Não</span> | Código do registro associado |
+| margemPreferenciaNormal | boolean | <span class="badge-opt">⚪ Não</span> | Indica se o item prevê aplicação de margem de preferência normal para produtos manufaturados ou serviços nacionais |
+| codigoNCM | string | <span class="badge-opt">⚪ Não</span> | Código da Nomenclatura Comum do Mercosul (NCM) associado ao item |
 | codigoPdm | string | <span class="badge-opt">⚪ Não</span> | Código do Produto Descritivo Básico (PDM) |
 
 **Dados de Retorno:**
 
 | Campo | Tipo | Descrição |
 |---|---|---|
-| resultado | Texto/Número | Valor do campo Resultado |
+| resultado | Texto/Número | Lista de registros retornados na página atual da consulta |
 | idCompra | Texto/Número | Código identificador único da compra |
 | idCompraItem | Texto/Número | Identificador único do item da compra |
-| idContratacaoPNCP | Texto/Número | Valor do campo Id contratacao p n c p |
-| unidadeOrgaoCodigoUnidade | Texto/Número | Valor do campo Unidade orgao codigo unidade |
-| orgaoEntidadeCnpj | Texto/Número | Valor do campo Orgao entidade cnpj |
-| numeroItemPncp | Texto/Número | Valor do campo Numero item pncp |
+| idContratacaoPNCP | Texto/Número | Identificador único da contratação na base do Portal Nacional de Contratações Públicas (PNCP) |
+| unidadeOrgaoCodigoUnidade | Texto/Número | Código da unidade administrativa (UASG) pertencente ao órgão titular da contratação |
+| orgaoEntidadeCnpj | Texto/Número | Número do CNPJ do órgão ou entidade titular da contratação |
+| numeroItemPncp | Texto/Número | Número sequencial do item da contratação registrado no PNCP |
 | numeroItemCompra | Texto/Número | Número do item da compra |
-| numeroGrupo | Texto/Número | Valor do campo Numero grupo |
-| descricaoResumida | Texto/Número | Valor do campo Descricao resumida |
-| materialOuServico | Texto/Número | Valor do campo Material ou servico |
-| materialOuServicoNome | Texto/Número | Valor do campo Material ou servico nome |
+| numeroGrupo | Texto/Número | Número do grupo ou lote ao qual o item pertence na licitação |
+| descricaoResumida | Texto/Número | Descrição resumida do objeto ou item contratado |
+| materialOuServico | Texto/Número | Sigla que classifica a natureza do item: 'M' (Material) ou 'S' (Serviço) |
+| materialOuServicoNome | Texto/Número | Descrição por extenso da natureza do item ('Material' ou 'Serviço') |
 | codigoClasse | Texto/Número | Código da classe do material/serviço |
 | codigoGrupo | Texto/Número | Código do grupo do material/serviço |
-| codItemCatalogo | Texto/Número | Valor do campo Cod item catalogo |
-| descricaodetalhada | Texto/Número | Valor do campo Descricaodetalhada |
-| unidadeMedida | Texto/Número | Valor do campo Unidade medida |
-| orcamentoSigiloso | Texto/Número | Valor do campo Orcamento sigiloso |
-| itemCategoriaIdPncp | Texto/Número | Valor do campo Item categoria id pncp |
-| itemCategoriaNome | Texto/Número | Valor do campo Item categoria nome |
-| criterioJulgamentoIdPncp | Texto/Número | Valor do campo Criterio julgamento id pncp |
-| criterioJulgamentoNome | Texto/Número | Valor do campo Criterio julgamento nome |
-| situacaoCompraItem | Texto/Número | Valor do campo Situacao compra item |
-| situacaoCompraItemNome | Texto/Número | Valor do campo Situacao compra item nome |
-| tipoBeneficio | Texto/Número | Valor do campo Tipo beneficio |
-| tipoBeneficioNome | Texto/Número | Valor do campo Tipo beneficio nome |
-| incentivoProdutivoBasico | Texto/Número | Valor do campo Incentivo produtivo basico |
+| codItemCatalogo | Texto/Número | Código do item de material (CATMAT) ou serviço (CATSER) no catálogo de compras |
+| descricaodetalhada | Texto/Número | Descrição complementar detalhada das características do item |
+| unidadeMedida | Texto/Número | Unidade de fornecimento ou medida comercial do item (ex.: Unidade, Caixa, Mês, Quilograma) |
+| orcamentoSigiloso | Texto/Número | Indica se o valor estimado da contratação possui caráter sigiloso (art. 24 da Lei nº 14.133/2021) |
+| itemCategoriaIdPncp | Texto/Número | Código identificador da categoria do item no padrão do PNCP |
+| itemCategoriaNome | Texto/Número | Denominação da categoria na qual o item se enquadra no PNCP |
+| criterioJulgamentoIdPncp | Texto/Número | Código identificador do critério de julgamento do item no PNCP |
+| criterioJulgamentoNome | Texto/Número | Denominação do critério de julgamento adotado para seleção da proposta (ex.: menor preço, maior desconto) |
+| situacaoCompraItem | Texto/Número | Código identificador da situação do item da contratação |
+| situacaoCompraItemNome | Texto/Número | Descrição da situação do item da contratação (ex.: Em Andamento, Homologado, Deserto, Fracassado) |
+| tipoBeneficio | Texto/Número | Código do tipo de benefício aplicável a ME/EPP (LC nº 123/2006) |
+| tipoBeneficioNome | Texto/Número | Descrição do tipo de benefício ME/EPP (Participação exclusiva, Subcontratação, Cota reservada ou Não se aplica) |
+| incentivoProdutivoBasico | Texto/Número | Indica se o item exige cumprimento do Processo Produtivo Básico (PPB) |
 | quantidade | Texto/Número | Quantidade adquirida |
-| valorUnitarioEstimado | Texto/Número | Valor do campo Valor unitario estimado |
-| valorTotal | Texto/Número | Valor do campo Valor total |
-| temResultado | Texto/Número | Valor do campo Tem resultado |
-| codFornecedor | Texto/Número | Valor do campo Cod fornecedor |
+| valorUnitarioEstimado | Texto/Número | Valor unitário estimado de referência para a aquisição do item (em R$) |
+| valorTotal | Texto/Número | Valor financeiro total do item (quantidade multiplicada pelo valor unitário) |
+| temResultado | Texto/Número | Indica se o item possui resultado de homologação divulgado (true/false) |
+| codFornecedor | Texto/Número | Código identificador interno do fornecedor no sistema |
 | nomeFornecedor | Texto/Número | Nome do fornecedor |
-| quantidadeResultado | Texto/Número | Valor do campo Quantidade resultado |
-| valorUnitarioResultado | Texto/Número | Valor do campo Valor unitario resultado |
-| valorTotalResultado | Texto/Número | Valor do campo Valor total resultado |
-| dataInclusaoPncp | Texto/Número | Data correspondente ao registro |
-| dataAtualizacaoPncp | Texto/Número | Data correspondente ao registro |
+| quantidadeResultado | Texto/Número | Quantidade adjudicada ao fornecedor no resultado do item |
+| valorUnitarioResultado | Texto/Número | Valor unitário adjudicado no resultado do item (em R$) |
+| valorTotalResultado | Texto/Número | Valor total homologado para o fornecedor vencedor no resultado do item |
+| dataInclusaoPncp | Texto/Número | Data de inclusão inicial do registro no Portal Nacional de Contratações Públicas (PNCP) |
+| dataAtualizacaoPncp | Texto/Número | Data da última atualização do registro no Portal Nacional de Contratações Públicas (PNCP) |
 | dataResultado | Texto/Número | Data do resultado da compra |
-| margemPreferenciaNormal | Texto/Número | Valor do campo Margem preferencia normal |
-| percentualMargemPreferenciaNormal | Texto/Número | Valor do campo Percentual margem preferencia normal |
-| margemPreferenciaAdicional | Texto/Número | Valor do campo Margem preferencia adicional |
-| percentualMargemPreferenciaAdicional | Texto/Número | Valor do campo Percentual margem preferencia adicional |
-| codigoNCM | Texto/Número | Código do registro associado |
-| descricaoNCM | Texto/Número | Valor do campo Descricao n c m |
-| numeroControlePNCPCompra | Texto/Número | Valor do campo Numero controle p n c p compra |
+| margemPreferenciaNormal | Texto/Número | Indica se o item prevê aplicação de margem de preferência normal para produtos manufaturados ou serviços nacionais |
+| percentualMargemPreferenciaNormal | Texto/Número | Percentual numérico de margem de preferência normal aplicado ao item |
+| margemPreferenciaAdicional | Texto/Número | Indica se o item prevê aplicação de margem de preferência adicional (inovação/desenvolvimento nacional) |
+| percentualMargemPreferenciaAdicional | Texto/Número | Percentual numérico de margem de preferência adicional aplicado ao item |
+| codigoNCM | Texto/Número | Código da Nomenclatura Comum do Mercosul (NCM) associado ao item |
+| descricaoNCM | Texto/Número | Descrição da mercadoria conforme a tabela da Nomenclatura Comum do Mercosul (NCM) |
+| numeroControlePNCPCompra | Texto/Número | Número de controle PNCP da compra que originou o registro |
 | codigoPdm | Texto/Número | Código do Produto Descritivo Básico (PDM) |
 | nomePdm | Texto/Número | Nome do PDM |
 | totalRegistros | Texto/Número | Total de registros encontrados |
@@ -395,7 +395,7 @@ curl -X 'GET' \
 | tipo | string | <span class="badge-req">🔴 Sim</span> | Tipo do item do catálogo a consultar (ex: material ou serviço) |
 | codigo | string | <span class="badge-req">🔴 Sim</span> | Código do item no catálogo |
 | idCompraItem | string | <span class="badge-opt">⚪ Não</span> | Identificador único do item da compra |
-| dataAtualizacaoPncp | string | <span class="badge-opt">⚪ Não</span> | Data correspondente ao registro |
+| dataAtualizacaoPncp | string | <span class="badge-opt">⚪ Não</span> | Data da última atualização do registro no Portal Nacional de Contratações Públicas (PNCP) |
 
 <a href="#">⬆️ Voltar ao topo</a>
 
@@ -420,70 +420,70 @@ curl -X 'GET' \
 |---|---|---|---|
 | pagina | integer | <span class="badge-opt">⚪ Não</span> | Referente à paginação dos resultados. Permite ao usuário navegar entre as páginas de resultados. (Default: 1) |
 | tamanhoPagina | integer | <span class="badge-opt">⚪ Não</span> | Ajustar o tamanho de registros por página (limite máx. de 500 registros por página). (Default: 10) |
-| unidadeOrgaoCodigoUnidade | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Unidade orgao codigo unidade |
-| orgaoEntidadeCnpj | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Orgao entidade cnpj |
+| unidadeOrgaoCodigoUnidade | string | <span class="badge-opt">⚪ Não</span> | Código da unidade administrativa (UASG) pertencente ao órgão titular da contratação |
+| orgaoEntidadeCnpj | string | <span class="badge-opt">⚪ Não</span> | Número do CNPJ do órgão ou entidade titular da contratação |
 | niFornecedor | string | <span class="badge-opt">⚪ Não</span> | Número de identificação do fornecedor (CPF/CNPJ/Estrangeiro) |
-| codigoPais | string | <span class="badge-opt">⚪ Não</span> | Código do registro associado |
-| porteFornecedorId | integer | <span class="badge-opt">⚪ Não</span> | Valor do campo Porte fornecedor id |
-| naturezaJuridicaId | string | <span class="badge-opt">⚪ Não</span> | Valor do campo Natureza juridica id |
-| situacaoCompraItemResultadoId | integer | <span class="badge-opt">⚪ Não</span> | Valor do campo Situacao compra item resultado id |
-| valorUnitarioHomologadoInicial | number | <span class="badge-opt">⚪ Não</span> | Valor do campo Valor unitario homologado inicial |
-| valorUnitarioHomologadoFinal | number | <span class="badge-opt">⚪ Não</span> | Valor do campo Valor unitario homologado final |
-| valorTotalHomologadoInicial | number | <span class="badge-opt">⚪ Não</span> | Valor do campo Valor total homologado inicial |
-| valorTotalHomologadoFinal | number | <span class="badge-opt">⚪ Não</span> | Valor do campo Valor total homologado final |
-| dataResultadoPncpInicial | string | <span class="badge-req">🔴 Sim</span> | Data correspondente ao registro |
-| dataResultadoPncpFinal | string | <span class="badge-req">🔴 Sim</span> | Data correspondente ao registro |
-| aplicacaoMargemPreferencia | boolean | <span class="badge-opt">⚪ Não</span> | Valor do campo Aplicacao margem preferencia |
-| aplicacaoBeneficioMeepp | boolean | <span class="badge-opt">⚪ Não</span> | Valor do campo Aplicacao beneficio meepp |
-| aplicacaoCriterioDesempate | boolean | <span class="badge-opt">⚪ Não</span> | Valor do campo Aplicacao criterio desempate |
+| codigoPais | string | <span class="badge-opt">⚪ Não</span> | Código ISO de identificação do país de origem do fornecedor |
+| porteFornecedorId | integer | <span class="badge-opt">⚪ Não</span> | Código identificador do porte empresarial do fornecedor (ME, EPP, Demais etc.) |
+| naturezaJuridicaId | string | <span class="badge-opt">⚪ Não</span> | Código CONCLA/IBGE da natureza jurídica do fornecedor |
+| situacaoCompraItemResultadoId | integer | <span class="badge-opt">⚪ Não</span> | Código identificador da situação do resultado do item no PNCP |
+| valorUnitarioHomologadoInicial | number | <span class="badge-opt">⚪ Não</span> | Valor unitário originalmente homologado no certame |
+| valorUnitarioHomologadoFinal | number | <span class="badge-opt">⚪ Não</span> | Valor unitário final após negociação ou atualização na ata |
+| valorTotalHomologadoInicial | number | <span class="badge-opt">⚪ Não</span> | Limite inferior do valor total homologado para filtro |
+| valorTotalHomologadoFinal | number | <span class="badge-opt">⚪ Não</span> | Limite superior do valor total homologado para filtro |
+| dataResultadoPncpInicial | string | <span class="badge-req">🔴 Sim</span> | Data inicial do período de publicação do resultado no PNCP |
+| dataResultadoPncpFinal | string | <span class="badge-req">🔴 Sim</span> | Data final do período de publicação do resultado no PNCP |
+| aplicacaoMargemPreferencia | boolean | <span class="badge-opt">⚪ Não</span> | Indica se houve aplicação de margem de preferência no julgamento do item |
+| aplicacaoBeneficioMeepp | boolean | <span class="badge-opt">⚪ Não</span> | Indica se houve aplicação de benefício destinado a microempresas e empresas de pequeno porte (LC nº 123/2006) |
+| aplicacaoCriterioDesempate | boolean | <span class="badge-opt">⚪ Não</span> | Indica se foi utilizado critério de desempate no julgamento do item |
 
 **Dados de Retorno:**
 
 | Campo | Tipo | Descrição |
 |---|---|---|
-| resultado | Texto/Número | Valor do campo Resultado |
+| resultado | Texto/Número | Lista de registros retornados na página atual da consulta |
 | idCompraItem | Texto/Número | Identificador único do item da compra |
 | idCompra | Texto/Número | Código identificador único da compra |
-| idContratacaoPNCP | Texto/Número | Valor do campo Id contratacao p n c p |
-| unidadeOrgaoCodigoUnidade | Texto/Número | Valor do campo Unidade orgao codigo unidade |
-| unidadeOrgaoUfSigla | Texto/Número | Valor do campo Unidade orgao uf sigla |
-| numeroItemPncp | Texto/Número | Valor do campo Numero item pncp |
-| sequencialResultado | Texto/Número | Valor do campo Sequencial resultado |
+| idContratacaoPNCP | Texto/Número | Identificador único da contratação na base do Portal Nacional de Contratações Públicas (PNCP) |
+| unidadeOrgaoCodigoUnidade | Texto/Número | Código da unidade administrativa (UASG) pertencente ao órgão titular da contratação |
+| unidadeOrgaoUfSigla | Texto/Número | Sigla da Unidade Federativa (UF) da unidade administrativa do órgão titular |
+| numeroItemPncp | Texto/Número | Número sequencial do item da contratação registrado no PNCP |
+| sequencialResultado | Texto/Número | Número sequencial do registro de resultado do item no PNCP |
 | niFornecedor | Texto/Número | Número de identificação do fornecedor (CPF/CNPJ/Estrangeiro) |
-| tipoPessoa | Texto/Número | Valor do campo Tipo pessoa |
-| nomeRazaoSocialFornecedor | Texto/Número | Valor do campo Nome razao social fornecedor |
-| codigoPais | Texto/Número | Código do registro associado |
-| indicadorSubcontratacao | Texto/Número | Valor do campo Indicador subcontratacao |
-| ordemClassificacaoSrp | Texto/Número | Valor do campo Ordem classificacao srp |
-| quantidadeHomologada | Texto/Número | Valor do campo Quantidade homologada |
-| valorUnitarioHomologado | Texto/Número | Valor do campo Valor unitario homologado |
-| valorTotalHomologado | Texto/Número | Valor do campo Valor total homologado |
-| percentualDesconto | Texto/Número | Valor do campo Percentual desconto |
-| situacaoCompraItemResultadoId | Texto/Número | Valor do campo Situacao compra item resultado id |
-| situacaoCompraItemResultadoNome | Texto/Número | Valor do campo Situacao compra item resultado nome |
-| motivoCancelamento | Texto/Número | Valor do campo Motivo cancelamento |
-| porteFornecedorId | Texto/Número | Valor do campo Porte fornecedor id |
-| porteFornecedorNome | Texto/Número | Valor do campo Porte fornecedor nome |
-| naturezaJuridicaNome | Texto/Número | Valor do campo Natureza juridica nome |
-| naturezaJuridicaId | Texto/Número | Valor do campo Natureza juridica id |
-| dataInclusaoPncp | Texto/Número | Data correspondente ao registro |
-| dataAtualizacaoPncp | Texto/Número | Data correspondente ao registro |
-| dataCancelamentoPncp | Texto/Número | Data correspondente ao registro |
-| dataResultadoPncp | Texto/Número | Data correspondente ao registro |
-| numeroControlePNCPCompra | Texto/Número | Valor do campo Numero controle p n c p compra |
-| orgaoEntidadeCnpj | Texto/Número | Valor do campo Orgao entidade cnpj |
-| aplicacaoMargemPreferencia | Texto/Número | Valor do campo Aplicacao margem preferencia |
-| amparoLegalMargemPreferenciaId | Texto/Número | Valor do campo Amparo legal margem preferencia id |
-| amparoLegalMargemPreferenciaNome | Texto/Número | Valor do campo Amparo legal margem preferencia nome |
-| aplicacaoBeneficioMeepp | Texto/Número | Valor do campo Aplicacao beneficio meepp |
-| aplicacaoCriterioDesempate | Texto/Número | Valor do campo Aplicacao criterio desempate |
-| amparoLegalCriterioDesempateId | Texto/Número | Valor do campo Amparo legal criterio desempate id |
-| amparoLegalCriterioDesempateNome | Texto/Número | Valor do campo Amparo legal criterio desempate nome |
-| moedaEstrangeiraId | Texto/Número | Valor do campo Moeda estrangeira id |
-| dataCotacaoMoedaEstrangeira | Texto/Número | Data correspondente ao registro |
-| valorNominalMoedaEstrangeira | Texto/Número | Valor do campo Valor nominal moeda estrangeira |
-| paisOrigemProdutoServicoId | Texto/Número | Valor do campo Pais origem produto servico id |
-| timezoneCotacaoMoedaEstrangeira | Texto/Número | Valor do campo Timezone cotacao moeda estrangeira |
+| tipoPessoa | Texto/Número | Classificação da personalidade do fornecedor (PJ = Pessoa Jurídica, PF = Pessoa Física, PE = Pessoa Estrangeira) |
+| nomeRazaoSocialFornecedor | Texto/Número | Nome empresarial (razão social) ou nome completo do fornecedor |
+| codigoPais | Texto/Número | Código ISO de identificação do país de origem do fornecedor |
+| indicadorSubcontratacao | Texto/Número | Indica se houve previsão ou ocorrência de subcontratação para o item |
+| ordemClassificacaoSrp | Texto/Número | Ordem de classificação do fornecedor no cadastro de reserva do registro de preços |
+| quantidadeHomologada | Texto/Número | Quantidade do item efetivamente homologada para o fornecedor na ata ou compra |
+| valorUnitarioHomologado | Texto/Número | Valor unitário homologado ao fornecedor vencedor do item (em R$) |
+| valorTotalHomologado | Texto/Número | Valor total efetivamente homologado na contratação ou resultado (em R$) |
+| percentualDesconto | Texto/Número | Percentual de desconto ofertado ou homologado sobre o valor de referência |
+| situacaoCompraItemResultadoId | Texto/Número | Código identificador da situação do resultado do item no PNCP |
+| situacaoCompraItemResultadoNome | Texto/Número | Descrição da situação do resultado do item (ex.: Informado, Cancelado) |
+| motivoCancelamento | Texto/Número | Justificativa registrada para o cancelamento do item ou do resultado da contratação |
+| porteFornecedorId | Texto/Número | Código identificador do porte empresarial do fornecedor (ME, EPP, Demais etc.) |
+| porteFornecedorNome | Texto/Número | Descrição do enquadramento de porte empresarial do fornecedor |
+| naturezaJuridicaNome | Texto/Número | Descrição da natureza jurídica do fornecedor contratado |
+| naturezaJuridicaId | Texto/Número | Código CONCLA/IBGE da natureza jurídica do fornecedor |
+| dataInclusaoPncp | Texto/Número | Data de inclusão inicial do registro no Portal Nacional de Contratações Públicas (PNCP) |
+| dataAtualizacaoPncp | Texto/Número | Data da última atualização do registro no Portal Nacional de Contratações Públicas (PNCP) |
+| dataCancelamentoPncp | Texto/Número | Data de registro do cancelamento do item ou resultado no PNCP |
+| dataResultadoPncp | Texto/Número | Data de homologação ou publicação do resultado do item no PNCP |
+| numeroControlePNCPCompra | Texto/Número | Número de controle PNCP da compra que originou o registro |
+| orgaoEntidadeCnpj | Texto/Número | Número do CNPJ do órgão ou entidade titular da contratação |
+| aplicacaoMargemPreferencia | Texto/Número | Indica se houve aplicação de margem de preferência no julgamento do item |
+| amparoLegalMargemPreferenciaId | Texto/Número | Código identificador do amparo legal que regulamenta a margem de preferência |
+| amparoLegalMargemPreferenciaNome | Texto/Número | Denominação do ato normativo que regulamenta a margem de preferência |
+| aplicacaoBeneficioMeepp | Texto/Número | Indica se houve aplicação de benefício destinado a microempresas e empresas de pequeno porte (LC nº 123/2006) |
+| aplicacaoCriterioDesempate | Texto/Número | Indica se foi utilizado critério de desempate no julgamento do item |
+| amparoLegalCriterioDesempateId | Texto/Número | Código identificador do amparo legal referente ao critério de desempate aplicado |
+| amparoLegalCriterioDesempateNome | Texto/Número | Denominação do amparo legal referente ao critério de desempate aplicado |
+| moedaEstrangeiraId | Texto/Número | Código identificador da moeda estrangeira utilizada na cotação da proposta |
+| dataCotacaoMoedaEstrangeira | Texto/Número | Data da cotação de câmbio utilizada para conversão de valores em moeda estrangeira |
+| valorNominalMoedaEstrangeira | Texto/Número | Valor nominal da proposta expresso na moeda estrangeira de origem |
+| paisOrigemProdutoServicoId | Texto/Número | Código ISO do país de origem do produto ou serviço ofertado |
+| timezoneCotacaoMoedaEstrangeira | Texto/Número | Fuso horário de referência da cotação de moeda estrangeira |
 | totalRegistros | Texto/Número | Total de registros encontrados |
 | totalPaginas | Texto/Número | Total de páginas disponíveis |
 | paginasRestantes | Texto/Número | Número de páginas restantes |
@@ -569,7 +569,7 @@ curl -X 'GET' \
 | tipo | string | <span class="badge-req">🔴 Sim</span> | Tipo do item do catálogo a consultar (ex: material ou serviço) |
 | codigo | string | <span class="badge-req">🔴 Sim</span> | Código do item no catálogo |
 | idCompraItem | string | <span class="badge-opt">⚪ Não</span> | Identificador único do item da compra |
-| dataAtualizacaoPncp | string | <span class="badge-opt">⚪ Não</span> | Data correspondente ao registro |
+| dataAtualizacaoPncp | string | <span class="badge-opt">⚪ Não</span> | Data da última atualização do registro no Portal Nacional de Contratações Públicas (PNCP) |
 
 <a href="#">⬆️ Voltar ao topo</a>
 

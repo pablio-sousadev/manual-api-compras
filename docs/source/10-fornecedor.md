@@ -63,7 +63,7 @@ curl -X 'GET' \
 | totalRegistros | Inteiro | Total de registros encontrados |
 | totalPaginas | Inteiro | Total de páginas disponíveis |
 | paginasRestantes | Inteiro | Número de páginas restantes |
-| resultado | Texto/Número | Valor do campo Resultado |
+| resultado | Texto/Número | Lista de registros retornados na página atual da consulta |
 
 **Exemplo de Retorno:**
 ```json

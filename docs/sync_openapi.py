@@ -28,7 +28,7 @@ CATALOG_PATH = os.path.join(DATA_DIR, "descriptions_catalog.json")
 PUBLIC_TAGS = [
     ("01 - CATÁLOGO - MATERIAL", 1, "01-catalogo-material.md", "1. Módulo Catálogo — Material", 1),
     ("02 - CATÁLOGO - SERVIÇO", 2, "02-catalogo-servico.md", "2. Módulo Catálogo — Serviço", 1),
-    ("03 - PESQUISA DE PREÇO - PREÇOS PRATICADOS", 3, "03-pesquisa-preco.md", "3. Módulo Pesquisa de Preço — Preços Praticados", 1),
+    ("03 - PESQUISA DE PREÇO - PREÇOS PRATICADOS", 3, "03-pesquisa-preco.md", "3. Módulo Pesquisa de Preços", 1),
     ("04 - PGC", 4, "04-pgc.md", "4. Módulo PGC — Planejamento e Gerenciamento de Contratações", 1),
     ("05 - UASG", 5, "05-uasg.md", "5. Módulo UASG", 1),
     ("06 - LEGADO", 6, "06-legado.md", "6. Módulo Legado", 1),
@@ -83,9 +83,9 @@ def fetch_openapi_spec():
 
 
 def humanize_field_name(name):
-    """Gera descrição legível caso um campo novo não tenha descrição no catálogo nem no Swagger."""
+    """Gera descrição semântica legível caso um campo novo seja incluído futuramente no Swagger."""
     words = re.sub(r"([a-z0-9])([A-Z])", r"\1 \2", name).replace("_", " ").lower()
-    return f"Valor do campo {words.capitalize()}"
+    return f"Informação referente a {words}"
 
 
 def extract_schema_properties(spec, schema_obj):
@@ -99,7 +99,7 @@ def extract_schema_properties(spec, schema_obj):
     fields = []
 
     if "resultado" in props:
-        fields.append(("resultado", "Texto/Número", "Valor do campo Resultado"))
+        fields.append(("resultado", "Texto/Número", "Lista de registros retornados na consulta"))
         res_prop = props["resultado"]
         items_ref = res_prop.get("items", {}).get("$ref", "")
         if items_ref:
@@ -380,14 +380,40 @@ def rebuild_versao_impressao(generated_sections):
             "O Compras.gov.br atua nas três grandes fases do ciclo de contratação pública — Planejamento da Contratação, "
             "Seleção do Fornecedor e Gestão e Fiscalização do Contrato —, integrando diversas ferramentas e sistemas que compõem a área de trabalho do gestor público."
         ),
-        '<h2 id="objetivos">Objetivos</h2>\n\nA transparência desempenha um papel fundamental na gestão pública.',
+        (
+            '<h2 id="objetivos">Objetivos</h2>\n\n'
+            "A API de Dados Abertos do Compras.gov.br tem por objetivo disponibilizar, de forma aberta, estruturada e legível por máquina, "
+            "os dados das contratações públicas do Governo Federal, permitindo que sistemas externos, órgãos de controle, pesquisadores, "
+            "empresas e a sociedade em geral possam consultá-los, integrá-los e reutilizá-los de maneira automatizada.\n\n"
+            "O serviço atende ao dever de transparência ativa previsto na Lei de Acesso à Informação (Lei nº 12.527, de 18 de novembro de 2011), "
+            'que determina, em seu art. 8º, inciso III, que os órgãos e entidades públicas devem "possibilitar o acesso automatizado por sistemas '
+            'externos em formatos abertos, estruturados e legíveis por máquina", e está alinhado à política brasileira de dados abertos, '
+            "que busca ampliar o controle social, a pesquisa, a inovação e a geração de valor a partir dos dados públicos.\n\n"
+            "Ao oferecer acesso programático, padronizado e gratuito aos dados de contratações, a API amplia a transparência dos gastos públicos, "
+            "reduz a assimetria de informação e favorece o desenvolvimento de soluções tecnológicas voltadas à melhoria da gestão pública."
+        ),
         (
             '<h2 id="outros-topicos-relevantes">Outros tópicos relevantes</h2>\n\n'
             "O acesso aos dados é feito através de URLs, o protocolo de comunicação utilizado é o REST - Representational State Transfer/ HTTP 1.1 "
             "e os dados trafegados utilizam a notação JSON - JavaScript Object Notation.\n\n"
             "Em cada consulta é possível especificar uma série de parâmetros de filtro, que devem compor a URL. "
             "Você (ser humano ou máquina) pode navegar através de todos os recursos apenas utilizando os links disponíveis. "
-            "O acesso à API é realizado através do seguinte endereço: Swagger UI - Dados Abertos Compras"
+            "O acesso à API é realizado através do seguinte endereço: [Swagger UI - Dados Abertos Compras](https://dadosabertos.compras.gov.br/swagger-ui/index.html)"
+        ),
+        (
+            '<h2 id="limites-de-uso">Limites de uso</h2>\n\n'
+            "O acesso à API está sujeito a limite de 100 (cem) chamadas a cada 60 (sessenta) segundos por endereço IP. "
+            "Requisições que excedam esse limite recebem resposta com código HTTP 429 (*Too Many Requests*). "
+            "Para conjuntos de dados de maior volume, recomenda-se utilizar a paginação disponível em cada endpoint, "
+            "com até 500 registros por página, ou recorrer ao Repositório de Dados do Compras.gov.br, que disponibiliza os mesmos dados em arquivos para download."
+        ),
+        (
+            '<h2 id="primeiros-passos">Primeiros passos</h2>\n\n'
+            "1. Consulte a documentação interativa ([Swagger UI](https://dadosabertos.compras.gov.br/swagger-ui/index.html)), que permite testar cada endpoint diretamente no navegador.\n"
+            "2. Escolha o módulo correspondente ao dado de interesse.\n"
+            "3. Informe os parâmetros obrigatórios do endpoint (indicados com 🔴 na tabela de parâmetros).\n"
+            "4. Utilize `pagina` e `tamanhoPagina` para navegar pelos resultados (observação: no Módulo 11 – OCDS, por seguir o padrão internacional, o parâmetro de paginação é `page`).\n"
+            "5. Para volumes maiores, prefira o Repositório de Dados."
         ),
     ]
 
@@ -423,7 +449,7 @@ def rebuild_versao_impressao(generated_sections):
 > **Público-alvo:** Desenvolvedores e integradores de sistemas  
 > **Objetivo:** Consultar a referência técnica dos endpoints, parâmetros e dados de retorno da API de Compras Governamentais.
 
-**VERSÃO 3.0 – Ago/26**  
+**VERSÃO 3.0 – Ago/26** *(Referente à API Compras.gov.br v3 / Especificação OpenAPI 1.0.0)*  
 Ministério da Gestão e da Inovação em Serviços Públicos – MGI
 
 ---
@@ -433,9 +459,11 @@ Ministério da Gestão e da Inovação em Serviços Públicos – MGI
 - <a href="#introducao">Introdução</a>
 - <a href="#objetivos">Objetivos</a>
 - <a href="#outros-topicos-relevantes">Outros tópicos relevantes</a>
+- <a href="#limites-de-uso">Limites de uso</a>
+- <a href="#primeiros-passos">Primeiros passos</a>
 - <a href="#modulo-catalogo-material">1. Módulo Catálogo — Material</a>
 - <a href="#modulo-catalogo-servico">2. Módulo Catálogo — Serviço</a>
-- <a href="#modulo-pesquisa-de-preco-precos-praticados">3. Módulo Pesquisa de Preço — Preços Praticados</a>
+- <a href="#modulo-pesquisa-de-precos">3. Módulo Pesquisa de Preços</a>
 - <a href="#modulo-pgc-planejamento-e-gerenciamento-de-contratacoes">4. Módulo PGC — Planejamento e Gerenciamento de Contratações</a>
 - <a href="#modulo-uasg">5. Módulo UASG</a>
 - <a href="#modulo-legado">6. Módulo Legado</a>

@@ -42,7 +42,7 @@ curl -X 'GET' \
 
 | Campo | Tipo | Descrição |
 |---|---|---|
-| resultado | Texto/Número | Valor do campo Resultado |
+| resultado | Texto/Número | Lista de registros retornados na página atual da consulta |
 | codigoSecao | Texto/Número | Código da seção do serviço |
 | nomeSecao | Texto/Número | Nome da seção |
 | statusSecao | Texto/Número | Status da seção. 0 – False/Inativo; 1 – True/Ativo |
@@ -98,7 +98,7 @@ curl -X 'GET' \
 
 | Campo | Tipo | Descrição |
 |---|---|---|
-| resultado | Texto/Número | Valor do campo Resultado |
+| resultado | Texto/Número | Lista de registros retornados na página atual da consulta |
 | codigoSecao | Texto/Número | Código da seção do serviço |
 | nomeSecao | Texto/Número | Nome da seção |
 | codigoDivisao | Texto/Número | Código da divisão do serviço |
@@ -158,7 +158,7 @@ curl -X 'GET' \
 
 | Campo | Tipo | Descrição |
 |---|---|---|
-| resultado | Texto/Número | Valor do campo Resultado |
+| resultado | Texto/Número | Lista de registros retornados na página atual da consulta |
 | nomeSecao | Texto/Número | Nome da seção |
 | codigoDivisao | Texto/Número | Código da divisão do serviço |
 | nomeDivisao | Texto/Número | Nome da divisão |
@@ -220,7 +220,7 @@ curl -X 'GET' \
 
 | Campo | Tipo | Descrição |
 |---|---|---|
-| resultado | Texto/Número | Valor do campo Resultado |
+| resultado | Texto/Número | Lista de registros retornados na página atual da consulta |
 | codigoGrupo | Texto/Número | Código do grupo do material/serviço |
 | nomeGrupo | Texto/Número | Nome do grupo do material |
 | codigoClasse | Texto/Número | Código da classe do material/serviço |
@@ -280,7 +280,7 @@ curl -X 'GET' \
 
 | Campo | Tipo | Descrição |
 |---|---|---|
-| resultado | Texto/Número | Valor do campo Resultado |
+| resultado | Texto/Número | Lista de registros retornados na página atual da consulta |
 | codigoClasse | Texto/Número | Código da classe do material/serviço |
 | nomeClasse | Texto/Número | Nome da classe do material |
 | codigoSubclasse | Texto/Número | Código da subclasse do serviço |
@@ -347,7 +347,7 @@ curl -X 'GET' \
 
 | Campo | Tipo | Descrição |
 |---|---|---|
-| resultado | Texto/Número | Valor do campo Resultado |
+| resultado | Texto/Número | Lista de registros retornados na página atual da consulta |
 | codigoSecao | Texto/Número | Código da seção do serviço |
 | nomeSecao | Texto/Número | Nome da seção |
 | codigoDivisao | Texto/Número | Código da divisão do serviço |
@@ -426,7 +426,7 @@ curl -X 'GET' \
 
 | Campo | Tipo | Descrição |
 |---|---|---|
-| resultado | Texto/Número | Valor do campo Resultado |
+| resultado | Texto/Número | Lista de registros retornados na página atual da consulta |
 | codigoServico | Texto/Número | Código do item de serviço |
 | siglaUnidadeMedida | Texto/Número | Sigla da unidade de medida |
 | nomeUnidadeMedida | Texto/Número | Nome da unidade de medida |
@@ -482,7 +482,7 @@ curl -X 'GET' \
 
 | Campo | Tipo | Descrição |
 |---|---|---|
-| resultado | Texto/Número | Valor do campo Resultado |
+| resultado | Texto/Número | Lista de registros retornados na página atual da consulta |
 | codigoServico | Texto/Número | Código do item de serviço |
 | codigoNaturezaDespesa | Texto/Número | Código da natureza de despesa |
 | nomeNaturezaDespesa | Texto/Número | Descrição da natureza de despesa |
