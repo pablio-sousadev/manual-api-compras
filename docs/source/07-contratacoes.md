@@ -98,6 +98,7 @@ curl -X 'GET' \
 | dataAualizacaoPncp | string | <span class="badge-opt">⚪ Não</span> | Data de atualização da contratação no PNCP utilizada como parâmetro de filtro |
 | amparoLegalCodigoPncp | integer | <span class="badge-opt">⚪ Não</span> | Código identificador do amparo legal da contratação no PNCP |
 | contratacaoExcluida | boolean | <span class="badge-opt">⚪ Não</span> | Indica se o registro da contratação foi excluído no PNCP |
+| objetoCompra | string | <span class="badge-opt">⚪ Não</span> | Informação referente a objeto compra |
 
 **Dados de Retorno:**
 
@@ -526,6 +527,7 @@ curl -X 'GET' \
 | totalRegistros | Texto/Número | Total de registros encontrados |
 | totalPaginas | Texto/Número | Total de páginas disponíveis |
 | paginasRestantes | Texto/Número | Número de páginas restantes |
+| ufFornecedor | Texto/Número | Sigla da UF do fornecedor |
 
 **Exemplo de Retorno:**
 ```json

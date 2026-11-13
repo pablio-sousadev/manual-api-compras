@@ -5369,6 +5369,14 @@
             "schema": {
               "type": "boolean"
             }
+          },
+          {
+            "name": "objetoCompra",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -10356,6 +10364,11 @@
           },
           "nomeRazaoSocialFornecedor": {
             "type": "string"
+          },
+          "ufFornecedor": {
+            "type": "string",
+            "description": "Sigla da UF do fornecedor",
+            "example": "DF"
           },
           "codigoPais": {
             "type": "string"
